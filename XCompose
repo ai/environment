@@ -1,0 +1,52 @@
+# UTF-8 (Unicode) compose sequence
+
+<Multi_key> <6>                                     : "́"  U0301
+
+<Multi_key> <space>                                 : " " nobreakspace
+<Multi_key> <0> <space>                             : " " U202f
+
+<Multi_key> <o> <c>                                 : "©" copyright
+<Multi_key> <t> <m>                                 : "™" U2122
+
+<Multi_key> <0> <0>                                 : "°" degree
+<Multi_key> <0> <c>                                 : "℃" U2103
+<Multi_key> <0> <Cyrillic_es>                       : "℃" U2103
+
+<Multi_key> <x>                                     : "×" multiply
+
+<Multi_key> <plus> <minus>                          : "±" plusminus
+
+<Multi_key> <less> <equal>                          : "≤" U2264
+<Multi_key> <greater> <equal>                       : "≥" U2265
+<Multi_key> <exclam> <equal>                        : "≠" U2260
+<Multi_key> <equal>                                 : "≈" U2248
+
+<Multi_key> <i> <n> <f>                             : "∞" U221e
+
+<Multi_key> <period> <period> <period>              : "…" U2026
+
+<Multi_key> <Left>                                  : "←" U2190
+<Multi_key> <Up>                                    : "↑" U2191
+<Multi_key> <Right>                                 : "→" U2192
+<Multi_key> <Down>                                  : "↓" U2193
+
+# Russian quotation marks
+<Multi_key> <1> <2>                                 : "«" guillemotleft
+<Multi_key> <3> <2>                                 : "»" guillemotright
+<Multi_key> <1> <1> <2>                             : "„" U201e
+<Multi_key> <3> <3> <2>                             : "“" U201c
+
+# English quotation marks
+<Multi_key> <semicolon> <apostrophe>                : "“" U201c
+<Multi_key> <backslash> <apostrophe>                : "”" U201d
+<Multi_key> <semicolon> <semicolon> <apostrophe>    : "‘" U2018
+<Multi_key> <backslash> <backslash> <apostrophe>    : "’" U2019
+
+<Multi_key> <grave>                                 : "’" U2019
+<Multi_key> <c> <equal>                             : "€" EuroSign
+<Multi_key> <p> <i>                                 : "π" U03c0
+
+# Dashes
+<Multi_key> <minus>                                 : "—" U2014
+<Multi_key> <n> <minus>                             : "–" U2013
+<Multi_key> <0> <minus>                             : "−" U2212

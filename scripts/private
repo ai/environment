@@ -1,0 +1,38 @@
+#!/bin/sh
+# Работа с личной папкой.
+
+USER=ai
+DIR=/home/$USER/
+STORE=$DIR/.Личное
+LINK=$DIR/Рабочий\ стол/Личное
+
+THUMBS=$DIR/.thumbnails
+THUMBS_COPY=$THUMBS~
+THUMBS_PRIVATED=$STORE/.thumbnails
+
+RECENTLY=$DIR/.recently-used.xbel
+RECENTLY_COPY=$RECENTLY~
+
+if [ -e "$LINK" ]; then
+    # Прячем
+    chown -R root:root "$STORE"
+    
+    rm "$LINK"
+    
+    mv $THUMBS $THUMBS_PRIVATED
+    mv $THUMBS_COPY $THUMBS
+    
+    rm $RECENTLY
+    mv $RECENTLY_COPY $RECENTLY
+else
+    # Показываем
+    mv $THUMBS $THUMBS_COPY
+    mv $THUMBS_PRIVATED $THUMBS
+    
+    mv $RECENTLY $RECENTLY_COPY
+    
+    chown -R $USER:$USER "$STORE"
+    
+    ln -s "$STORE" "$LINK"
+    su -c "gnome-open '$LINK'" $USER
+fi
