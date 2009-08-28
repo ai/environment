@@ -23,7 +23,7 @@ class Cue
   end
   
   def iconv
-    "iconv -f #{encoding}"
+    encoding ? "iconv -f #{encoding}" : 'cat'
   end
   
   def audio_file
