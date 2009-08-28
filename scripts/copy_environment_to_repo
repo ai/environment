@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+SCRIPTS = %w{cuesplit gdm_with_my_wallpaper gmail private vacuum_firefox
+             copy_environment_to_repo}
+DOTS = %w{bashrc gemrc irbrc XCompose}
+
+HOME = File.expand_path '~'
+SCRIPT_DIR = 'Скрипты'
+REPO = '.my_environment'
+
+require 'fileutils'
+class String
+  def /(path); File.join(self, path); end
+end
+
+Dir.glob(HOME / REPO / '*') { |i| FileUtils.rm_r(i) }
+
+DOTS.each { |i| FileUtils.link(HOME / ".#{i}", HOME / REPO / i) }
+
+Dir.mkdir HOME / REPO / 'scripts'
+SCRIPTS.each do |i|
+  FileUtils.link(HOME / SCRIPT_DIR / i, HOME / REPO / 'scripts' / i)
+end
