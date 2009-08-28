@@ -1,0 +1,12 @@
+deb http://ppa.launchpad.net/globalmenu-team/ppa/ubuntu jaunty main #Global menu applet PPA
+deb http://apt.l3h.de/ jaunty ruby #Ruby 1.9.1
+deb http://ppa.launchpad.net/gnome-colors-packagers/ppa/ubuntu jaunty main #GNOME Colors PPA
+deb http://download.virtualbox.org/virtualbox/debian jaunty non-free #VirtualBox
+deb http://packages.medibuntu.org/ jaunty free non-free #Medibuntu for Jaunty
+deb http://ppa.launchpad.net/banshee-unstable-team/ppa/ubuntu jaunty main #Banshee Unstable PPA
+deb http://ru.archive.ubuntu.com/ubuntu/ jaunty-proposed restricted main multiverse universe
+deb http://ppa.launchpad.net/transmissionbt/ubuntu jaunty main #Transmission PPA
+deb http://deb.opera.com/opera/ testing non-free #Opera
+deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu jaunty main #Chromium Daily PPA
+deb http://ppa.launchpad.net/pidgin-developers/ppa/ubuntu jaunty main #Pidgin PPA
+deb http://ppa.launchpad.net/ubuntu-on-rails/ppa/ubuntu jaunty main #Ubuntu on Rails PPA
