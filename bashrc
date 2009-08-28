@@ -25,6 +25,7 @@ alias grep='grep --color=auto'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+complete -C ~/Скрипты/rake_autocomplete -o default rake
 
 alias ll='ls -lh'
 alias la='ls -A'
