@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 SCRIPTS = %w{cuesplit gdm_with_my_wallpaper gmail private vacuum_firefox
-             copy_environment_to_repo rake_autocomplete}
+             copy_environment_to_repo rake_autocomplete img_to_mail}
 DOTS = %w{bashrc gemrc irbrc XCompose}
 
 HOME = File.expand_path '~'
