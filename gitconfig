@@ -1,0 +1,22 @@
+[user]
+	name = Andrey A.I. Sitnik
+	email = andrey@sitnik.ru
+  signingkey = 1F710E4D
+[alias]
+  a = add .
+  c = commit -m
+  ac = commit -am
+  s = status
+  d = diff
+  l = pull origin master
+  h = push origin master
+  lh = "!git pull origin master && git push origin master"
+  r = "!git status | grep deleted: | cut -f 2 -d : | xargs git rm"
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[giggle]
+	compact-mode = false
+	main-window-maximized = true
+	main-window-geometry = 0x0+0+0
