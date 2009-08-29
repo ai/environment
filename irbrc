@@ -18,11 +18,13 @@ def lib
 end
 
 class Object
-  def local_methods
-    (methods - Object.instance_methods).sort
+  def local_methods(klass = Object)
+    (methods - klass.instance_methods).sort
   end
 end
 
-gem 'wirble'
-require 'wirble'
-Wirble.colorize
+begin
+  require 'wirble'
+  Wirble.colorize
+rescue LoadError
+end
