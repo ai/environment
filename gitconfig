@@ -3,7 +3,7 @@
 	email = andrey@sitnik.ru
   signingkey = 1F710E4D
 [alias]
-  a = add .
+  a = "!git add . && git status"
   c = commit -m
   ac = commit -am
   s = status
@@ -18,5 +18,5 @@
   branch = auto
 [giggle]
 	compact-mode = false
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
+	main-window-maximized = false
+	main-window-geometry = 935x1096+0+25
