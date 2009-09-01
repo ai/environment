@@ -6,7 +6,7 @@ deb http://packages.medibuntu.org/ jaunty free non-free #Medibuntu for Jaunty
 deb http://ppa.launchpad.net/banshee-unstable-team/ppa/ubuntu jaunty main #Banshee Unstable PPA
 deb http://ru.archive.ubuntu.com/ubuntu/ jaunty-proposed restricted main multiverse universe
 deb http://ppa.launchpad.net/transmissionbt/ubuntu jaunty main #Transmission PPA
-deb http://deb.opera.com/opera/ testing non-free #Opera
+deb http://deb.opera.com/opera/ lenny non-free #Opera
 deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu jaunty main #Chromium Daily PPA
 deb http://ppa.launchpad.net/pidgin-developers/ppa/ubuntu jaunty main #Pidgin PPA
 deb http://ppa.launchpad.net/ubuntu-on-rails/ppa/ubuntu jaunty main #Ubuntu on Rails PPA
