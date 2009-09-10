@@ -2,4 +2,4 @@
 # Find files in current dir, chich contain first argument and display it name
 # and line number. It usefull to find method callers in sources of program.
 
-grep --color -rn $1 ./
+grep --recursive --color --line-number $1 ./
