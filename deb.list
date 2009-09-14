@@ -11,3 +11,4 @@ deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu jaunty main #Chromium Dai
 deb http://ppa.launchpad.net/pidgin-developers/ppa/ubuntu jaunty main #Pidgin PPA
 deb http://ppa.launchpad.net/ubuntu-on-rails/ppa/ubuntu jaunty main #Ubuntu on Rails PPA
 deb http://ppa.launchpad.net/git-core/ppa/ubuntu jaunty main #Git PPA
+deb http://ppa.launchpad.net/gwibber-team/ppa/ubuntu jaunty main #Gwibber PPA
