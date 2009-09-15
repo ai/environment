@@ -30,6 +30,8 @@
 <Multi_key> <Right>                                 : "→" U2192
 <Multi_key> <Down>                                  : "↓" U2193
 
+<Multi_key> <Return>                                : "↲" U21b2
+
 # Russian quotation marks
 <Multi_key> <1> <2>                                 : "«" guillemotleft
 <Multi_key> <3> <2>                                 : "»" guillemotright
