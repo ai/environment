@@ -1,7 +1,6 @@
 --- 
 :sources: 
 - http://gems.rubyforge.org/
-- http://gems.github.com
 gem: --no-rdoc --no-ri
 :benchmark: false
 :backtrace: false
