@@ -1,0 +1,3 @@
+PATH="$PATH:~/Скрипты:~/.gems/bin/"
+CDPATH='.:~/Разработка'
+export GEM_HOME=/home/ai/.gems
