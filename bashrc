@@ -27,11 +27,6 @@ alias ps?='ps -A | grep '
 alias ..='cd ..'
 alias св='cd'
 
-alias rake='ruby ~/.gems/bin/rake'
-alias rake?='rake -T'
-alias rake1.9='ruby1.9 ~/.gems/bin/rake'
-alias rake1.9?='rake1.9 -T'
-
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'

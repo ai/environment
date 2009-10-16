@@ -1,3 +1,8 @@
 PATH="$PATH:~/Скрипты:~/.gems/bin/"
 CDPATH='.:~/Разработка'
 export GEM_HOME=/home/ai/.gems
+
+alias rake='ruby ~/.gems/bin/rake'
+alias rake?='rake -T'
+alias rake1.9='ruby1.9 ~/.gems/bin/rake'
+alias rake1.9?='rake1.9 -T'
