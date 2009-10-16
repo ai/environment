@@ -6,3 +6,5 @@ alias rake='ruby ~/.gems/bin/rake'
 alias rake?='rake -T'
 alias rake1.9='ruby1.9 ~/.gems/bin/rake'
 alias rake1.9?='rake1.9 -T'
+
+complete -C ~/Скрипты/rake_autocomplete -o default rake
