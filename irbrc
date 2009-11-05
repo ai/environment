@@ -24,6 +24,7 @@ class Object
 end
 
 begin
+  gem 'wirble'
   require 'wirble'
   Wirble.colorize
 rescue LoadError
