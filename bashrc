@@ -20,6 +20,19 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+if [ -d ~/Скрипты ]; then
+    SCRIPT_DIR='~/Скрипты'
+else
+    SCRIPT_DIR='~/scripts'
+fi
+
+PATH="$PATH:$SCRIPT_DIR"
+complete -C `echo $SCRIPT_DIR`/rake_autocomplete -o default rake
+complete -C `echo $SCRIPT_DIR`/rake_autocomplete -o default rake1.9.1
+
+if [[ -d ~/Разработка ]]; then CDPATH='.:~/Разработка'; fi
+
+
 alias ll='ls -lh'
 alias la='ls -A'
 alias ps?='ps -A | grep '
@@ -34,6 +47,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-if [ -f "$HOME/.bashrc_local" ]; then
-    . "$HOME/.bashrc_local"
+if [ -d ~/.gem/ ]; then
+    alias rake1.9.1='~/.gem/ruby/1.9.1/bin/rake'
+    PATH="$PATH:~/.gem/ruby/1.8/bin";
 fi

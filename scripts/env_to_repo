@@ -2,7 +2,7 @@
 
 SCRIPTS = %w{cuesplit gdm_with_my_wallpaper gmail private vacuum_firefox
              env_to_repo rake_autocomplete img_to_mail find_here clean_disk}
-DOTS = %w{bashrc bashrc_local gemrc irbrc XCompose gitconfig}
+DOTS = %w{bashrc gemrc irbrc XCompose gitconfig}
 
 HOME = File.expand_path '~'
 SCRIPT_DIR = 'Скрипты'
