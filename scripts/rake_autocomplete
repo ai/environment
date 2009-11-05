@@ -51,7 +51,7 @@ class RakeCompletion
   def cache_file
     dir = File.join(File.expand_path('~'), '.rake_completes')
     Dir.mkdir dir unless File.exists? dir
-    File.join(dir, rakefile.hash.to_s)
+    File.join(dir, File.expand_path(rakefile).hash.to_s)
   end
   
   def tasks_from_cache
