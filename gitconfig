@@ -1,6 +1,6 @@
 [user]
-	name = Andrey A.I. Sitnik
-	email = andrey@sitnik.ru
+  name = Andrey A.I. Sitnik
+  email = andrey@sitnik.ru
   signingkey = 1F710E4D
 [alias]
   a = "!git add . && git status"
@@ -16,7 +16,3 @@
   diff = auto
   status = auto
   branch = auto
-[giggle]
-	compact-mode = false
-	main-window-maximized = false
-	main-window-geometry = 935x1088+0+25
