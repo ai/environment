@@ -1,10 +1,5 @@
 --- 
 :sources: 
 - http://gems.rubyforge.org/
+- http://gemcutter.org/
 gem: --no-rdoc --no-ri
-:benchmark: false
-:backtrace: false
-gemhome: /home/ai/.gems
-:update_sources: true
-:bulk_threshold: 1000
-:verbose: true
