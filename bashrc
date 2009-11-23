@@ -7,7 +7,7 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-PS1='\[\e[0;34m\]\w\[\e[0m\]\$ '
+PS1='\[\e[0;34m\]\w\[\e[0m\] ➜ '
 if [ "$SSH_CLIENT" ]; then
     PS1="\h $PS1"
 fi
@@ -49,5 +49,5 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 if [ -d ~/.gem/ ]; then
     alias rake1.9.1='~/.gem/ruby/1.9.1/bin/rake'
-    PATH="$PATH:~/.gem/ruby/1.8/bin";
+    PATH="$PATH:~/.gem/ruby/1.8/bin"
 fi
