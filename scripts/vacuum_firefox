@@ -3,5 +3,5 @@
 if ps -A | grep " firefox" > /dev/null; then
     echo "[ERROR] Please, close firefox."
 else
-    for i in ~/.mozilla/firefox-3.5/*/*.sqlite; do echo "VACUUM;" | sqlite3 $i ; done
+    for i in ~/.mozilla/firefox/*/*.sqlite; do echo "VACUUM;" | sqlite3 $i ; done
 fi
