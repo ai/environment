@@ -27,8 +27,6 @@ else
 fi
 
 PATH="$PATH:$SCRIPT_DIR"
-complete -C `echo $SCRIPT_DIR`/rake_autocomplete -o default rake
-complete -C `echo $SCRIPT_DIR`/rake_autocomplete -o default rake1.9.1
 
 if [[ -d ~/Разработка ]]; then CDPATH='.:~/Разработка'; fi
 
