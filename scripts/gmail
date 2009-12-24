@@ -6,4 +6,4 @@ else
   URL="https://mail.google.com/a/sitnik.ru/"
 fi
 
-firefox-3.5 $URL
+gnome-open $URL
