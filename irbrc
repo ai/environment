@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'rubygems'
 require 'pp'
 require 'irb/completion'
@@ -34,6 +35,7 @@ end
 begin
   gem 'wirble'
   require 'wirble'
+  Wirble.init
   Wirble.colorize
 rescue LoadError
 end
