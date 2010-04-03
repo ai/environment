@@ -1,5 +1,2 @@
---- 
-:sources: 
-- http://gems.rubyforge.org/
-- http://gemcutter.org/
-gem: --no-rdoc --no-ri
+---
+gem: --no-rdoc --no-ri --user-install
