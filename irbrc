@@ -27,8 +27,9 @@ def lib
 end
 
 class Object
-  def local_methods(klass = Object)
-    (methods - klass.instance_methods).sort
+  def lm(klass = nil)
+    klass = self.class.superclass unless klass
+    pp (methods - klass.instance_methods).sort
   end
 end
 
