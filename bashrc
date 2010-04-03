@@ -1,5 +1,3 @@
-[ -z "$PS1" ] && return
-
 export HISTCONTROL=ignoredups
 shopt -s histappend
 
@@ -47,5 +45,5 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 if [ -d ~/.gem/ ]; then
     alias rake1.9.1='~/.gem/ruby/1.9.1/bin/rake'
-    PATH="$PATH:~/.gem/ruby/1.8/bin"
+    PATH="$PATH:~/.gem/ruby/1.8/bin:~/.gem/ruby/1.9.1/bin"
 fi
