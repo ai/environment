@@ -5,12 +5,8 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-current_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
-}
-
 format_git_branch() {
-    branch=`current_git_branch`
+    branch=`git current-branch`
     if [ "$branch" -a "$branch" != 'master' ]; then
         echo " $branch"
     else

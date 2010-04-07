@@ -3,14 +3,15 @@
   email = andrey@sitnik.ru
   signingkey = 1F710E4D
 [alias]
+  current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
   a = "!git add . && git status"
   c = commit -m
   ac = commit -am
   s = status
   d = diff
-  l = pull origin master
-  h = push origin master
-  lh = "!git pull origin master && git push origin master"
+  l = "!git pull origin $(git current-branch)"
+  h = "!git push origin $(git current-branch)"
+  lh = "!git l && git h"
   r = "!git status | grep deleted: | cut -f 2 -d : | xargs git rm"
 [color]
   diff = auto
