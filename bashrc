@@ -6,11 +6,16 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 format_git_branch() {
-    branch=`git current-branch`
-    if [ "$branch" -a "$branch" != 'master' ]; then
-        echo " $branch"
-    else
-        echo ''
+	if [ -n "$(__gitdir)" ]; then
+        if [ "`git stash list`" ]; then
+            local stash=" (s`git stash list | wc -l`)"
+        fi
+        local branch=`git current-branch`
+        if [ "$branch" -a "$branch" != 'master' ]; then
+            echo " $branch$stash"
+        else
+            echo "$stash"
+        fi
     fi
 }
 
@@ -53,6 +58,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 if [ -d ~/.gem/ ]; then
-    alias rake1.9.1='~/.gem/ruby/1.9.1/bin/rake'
-    PATH="$PATH:~/.gem/ruby/1.8/bin:~/.gem/ruby/1.9.1/bin"
+    alias rake1.9.2='~/.gem/ruby/1.9.2/bin/rake'
+    PATH="$PATH:~/.gem/ruby/1.8/bin:~/.gem/ruby/1.9.2/bin"
 fi
