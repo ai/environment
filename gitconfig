@@ -5,6 +5,7 @@
 [alias]
   current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
   a = "!git add . && git status"
+  ch = checkout
   c = commit -m
   ac = commit -am
   s = status
