@@ -5,8 +5,10 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+TERM=xterm-256color
+
 format_git_branch() {
-	if [ -n "$(__gitdir)" ]; then
+    if [ -n "$(__gitdir)" ]; then
         if [ "`git stash list`" ]; then
             local stash=" (s`git stash list | wc -l`)"
         fi
