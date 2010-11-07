@@ -2,7 +2,7 @@
 # Работа с личной папкой.
 
 USER=ai
-DIR=/home/$USER/
+DIR=/home/$USER
 STORE=$DIR/.Личное
 LINK=$DIR/Рабочий\ стол/Личное
 
@@ -16,14 +16,14 @@ if [ -e "$LINK" ]; then
     
     rm "$LINK"
     
-    mv $THUMBS $THUMBS_PRIVATED
+    rm $THUMBS
     mv $THUMBS_COPY $THUMBS
 else
     # Показываем
-    mv $THUMBS $THUMBS_COPY
-    mv $THUMBS_PRIVATED $THUMBS
-    
     chown -R $USER:$USER "$STORE"
+    
+    mv $THUMBS $THUMBS_COPY
+    ln -s $THUMBS_PRIVATED $THUMBS
     
     ln -s "$STORE" "$LINK"
     su -c "gnome-open '$LINK'" $USER
