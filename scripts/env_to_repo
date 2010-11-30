@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
-SCRIPTS = %w{cuesplit gdm_with_my_wallpaper gmail private env_to_repo
-             img_to_mail clean_disk}
+SCRIPTS = %w{gmail private env_to_repo img_to_mail clean_disk}
 DOTS = %w{bashrc gemrc irbrc XCompose gitconfig ackrc}
 
 HOME = File.expand_path '~'
