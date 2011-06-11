@@ -20,7 +20,7 @@ IRB.conf[:PROMPT_MODE] = :ARROW
 
 def lib
   required = false
-  Dir.glob('lib/*.rb') do |file|
+  Dir.glob('./lib/*.rb') do |file|
     required |= require file
   end
   required
