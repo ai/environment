@@ -35,13 +35,14 @@ alias grep='grep --color=auto'
 if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi
 
 if [ -d ~/Скрипты ]; then PATH="$PATH:~/Скрипты"; fi
-if [ -d ~/Разработка ]; then CDPATH='.:~/Разработка'; fi
+if [ -d ~/Dev ]; then CDPATH='.:~/Dev'; fi
 
 
 alias ll='ls -lh'
 alias la='ls -A'
 alias ps?='ps -A | grep '
 alias ..='cd ..'
+alias hosts='sudo nano /etc/hosts'
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -54,4 +55,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 if [ -d ~/.gem/ ]; then
     alias rake1.9.1='~/.gem/ruby/1.9.1/bin/rake'
     PATH="$PATH:~/.gem/ruby/1.8/bin:~/.gem/ruby/1.9.1/bin"
+    alias bundle='~/.gem/ruby/1.8/bin/bundle'
+    alias bundle9='~/.gem/ruby/1.9.1/bin/bundle'
+    alias b8='bundle exec'
+    alias b9='bundle9 exec'
 fi
