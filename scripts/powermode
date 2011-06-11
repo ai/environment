@@ -1,0 +1,56 @@
+#!/bin/sh
+# Увеличивает время автономной работы для Acer 3820TG
+
+if [ "$USER" != "root" ]; then
+    echo "Нужно запускать из-под root."
+    exit 1
+fi
+
+if [ "$1" = "min" ]; then
+    echo "Переводим ноутбук в режим максимальной автономной работы."
+    
+    # Снижаем производительность процессора
+    echo powersave > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    echo powersave > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    echo powersave > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+    echo powersave > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+
+    # Снижаем производительность дисков    
+    echo min_power > /sys/class/scsi_host/host0/link_power_management_policy
+    echo min_power > /sys/class/scsi_host/host1/link_power_management_policy
+    echo min_power > /sys/class/scsi_host/host2/link_power_management_policy
+    echo min_power > /sys/class/scsi_host/host3/link_power_management_policy
+    
+    # Включаем энергосбережние аудио-карты
+    echo 10 > /sys/module/snd_hda_intel/parameters/power_save
+    
+    # Выключаем камеру
+    modprobe -r uvcvideo
+else
+    if on_ac_power; then
+        echo "Питание от сети: включаем максимальную производительность."
+    
+        # Выключаем энергосбережние аудио-карты
+        echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+    else
+        echo "Переводим ноутбук в обычный режим работы от аккумуляторов."
+    
+        # Возвращаем энергосбережние аудио-карты
+        echo 1 > /sys/module/snd_hda_intel/parameters/power_save
+    fi
+    
+    # Возвращаем производительность процессора
+    echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+    echo ondemand > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+    echo ondemand > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+
+    # Возвращаем производительность дисков    
+    echo max_performance > /sys/class/scsi_host/host0/link_power_management_policy
+    echo max_performance > /sys/class/scsi_host/host1/link_power_management_policy
+    echo max_performance > /sys/class/scsi_host/host2/link_power_management_policy
+    echo max_performance > /sys/class/scsi_host/host3/link_power_management_policy
+    
+    # Включаем камеру
+    modprobe uvcvideo
+fi
