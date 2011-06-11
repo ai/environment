@@ -13,7 +13,7 @@
   l = "!git pull origin $(git current-branch)"
   h = "!git push origin $(git current-branch)"
   lh = "!git l && git h"
-  r = "!git status | grep deleted: | cut -f 2 -d : | xargs git rm"
+  r = "!git status | grep deleted: | cut -f 2 -d : | xargs git rm && git status"
 [color]
   diff = auto
   status = auto
