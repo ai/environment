@@ -84,9 +84,6 @@ function ToggleSpell()
 endfunc
 map <C-s> :call ToggleSpell()<cr>
 
-" Enable to use Russian keyboard layout in command mode
-set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl;'zxcvbnm,.~QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>
-
 " Plugins
 
 " NERD Commenter
