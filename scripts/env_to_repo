@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-SCRIPTS = %w{gmail private env_to_repo img_to_mail clean_disk port}
+SCRIPTS = %w{gmail private env_to_repo img_to_mail clean_disk port gyazo}
 DOTS = %w{bashrc gemrc irbrc XCompose gitconfig ackrc vimrc vim}
 
 HOME = File.expand_path '~'
