@@ -13,18 +13,18 @@ THUMBS_PRIVATED=$STORE/.thumbnails
 if [ -e "$LINK" ]; then
     # Прячем
     chown -R root:root "$STORE"
-    
+
     rm "$LINK"
-    
+
     rm $THUMBS
     mv $THUMBS_COPY $THUMBS
 else
     # Показываем
     chown -R $USER:$USER "$STORE"
-    
+
     mv $THUMBS $THUMBS_COPY
     ln -s $THUMBS_PRIVATED $THUMBS
-    
+
     ln -s "$STORE" "$LINK"
-    su -c "gnome-open '$LINK'" $USER
+    su -c "nautilus '$LINK'" $USER
 fi
