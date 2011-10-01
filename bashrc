@@ -25,17 +25,18 @@ PS1="\[\e[0;34m\]\w\[\e[0m\]"
 if [ "$SSH_CLIENT" ]; then
     PS1="\h $PS1 ➜ "
 else
-    PS1="$PS1\$(format_git_branch) ➜ "
+    PS1="$PS1\$(format_git_branch) →  "
 fi
 
 eval "`dircolors -b`"
+LS_COLORS=""
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi
 
 if [ -d ~/Скрипты ]; then PATH="$PATH:~/Скрипты"; fi
-if [ -d ~/Dev ]; then CDPATH='.:~/Dev'; fi
+if [ -d ~/Dev ];     then CDPATH='.:~/Dev'; fi
 
 
 alias ll='ls -lh'
