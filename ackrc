@@ -1,3 +1,7 @@
+--smart-case
+
+--ignore-dir=.bundle
+
 --type-set
 haml=.haml
 --type-set
