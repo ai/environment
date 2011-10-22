@@ -21,12 +21,25 @@ format_git_branch() {
     fi
 }
 
-PS1="\[\e[0;34m\]\w\[\e[0m\]"
-if [ "$SSH_CLIENT" ]; then
-    PS1="\h $PS1 ➜ "
-else
-    PS1="$PS1\$(format_git_branch) →  "
-fi
+function prompt() {
+    exitstatus=$?
+
+    BLUE="\[\e[0;34m\]"
+    RED="\[\e[0;31m\]"
+    OFF="\[\e[0m\]"
+
+    if [ $exitstatus -eq 0 ]; then
+        PS1="${BLUE}\w${OFF}"
+    else
+        PS1="${RED}\w${OFF}"
+    fi
+    if [ "$SSH_CLIENT" ]; then
+        PS1="\h $PS1 ➜ "
+    else
+        PS1="$PS1\$(format_git_branch) →  "
+    fi
+}
+PROMPT_COMMAND=prompt
 
 eval "`dircolors -b`"
 LS_COLORS=""
