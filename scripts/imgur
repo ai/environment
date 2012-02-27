@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Загружает скриншот выделенной области на Imgur. Ссылку открывает в браузере и
+# копирует в буфер обмена.
+#
+# Основан на скрипте Sirupsen:
+# http://sirupsen.com/a-simple-imgur-bash-screenshot-utility/
+#
+# Зависимости:
+# sudo apt-get install curl scrot xclip
+
+function uploadImage {
+    curl -s -F "image=@$1" -F "key=486690f872c678126a2c09a9e196ce1b" http://imgur.com/api/upload.xml | grep -E -o "<original_image>(.)*</original_image>" | grep -E -o "http://i.imgur.com/[^<]*"
+}
+
+SCREENSHOT="$HOME/.screenshot-`date +%s`.png"
+scrot -s $SCREENSHOT
+URL="`uploadImage $SCREENSHOT`"
+echo $URL | xclip -selection c
+xdg-open $URL
+rm $SCREENSHOT

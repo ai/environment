@@ -4,6 +4,8 @@
 current = `gsettings get org.gnome.desktop.background picture-uri`.strip
 current.sub! 'file://', ''
 
+puts "Wallpaper: #{current}"
+
 system = "/usr/share/backgrounds/#{ENV['USER']}-background"
 `sudo cp #{current} #{system}`
 
