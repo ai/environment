@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-SCRIPTS = %w{gmail private env_to_repo img_to_mail clean_disk port gyazo
-             powermode background_to_login repair_mongodb}
+SCRIPTS = %w{gmail private env_to_repo img_to_mail clean_disk port
+             powermode background_to_login repair_mongodb imgur}
 DOTS = %w{bashrc gemrc irbrc XCompose gitconfig ackrc vimrc vim}
 
 HOME = File.expand_path '~'
