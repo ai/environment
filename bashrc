@@ -67,10 +67,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 if [ -d ~/.gem/ ]; then
-    alias rake1.9.1='~/.gem/ruby/1.9.1/bin/rake'
-    PATH="$PATH:~/.gem/ruby/1.8/bin:~/.gem/ruby/1.9.1/bin"
-    alias bundle='~/.gem/ruby/1.8/bin/bundle'
-    alias bundle9='~/.gem/ruby/1.9.1/bin/bundle'
-    alias b8='bundle exec'
-    alias b9='bundle9 exec'
+    PATH="$PATH:~/.gem/ruby/1.9.1/bin"
+    alias b='bundle exec'
 fi
