@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-SCRIPTS = %w{gmail private env_to_repo img_to_mail clean_disk port
-             powermode background_to_login repair_mongodb imgur mount-android}
+SCRIPTS = %w{backlight clean_disk env_to_repo env_to_server fix_scroll
+             img_to_mail private repair_mongodb}
 DOTS = %w{bashrc gemrc irbrc XCompose gitconfig ackrc vimrc vim}
 
 HOME = File.expand_path '~'
