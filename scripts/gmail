@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ $1 ]; then
-  URL="https://mail.google.com/a/sitnik.ru/?view=cm&tf=0&fs=1&to=`echo $1 | sed 's/mailto://'`"
-else
-  URL="https://mail.google.com/a/sitnik.ru/"
-fi
-
-gnome-open $URL
