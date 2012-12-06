@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-SCRIPTS = %w{backlight clean_disk env_to_repo env_to_server fix_scroll
+SCRIPTS = %w{backlight clean_disk env_to_repo env_to_server
              img_to_mail private repair_mongodb}
 DOTS = %w{bashrc gemrc irbrc XCompose gitconfig ackrc vimrc vim}
 
