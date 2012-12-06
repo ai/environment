@@ -13,7 +13,7 @@
   l  = "!git pull origin $(git current-branch)"
   h  = "!git push origin $(git current-branch)"
   lh = "!git l && git h"
-  r  = "!git rm $(git ls-files --deleted)"
+  r  = "!git rm $(git ls-files --deleted) && git status"
 [color]
   diff   = auto
   status = auto
