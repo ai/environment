@@ -1,18 +1,16 @@
 #!/bin/sh
 # Работа с личной папкой.
 
-USER=ai
-DIR=/home/$USER
-STORE=$DIR/.Личное
-LINK=$DIR/Рабочий\ стол/Личное
+STORE=$HOME/Альбом/.Личное
+LINK=$HOME/Рабочий\ стол/Личное
 
 if [ -e "$LINK" ]; then
     # Прячем
-    chown -R root:root "$STORE"
-    rm "$LINK"
+    fusermount -u "$LINK"
+    rm -R "$LINK"
 else
     # Показываем
-    echo $USER
-    chown -R $USER:$USER "$STORE"
-    ln -s "$STORE" "$LINK"
+    mkdir "$LINK"
+    encfs "$STORE" "$LINK" --extpass "zenity --password"
+    nautilus "$LINK"
 fi
