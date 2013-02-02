@@ -14,6 +14,7 @@
   h  = "!git push origin $(git current-branch)"
   lh = "!git l && git h"
   r  = "!git rm $(git ls-files --deleted) && git status"
+  lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
 [color]
   diff   = auto
   status = auto
