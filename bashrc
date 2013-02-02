@@ -55,8 +55,13 @@ if [ -d ~/Dev ];     then CDPATH='.:~/Dev'; fi
 alias ll='ls -lh'
 alias la='ls -A'
 alias ps?='ps -A | grep '
-alias ..='cd ..'
 alias hosts='sudo nano /etc/hosts'
+
+function .. {
+  for i in `seq ${1-1}`; do
+    cd ..;
+  done
+}
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
