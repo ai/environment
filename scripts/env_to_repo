@@ -1,31 +1,35 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-SCRIPTS = %w{backlight clean_disk env_to_repo env_to_server
-             img_to_mail private repair_mongodb}
-DOTS = %w{bashrc gemrc irbrc XCompose gitconfig ackrc vimrc vim}
-
-HOME = File.expand_path '~'
-SCRIPT_DIR = 'Скрипты'
-REPO = '.my_environment'
-
 require 'fileutils'
-class String
-  def /(path); File.join(self, path); end
-end
-
-Dir.glob(HOME / REPO / '*') { |i| FileUtils.rm_r(i) }
-
-DOTS.each do |i|
-  from = HOME / ".#{i}"
-  if File.directory? from
-    FileUtils.cp_r(from, HOME / REPO / i)
-  else
-    FileUtils.link(from, HOME / REPO / i)
+require 'pathname'
+class Pathname
+  def glob(&block)
+    Pathname.glob(self.to_s, &block)
   end
 end
 
-Dir.mkdir HOME / REPO / 'scripts'
-SCRIPTS.each do |i|
-  FileUtils.link(HOME / SCRIPT_DIR / i, HOME / REPO / 'scripts' / i)
+SCRIPTS = %w{clean_disk env_to_repo env_to_server img_to_mail private}
+DOTS    = %w{bashrc gemrc irbrc gitconfig ackrc}
+
+HOME = Pathname('~').expand_path
+REPO = HOME.join('.env-repo')
+SCRIPT_DIR = HOME.join('Скрипты')
+
+unless REPO.directory?
+  `cd ~`
+  `git clone git@github.com:ai/environment.git`
+  `mv environment #{REPO}`
 end
+REPO.join('*').glob { |i| i.rmtree }
+
+DOTS.each { |i| REPO.join(i).make_link(HOME.join(".#{i}")) }
+
+REPO.join('xkb-options').open('w') do |file|
+  file << `dconf read /org/gnome/desktop/input-sources/xkb-options`
+end
+
+REPO.join('scripts').mkpath
+SCRIPTS.each { |i| REPO.join('scripts', i).make_link(SCRIPT_DIR.join(i)) }
+
+cd `#{REPO}`
