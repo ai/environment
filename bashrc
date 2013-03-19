@@ -1,3 +1,5 @@
+# Системные настройки
+
 export HISTCONTROL=ignoredups
 shopt -s histappend
 
@@ -6,6 +8,8 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 TERM=xterm-256color
+
+# Запрос новой команды
 
 format_git_branch() {
     if [ -n "$(__gitdir)" ]; then
@@ -41,16 +45,29 @@ function prompt() {
 }
 PROMPT_COMMAND=prompt
 
+# Цветной вывод основных команд
+
 eval "`dircolors -b`"
 LS_COLORS=""
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Автозавершение
 
 if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi
 
 if [ -d ~/Скрипты ]; then PATH="$PATH:~/Скрипты"; fi
 if [ -d ~/Dev ];     then CDPATH='.:~/Dev'; fi
 
+# Алиасы
 
 alias ll='ls -lh'
 alias la='ls -A'
@@ -63,15 +80,13 @@ function .. {
   done
 }
 
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+# Ruby
 
-if [ -d ~/.gem/ ]; then
-    PATH="$PATH:~/.gem/ruby/1.9.1/bin"
-    alias b='bundle exec'
+alias b='bundle exec'
+alias ruby1.9.1='ruby'
+
+if [ -d /usr/local/share/chruby/ ]; then
+    source /usr/local/share/chruby/chruby.sh
+    source /usr/local/share/chruby/auto.sh
+    chruby 1.9.3
 fi
