@@ -9,7 +9,8 @@ class Pathname
   end
 end
 
-SCRIPTS = %w{clean_disk env_to_repo env_to_server img_to_mail private}
+SCRIPTS = %w{clean_disk env_to_repo env_to_server
+             img_to_mail private build-ruby}
 DOTS    = %w{bashrc gemrc irbrc gitconfig ackrc}
 
 HOME = Pathname('~').expand_path
@@ -31,5 +32,3 @@ end
 
 REPO.join('scripts').mkpath
 SCRIPTS.each { |i| REPO.join('scripts', i).make_link(SCRIPT_DIR.join(i)) }
-
-cd `#{REPO}`
