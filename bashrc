@@ -73,6 +73,7 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias ps?='ps -A | grep '
 alias hosts='sudo nano /etc/hosts'
+alias e='subl ./ &'
 
 function .. {
   for i in `seq ${1-1}`; do
