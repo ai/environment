@@ -4,8 +4,8 @@
 require 'fileutils'
 require 'pathname'
 class Pathname
-  def glob(&block)
-    Pathname.glob(self.to_s, &block)
+  def glob(pattern, &block)
+    Pathname.glob(self.join(pattern).to_s, &block)
   end
 end
 
@@ -22,7 +22,7 @@ unless REPO.directory?
   `git clone git@github.com:ai/environment.git`
   `mv environment #{REPO}`
 end
-REPO.join('*').glob { |i| i.rmtree }
+REPO.glob('*') { |i| i.rmtree }
 
 DOTS.each { |i| REPO.join(i).make_link(HOME.join(".#{i}")) }
 
@@ -32,3 +32,12 @@ end
 
 REPO.join('scripts').mkpath
 SCRIPTS.each { |i| REPO.join('scripts', i).make_link(SCRIPT_DIR.join(i)) }
+
+from = HOME.join('.config/sublime-text-2/Packages/User')
+to   = REPO.join('sublime-text-2')
+
+to.mkpath
+from.glob('**/*') do |file|
+  next if file.extname == '.last-run'
+  to.join(file.relative_path_from(from)).make_link(file)
+end
