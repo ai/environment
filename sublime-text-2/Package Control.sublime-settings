@@ -1,0 +1,13 @@
+{
+	"installed_packages":
+	[
+		"CoffeeScript",
+		"Color Highlighter",
+		"GitGutter",
+		"Package Control",
+		"ruby-slim.tmbundle",
+		"Sass",
+		"SublimeCodeIntel",
+		"TrailingSpaces"
+	]
+}
