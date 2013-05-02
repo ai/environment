@@ -40,7 +40,7 @@ function prompt() {
     if [ "$SSH_CLIENT" ]; then
         PS1="\h $PS1 ➜ "
     else
-        PS1="$PS1\$(format_git_branch) →  "
+        PS1="$PS1\$(format_git_branch) → "
     fi
 }
 PROMPT_COMMAND=prompt
@@ -91,3 +91,16 @@ if [ -d /usr/local/share/chruby/ ]; then
     source /usr/local/share/chruby/auto.sh
     chruby 1.9.3
 fi
+
+# Node.js
+
+function n {
+    if [ -d `npm bin` ]; then
+        PROG="$1"
+        shift
+        `npm bin`/$PROG "$@"
+    else
+        echo 'No node_modules in any dir of current path' 1>&2
+        return 1
+    fi
+}
