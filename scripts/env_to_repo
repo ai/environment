@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-require 'fileutils'
 require 'pathname'
 class Pathname
   def glob(pattern, &block)
@@ -27,7 +26,8 @@ REPO.glob('*') { |i| i.rmtree }
 DOTS.each { |i| REPO.join(i).make_link(HOME.join(".#{i}")) }
 
 REPO.join('xkb-options').open('w') do |file|
-  file << `dconf read /org/gnome/desktop/input-sources/xkb-options`
+  config = `dconf read /org/gnome/desktop/input-sources/xkb-options`
+  file << config[2..-4].split("', '").sort.inspect.gsub('"', "'") + "\n"
 end
 
 REPO.join('scripts').mkpath

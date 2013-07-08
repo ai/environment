@@ -1,1 +1,1 @@
-['keypad:oss', 'grp_led:caps', 'grp:shift_caps_switch', 'lv3:ralt_switch', 'misc:typo', 'keypad:oss', 'nbsp:level3']
+['grp:shift_caps_switch', 'grp_led:caps', 'keypad:oss', 'keypad:oss', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3']
