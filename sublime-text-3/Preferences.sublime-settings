@@ -2,6 +2,7 @@
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"fallback_encoding": "Cyrillic (Windows 1251)",
+	"font_size": 10,
 	"hot_exit": false,
 	"ignored_packages":
 	[
