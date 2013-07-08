@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in *.jpg; do
+for i in *.{jpg,JPG}; do
     convert -resize 800 "$i" "$i"
     exiftran -ai "$i"
 done
