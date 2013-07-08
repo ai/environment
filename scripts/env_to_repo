@@ -33,11 +33,13 @@ end
 REPO.join('scripts').mkpath
 SCRIPTS.each { |i| REPO.join('scripts', i).make_link(SCRIPT_DIR.join(i)) }
 
-from = HOME.join('.config/sublime-text-2/Packages/User')
-to   = REPO.join('sublime-text-2')
+from = HOME.join('.config/sublime-text-3/Packages/User')
+to   = REPO.join('sublime-text-3')
 
 to.mkpath
 from.glob('**/*') do |file|
+  next if file.to_s =~ /\.cache/
+  next if file.extname =~ /^\.ca-/
   next if file.extname == '.last-run'
   to.join(file.relative_path_from(from)).make_link(file)
 end

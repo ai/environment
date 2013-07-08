@@ -2,13 +2,12 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
-		"CoffeeScript",
-		"Color Highlighter",
+		"Better CoffeeScript",
 		"GitGutter",
+		"Highlight-Mixed-Whitespace",
 		"Package Control",
 		"ruby-slim.tmbundle",
 		"Sass",
-		"SublimeCodeIntel",
 		"TrailingSpaces"
 	]
 }
