@@ -17,5 +17,5 @@ My system config and scripts.
 ## Scripts
 
 * [build-ruby](scripts/build-ruby): `ruby-build` shortcut.
-* [clean-disk](scripts/clean-disk): physically clean all disk to protect deleted
+* [clean_disk](scripts/clean_disk): physically clean all disk to protect deleted
   files.
