@@ -1,4 +1,4 @@
-My config and scripts
+My system config and scripts.
 
 ## Configs
 
