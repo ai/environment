@@ -6,6 +6,10 @@ class Pathname
   def glob(pattern, &block)
     Pathname.glob(self.join(pattern).to_s, &block)
   end
+
+  def =~(regexp)
+    to_s =~ regexp
+  end
 end
 
 SCRIPTS = %w{clean_disk env_to_repo env_to_server
@@ -21,7 +25,10 @@ unless REPO.directory?
   `git clone git@github.com:ai/environment.git`
   `mv environment #{REPO}`
 end
-REPO.glob('*') { |i| i.rmtree }
+REPO.glob('*') do |i|
+  next if i =~ /LICENSE/ or i =~ /README.md/
+  i.rmtree
+end
 
 DOTS.each { |i| REPO.join(i).make_link(HOME.join(".#{i}")) }
 
