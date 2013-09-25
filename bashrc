@@ -92,6 +92,12 @@ if [ -d /usr/local/share/chruby/ ]; then
     chruby 1.9.3
 fi
 
+# Ускоряем запуск JRuby
+
+JRUBY_OPTS='-J-Xmx1024m -J-Xms1024m -J-XX:MaxPermSize=256m -J-XX:PermSize=256m
+            -Xcompile.invokedynamic=false -J-XX:+TieredCompilation
+            -J-XX:TieredStopAtLevel=1'
+
 # Node.js
 
 function n {
