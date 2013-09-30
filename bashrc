@@ -11,19 +11,26 @@ TERM=xterm-256color
 
 # Запрос новой команды
 
-format_git_branch() {
-    if [ -n "$(__gitdir)" ]; then
-        if [ "`git stash list`" ]; then
-            local stash=" (s`git stash list | wc -l`)"
+if [ -d /usr/share/git-core/contrib/completion/ ]; then
+    . /usr/share/git-core/contrib/completion/git-prompt.sh
+    format_git_branch() {
+        if [ -n "$(__gitdir)" ]; then
+            if [ "`git stash list`" ]; then
+                local stash=" (s`git stash list | wc -l`)"
+            fi
+            local branch=`git current-branch`
+            if [ "$branch" -a "$branch" != 'master' ]; then
+                echo " $branch$stash"
+            else
+                echo "$stash"
+            fi
         fi
-        local branch=`git current-branch`
-        if [ "$branch" -a "$branch" != 'master' ]; then
-            echo " $branch$stash"
-        else
-            echo "$stash"
-        fi
-    fi
-}
+    }
+else
+    format_git_branch() {
+        echo ""
+    }
+fi
 
 function prompt() {
     exitstatus=$?
@@ -62,7 +69,9 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Автозавершение
 
-if [ -f /etc/bash_completion ]; then . /etc/bash_completion; fi
+if [ -f /etc/profile.d/bash_completion.sh ]; then
+    . /etc/profile.d/bash_completion.sh
+fi
 
 if [ -d ~/Скрипты ]; then PATH="$PATH:~/Скрипты"; fi
 if [ -d ~/Dev ];     then CDPATH='.:~/Dev'; fi
@@ -73,7 +82,7 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias ps?='ps -A | grep '
 alias hosts='sudo nano /etc/hosts'
-alias e='subl ./ &'
+alias e='sublime_text ./'
 
 function .. {
   for i in `seq ${1-1}`; do
@@ -89,7 +98,7 @@ alias ruby1.9.1='ruby'
 if [ -d /usr/local/share/chruby/ ]; then
     source /usr/local/share/chruby/chruby.sh
     source /usr/local/share/chruby/auto.sh
-    chruby 1.9.3
+    chruby 2.0
 fi
 
 # Ускоряем запуск JRuby
