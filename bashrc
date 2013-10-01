@@ -119,3 +119,7 @@ function n {
         return 1
     fi
 }
+
+# Редактор по умолчанию
+
+EDITOR=nano

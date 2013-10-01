@@ -21,3 +21,5 @@
   branch = auto
 [branch]
   autosetuprebase = always
+[core]
+  editor = nano
