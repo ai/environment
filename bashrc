@@ -32,6 +32,10 @@ else
     }
 fi
 
+prompt_dir() {
+    echo "$PWD" | sed -r "s|^/home/$USER|~|g" | sed -r "s|^~/Dev/||g"
+}
+
 function prompt() {
     exitstatus=$?
 
@@ -39,10 +43,12 @@ function prompt() {
     RED="\[\e[0;31m\]"
     OFF="\[\e[0m\]"
 
+    PS1="\$(prompt_dir)"
+
     if [ $exitstatus -eq 0 ]; then
-        PS1="${BLUE}\w${OFF}"
+        PS1="${BLUE}${PS1}${OFF}"
     else
-        PS1="${RED}\w${OFF}"
+        PS1="${RED}${PS1}${OFF}"
     fi
     if [ "$SSH_CLIENT" ]; then
         PS1="\h $PS1 ➜ "
@@ -78,6 +84,7 @@ if [ -d ~/Dev ];     then CDPATH='.:~/Dev'; fi
 
 # Алиасы
 
+alias g='git'
 alias ll='ls -lh'
 alias la='ls -A'
 alias ps?='ps -A | grep '
