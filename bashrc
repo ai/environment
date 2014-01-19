@@ -129,4 +129,4 @@ function n {
 
 # Редактор по умолчанию
 
-EDITOR=nano
+export EDITOR=nano
