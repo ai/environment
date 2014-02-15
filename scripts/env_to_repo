@@ -14,7 +14,7 @@ end
 
 SCRIPTS = %w{clean_disk env_to_repo env_to_server
              img_to_mail private build-ruby}
-DOTS    = %w{bashrc gemrc irbrc gitconfig ackrc}
+DOTS    = %w{bashrc gemrc irbrc gitconfig ackrc bundle/config}
 
 HOME = Pathname('~').expand_path
 REPO = HOME.join('.env-repo')
@@ -30,7 +30,12 @@ REPO.glob('*') do |i|
   i.rmtree
 end
 
-DOTS.each { |i| REPO.join(i).make_link(HOME.join(".#{i}")) }
+DOTS.each do |i|
+  if i =~ /\//
+    REPO.join(i).dirname.mkpath
+  end
+  REPO.join(i).make_link(HOME.join(".#{i}"))
+end
 
 REPO.join('xkb-options').open('w') do |file|
   config = `dconf read /org/gnome/desktop/input-sources/xkb-options`
