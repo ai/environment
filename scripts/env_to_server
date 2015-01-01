@@ -1,8 +1,0 @@
-#!/bin/bash
-
-SERVER=$1
-FILES=(.bashrc)
-
-for file in ${FILES[@]}; do
-    scp -r ~/$file $SERVER:~/
-done
