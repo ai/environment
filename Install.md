@@ -282,6 +282,15 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 sudo dnf install man-pages-ru mpv gimp unrar nano p7zip p7zip-plugins inkscape
 ```
 
+Выставляем настройки `nano`:
+
+```sh
+su -c "echo '
+set autoindent
+set mouse
+include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
+```
+
 Устаналивливаем шрифты от Microsoft:
 
 ```sh
