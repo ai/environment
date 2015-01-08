@@ -1,0 +1,25 @@
+[user]
+  name  = Andrey Sitnik
+  email = andrey@sitnik.ru
+  signingkey = 1F710E4D
+[alias]
+  current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
+  a  = "!git add . && git status"
+  ch = checkout
+  c  = commit -m
+  ac = commit -am
+  s  = status
+  d  = diff
+  l  = "!git pull origin $(git current-branch)"
+  h  = "!git push origin $(git current-branch)"
+  lh = "!git l && git h"
+  r  = "!git rm $(git ls-files --deleted) && git status"
+  lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
+[color]
+  diff   = auto
+  status = auto
+  branch = auto
+[branch]
+  autosetuprebase = always
+[core]
+  editor = nano
