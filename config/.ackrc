@@ -1,0 +1,11 @@
+--smart-case
+
+--ignore-dir=.bundle
+--ignore-dir=tmp
+--ignore-dir=log
+--ignore-dir=node_modules
+
+--type-set
+haml=.haml
+--type-set
+sass=.sass
