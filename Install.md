@@ -419,6 +419,11 @@ wget https://github.com/tonsky/FiraCode/raw/master/FiraCode-Regular.otf -O .font
 fc-cache -v
 ```
 
+Устанавливаем темы:
+
+- `Seti UI`
+- `Seti Syntax`
+
 ## 14. Ярлыки
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
