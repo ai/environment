@@ -1,0 +1,15 @@
+#!/bin/bash
+# Copy config and scripts to or from repo
+
+if [ "$1" == "system" ]; then
+    mkdir -p ~/.bundle
+    cp ~/Dev/environment/ackrc     ~/.ackrc
+    cp ~/Dev/environment/gemrc     ~/.gemrc
+    cp ~/Dev/environment/gitconfig ~/.gitconfig
+    cp ~/Dev/environment/bundle    ~/.bundle/config
+else
+    cp ~/.ackrc         ~/Dev/environment/ackrc
+    cp ~/.gemrc         ~/Dev/environment/gemrc
+    cp ~/.gitconfig     ~/Dev/environment/gitconfig
+    cp ~/.bundle/config ~/Dev/environment/bundle
+fi

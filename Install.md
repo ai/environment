@@ -348,7 +348,11 @@ sudo systemctl enable redis
 sudo systemctl enable postgresql
 ```
 
-Скопировать настройки из папки `config/`.
+Скопировать файлы настройки:
+
+```sh
+~/Dev/environment/bin/copy-env system
+```
 
 Устаналиваем `chruby`:
 
@@ -401,7 +405,7 @@ gsettings set org.gnome.desktop.interface scaling-factor 2
 Устанавливаем шрифт Fira Code:
 
 ```sh
-mkdir .fonts/
+mkdir -p .fonts/
 wget https://github.com/tonsky/FiraCode/raw/master/FiraCode-Regular.otf -O .fonts/FiraCode-Regular.otf
 fc-cache -v
 ```
