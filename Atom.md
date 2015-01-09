@@ -9,4 +9,4 @@ Font:
 
 - [Fira Code](https://github.com/tonsky/FiraCode)
 
-See also: [config](./atom.cson)
+See also: [Atom config](./atom.cson)
