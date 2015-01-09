@@ -4,9 +4,8 @@ My home configs, scripts and [installation process](./Install.md).
 
 * Atom’s [plugins](./Atom.md) and [config](./atom.cson)
 * [GNOME Shell extensions](./GNOME.md)
-* [.gitconfig](./gitconfig): `git c` to commit, `git l`, `git h`
-  and `git lh` to pull/push current branch, `git r` script to remove all deleted
-  files from git
+* [.gitconfig](./gitconfig): `git l`, `git h` and `git lh` to pull/push current
+  branch, `git r` to remove all deleted files from git
 * [.ackrc](./ackrc): some `ack` tuning for Ruby/node.js developers
 
 ### Scripts
