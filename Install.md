@@ -424,6 +424,15 @@ fc-cache -v
 - `Seti UI`
 - `Seti Syntax`
 
-## 14. Ярлыки
+## 14. ZSH
+
+Устанавливаем ZSH и копируем OhMyZsh:
+
+```sh
+sudo dnf install zsh
+chsh -s /bin/zsh
+```
+
+## 15. Ярлыки
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
