@@ -47,23 +47,19 @@ sudo liveusb-creator
 EFI-файлов при обновлении ядра.
 
 ```sh
-#!/bin/bash
+su -c 'echo "#!/bin/bash
 
 rm -f /boot/efi/EFI/fedora/vmlinuz.efi
 rm -f /boot/efi/EFI/fedora/initramfs.img
 cp $(ls /boot/vmlinuz-* | sort -r | head -1) /boot/efi/EFI/fedora/vmlinuz.efi
-cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.img
-```
-
-Копируем файлы сами и делаем скрипт исполняемым:
-
-```
-chmod a+x etc/kernel/postinst.d/99-update-efistub
+cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.img" > etc/kernel/postinst.d/99-update-efis'
+sudo chmod a+x etc/kernel/postinst.d/99-update-efistu
 ```
 
 Установить ядро в качестве EFI-загрузчика:
 
 ```sh
+sudo bash
 UUID=$(cryptsetup luksUUID /dev/sda2)
 efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/backfire-root rd.lvm.lv=backfire/root rd.luks.uuid=luks-$UUID ro rhgb quiet LANG=ru_RU.UTF-8 initrd=\EFI\fedora\initramfs.img"
 ```
@@ -163,29 +159,23 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:shift_caps_switc
 
 ### 6. Оборудование
 
-Чиним тачскрин после сна.
-Создаём файл `/usr/lib/systemd/system-sleep/touchscreen`:
+Чиним тачскрин после сна:
 
 ```sh
-#!/bin/sh
+su -c 'echo "#!/bin/sh
 
 case $1 in
 post)
     rmmod hid_multitouch && modprobe hid_multitouch
     ;;
-esac
-```
-
-И даём права на запуск:
-
-```sh
+esac" > /usr/lib/systemd/system-sleep/touchscreen'
 sudo chmod a+x /usr/lib/systemd/system-sleep/touchscreen
 ```
 
 Чиним WiFi:
 
 ```sh
-dnf install kmod-wl
+sudo dnf install kmod-wl
 ```
 
 Перезагружаемся.
@@ -200,7 +190,11 @@ dnf install kmod-wl
 - [HTitle](https://addons.mozilla.org/RU/firefox/addon/htitle/)
 - [GNOME 3](https://addons.mozilla.org/ru/firefox/addon/adwaita/)
 
-Ставим Хром с `google.ru/chrome`.
+Ставим Хром:
+
+```sh
+sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+```
 
 Исправить масштаб страницы по умолчанию:
 Настройки → Показать дополнительные настройки → Веб-контент
@@ -265,16 +259,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv gimp unrar nano p7zip p7zip-plugins inkscape
-```
-
-Выставляем настройки `nano`:
-
-```sh
-su -c "echo '
-set autoindent
-set mouse
-include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
+sudo dnf install man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape
 ```
 
 Устаналивливаем шрифты от Microsoft:
@@ -284,8 +269,6 @@ sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/mst
 ```
 
 ## 10. Личные файлы
-
-Скопировать папку `bin/` как `~/.bin/`.
 
 Устанавливаем пакеты для расшировки:
 
@@ -303,17 +286,17 @@ sudo dnf install fuse-encfs
 touch ~/Шаблоны/Пустой\ файл
 ```
 
-Исправляем папки по-умолчанию. Записываем в `~/.config/user-dirs.dirs`:
+Исправляем папки по-умолчанию:
 
-```
-XDG_DESKTOP_DIR="$HOME/Рабочий стол"
+```sh
+echo 'XDG_DESKTOP_DIR="$HOME/Рабочий стол"
 XDG_DOWNLOAD_DIR="$HOME/Загрузки"
 XDG_TEMPLATES_DIR="$HOME/Шаблоны"
 XDG_PUBLICSHARE_DIR="$HOME/"
 XDG_DOCUMENTS_DIR="$HOME/"
 XDG_MUSIC_DIR="$HOME/"
 XDG_PICTURES_DIR="$HOME/"
-XDG_VIDEOS_DIR="$HOME/"
+XDG_VIDEOS_DIR="$HOME/"' > ~/.config/user-dirs.di
 ```
 
 Чистим закладки:
@@ -322,9 +305,13 @@ XDG_VIDEOS_DIR="$HOME/"
 echo "" > ~/.config/gtk-3.0/bookmarks
 ```
 
-Удаляем `Видео/`, `Документы/`, `Изображения/`, `Музыка/` и `Общедоступные/`.
+Удаляем лишние папки:
 
-Выставляем иконки `/usr/share/icons/Faba/48x48/places/folder-documents.svg`
+```sh
+rm -R Видео Документы Изображения Музыка Общедоступные
+```
+
+Выставляем иконку `/usr/share/icons/Faba/48x48/places/folder-documents.svg`
 для папки `Dev/`.
 
 ## 12. Разработка
@@ -381,15 +368,26 @@ gem install bundler
 sudo dnf install ftp://ftp.pbone.net/vol2/www.pclinuxos.com/pclinuxos/apt/pclinuxos/2011/RPMS.x86_64/trimage-1.0.5-3pclos2013.noarch.rpm
 ```
 
-Ставим `nano` консольным редактором по умолчанию:
+## 13. Текстовые редакторы
+
+Устанавливаем nano:
 
 ```sh
+sudo dnf install nano
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
+su -c "echo '
+set autoindent
+set mouse
+include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 ```
 
-## 13. Atom
+Установить Атом:
 
-Установить Атом из `atom.io`.
+```sh
+wget https://atom.io/download/rpm -O atom.rpm
+sudo dnf install atom.rpm
+rm atom.rpm
+```
 
 Включить HiDPI а Атоме:
 
@@ -409,11 +407,11 @@ fc-cache -v
 
 ## 14. ZSH
 
-Устанавливаем ZSH и копируем OhMyZsh:
+Устанавливаем ZSH:
 
 ```sh
 sudo dnf install zsh
-chsh -s /bin/zsh
+chsh -s /usr/bin/zsh
 ```
 
 ## 15. Ярлыки
