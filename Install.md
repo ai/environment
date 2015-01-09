@@ -1,21 +1,21 @@
-## Процесс разворачивания окружения
+## Как я ставлю свою систему
 
-### 1. Скачать образ Федоры
+### Образ Федоры
 
-Скачать образ:
+Скачиваем образ:
 
 ```sh
 wget http://download.fedoraproject.org/pub/fedora/linux/releases/21/Workstation/x86_64/iso/Fedora-Live-Workstation-x86_64-21-5.iso
 ```
 
-Записать его на USB-флешку:
+Записываем его на USB-флешку:
 
 ```sh
 sudo yum remove liveusb-creator
 sudo liveusb-creator
 ```
 
-### 2. Установка
+### Установка
 
 Открываем `/usr/lib64/python2.7/site-packages/pyanaconda` и исправляем методы
 `is_valid_stage1_device` и `is_valid_stage2_device`, чтобы они всегда возвращали
@@ -23,28 +23,23 @@ sudo liveusb-creator
 
 Запускаем установщик.
 
-Английскую раскладку на первое место. Переключение клавиатура:
-«Caps Lock (на первую раскладку), Shift+Caps Lock (на последнюю раскладку)».
+1. Английскую раскладку на первое место. Переключение клавиатура:
+   «Caps Lock (на первую раскладку), Shift+Caps Lock (на последнюю раскладку)».
+2. Сеть и имя узла: «backfire».
+3. Разбиение диска:
 
-Сеть и имя узла: «backfire».
-
-Разбиение диска:
-
-```
-/boot/efi EFI  500 МиБ
-/         ext4 LVM backfire-root
-```
-
-Пользовать:
-
-- Полное имя: `Андрей Ситник`
-- Имя пользователя: `ai`
-- Сделать администратором
+    ```
+   /boot/efi EFI  500 МиБ
+   /         ext4 LVM backfire-root
+    ```
+4. Пользовать:
+   - Полное имя: `Андрей Ситник`
+   - Имя пользователя: `ai`
+   - Сделать администратором
 
 Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
 
-Создаём в `etc/kernel/postinst.d/99-update-efistub` скрипт обновления
-EFI-файлов при обновлении ядра.
+Создаём в скрипт обновления EFI-файлов при обновлении ядра:
 
 ```sh
 su -c 'echo "#!/bin/bash
@@ -56,7 +51,7 @@ cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.im
 sudo chmod a+x etc/kernel/postinst.d/99-update-efistu
 ```
 
-Установить ядро в качестве EFI-загрузчика:
+Устанавливаем ядро в качестве EFI-загрузчика:
 
 ```sh
 sudo bash
@@ -64,7 +59,7 @@ UUID=$(cryptsetup luksUUID /dev/sda2)
 efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/backfire-root rd.lvm.lv=backfire/root rd.luks.uuid=luks-$UUID ro rhgb quiet LANG=ru_RU.UTF-8 initrd=\EFI\fedora\initramfs.img"
 ```
 
-### 3. Оптимизация для SSD
+### Оптимизация для SSD
 
 Открываем `etc/fstab`.
 
@@ -85,7 +80,7 @@ none /tmp/     tmpfs noatime 0 0
 sudo systemctl enable fstrim.timer
 ```
 
-### 4. Обновление системы
+### Обновление системы
 
 Запускаем `seahorse` и убираем пароль со «Вход».
 
@@ -126,9 +121,7 @@ sudo dnf update
 sudo dnf remove paprefs pavucontrol pavumeter paman
 ```
 
-### 5. Настройка системы
-
-Скопировать эту папку в `~/Dev/`.
+### Настройка GNOME
 
 Открываем Настройки:
 
@@ -157,7 +150,7 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:shift_caps_switc
 - Параметры → Поведение: включить «Открыть объекты одним щелчком»
   и «Включить команду удаления, не использующую корзину».
 
-### 6. Оборудование
+### Оборудование
 
 Чиним тачскрин после сна:
 
@@ -180,7 +173,7 @@ sudo dnf install kmod-wl
 
 Перезагружаемся.
 
-## 7. Браузеры
+## Браузеры
 
 Включаем ретину в Фаерфоксе. Открываем `about:config`
 и выставляем `layout.css.devPixelsPerPx` равным `2`.
@@ -188,7 +181,7 @@ sudo dnf install kmod-wl
 Ставим для Фаерфокса расширения:
 
 - [HTitle](https://addons.mozilla.org/RU/firefox/addon/htitle/)
-- [GNOME 3](https://addons.mozilla.org/ru/firefox/addon/adwaita/)
+- [GNOME 3](https://addons.mozilla.org/ru/firefox/addon/adwaita/)
 
 Ставим Хром:
 
@@ -210,7 +203,7 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 Сделать аккаунты «Английский», «Автопрефиксер» и «PostCSS».
 
-## 8. Настройки GNOME
+## Внешний вид
 
 Ставим расширения из `GNOME.md`.
 
@@ -248,7 +241,7 @@ sudo dnf install gnome-tweek-tool
 - **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
   моноширный в «Fira Mono OT Regular», хиттинг в Slight
 
-## 9. Основные программы
+## Кодеки и шрифты
 
 Устанавливаем кодеки:
 
@@ -268,7 +261,7 @@ sudo dnf install man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
-## 10. Личные файлы
+## Личные файлы
 
 Устанавливаем пакеты для расшировки:
 
@@ -278,7 +271,7 @@ sudo dnf install fuse-encfs
 
 Скопировать `.Личное/`. Открыть его и скопировать папки `.ssh/` и `.gnupg/`.
 
-## 11. Папки
+## Папки
 
 Создаём шаблон пустого файла:
 
@@ -314,7 +307,7 @@ rm -R Видео Документы Изображения Музыка Обще
 Выставляем иконку `/usr/share/icons/Faba/48x48/places/folder-documents.svg`
 для папки `Dev/`.
 
-## 12. Разработка
+## Разработка
 
 Установить пакеты:
 
@@ -368,7 +361,7 @@ gem install bundler
 sudo dnf install ftp://ftp.pbone.net/vol2/www.pclinuxos.com/pclinuxos/apt/pclinuxos/2011/RPMS.x86_64/trimage-1.0.5-3pclos2013.noarch.rpm
 ```
 
-## 13. Текстовые редакторы
+## Текстовые редакторы
 
 Устанавливаем nano:
 
@@ -405,15 +398,15 @@ fc-cache -v
 
 Устанавливаем темы и плагины из `Atom.md`.
 
-## 14. ZSH
+## zsh
 
-Устанавливаем ZSH:
+Устанавливаем zsh:
 
 ```sh
 sudo dnf install zsh
 chsh -s /usr/bin/zsh
 ```
 
-## 15. Ярлыки
+## Ярлыки
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
