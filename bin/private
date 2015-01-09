@@ -1,15 +1,15 @@
-#!/bin/sh
-# Работа с личной папкой.
+#!/usr/bin/bash
+# Private encrypted folder
 
 STORE=$HOME/.Личное
 LINK=$HOME/Рабочий\ стол/Личное
 
 if [ -e "$LINK" ]; then
-    # Прячем
+    # Lock
     fusermount -u "$LINK"
     rm -R "$LINK"
 else
-    # Показываем
+    # Unlock
     mkdir "$LINK"
     encfs "$STORE" "$LINK" --extpass "zenity --password"
     nautilus "$LINK"

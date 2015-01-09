@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 # Download fresh ruby-build script and install necessary Ruby to ~/.rubies
 
 REPO=https://github.com/sstephenson/ruby-build.git
