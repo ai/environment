@@ -5,6 +5,8 @@ SAVEHIST=1000
 
 # Key bindings
 bindkey -e
+bindkey ';5D' backward-word # ctrl+left
+bindkey ';5C' forward-word  #ctrl+right
 
 # Completion
 zstyle :compinstall filename '/home/ai/.zshrc'
@@ -43,7 +45,7 @@ if [ -x "$(which pygmentize)" ]; then
             cat "$@"
         fi
     }
-    alias cat='colorize'
+    alias cot='colorize'
 fi
 
 # Prompt
