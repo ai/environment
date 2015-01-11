@@ -94,7 +94,7 @@ sudo rm -R /boot/grub2
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit seahorse cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts gnome-getting-started-docs gnome-shell-extension-* libreoffice-* setroubleshoot*
+sudo dnf remove gedit seahorse cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts totem yelp gnome-getting-started-docs gnome-shell-extension-* libreoffice-* setroubleshoot*
 ```
 
 Подключаем RPM Fusion:
@@ -309,10 +309,16 @@ rm -R Видео Документы Изображения Музыка Обще
 
 ## Разработка
 
-Установить пакеты:
+Копируем файлы настройки:
 
 ```sh
-sudo dnf install gitg ack npm nodejs ack redis gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel rpm-build postgresql postgresql-server
+~/Dev/environment/bin/copy-env system
+```
+
+Устанавливаем пакеты:
+
+```sh
+sudo dnf install gitg ack redis postgresql postgresql-server
 ```
 
 Запускаем PostgreSQL:
@@ -323,15 +329,10 @@ sudo systemctl enable redis
 sudo systemctl enable postgresql
 ```
 
-Скопировать файлы настройки:
-
-```sh
-~/Dev/environment/bin/copy-env system
-```
-
 Устаналиваем `chruby`:
 
 ```sh
+sudo dnf install rpm-build
 sudo dnf install ftp://fr2.rpmfind.net/linux/opensuse/distribution/11.4/repo/oss/suse/x86_64/checkinstall-1.6.2-8.1.x86_64.rpm
 wget -O chruby.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
 tar -xzvf chruby.tar.gz
@@ -343,16 +344,26 @@ cd ..
 rm -Rf chruby-0.3.9/
 rm chruby.tar.gz
 rm -R rpmbuild/
-sudo dnf remove checkinstall
+sudo dnf remove checkinstall rpm-build
 ```
 
 Собираем последний Ruby:
 
 ```sh
+sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++
 ~/.bin/build-ruby 2.2.0
 source /usr/local/share/chruby/chruby.sh
 chruby 2.2
 gem install bundler
+```
+
+Устаналиваем `node` и `npm`:
+
+```sh
+sudo dnf install nodejs npm
+mkdir -p ~/.npm-build/
+cd ~/.npm-build/
+npm install npm node-gyp
 ```
 
 Устанавливаем Trimage:
@@ -370,7 +381,6 @@ sudo dnf install nano
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 su -c "echo '
 set autoindent
-set mouse
 include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 ```
 
@@ -382,7 +392,7 @@ sudo dnf install atom.rpm
 rm atom.rpm
 ```
 
-Включить HiDPI а Атоме:
+Включить HiDPI в Атоме:
 
 ```sh
 gsettings set org.gnome.desktop.interface scaling-factor 2
@@ -407,6 +417,28 @@ sudo dnf install zsh
 chsh -s /usr/bin/zsh
 ```
 
+Устанавливаем Antigen:
+
+```sh
+curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > .antigen.zsh
+source antigen.zsh
+```
+
+И пакеты необходимые для цветного `cat`:
+
+```sh
+sudo dnf install pygmentize
+```
+
 ## Ярлыки
+
+Удаляем папки иконок:
+
+```sh
+mkdir -p ~/.config/autostart/
+echo '#!/bin/sh
+gsettings set org.gnome.desktop.app-folders folder-children "[]"' > ~/.config/autostart/clean-folder.sh
+chmod a+x ~/.config/autostart/clean-folder.sh
+```
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
