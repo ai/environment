@@ -318,7 +318,7 @@ rm -R Видео Документы Изображения Музыка Обще
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install gitg ack redis postgresql postgresql-server
+sudo dnf install gitg ack redis postgresql postgresql-server postgresql-contrib
 ```
 
 Запускаем PostgreSQL:
@@ -327,6 +327,8 @@ sudo dnf install gitg ack redis postgresql postgresql-server
 sudo postgresql-setup initdb
 sudo systemctl enable redis
 sudo systemctl enable postgresql
+sudo systemctl start postgresql
+sudo su postgres -c 'createuser -s ai'
 ```
 
 Устаналиваем `chruby`:
@@ -350,7 +352,7 @@ sudo dnf remove checkinstall rpm-build
 Собираем последний Ruby:
 
 ```sh
-sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++
+sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
 ~/.bin/build-ruby 2.2.0
 source /usr/local/share/chruby/chruby.sh
 chruby 2.2
