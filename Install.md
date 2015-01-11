@@ -432,6 +432,13 @@ source antigen.zsh
 sudo dnf install pygmentize
 ```
 
+Привязываем 3000 порт на 80:
+
+```sh
+su -c 'echo "#!/bin/sh
+iptables -t nat -A OUTPUT -p tcp --dport 80 -d 127.0.0.1/8 -j REDIRECT --to-port 3000" > /etc/environment'
+```
+
 ## Ярлыки
 
 Удаляем папки иконок:
