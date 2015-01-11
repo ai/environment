@@ -114,11 +114,37 @@ prompt_git() {
 }
 
 prompt_gen() {
-    local exitstatus=$?
+    local prompt_exit=$?
 
     local prompt_error=""
-    if [ ! $exitstatus -eq 0 ]; then
-        prompt_error="%{$fg[red]%}✖ $exitstatus%{$reset_color%}
+    if [ ! $prompt_exit -eq 0 ]; then
+        local prompt_exit_name;
+
+        # is this a signal name (error code = signal + 128) ?
+        case $prompt_exit in
+            -1)   prompt_exit_name=FATAL ;;
+            1)    prompt_exit_name=WARN ;;
+            2)    prompt_exit_name=BUILTINMISUSE ;;
+            19)   prompt_exit_name=STOP ;;
+            20)   prompt_exit_name=TSTP ;;
+            21)   prompt_exit_name=TTIN ;;
+            22)   prompt_exit_name=TTOU ;;
+            126)  prompt_exit_name=CCANNOTINVOKE ;;
+            127)  prompt_exit_name=CNOTFOUND ;;
+            129)  prompt_exit_name=HUP ;;
+            130)  prompt_exit_name=INT ;;
+            131)  prompt_exit_name=QUIT ;;
+            132)  prompt_exit_name=ILL ;;
+            134)  prompt_exit_name=ABRT ;;
+            136)  prompt_exit_name=FPE ;;
+            137)  prompt_exit_name=KILL ;;
+            139)  prompt_exit_name=SEGV ;;
+            141)  prompt_exit_name=PIPE ;;
+            143)  prompt_exit_name=TERM ;;
+
+        esac
+
+        prompt_error="%{$fg[red]%}✖ $prompt_exit_name%{$reset_color%}
 "
     fi
 
