@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Бит-торрент
+Comment=Загружайте и обменивайтесь файлами в сети BitTorrent
+Icon=transmission
+Exec=transmission-gtk %U
+Categories=Network;FileTransfer;P2P;GTK;
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;

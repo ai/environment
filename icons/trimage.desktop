@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Сжатие картинок
+Comment=Оптимизация PNG и JPG файлов
+Icon=shotwell
+Exec=trimage
+Categories=GNOME;GTK;Graphics;
+MimeType=image/jpeg;image/png;

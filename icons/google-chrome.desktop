@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Хром
+Comment=Доступ в Интернет
+Icon=google-chrome
+Exec=google-chrome --touch-devices=13 %U
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;

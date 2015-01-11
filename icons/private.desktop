@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Личная папка
+Comment=Расшифровать личную папку
+Icon=seahorse
+Exec=/home/ai/Dev/environment/bin/private

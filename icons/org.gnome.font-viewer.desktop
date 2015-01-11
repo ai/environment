@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Шрифты
+Comment=Просмотр шрифтов, доступных в системе
+Icon=preferences-desktop-font
+Exec=gnome-font-viewer %u
+Categories=GTK;GNOME;Utility;X-GNOME-Utilities;
+MimeType=application/x-font-ttf;application/x-font-pcf;application/x-font-type1;application/x-font-otf;

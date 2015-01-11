@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Просмотр документов
+Comment=Просмотр многостраничных документов
+Icon=evince
+Exec=evince %U
+Categories=GNOME;GTK;Office;Viewer;Graphics;2DGraphics;VectorGraphics;
+MimeType=application/pdf;application/x-bzpdf;application/x-gzpdf;application/x-xzpdf;application/x-ext-pdf;application/postscript;application/x-bzpostscript;application/x-gzpostscript;image/x-eps;image/x-bzeps;image/x-gzeps;application/x-ext-ps;application/x-ext-eps;application/x-dvi;application/x-bzdvi;application/x-gzdvi;application/x-ext-dvi;image/vnd.djvu;application/x-ext-djv;application/x-ext-djvu;image/tiff;application/x-cbr;application/x-cbz;application/x-cb7;application/x-cbt;application/x-ext-cbr;application/x-ext-cbz;application/x-ext-cb7;application/x-ext-cbt;application/oxps;application/vnd.ms-xpsdocument;
+NoDisplay=true
