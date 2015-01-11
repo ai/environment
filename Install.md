@@ -436,7 +436,8 @@ sudo dnf install pygmentize
 
 ```sh
 su -c 'echo "#!/bin/sh
-iptables -t nat -A OUTPUT -p tcp --dport 80 -d 127.0.0.1/8 -j REDIRECT --to-port 3000" > /etc/environment'
+iptables -t nat -A OUTPUT -p tcp --dport 80 -d 127.0.0.1/8 -j REDIRECT --to-port 3000" > /etc/rc.d/rc.local'
+sudo chmod a+x /etc/rc.d/rc.local'
 ```
 
 ## Ярлыки
