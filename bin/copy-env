@@ -6,12 +6,13 @@ if [ "$1" == "system" ]; then
     cp ~/Dev/environment/icons/* ~/.local/share/applications/
     mkdir -p ~/.bundle
     mkdir -p ~/.atom
-    cp ~/Dev/environment/zshrc     ~/.zshrc
-    cp ~/Dev/environment/ackrc     ~/.ackrc
-    cp ~/Dev/environment/gemrc     ~/.gemrc
-    cp ~/Dev/environment/gitconfig ~/.gitconfig
-    cp ~/Dev/environment/bundle    ~/.bundle/config
-    cp ~/Dev/environment/atom.cson ~/.atom/config.cson
+    cp ~/Dev/environment/zshrc      ~/.zshrc
+    cp ~/Dev/environment/ackrc      ~/.ackrc
+    cp ~/Dev/environment/gemrc      ~/.gemrc
+    cp ~/Dev/environment/gitconfig  ~/.gitconfig
+    cp ~/Dev/environment/prompt.zsh ~/.prompt.zsh
+    cp ~/Dev/environment/bundle     ~/.bundle/config
+    cp ~/Dev/environment/atom.cson  ~/.atom/config.cson
 else
     rm ~/Dev/environment/icons/*.desktop
     cp ~/.local/share/applications/*.desktop ~/Dev/environment/icons/
@@ -19,6 +20,7 @@ else
     cp ~/.ackrc            ~/Dev/environment/ackrc
     cp ~/.gemrc            ~/Dev/environment/gemrc
     cp ~/.gitconfig        ~/Dev/environment/gitconfig
+    cp ~/.prompt.zsh       ~/Dev/environment/prompt.zsh
     cp ~/.bundle/config    ~/Dev/environment/bundle
     cp ~/.atom/config.cson ~/Dev/environment/atom.cson
 fi
