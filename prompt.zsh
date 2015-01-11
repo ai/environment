@@ -34,7 +34,7 @@ prompt_git() {
         local prompt_str="`git current-branch 2> /dev/null`"
         local prompt_git_status="`git status --porcelain -b 2> /dev/null`"
 
-        if [ "$prompt_branch" -a "$prompt_branch" = 'master' ]; then
+        if [ "$prompt_str" -a "$prompt_str" = 'master' ]; then
             prompt_str=""
         else
             prompt_str=" $prompt_str"
