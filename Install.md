@@ -94,7 +94,7 @@ sudo rm -R /boot/grub2
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit seahorse cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts totem yelp gnome-getting-started-docs gnome-shell-extension-* libreoffice-* setroubleshoot*
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts totem yelp gnome-getting-started-docs gnome-shell-extension-* libreoffice-* setroubleshoot*
 ```
 
 Подключаем RPM Fusion:
@@ -446,8 +446,15 @@ iptables -t nat -A OUTPUT -p tcp --dport 80 -d 127.0.0.1/8 -j REDIRECT --to-port
 ```sh
 mkdir -p ~/.config/autostart/
 echo '#!/bin/sh
+sleep 1
 gsettings set org.gnome.desktop.app-folders folder-children "[]"' > ~/.config/autostart/clean-folder.sh
 chmod a+x ~/.config/autostart/clean-folder.sh
+echo "[Desktop Entry]
+Type=Application
+Name=Приложения без папок
+Icon=accessories-system-cleaner
+Exec=/home/ai/.config/autostart/clean-folder.sh
+X-GNOME-Autostart-enabled=true" > ~/.config/autostart/clean-folder.desktop
 ```
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
