@@ -31,13 +31,13 @@ prompt_git_progress() {
 
 prompt_git() {
     if [ -x "$(which git)" ]; then
-        local prompt_str="`git current-branch 2> /dev/null`"
+        local prompt_s="`git current-branch 2> /dev/null`"
         local prompt_git_status="`git status --porcelain -b 2> /dev/null`"
 
-        if [ "$prompt_str" -a "$prompt_str" = 'master' ]; then
-            prompt_str=""
+        if [ "$prompt_s" -a "$prompt_s" = 'master' ]; then
+            prompt_s=""
         else
-            prompt_str=" $prompt_str"
+            prompt_s=" $prompt_s"
         fi
 
         local prompt_mod=""
@@ -47,21 +47,26 @@ prompt_git() {
         if $(echo "$prompt_git_status" | grep '^## .*ahead' &> /dev/null); then
             prompt_mod="$prompt_mod↑"
         fi
-        if $(echo "$prompt_git_status" | grep '^[^#]' &> /dev/null); then
+        if $(echo "$prompt_git_status" | grep '^[? ][^#]' &> /dev/null); then
             prompt_mod="$prompt_mod⚡"
+        elif $(echo "$prompt_git_status" | grep '^\w' &> /dev/null); then
+            local prompt_add="⚡"
         fi
         if [ "$prompt_mod" ]; then
-            prompt_str="$prompt_str %{$fg[yellow]%}$prompt_mod%{$reset_color%}"
+            prompt_s="$prompt_s %{$fg[yellow]%}$prompt_mod%{$reset_color%}"
+            prompt_s="$prompt_s%{$fg[green]%}$prompt_add%{$reset_color%}"
+        elif [ "$prompt_add" ]; then
+            prompt_s="$prompt_s %{$fg[green]%}$prompt_add%{$reset_color%}"
         fi
 
         local prompt_count="`git stash list 2> /dev/null | wc -l`"
         if [ "$prompt_count" != "0" ]; then
             local prompt_stash="(stash $prompt_count)"
             prompt_stash="%{$fg[yellow]%}$prompt_stash%{$reset_color%}"
-            prompt_str="$prompt_str $prompt_stash"
+            prompt_s="$prompt_s $prompt_stash"
         fi
 
-        echo "$prompt_str$(prompt_git_progress)"
+        echo "$prompt_s$(prompt_git_progress)"
     fi
 }
 
