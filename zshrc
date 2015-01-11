@@ -20,7 +20,6 @@ if [ -f ~/.antigen.zsh ]; then
     antigen bundle colored-man
     antigen bundle per-directory-history
     antigen bundle command-not-found
-    antigen bundle supercrabtree/k
     antigen bundle zsh-users/zsh-syntax-highlighting
     antigen bundle zsh-users/zsh-history-substring-search
 fi
