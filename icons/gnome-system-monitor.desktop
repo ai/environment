@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Система
+Comment=Просмотр текущих процессов и мониторинг состояния системы
+Icon=utilities-system-monitor
+Exec=gnome-system-monitor
+Categories=GNOME;GTK;System;Monitor;

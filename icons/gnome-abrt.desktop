@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Отчёты о сбоях
+Comment=Просмотреть сбои и создать отчёт
+Icon=gnome-abrt
+Exec=gnome-abrt
+Categories=System;
+NoDisplay=true

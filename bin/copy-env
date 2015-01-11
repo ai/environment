@@ -2,6 +2,8 @@
 # Copy config and scripts to or from repo
 
 if [ "$1" == "system" ]; then
+    rm ~/.local/share/applications/*.desktop
+    cp ~/Dev/environment/icons/* ~/.local/share/applications/
     mkdir -p ~/.bundle
     mkdir -p ~/.atom
     cp ~/Dev/environment/zshrc     ~/.zshrc
@@ -11,6 +13,8 @@ if [ "$1" == "system" ]; then
     cp ~/Dev/environment/bundle    ~/.bundle/config
     cp ~/Dev/environment/atom.cson ~/.atom/config.cson
 else
+    rm ~/Dev/environment/icons/*.desktop
+    cp ~/.local/share/applications/*.desktop ~/Dev/environment/icons/
     cp ~/.zshrc            ~/Dev/environment/zshrc
     cp ~/.ackrc            ~/Dev/environment/ackrc
     cp ~/.gemrc            ~/Dev/environment/gemrc

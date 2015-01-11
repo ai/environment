@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Файлы
+Comment=Управление файлами
+Icon=system-file-manager
+Exec=nautilus --new-window %U
+Categories=GNOME;GTK;Utility;Core;FileManager;
+MimeType=inode/directory;application/x-gnome-saved-search;
