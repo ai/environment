@@ -138,6 +138,9 @@ fi
 alias b='bundle exec'
 
 # Node.js
+if [ -d ~/.npm-build/ ]; then
+    path=(~/.npm-build/node_modules/.bin/ $path)
+fi
 function n {
     if [ -d `npm bin` ]; then
         PROG="$1"
