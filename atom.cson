@@ -33,3 +33,12 @@
   'markdown-preview':
     'breakOnSingleNewline': true
   'spell-check': {}
+'.ruby.source':
+  'editor':
+    'tabLength': 2
+'.coffee.source':
+  'editor':
+    'tabLength': 2
+'.sass.source':
+  'editor':
+    'tabLength': 2
