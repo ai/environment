@@ -22,6 +22,7 @@ if [ -f ~/.antigen.zsh ]; then
     antigen bundle command-not-found
     antigen bundle supercrabtree/k
     antigen bundle zsh-users/zsh-syntax-highlighting
+    antigen bundle zsh-users/zsh-history-substring-search
 fi
 
 # Fast way to Dev projects
@@ -51,7 +52,6 @@ fi
 
 # Prompt
 source ~/.prompt.zsh
-PROMPT='$(prompt_gen)'
 
 # Ruby
 if [ -d /usr/local/share/chruby/ ]; then
