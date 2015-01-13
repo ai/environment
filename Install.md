@@ -94,7 +94,7 @@ sudo rm -R /boot/grub2
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts totem yelp samba-client gnome-getting-started-docs gnome-shell-extension-* libreoffice-* setroubleshoot*
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts yelp samba-client gnome-getting-started-docs gnome-shell-extension-* libreoffice-* setroubleshoot*
 ```
 
 Подключаем RPM Fusion:
@@ -240,6 +240,7 @@ sudo dnf install gnome-tweek-tool
   все стандартные иконки.
 - **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
   моноширный в «Fira Mono OT Regular», хиттинг в Slight
+- **Электропитание:** выставить «При нажатии кнопки выключения» в «Blank».
 
 ## Кодеки и шрифты
 
