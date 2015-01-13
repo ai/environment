@@ -4,15 +4,18 @@
 if [ "$1" == "system" ]; then
     rm ~/.local/share/applications/*.desktop
     cp ~/Dev/environment/icons/* ~/.local/share/applications/
-    mkdir -p ~/.bundle
+    mkdir -p ~/.mpv
     mkdir -p ~/.atom
-    cp ~/Dev/environment/zshrc      ~/.zshrc
-    cp ~/Dev/environment/ackrc      ~/.ackrc
-    cp ~/Dev/environment/gemrc      ~/.gemrc
-    cp ~/Dev/environment/gitconfig  ~/.gitconfig
-    cp ~/Dev/environment/prompt.zsh ~/.prompt.zsh
-    cp ~/Dev/environment/bundle     ~/.bundle/config
-    cp ~/Dev/environment/atom.cson  ~/.atom/config.cson
+    mkdir -p ~/.bundle
+    cp ~/Dev/environment/zshrc          ~/.zshrc
+    cp ~/Dev/environment/ackrc          ~/.ackrc
+    cp ~/Dev/environment/gemrc          ~/.gemrc
+    cp ~/Dev/environment/gitconfig      ~/.gitconfig
+    cp ~/Dev/environment/prompt.zsh     ~/.prompt.zsh
+    cp ~/Dev/environment/mpv.conf       ~/.mpv/mpv.conf
+    cp ~/Dev/environment/bundle         ~/.bundle/config
+    cp ~/Dev/environment/mpv-input.conf ~/.mpv/input.conf
+    cp ~/Dev/environment/atom.cson      ~/.atom/config.cson
 else
     rm ~/Dev/environment/icons/*.desktop
     cp ~/.local/share/applications/*.desktop ~/Dev/environment/icons/
@@ -21,6 +24,8 @@ else
     cp ~/.gemrc            ~/Dev/environment/gemrc
     cp ~/.gitconfig        ~/Dev/environment/gitconfig
     cp ~/.prompt.zsh       ~/Dev/environment/prompt.zsh
+    cp ~/.mpv/mpv.conf     ~/Dev/environment/mpv.conf
     cp ~/.bundle/config    ~/Dev/environment/bundle
+    cp ~/.mpv/input.conf   ~/Dev/environment/mpv-input.conf
     cp ~/.atom/config.cson ~/Dev/environment/atom.cson
 fi
