@@ -13,3 +13,4 @@
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
 - [Refresh Wifi Connections](https://extensions.gnome.org/extension/905/refresh-wifi-connections/)
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+- [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
