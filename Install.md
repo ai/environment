@@ -203,6 +203,8 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 Сделать аккаунты «Английский», «Автопрефиксер» и «PostCSS».
 
+Добавляем расширения «Evil Chrome» и «SaveFrom.net помощник».
+
 ## Внешний вид
 
 Ставим расширения из `GNOME.md`.
