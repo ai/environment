@@ -2,7 +2,7 @@
   'editor':
     'fontFamily': 'Fira Mono OT'
     'showIndentGuide': true
-    'tabLength': 4
+    'tabLength': 2
     'softWrap': true
     'invisibles': {}
     'zoomFontWhenCtrlScrolling': false
@@ -33,12 +33,12 @@
   'markdown-preview':
     'breakOnSingleNewline': true
   'spell-check': {}
-'.ruby.source':
+'.js.source':
   'editor':
-    'tabLength': 2
-'.coffee.source':
+    'tabLength': 4
+'.css.source':
   'editor':
-    'tabLength': 2
-'.sass.source':
+    'tabLength': 4
+'.html.source':
   'editor':
-    'tabLength': 2
+    'tabLength': 4
