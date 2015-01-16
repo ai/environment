@@ -1,9 +1,13 @@
 ## Atom Theme and Plugins
 
+Plugins:
+
+- `language-slim`
+
 Themes:
 
-- `Seti UI`
-- `Seti Syntax`
+- `seti-ui`
+- `seti-syntax`
 
 Font:
 
