@@ -25,7 +25,7 @@ prompt_git_progress() {
     fi
 
     if [ "$prompt_process" ]; then
-        echo " %{$fg[red]%}[]$prompt_process]%{$reset_color%}"
+        echo " %{$fg[red]%}[$prompt_process]%{$reset_color%}"
     fi
 }
 
