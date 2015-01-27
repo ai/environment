@@ -1,44 +1,45 @@
-'*':
-  'editor':
-    'fontFamily': 'Fira Mono OT'
-    'showIndentGuide': true
-    'tabLength': 2
-    'softWrap': true
-    'invisibles': {}
-    'zoomFontWhenCtrlScrolling': false
-  'core':
-    'disabledPackages': [
-      'language-objective-c'
-      'archive-view'
-      'autosave'
-      'bookmarks'
-      'language-clojure'
-      'language-perl'
-      'language-php'
-      'language-toml'
-      'snippets'
-      'welcome'
-      'spell-check'
+"*":
+  editor:
+    fontFamily: "Fira Mono OT"
+    showIndentGuide: true
+    tabLength: 2
+    softWrap: true
+    invisibles: {}
+    zoomFontWhenCtrlScrolling: false
+  core:
+    disabledPackages: [
+      "language-objective-c"
+      "archive-view"
+      "autosave"
+      "bookmarks"
+      "language-clojure"
+      "language-perl"
+      "language-php"
+      "language-toml"
+      "snippets"
+      "welcome"
+      "spell-check"
+      "deprecation-cop"
     ]
-    'themes': [
-      'seti-ui'
-      'seti-syntax'
+    themes: [
+      "seti-ui"
+      "seti-syntax"
     ]
-    'projectHome': '/home/ai/Dev'
-    'autoHideMenuBar': true
-  'exception-reporting':
-    'userId': '51ccaaae-04bc-1ed3-3445-f9bd1a2f3a71'
-  'welcome':
-    'showOnStartup': false
-  'markdown-preview':
-    'breakOnSingleNewline': true
-  'spell-check': {}
-'.js.source':
-  'editor':
-    'tabLength': 4
-'.css.source':
-  'editor':
-    'tabLength': 4
-'.html.source':
-  'editor':
-    'tabLength': 4
+    projectHome: "/home/ai/Dev"
+    autoHideMenuBar: true
+  "exception-reporting":
+    userId: "51ccaaae-04bc-1ed3-3445-f9bd1a2f3a71"
+  welcome:
+    showOnStartup: false
+  "markdown-preview":
+    breakOnSingleNewline: true
+  "spell-check": {}
+".html.source":
+  editor:
+    tabLength: 4
+".css.source":
+  editor:
+    tabLength: 4
+".js.source":
+  editor:
+    tabLength: 4
