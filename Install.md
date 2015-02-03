@@ -218,8 +218,8 @@ sudo dnf install mozilla-fira-mono-fonts
 Установить иконки и тему:
 
 ```sh
-sudo curl -o /etc/yum.repos.d/moka-stable.repo http://mokaproject.com/packages/rpm/moka-stable.repo
-sudo dnf install faba-icon-theme moka-icon-theme moka-gnome-shell-theme --nogpgcheck
+sudo wget http://download.opensuse.org/repositories/home:snwh:moka-project/Fedora_21/home:snwh:moka-project.repo -O /etc/yum.repos.d/moka-project.repo
+sudo dnf install faba-icon-theme moka-icon-theme moka-gnome-shell-theme
 ```
 
 Улучшаем рендер шрифтов:
