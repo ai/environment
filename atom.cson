@@ -6,6 +6,7 @@
     softWrap: true
     invisibles: {}
     zoomFontWhenCtrlScrolling: false
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+~_"
   core:
     disabledPackages: [
       "language-objective-c"
@@ -20,6 +21,8 @@
       "welcome"
       "spell-check"
       "deprecation-cop"
+      "timecop"
+      "styleguide"
     ]
     themes: [
       "seti-ui"
