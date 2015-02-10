@@ -30,7 +30,7 @@ prompt_git_progress() {
 }
 
 prompt_git() {
-    if [ -x "$(which git)" ]; then
+    if [ -x "$(which git 2> /dev/null)" ]; then
         local prompt_s="`git current-branch 2> /dev/null`"
         local prompt_git_status="`git status --porcelain -b 2> /dev/null`"
 
