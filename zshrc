@@ -60,8 +60,8 @@ fi
 alias b='bundle exec'
 
 # Node.js
-if [ -d ~/.npm-build/ ]; then
-    path=(~/.npm-build/node_modules/.bin/ $path)
+if [ -d ~/.node/ ]; then
+    path=(~/.node/node_modules/.bin/ ~/.node/iojs/bin/ $path)
 fi
 function n {
     if [ -d `npm bin` ]; then
