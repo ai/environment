@@ -365,10 +365,12 @@ gem install bundler
 Устаналиваем `node` и `npm`:
 
 ```sh
-sudo dnf install nodejs npm
-mkdir -p ~/.npm-build/
-cd ~/.npm-build/
-npm install npm node-gyp
+mkdir -p ~/.node/iojs/
+wget https://iojs.org/dist/v1.1.0/iojs-v1.1.0-linux-x64.tar.xz
+tar -xf iojs-* -C ~/.node/iojs --strip-components=1
+rm iojs-*.xz
+cd ~/.node/
+./iojs/bin/npm install npm node-gyp
 ```
 
 Устанавливаем Trimage:
@@ -420,6 +422,7 @@ fc-cache -v
 ```sh
 sudo dnf install zsh
 chsh -s /usr/bin/zsh
+rm ~/.bash_history ~/.bash_logout
 ```
 
 Устанавливаем Antigen:
