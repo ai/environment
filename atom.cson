@@ -6,7 +6,7 @@
     softWrap: true
     invisibles: {}
     zoomFontWhenCtrlScrolling: false
-    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+~_"
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
   core:
     disabledPackages: [
       "language-objective-c"
