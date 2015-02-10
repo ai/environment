@@ -105,8 +105,8 @@ prompt_gen() {
 "
     fi
 
-    local prompt_dir=`echo "$PWD" | sed -r "s|^/home/$USER|~|g"`
-    prompt_dir=`echo "$prompt_dir" | sed -r "s|^~/Dev/||g"`
+    local prompt_dir="`echo "$PWD" | sed -r "s|^/home/$USER|~|g"`"
+    prompt_dir="`echo "$prompt_dir" | sed -r "s|^~/Dev/||g"`"
 
     echo "$prompt_error
 %{$fg[green]%}$prompt_dir%{$reset_color%}$(prompt_git)
