@@ -405,15 +405,14 @@ rm atom.rpm
 gsettings set org.gnome.desktop.interface scaling-factor 2
 ```
 
-Устанавливаем шрифт Fira Code:
-
-```sh
-mkdir -p .fonts/
-wget https://github.com/tonsky/FiraCode/raw/master/FiraCode-Regular.otf -O .fonts/FiraCode-Regular.otf
-fc-cache -v
-```
-
 Устанавливаем темы и плагины из `Atom.md`.
+
+Устанавливаем ngrok. Скачиваем [архив](https://ngrok.com/download).
+
+```
+unzip ngrok.zip
+sudo cp ./ngrok /usr/local/bin/
+```
 
 ## zsh
 
