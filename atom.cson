@@ -1,12 +1,14 @@
 "*":
   editor:
-    fontFamily: "Fira Mono OT"
+    fontFamily: "Fira Mono"
     showIndentGuide: true
     tabLength: 2
     softWrap: true
-    invisibles: {}
+    invisibles:
+      {}
     zoomFontWhenCtrlScrolling: false
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+    fontSize: 17
   core:
     disabledPackages: [
       "language-objective-c"
@@ -36,13 +38,14 @@
     showOnStartup: false
   "markdown-preview":
     breakOnSingleNewline: true
-  "spell-check": {}
-".html.source":
+  "tree-view":
+    hideVcsIgnoredFiles: true
+".js.source":
   editor:
     tabLength: 4
 ".css.source":
   editor:
     tabLength: 4
-".js.source":
+".html.source":
   editor:
     tabLength: 4
