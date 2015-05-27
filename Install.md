@@ -5,13 +5,13 @@
 Скачиваем образ:
 
 ```sh
-wget http://download.fedoraproject.org/pub/fedora/linux/releases/21/Workstation/x86_64/iso/Fedora-Live-Workstation-x86_64-21-5.iso
+wget http://download.fedoraproject.org/pub/fedora/linux/releases/22/Workstation/x86_64/iso/Fedora-Live-Workstation-x86_64-22-3.iso
 ```
 
 Записываем его на USB-флешку:
 
 ```sh
-sudo yum remove liveusb-creator
+sudo dnf install liveusb-creator
 sudo liveusb-creator
 ```
 
@@ -149,6 +149,12 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:shift_caps_switc
 - Параметры → Вид: включить «Помещать папки перед файлами».
 - Параметры → Поведение: включить «Открыть объекты одним щелчком»
   и «Включить команду удаления, не использующую корзину».
+
+Выключаем сканирование ФС:
+
+```sh
+dconf read /org/freedesktop/tracker/miner/files
+```
 
 ### Оборудование
 
