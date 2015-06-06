@@ -199,7 +199,8 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Настройки → Показать дополнительные настройки → Веб-контент
 и выставить «Рабочий стол» в Скаченные файлы.
 
-Включить плавную прокрутку в `chrome://flags`.
+Включить «Плавная прокрутка» и «Переопределение списка программного рендеринга»
+в `chrome://flags`.
 
 Посмотреть ID-тачскрина в `xinput list` и добавить `--touch-devices=x`
 в опции ярлыка.
@@ -247,7 +248,7 @@ sudo dnf install gnome-tweek-tool
 - **Рабочий стол:** включить «Показывать значки на рабочем столе» и выключить
   все стандартные иконки.
 - **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
-  моноширный в «Fira Mono OT Regular», хиттинг в Slight
+  моноширный в «Fira Mono Regular», хиттинг в Slight
 - **Электропитание:** выставить «При нажатии кнопки выключения» в «Blank».
 
 ## Кодеки и шрифты
@@ -362,7 +363,7 @@ sudo dnf remove checkinstall rpm-build
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
-~/.bin/build-ruby 2.2.0
+~/.bin/build-ruby 2.2.2
 source /usr/local/share/chruby/chruby.sh
 chruby 2.2
 gem install bundler
@@ -435,20 +436,6 @@ rm ~/.bash_history ~/.bash_logout
 ```sh
 curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > .antigen.zsh
 source antigen.zsh
-```
-
-И пакеты необходимые для цветного `cat`:
-
-```sh
-sudo dnf install pygmentize
-```
-
-Привязываем 3000 порт на 80:
-
-```sh
-su -c 'echo "#!/bin/sh
-iptables -t nat -A OUTPUT -p tcp --dport 80 -d 127.0.0.1/8 -j REDIRECT --to-port 3000" > /etc/rc.d/rc.local'
-sudo chmod a+x /etc/rc.d/rc.local'
 ```
 
 ## Ярлыки
