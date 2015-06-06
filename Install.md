@@ -372,7 +372,7 @@ gem install bundler
 
 ```sh
 mkdir -p ~/.node/iojs/
-wget https://iojs.org/dist/v1.3.0/iojs-v1.3.0-linux-x64.tar.xz
+wget https://iojs.org/dist/v2.2.1/iojs-v2.2.1-linux-x64.tar.xz
 tar -xf iojs-* -C ~/.node/iojs --strip-components=1
 rm iojs-*.xz
 cd ~/.node/
