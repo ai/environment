@@ -95,44 +95,39 @@ sudo systemctl enable fstrim.timer
 ```sh
 sudo dnf remove shim grub2 grub2-tools grub2-efi
 sudo rm -R /boot/grub2
+sudo rm /boot/efi/EFI/fedora/grub*
 ```
 
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot*
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts gnome-maps yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-shell-extension-* libreoffice-* setroubleshoot* devassistant*
 ```
 
 Подключаем RPM Fusion:
 
 ```sh
-su -c 'yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
+su -c 'yum install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
 ```
 
 Подключаем Russian Fedora:
 
 ```sh
-su -c 'yum install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/fixes/fedora/russianfedora-fixes-release-stable.noarch.rpm'
+su -c 'yum install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm'
 ```
 
 Обновляем систему:
 
 ```sh
-sudo dnf update
-```
-
-Удаляем программы, которые появятся после обновления:
-
-```sh
-sudo dnf remove paprefs pavucontrol pavumeter paman
+sudo dnf update --refresh
 ```
 
 ### Настройка GNOME
 
 Открываем Настройки:
 
-- **Конфиденциальность:** включаем «Сервисы местоположения».
-- **Поиск:** выключаем «Терминал» и «Центр приложений».
+- **Поиск:** выключаем «Nautilus», «Пароли и ключи», «Терминал»
+  и «Центр приложений».
 - **Фон:** ставим обои из этой папки.
 - **Мышь и сенсорная панель:** включаем «Естественная прокрутка».
 - **Энегропитание:** выключаем «Уменьшать яркость при простое»,
@@ -153,29 +148,15 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:shift_caps_switc
 В Nautilus:
 
 - Параметры → Вид: включить «Помещать папки перед файлами».
-- Параметры → Поведение: включить «Открыть объекты одним щелчком»
-  и «Включить команду удаления, не использующую корзину».
+- Параметры → Поведение: включить «Открыть объекты одним щелчком».
 
 Выключаем сканирование ФС:
 
 ```sh
-dconf read /org/freedesktop/tracker/miner/files
+dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
 ### Оборудование
-
-Чиним тачскрин после сна:
-
-```sh
-su -c 'echo "#!/bin/sh
-
-case $1 in
-post)
-    rmmod hid_multitouch && modprobe hid_multitouch
-    ;;
-esac" > /usr/lib/systemd/system-sleep/touchscreen'
-sudo chmod a+x /usr/lib/systemd/system-sleep/touchscreen
-```
 
 Чиним WiFi:
 
@@ -191,6 +172,7 @@ sudo dnf install kmod-wl
 
 ```sh
 wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+mkdir ~/.cert
 unzip openvpn.zip -d ~/.cert/private-internet-access/
 rm openvpn.zip
 ```
@@ -201,15 +183,12 @@ rm openvpn.zip
 2. Название: «Private Internet Access».
 3. Шлюз: «germany.privateinternetaccess.com».
 4. Тип: «Пароль».
-5. Вводим логин и пароль.
-6. Указываем Сертификат ЦС `ca.crt` из скаченной папки.
-7. Дополнительно → Общие: оставляем только
+5. Указываем Сертификат ЦС `ca.crt` из скаченной папки.
+6. Дополнительно → Общие: оставляем только
    «Использовать для сжатия данных LZO».
+7. Вводим логин и пароль.
 
 ### Браузеры
-
-Включаем ретину в Фаерфоксе. Открываем `about:config`
-и выставляем `layout.css.devPixelsPerPx` равным `2`.
 
 Ставим для Фаерфокса расширения:
 
