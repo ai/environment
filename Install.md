@@ -383,7 +383,7 @@ wget https://iojs.org/dist/v2.2.1/iojs-v2.2.1-linux-x64.tar.xz
 tar -xf iojs-* -C ~/.node/iojs --strip-components=1
 rm iojs-*.xz
 cd ~/.node/
-./iojs/bin/npm install npm node-gyp
+./iojs/bin/npm install node-gyp
 ```
 
 Устанавливаем Trimage:
