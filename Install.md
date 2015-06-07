@@ -179,7 +179,7 @@ sudo dnf install kmod-wl
 
 Перезагружаемся.
 
-## Браузеры
+### Браузеры
 
 Включаем ретину в Фаерфоксе. Открываем `about:config`
 и выставляем `layout.css.devPixelsPerPx` равным `2`.
@@ -212,7 +212,7 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 Добавляем расширения «Evil Chrome» и «SaveFrom.net помощник».
 
-## Внешний вид
+### Внешний вид
 
 Ставим расширения из `GNOME.md`.
 
@@ -251,7 +251,7 @@ sudo dnf install gnome-tweek-tool
   моноширный в «Fira Mono Regular», хиттинг в Slight
 - **Электропитание:** выставить «При нажатии кнопки выключения» в «Blank».
 
-## Кодеки и шрифты
+### Кодеки и шрифты
 
 Устанавливаем кодеки:
 
@@ -271,7 +271,7 @@ sudo dnf install man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
-## Личные файлы
+### Личные файлы
 
 Устанавливаем пакеты для расшировки:
 
@@ -281,7 +281,7 @@ sudo dnf install fuse-encfs
 
 Скопировать `.Личное/`. Открыть его и скопировать папки `.ssh/` и `.gnupg/`.
 
-## Папки
+### Папки
 
 Создаём шаблон пустого файла:
 
@@ -317,7 +317,7 @@ rm -R Видео Документы Изображения Музыка Обще
 Выставляем иконку `/usr/share/icons/Faba/48x48/places/folder-documents.svg`
 для папки `Dev/`.
 
-## Разработка
+### Разработка
 
 Копируем файлы настройки:
 
@@ -386,7 +386,7 @@ cd ~/.node/
 sudo dnf install ftp://ftp.pbone.net/vol2/www.pclinuxos.com/pclinuxos/apt/pclinuxos/2011/RPMS.x86_64/trimage-1.0.5-3pclos2013.noarch.rpm
 ```
 
-## Текстовые редакторы
+### Текстовые редакторы
 
 Устанавливаем nano:
 
@@ -421,7 +421,7 @@ unzip ngrok.zip
 sudo cp ./ngrok /usr/local/bin/
 ```
 
-## zsh
+### zsh
 
 Устанавливаем zsh:
 
@@ -438,7 +438,7 @@ curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh >
 source antigen.zsh
 ```
 
-## Ярлыки
+### Ярлыки
 
 Удаляем папки иконок:
 
