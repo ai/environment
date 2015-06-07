@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Калькулятор
+Comment=Вычисления: арифметические, научные и финансовые
+Icon=accessories-calculator
+Exec=gnome-calculator
+Categories=GNOME;GTK;Utility;Calculator;
+NoDisplay=true
