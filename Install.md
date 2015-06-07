@@ -48,7 +48,7 @@ rm -f /boot/efi/EFI/fedora/vmlinuz.efi
 rm -f /boot/efi/EFI/fedora/initramfs.img
 cp $(ls /boot/vmlinuz-* | sort -r | head -1) /boot/efi/EFI/fedora/vmlinuz.efi
 cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.img" > etc/kernel/postinst.d/99-update-efis'
-sudo chmod a+x etc/kernel/postinst.d/99-update-efistu
+sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
 ```
 
 Устанавливаем ядро в качестве EFI-загрузчика:
