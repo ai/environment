@@ -179,6 +179,27 @@ sudo dnf install kmod-wl
 
 Перезагружаемся.
 
+### VPN
+
+Скачиваем сертификаты:
+
+```sh
+wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
+unzip openvpn.zip -d ~/.cert/private-internet-access/
+rm openvpn.zip
+```
+
+Создаём VPN-соединие:
+
+1. Настройки → Сеть → + → VPN → OpenVPN.
+2. Название: «Private Internet Access».
+3. Шлюз: «germany.privateinternetaccess.com».
+4. Тип: «Пароль».
+5. Вводим логин и пароль.
+6. Указываем Сертификат ЦС `ca.crt` из скаченной папки.
+7. Дополнительно → Общие: оставляем только
+   «Использовать для сжатия данных LZO».
+
 ### Браузеры
 
 Включаем ретину в Фаерфоксе. Открываем `about:config`
