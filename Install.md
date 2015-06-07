@@ -39,15 +39,19 @@ sudo liveusb-creator
 
 Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
 
-Создаём в скрипт обновления EFI-файлов при обновлении ядра:
+Создаём в скрипт обновления EFI-файлов при обновлении ядра
+в `etc/kernel/postinst.d/99-update-efistub`:
 
 ```sh
-su -c 'echo "#!/bin/bash
+#!/bin/bash
 
 rm -f /boot/efi/EFI/fedora/vmlinuz.efi
 rm -f /boot/efi/EFI/fedora/initramfs.img
 cp $(ls /boot/vmlinuz-* | sort -r | head -1) /boot/efi/EFI/fedora/vmlinuz.efi
-cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.img" > etc/kernel/postinst.d/99-update-efistub'
+cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.img
+```
+
+```sh
 sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
 ```
 
@@ -58,6 +62,8 @@ sudo bash
 UUID=$(cryptsetup luksUUID /dev/sda2)
 efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/backfire-root rd.lvm.lv=backfire/root rd.luks.uuid=luks-$UUID ro rhgb quiet LANG=ru_RU.UTF-8 initrd=\EFI\fedora\initramfs.img"
 ```
+
+Копируем первое ядро руками.
 
 ### Оптимизация для SSD
 
