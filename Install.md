@@ -295,7 +295,7 @@ sudo dnf install fuse-encfs
 touch ~/Шаблоны/Пустой\ файл
 ```
 
-Исправляем папки по-умолчанию `~/.config/user-dirs.dir`:
+Исправляем папки по-умолчанию `~/.config/user-dirs.dirs`:
 
 ```sh
 XDG_DESKTOP_DIR="$HOME/Рабочий стол"
