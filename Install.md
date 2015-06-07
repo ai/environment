@@ -17,9 +17,9 @@ sudo liveusb-creator
 
 ### Установка
 
-Открываем `/usr/lib64/python2.7/site-packages/pyanaconda` и исправляем методы
-`is_valid_stage1_device` и `is_valid_stage2_device`, чтобы они всегда возвращали
-`True`.
+Открываем `/usr/lib64/python2.7/site-packages/pyanaconda/bootloader.py`
+и исправляем методы `is_valid_stage1_device` и `is_valid_stage2_device`,
+чтобы они всегда возвращали `True`.
 
 Запускаем установщик.
 
