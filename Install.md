@@ -355,7 +355,7 @@ sudo dnf install ftp://fr2.rpmfind.net/linux/opensuse/distribution/11.4/repo/oss
 wget -O chruby.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
 tar -xzvf chruby.tar.gz
 cd chruby-0.3.9/
-mkdir /usr/local/share/doc
+sudo mkdir /usr/local/share/doc
 LANG=en checkinstall
 sudo dnf install /home/ai/rpmbuild/RPMS/x86_64/*.rpm
 cd ..
@@ -369,7 +369,7 @@ sudo dnf remove checkinstall rpm-build
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
-~/.bin/build-ruby 2.2.2
+~/Dev/environment/bin/build-ruby 2.2.2
 source /usr/local/share/chruby/chruby.sh
 chruby 2.2
 gem install bundler
