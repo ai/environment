@@ -441,7 +441,7 @@ rm ~/.bash_history ~/.bash_logout
 
 ```sh
 curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > .antigen.zsh
-source antigen.zsh
+source .antigen.zsh
 ```
 
 ### Ярлыки
