@@ -295,17 +295,17 @@ sudo dnf install fuse-encfs
 touch ~/Шаблоны/Пустой\ файл
 ```
 
-Исправляем папки по-умолчанию:
+Исправляем папки по-умолчанию `~/.config/user-dirs.dir`:
 
 ```sh
-echo 'XDG_DESKTOP_DIR="$HOME/Рабочий стол"
+XDG_DESKTOP_DIR="$HOME/Рабочий стол"
 XDG_DOWNLOAD_DIR="$HOME/Загрузки"
 XDG_TEMPLATES_DIR="$HOME/Шаблоны"
 XDG_PUBLICSHARE_DIR="$HOME/"
 XDG_DOCUMENTS_DIR="$HOME/"
 XDG_MUSIC_DIR="$HOME/"
 XDG_PICTURES_DIR="$HOME/"
-XDG_VIDEOS_DIR="$HOME/"' > ~/.config/user-dirs.di
+XDG_VIDEOS_DIR="$HOME/"
 ```
 
 Чистим закладки:
