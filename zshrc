@@ -36,19 +36,6 @@ alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -A'
 
-# Colorized cat
-if [ -x "$(which pygmentize)" ]; then
-    colorize() {
-        local lexer=`pygmentize -N "$@"`
-        if [ "Z$lexer" != "Ztext" ]; then
-            pygmentize -l $lexer "$@"
-        else
-            cat "$@"
-        fi
-    }
-    alias cot='colorize'
-fi
-
 # Prompt
 source ~/.prompt.zsh
 
