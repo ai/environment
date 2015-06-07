@@ -40,12 +40,12 @@
     breakOnSingleNewline: true
   "tree-view":
     hideVcsIgnoredFiles: true
-".js.source":
+".html.source":
   editor:
     tabLength: 4
 ".css.source":
   editor:
     tabLength: 4
-".html.source":
+".js.source":
   editor:
     tabLength: 4
