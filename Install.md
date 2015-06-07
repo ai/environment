@@ -101,7 +101,7 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts gnome-maps yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-shell-extension-* libreoffice-* setroubleshoot* devassistant*
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts gnome-maps yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-font-viewer gucharmap gnome-shell-extension-* libreoffice-* setroubleshoot* devassistant*
 ```
 
 Подключаем RPM Fusion:
