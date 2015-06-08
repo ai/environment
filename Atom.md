@@ -3,6 +3,7 @@
 Plugins:
 
 - `language-slim`
+- `language-jade`
 
 Themes:
 
