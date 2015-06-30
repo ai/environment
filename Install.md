@@ -161,7 +161,8 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 Чиним WiFi:
 
 ```sh
-sudo dnf install kmod-wl
+sudo dnf install kernel-devel akmod-wl
+sudo akmods
 ```
 
 Перезагружаемся.
