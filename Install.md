@@ -156,6 +156,21 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:shift_caps_switc
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
+Создаём своп-файл:
+
+```sh
+sudo fallocate -l 4G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
+
+И добавляем в `/etc/fstab`:
+
+```
+/swapfile none swap defaults 0 0
+```
+
 ### Оборудование
 
 Чиним WiFi:
