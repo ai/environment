@@ -10,4 +10,4 @@
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
-- [Alt Tab Workspace](https://extensions.gnome.org/extension/310/alt-tab-workspace/)
+- [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
