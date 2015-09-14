@@ -398,12 +398,12 @@ gem install bundler
 Устаналиваем `node` и `npm`:
 
 ```sh
-mkdir -p ~/.node/iojs/
-wget https://iojs.org/dist/v2.2.1/iojs-v2.2.1-linux-x64.tar.xz
-tar -xf iojs-* -C ~/.node/iojs --strip-components=1
-rm iojs-*.xz
+mkdir -p ~/.node/nodejs/
+wget https://nodejs.org/dist/latest/node-v4.0.0-linux-x64.tar.gz
+tar -xf node-* -C ~/.node/nodejs --strip-components=1
+rm node-*.xz
 cd ~/.node/
-./iojs/bin/npm install node-gyp
+./nodejs/bin/npm install node-gyp
 ```
 
 Устанавливаем Trimage:
