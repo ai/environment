@@ -4,8 +4,7 @@
     showIndentGuide: true
     tabLength: 2
     softWrap: true
-    invisibles:
-      {}
+    invisibles: {}
     zoomFontWhenCtrlScrolling: false
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
     fontSize: 17
