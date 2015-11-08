@@ -60,3 +60,7 @@ function n {
         return 1
     fi
 }
+
+# Go
+export GOPATH=~/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
