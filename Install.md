@@ -416,6 +416,14 @@ cd ~/.node/
 sudo dnf install ftp://ftp.pbone.net/vol2/www.pclinuxos.com/pclinuxos/apt/pclinuxos/2011/RPMS.x86_64/trimage-1.0.5-3pclos2013.noarch.rpm
 ```
 
+Устанавливаем Go:
+
+```sh
+sudo dnf install golang
+mkdir -p ~/.go
+go get -u -f github.com/DarthSim/hivemind
+```
+
 ### Текстовые редакторы
 
 Устанавливаем nano:
