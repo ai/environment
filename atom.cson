@@ -1,6 +1,6 @@
 "*":
   editor:
-    fontFamily: "Fira Mono"
+    fontFamily: "Fira Code"
     showIndentGuide: true
     tabLength: 2
     softWrap: true
@@ -37,8 +37,19 @@
     showOnStartup: false
   "markdown-preview":
     breakOnSingleNewline: true
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  "tree-view": {}
+".attribute-values.js.jsx.source":
+  editor:
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+".js.jsx.react.source":
+  editor:
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+".js.jsx.source":
+  editor:
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+".js.source.subtlegradient":
+  editor:
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
 ".html.source":
   editor:
     tabLength: 4
