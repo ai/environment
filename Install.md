@@ -242,10 +242,14 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Ставим расширения из `GNOME.md`. Добавляем Сан-Франциско, Москву, Пекин
 и Владивосток в Часы.
 
-Установить шрифт Fira Mono:
+Установить шрифт Fira Mono и Fire Code:
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
+wget https://github.com/tonsky/FiraCode/releases/download/0.6/FiraCode-Regular.otf
+mkdir -p ~/.fonts/FiraCode/
+mv FiraCode-Regular.otf ~/.fonts/FiraCode/
+fc-cache
 ```
 
 Установить иконки и тему:
@@ -274,7 +278,7 @@ sudo dnf install gnome-tweek-tool
 - **Рабочий стол:** включить «Показывать значки на рабочем столе» и выключить
   все стандартные иконки.
 - **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
-  моноширный в «Fira Mono Regular», хиттинг в Slight
+  моноширный в «Fira Code», хиттинг в Slight
 - **Электропитание:** выставить «При нажатии кнопки выключения» в «Blank».
 
 ### Кодеки и шрифты
