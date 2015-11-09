@@ -439,7 +439,7 @@ include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 Установить Атом:
 
 ```sh
-wget https://atom.io/download/rpm -O atom.rpm
+wget https://atom.io/download/rpm?channel=beta -O atom.rpm
 sudo dnf install atom.rpm
 rm atom.rpm
 ```
