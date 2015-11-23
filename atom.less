@@ -1,0 +1,13 @@
+atom-text-editor {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-feature-settings: "liga" on, "calt" on;
+}
+
+atom-text-editor::shadow .cursor-line {
+    -webkit-font-feature-settings: "liga" off, "calt" off;
+}
+
+div.find-and-replace atom-text-editor::shadow .line {
+    -webkit-font-feature-settings: "liga" off, "calt" off;
+}
