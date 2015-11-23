@@ -4,6 +4,7 @@ Plugins:
 
 - `language-slim`
 - `language-jade`
+- `language-postcss`
 
 Themes:
 
