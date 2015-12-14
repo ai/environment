@@ -5,6 +5,7 @@ Plugins:
 - `language-slim`
 - `language-jade`
 - `language-postcss`
+- `gtk-dark-theme`
 
 Themes:
 
