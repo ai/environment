@@ -1,14 +1,6 @@
 "*":
-  editor:
-    fontFamily: "Fira Code"
-    showIndentGuide: true
-    tabLength: 2
-    softWrap: true
-    invisibles: {}
-    zoomFontWhenCtrlScrolling: false
-    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
-    fontSize: 17
   core:
+    autoHideMenuBar: true
     disabledPackages: [
       "language-objective-c"
       "archive-view"
@@ -25,37 +17,45 @@
       "timecop"
       "styleguide"
     ]
+    projectHome: "/home/ai/Dev"
     themes: [
       "seti-ui"
       "seti-syntax"
     ]
-    projectHome: "/home/ai/Dev"
-    autoHideMenuBar: true
+  editor:
+    fontFamily: "Fira Code"
+    fontSize: 17
+    invisibles: {}
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+    showIndentGuide: true
+    softWrap: true
+    tabLength: 2
+    zoomFontWhenCtrlScrolling: false
   "exception-reporting":
     userId: "51ccaaae-04bc-1ed3-3445-f9bd1a2f3a71"
-  welcome:
-    showOnStartup: false
   "markdown-preview":
     breakOnSingleNewline: true
   "tree-view": {}
+  welcome:
+    showOnStartup: false
 ".attribute-values.js.jsx.source":
   editor:
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+".css.source":
+  editor:
+    tabLength: 4
+".html.source":
+  editor:
+    tabLength: 4
 ".js.jsx.react.source":
   editor:
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
 ".js.jsx.source":
   editor:
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
-".js.source.subtlegradient":
-  editor:
-    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
-".html.source":
-  editor:
-    tabLength: 4
-".css.source":
-  editor:
-    tabLength: 4
 ".js.source":
   editor:
     tabLength: 4
+".js.source.subtlegradient":
+  editor:
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
