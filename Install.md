@@ -407,7 +407,7 @@ wget https://nodejs.org/dist/latest/node-v4.0.0-linux-x64.tar.gz
 tar -xf node-* -C ~/.node/nodejs --strip-components=1
 rm node-*.xz
 cd ~/.node/
-./nodejs/bin/npm install node-gyp
+npm install
 ```
 
 Устанавливаем Trimage:
