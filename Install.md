@@ -5,7 +5,7 @@
 Скачиваем образ:
 
 ```sh
-wget http://download.fedoraproject.org/pub/fedora/linux/releases/22/Workstation/x86_64/iso/Fedora-Live-Workstation-x86_64-22-3.iso
+wget https://download.fedoraproject.org/pub/fedora/linux/releases/23/Workstation/x86_64/iso/Fedora-Live-Workstation-x86_64-23-10.iso
 ```
 
 Записываем его на USB-флешку:
@@ -339,9 +339,6 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 rm -R Видео Документы Изображения Музыка Общедоступные
 ```
 
-Выставляем иконку `/usr/share/icons/Faba/48x48/places/folder-documents.svg`
-для папки `Dev/`.
-
 ### Разработка
 
 Копируем файлы настройки:
@@ -388,9 +385,9 @@ sudo dnf remove checkinstall rpm-build
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
-~/Dev/environment/bin/build-ruby 2.2.2
+~/Dev/environment/bin/build-ruby 2.3
 source /usr/local/share/chruby/chruby.sh
-chruby 2.2
+chruby 2.3
 gem install bundler
 ```
 
