@@ -3,5 +3,5 @@ Type=Application
 Name=ТимСпик
 Comment=Конференции
 Icon=teamspeak
-Exec=/usr/local/lib/teamspeak/ts3client_runscript.sh
+Exec=/usr/local/share/teamspeak/ts3client_runscript.sh
 Categories=Network;

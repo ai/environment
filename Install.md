@@ -25,12 +25,12 @@ sudo liveusb-creator
 
 1. Английскую раскладку на первое место. Переключение раскладок:
    «Caps Lock (на первую раскладку), Shift+Caps Lock (на последнюю раскладку)».
-2. Сеть и имя узла: «backfire».
+2. Сеть и имя узла: «flatline».
 3. Разбиение диска:
 
     ```
    /boot/efi EFI  500 МиБ
-   /         ext4 LVM backfire-root
+   /         ext4 LVM flatline-root
     ```
 4. Пользовать:
    - Полное имя: `Андрей Ситник`
@@ -60,7 +60,7 @@ sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
 ```sh
 sudo bash
 UUID=$(cryptsetup luksUUID /dev/sda2)
-efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/backfire-root rd.lvm.lv=backfire/root rd.luks.uuid=luks-$UUID ro rhgb quiet LANG=ru_RU.UTF-8 initrd=\EFI\fedora\initramfs.img"
+efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/flatline-root rd.lvm.lv=flatline/root rd.luks.uuid=luks-$UUID ro rhgb quiet LANG=ru_RU.UTF-8 initrd=\EFI\fedora\initramfs.img"
 ```
 
 Копируем первое ядро руками.
@@ -80,6 +80,21 @@ none /tmp/     tmpfs noatime 0 0
 
 Чистим каталоги `tmp` и `var/tmp`.
 
+Создаём swap-файл:
+
+```sh
+sudo fallocate -l 4G ./swapfile
+sudo chmod 600 ./swapfile
+sudo mkswap ./swapfile
+sudo swapon ./swapfile
+```
+
+И добавляем его в `/etc/fstab`:
+
+```
+/swapfile none swap defaults 0 0
+```
+
 Перезагружаемся в систему и включаем TRIM:
 
 ```sh
@@ -87,6 +102,12 @@ sudo systemctl enable fstrim.timer
 ```
 
 ### Обновление системы
+
+Включаем HiDPI:
+
+```sh
+gsettings set org.gnome.desktop.interface scaling-factor 2
+```
 
 Запускаем `seahorse` и убираем пароль со «Вход».
 
@@ -156,32 +177,6 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:shift_caps_switc
 ```sh
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
-
-Создаём своп-файл:
-
-```sh
-sudo fallocate -l 4G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-```
-
-И добавляем в `/etc/fstab`:
-
-```
-/swapfile none swap defaults 0 0
-```
-
-### Оборудование
-
-Чиним WiFi:
-
-```sh
-sudo dnf install kernel-devel akmod-wl
-sudo akmods
-```
-
-Перезагружаемся.
 
 ### VPN
 
@@ -442,12 +437,6 @@ include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 wget https://atom.io/download/rpm?channel=beta -O atom.rpm
 sudo dnf install atom.rpm
 rm atom.rpm
-```
-
-Включить HiDPI в Атоме:
-
-```sh
-gsettings set org.gnome.desktop.interface scaling-factor 2
 ```
 
 Устанавливаем темы и плагины из `Atom.md`.
