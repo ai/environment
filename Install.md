@@ -264,6 +264,17 @@ sudo wget http://download.opensuse.org/repositories/home:snwh:moka-project/Fedor
 sudo dnf install faba-icon-theme moka-icon-theme
 ```
 
+Ставим цветовой профиль:
+
+```sh
+sudo dnf install xcalib
+mkdir -p ~/.config/screen/color-profile/
+wget https://github.com/zetxx/dotfiles/raw/xps13/screen/color-profile/profile.icm
+mv profile.icm ~/.config/screen/color-profile
+```
+
+Добавить профиль в настройках цвета.
+
 Улучшаем рендер шрифтов:
 
 ```sh
