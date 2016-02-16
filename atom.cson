@@ -23,7 +23,7 @@
       "seti-syntax"
     ]
   editor:
-    fontFamily: "Fira Code"
+    fontFamily: "Fira Code Retina"
     fontSize: 17
     invisibles: {}
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
