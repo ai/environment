@@ -501,6 +501,7 @@ X-GNOME-Autostart-enabled=true" > ~/.config/autostart/clean-folder.desktop
 ```sh
 chmod a+x TeamSpeak3-Client-linux_amd64-*
 ./TeamSpeak3-Client-linux_amd64-[TAB]
+rm ./TeamSpeak3-Client-linux_amd64-*
 mv TeamSpeak3-Client-linux_amd64 teamspeak
 sudo cp -R teamspeak /usr/local/share/
 rm -R teamspeak
