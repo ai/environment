@@ -17,7 +17,7 @@ sudo liveusb-creator
 
 ### Установка
 
-Открываем `/usr/lib64/python2.7/site-packages/pyanaconda/bootloader.py`
+Открываем `/usr/lib64/python3.4/site-packages/pyanaconda/bootloader.py`
 и исправляем методы `is_valid_stage1_device` и `is_valid_stage2_device`,
 чтобы они всегда возвращали `True`.
 
@@ -30,7 +30,7 @@ sudo liveusb-creator
 
     ```
    /boot/efi EFI  500 МиБ
-   /         ext4 LVM flatline-root
+   /         ext4 LVM Имя: flatline-root
     ```
 4. Пользовать:
    - Полное имя: `Андрей Ситник`
@@ -55,15 +55,27 @@ cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.im
 sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
 ```
 
-Устанавливаем ядро в качестве EFI-загрузчика:
+Копируем первое ядро руками.
+
+Узнаём UUID диска:
 
 ```sh
-sudo bash
-UUID=$(cryptsetup luksUUID /dev/sda2)
-efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/flatline-root rd.lvm.lv=flatline/root rd.luks.uuid=luks-$UUID ro rhgb quiet LANG=ru_RU.UTF-8 initrd=\EFI\fedora\initramfs.img"
+cryptsetup luksUUID /dev/mapper/flatline-root
 ```
 
-Копируем первое ядро руками.
+Скачиваем rEFInd и копируем `refind_x64.efi` в `EFI/fedora`.
+Создаём `EFI/fedora/refind.conf` подставляя нужный `UUID`:
+
+```
+timeout 0
+use_graphics_for linux
+menuentry Fedora {
+	volume KERNELS
+	loader /EFI/fedora/vmlinuz.efi
+  initrd /EFI/fedora/initramfs.img
+  option "root=/dev/mapper/luks-UUID rd.lvm.lv=flatline/root rd.luks.uuid=luks-UUID ro rhgb quite LANG=ru_RU.UTF-8"
+}
+```
 
 ### Оптимизация для SSD
 
@@ -71,11 +83,12 @@ efibootmgr -c -g -L "Fedora" -l '\EFI\fedora\vmlinuz.efi' -u "root=/dev/mapper/f
 
 Добавляем опцию `noatime` для корневой системы.
 
-Переносим `/tmp` и `/var/log` в оперативную память:
+Переносим `/tmp` и `/var/tmp` в оперативную память:
 
 ```
 none /var/tmp  tmpfs noatime 0 0
 none /tmp/     tmpfs noatime 0 0
+/swapfile none swap defaults 0 0
 ```
 
 Чистим каталоги `tmp` и `var/tmp`.
@@ -86,14 +99,10 @@ none /tmp/     tmpfs noatime 0 0
 sudo fallocate -l 8G ./swapfile
 sudo chmod 600 ./swapfile
 sudo mkswap ./swapfile
-sudo swapon ./swapfile
 ```
 
-И добавляем его в `/etc/fstab`:
-
-```
-/swapfile none swap defaults 0 0
-```
+Перезагружаемся в BIOS и добавляем EFI-образ `EFI/fedora/refind_x64.efi`
+под именем «Fedora».
 
 Перезагружаемся в систему и включаем TRIM:
 
@@ -122,19 +131,19 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre brasero-libs desktop-backgrounds-basic orca gnome-contacts gnome-maps yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-font-viewer gucharmap gnome-shell-extension-* libreoffice-* setroubleshoot* devassistant*
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-shell-extension-* libreoffice-* setroubleshoot*
 ```
 
 Подключаем RPM Fusion:
 
 ```sh
-su -c 'yum install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
+su -c 'dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
 ```
 
 Подключаем Russian Fedora:
 
 ```sh
-su -c 'yum install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm'
+su -c 'dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/fixes/fedora/russianfedora-fixes-release-stable.noarch.rpm'
 ```
 
 Обновляем систему:
@@ -143,6 +152,8 @@ su -c 'yum install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/rus
 sudo dnf update --refresh
 ```
 
+Перезагружаемся.
+
 ### Настройка GNOME
 
 Открываем Настройки:
@@ -150,7 +161,8 @@ sudo dnf update --refresh
 - **Поиск:** выключаем «Nautilus», «Пароли и ключи», «Терминал»
   и «Центр приложений».
 - **Фон:** ставим обои из этой папки.
-- **Мышь и сенсорная панель:** включаем «Естественная прокрутка».
+- **Мышь и сенсорная панель:** чувствительность на максимум,
+  включаем «Естественная прокрутка».
 - **Энегропитание:** выключаем «Уменьшать яркость при простое»,
   ставим «Выключение экрана» в «Никогда».
 - **Пользователи:** ставим аватарку из этой папки и «Автоматический вход».
