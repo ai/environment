@@ -17,7 +17,7 @@ if [ "$1" == "system" ]; then
     cp ~/Dev/environment/bundle         ~/.bundle/config
     cp ~/Dev/environment/mpv-input.conf ~/.mpv/input.conf
     cp ~/Dev/environment/atom.cson      ~/.atom/config.cson
-    cp ~/Dev/environment/atom.less      ~/.atom/styles.cson
+    cp ~/Dev/environment/atom.less      ~/.atom/styles.less
     cp ~/Dev/environment/package.json   ~/.node/package.json
 else
     rm ~/Dev/environment/icons/*.desktop
