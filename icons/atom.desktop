@@ -3,6 +3,6 @@ Type=Application
 Name=Редактор
 Comment=Текстовый редактор
 Icon=atom
-Exec=atom-beta %U
+Exec=atom %U
 Categories=TextEditor;Development;
 MimeType=text/plain;

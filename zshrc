@@ -30,7 +30,7 @@ if [ -d ~/Dev ]; then
 fi
 
 # Aliases
-alias e='atom-beta .'
+alias e='atom .'
 alias g='git'
 alias ..='cd ..'
 alias ll='ls -lh'
