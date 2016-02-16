@@ -118,8 +118,6 @@ sudo systemctl enable fstrim.timer
 gsettings set org.gnome.desktop.interface scaling-factor 2
 ```
 
-Запускаем `seahorse` и убираем пароль со «Вход».
-
 Удаляем GRUB:
 
 ```sh
@@ -131,7 +129,7 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters
 ```
 
 Подключаем RPM Fusion:
@@ -239,6 +237,9 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Добавляем расширения «Evil Chrome» и «SaveFrom.net помощник».
 
 ### Внешний вид
+
+Запускаем `seahorse` и убираем пароль со «Вход» и «GNOME 2».
+Удаляем `seahorse`.
 
 Ставим расширения из `GNOME.md`. Добавляем Сан-Франциско, Москву, Пекин
 и Владивосток в Часы.
