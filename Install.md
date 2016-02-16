@@ -158,9 +158,8 @@ sudo dnf update --refresh
 
 Открываем Настройки:
 
-- **Поиск:** выключаем «Nautilus», «Пароли и ключи», «Терминал»
-  и «Центр приложений».
-- **Фон:** ставим обои из этой папки.
+- **Поиск:** выключаем «Nautilus», «Терминал» и «Центр приложений».
+- **Фон:** ставим обои из этой папки и стандартный фон на экран блокировки.
 - **Мышь и сенсорная панель:** чувствительность на максимум,
   включаем «Естественная прокрутка».
 - **Энегропитание:** выключаем «Уменьшать яркость при простое»,
@@ -228,19 +227,14 @@ rm linux_signing_key.pub
 sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 ```
 
-Настройки → Показать дополнительные настройки:
-выставить «Рабочий стол» в Скаченные файлы.
+Настройки: «Раннее открытые вкладки».
+Показать дополнительные настройки: выставить «Рабочий стол» в Скаченные файлы.
 
 Включить «Плавная прокрутка» и «Переопределение списка программного рендеринга»
 в `chrome://flags`.
 
-Посмотреть ID-тачскрина в `xinput list` и добавить `--touch-devices=x`
-в опции ярлыка.
-
 Авторизоваться в Хроме. Авторизоваться в Твиттере, ГитХабе, Гиттере, Слаках,
-ВКонтакте, Фидли, Ютуб, Фейсбуке, Амплифере и Википедии.
-
-Сделать аккаунты «Английский», «Автопрефиксер» и «PostCSS».
+ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии.
 
 Добавляем расширения «Evil Chrome» и «SaveFrom.net помощник».
 
@@ -253,7 +247,7 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
-wget https://github.com/tonsky/FiraCode/releases/download/0.6/FiraCode-Regular.otf
+wget https://github.com/tonsky/FiraCode/releases/download/1.102/FiraCode-Regular.otf
 mkdir -p ~/.fonts/FiraCode/
 mv FiraCode-Regular.otf ~/.fonts/FiraCode/
 fc-cache
