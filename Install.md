@@ -272,7 +272,7 @@ sudo dnf install freetype-freeworld
 Установить GNOME Tweek Tool:
 
 ```sh
-sudo dnf install gnome-tweek-tool
+sudo dnf install gnome-tweak-tool
 ```
 
 И выставить в нём настроки:
