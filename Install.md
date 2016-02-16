@@ -247,9 +247,12 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
-wget https://github.com/tonsky/FiraCode/releases/download/1.102/FiraCode-Regular.otf
 mkdir -p ~/.fonts/FiraCode/
-mv FiraCode-Regular.otf ~/.fonts/FiraCode/
+```
+
+Скачиваем файлы FiraCode с репозитория в новую папку.
+
+```
 fc-cache
 ```
 
@@ -257,7 +260,7 @@ fc-cache
 
 ```sh
 sudo wget http://download.opensuse.org/repositories/home:snwh:moka-project/Fedora_21/home:snwh:moka-project.repo -O /etc/yum.repos.d/moka-project.repo
-sudo dnf install faba-icon-theme moka-icon-theme moka-gnome-shell-theme
+sudo dnf install faba-icon-theme moka-icon-theme
 ```
 
 Улучшаем рендер шрифтов:
