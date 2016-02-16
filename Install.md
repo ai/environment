@@ -131,7 +131,7 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-shell-extension-* libreoffice-* setroubleshoot*
+sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto seahorse gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters
 ```
 
 Подключаем RPM Fusion:
@@ -404,7 +404,7 @@ gem install bundler
 
 ```sh
 mkdir -p ~/.node/nodejs/
-wget https://nodejs.org/dist/latest/node-v4.0.0-linux-x64.tar.gz
+wget https://nodejs.org/dist/latest/node-v5.6.0-linux-x64.tar.gz
 tar -xf node-* -C ~/.node/nodejs --strip-components=1
 rm node-*.xz
 cd ~/.node/
