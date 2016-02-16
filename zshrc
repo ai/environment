@@ -17,7 +17,6 @@ compinit
 if [ -f ~/.antigen.zsh ]; then
     source ~/.antigen.zsh
     antigen use oh-my-zsh
-    antigen bundle colored-man
     antigen bundle per-directory-history
     antigen bundle command-not-found
     antigen bundle zsh-users/zsh-syntax-highlighting
