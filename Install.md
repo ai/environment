@@ -168,7 +168,7 @@ sudo dnf update --refresh
 Выставляем настройки клавиатуры:
 
 ```sh
-dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:win_space_toggle', 'grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3']"
+dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:win_space_toggle', 'grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3', 'caps:none']"
 ```
 
 В Терминале:
