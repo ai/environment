@@ -109,7 +109,7 @@ sudo chmod 600 ./swapfile
 sudo mkswap ./swapfile
 ```
 
-Перезагружаемся в BIOS и добавляем EFI-образ `EFI/fedora/refind_x64.efi`
+Перезагружаемся в BIOS и добавляем EFI-образ `EFI/fedora/systemd-bootx64.efi`
 под именем «Fedora».
 
 Перезагружаемся в систему и включаем TRIM:
