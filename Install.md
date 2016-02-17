@@ -276,17 +276,6 @@ sudo wget http://download.opensuse.org/repositories/home:snwh:moka-project/Fedor
 sudo dnf install faba-icon-theme moka-icon-theme
 ```
 
-Ставим цветовой профиль:
-
-```sh
-sudo dnf install xcalib
-mkdir -p ~/.config/screen/color-profile/
-wget https://github.com/zetxx/dotfiles/raw/xps13/screen/color-profile/profile.icm
-mv profile.icm ~/.config/screen/color-profile
-```
-
-Добавить профиль в настройках цвета.
-
 Улучшаем рендер шрифтов:
 
 ```sh
@@ -399,26 +388,19 @@ sudo su postgres -c 'createuser -s ai'
 Устаналиваем `chruby`:
 
 ```sh
-sudo dnf install rpm-build
-sudo dnf install ftp://fr2.rpmfind.net/linux/opensuse/distribution/11.4/repo/oss/suse/x86_64/checkinstall-1.6.2-8.1.x86_64.rpm
-wget -O chruby.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-tar -xzvf chruby.tar.gz
+wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+tar -xzvf chruby-0.3.9.tar.gz
 cd chruby-0.3.9/
-sudo mkdir /usr/local/share/doc
-LANG=en checkinstall
-sudo dnf install /home/ai/rpmbuild/RPMS/x86_64/*.rpm
+sudo make install
 cd ..
 rm -Rf chruby-0.3.9/
-rm chruby.tar.gz
-rm -R rpmbuild/
-sudo dnf remove checkinstall rpm-build
 ```
 
 Собираем последний Ruby:
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
-~/Dev/environment/bin/build-ruby 2.3
+~/Dev/environment/bin/build-ruby 2.3.0
 source /usr/local/share/chruby/chruby.sh
 chruby 2.3
 gem install bundler
