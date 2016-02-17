@@ -63,18 +63,26 @@ sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
 cryptsetup luksUUID /dev/mapper/flatline-root
 ```
 
-Скачиваем rEFInd и копируем `refind_x64.efi` в `EFI/fedora`.
-Создаём `EFI/fedora/refind.conf` подставляя нужный `UUID`:
+Копируем EFI-загрузчик:
+
+```sh
+sudo cp /usr/lib/systemd/boot/efi/systemd-bootx64.efi /boot/efi/EFI/fedora/
+sudo mkdir -p /boot/efi/loader/entries
+```
+
+Создаём для него настройки. `/boot/efi/loader/loader.conf`:
 
 ```
-timeout 0
-use_graphics_for linux
-menuentry Fedora {
-	volume KERNELS
-	loader /EFI/fedora/vmlinuz.efi
-  initrd /EFI/fedora/initramfs.img
-  option "root=/dev/mapper/luks-UUID rd.lvm.lv=flatline/root rd.luks.uuid=luks-UUID ro rhgb quite LANG=ru_RU.UTF-8"
-}
+default fedora
+```
+
+`/boot/efi/loader/entries/fedora.conf`:
+
+```
+title   Fedora
+linux   /EFI/fedora/vmlinuz.efi
+initrd  /EFI/fedora/initramfs.img
+options root=/dev/mapper/luks-UUID rd.lvm.lv=flatline/root rd.luks.uuid=luks-UUID ro rhgb quiet LANG=ru_RU.UTF-8
 ```
 
 ### Оптимизация для SSD
