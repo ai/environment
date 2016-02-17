@@ -144,6 +144,13 @@ su -c 'dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfu
 su -c 'dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/fixes/fedora/russianfedora-fixes-release-stable.noarch.rpm'
 ```
 
+Подключаем репозиторий со свежим ядром:
+
+```sh
+curl -s https://repos.fedorapeople.org/repos/thl/kernel-vanilla.repo | sudo tee /etc/yum.repos.d/kernel-vanilla.repo
+sudo dnf --enablerepo=kernel-vanilla-stable update
+```
+
 Обновляем систему:
 
 ```sh
@@ -371,7 +378,7 @@ rm -R Видео Документы Изображения Музыка Обще
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install gitg ack redis postgresql postgresql-server postgresql-contrib
+sudo dnf install git gitg ack redis postgresql postgresql-server postgresql-contrib
 ```
 
 Запускаем PostgreSQL:
