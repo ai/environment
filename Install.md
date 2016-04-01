@@ -246,7 +246,10 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Авторизоваться в Хроме. Авторизоваться в Твиттере, ГитХабе, Гиттере, Слаках,
 ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии.
 
-Добавляем расширения «Evil Chrome» и «SaveFrom.net помощник».
+Добавляем расширения «[Evil Chrome]» и «SaveFrom.net помощник»
+
+[SaveFrom.net помощник]: http://ru.savefrom.net/savefrom-helper-for-google-chrome.php
+[Evil Chrome]:           https://evilmartians.slack.com/files/yaroslav/F0XAA0LF4/evil-chrome__1_.crx
 
 ### Внешний вид
 
