@@ -50,10 +50,10 @@ if [ -d ~/.node/ ]; then
     path=(~/.node/node_modules/.bin/ ~/.node/nodejs/bin/ $path)
 fi
 function n {
-    if [ -d `npm bin` ]; then
+    if [ -d "`npm bin`" ]; then
         PROG="$1"
         shift
-        `npm bin`/$PROG "$@"
+        "`npm bin`/$PROG" "$@"
     else
         echo 'No node_modules in any dir of current path' 1>&2
         return 1
