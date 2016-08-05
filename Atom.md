@@ -6,11 +6,18 @@ Plugins:
 - `language-jade`
 - `language-postcss`
 - `gtk-dark-theme`
+- `file-icons`
+- `linter`
+- `linter-eslint`
+- `linter-stylelint`
+- `minimap`
+- `minimap-linter`
+- `minimap-find-and-replace`
 
 Themes:
 
-- `seti-ui`
-- `seti-syntax`
+- `atom-material-ui`
+- `atom-panda-syntax`
 
 Font:
 
