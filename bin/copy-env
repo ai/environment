@@ -33,4 +33,5 @@ else
     cp ~/.atom/config.cson  ~/Dev/environment/atom.cson
     cp ~/.atom/styles.less  ~/Dev/environment/atom.less
     cp ~/.node/package.json ~/Dev/environment/package.json
+    rm ~/Dev/environment/icons/chrome-*
 fi
