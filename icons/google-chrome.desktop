@@ -5,4 +5,4 @@ Comment=Доступ в Интернет
 Icon=google-chrome
 Exec=google-chrome %U
 Categories=Network;WebBrowser;
-MimeType=x-scheme-handler/webcal;x-scheme-handler/mailto;text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+MimeType=x-scheme-handler/web+tg;x-scheme-handler/webcal;x-scheme-handler/mailto;text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
