@@ -1,9 +1,8 @@
 {
   "private": true,
   "dependencies": {
-    "speed-test": "*",
-    "yaspeller": "*",
     "node-gyp": "*",
+    "fast-cli": "*",
     "svgo": "*"
   }
 }
