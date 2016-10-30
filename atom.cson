@@ -1,16 +1,8 @@
 "*":
   "atom-material-ui":
     colors:
-      abaseColor:
-        red: 236
-        green: 64
-        blue: 122
-        alpha: 1
-      accentColor:
-        red: 70
-        green: 255
-        blue: 193
-        alpha: 1
+      abaseColor: "#ec407a"
+      accentColor: "#46ffc1"
       paintCursor: true
       predefinedColor: "Pink"
     fonts: {}
@@ -65,3 +57,6 @@
   "tree-view": {}
   welcome:
     showOnStartup: false
+".pug.source":
+  editor:
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
