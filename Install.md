@@ -126,6 +126,19 @@ sudo systemctl enable fstrim.timer
 gsettings set org.gnome.desktop.interface scaling-factor 2
 ```
 
+Включаем HiDPI для TTY:
+
+```sh
+sudo dnf install terminus-fonts-console
+```
+
+И записаем в `/etc/vconsole.conf`:
+
+```
+KEYMAP="us"
+FONT="ter-v32n"
+```
+
 Удаляем GRUB:
 
 ```sh
