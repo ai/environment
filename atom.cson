@@ -14,6 +14,12 @@
       panelShadows: true
   core:
     autoHideMenuBar: true
+    customFileTypes:
+      "source.json": [
+        ".yaspellerrc"
+        ".stylelintrc"
+        ".eslintrc"
+      ]
     disabledPackages: [
       "language-objective-c"
       "archive-view"
