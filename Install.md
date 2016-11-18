@@ -425,12 +425,11 @@ gem install bundler
 Устаналиваем `node` и `npm`:
 
 ```sh
-mkdir -p ~/.node/nodejs/
-wget https://nodejs.org/dist/latest/node-v5.6.0-linux-x64.tar.gz
-tar -xf node-* -C ~/.node/nodejs --strip-components=1
-rm node-*.xz
-cd ~/.node/
-npm install
+sudo bash
+curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
+dnf install -y nodejs
+wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+dnf install yarn
 ```
 
 Устанавливаем Trimage:
