@@ -1,8 +1,0 @@
-{
-  "private": true,
-  "dependencies": {
-    "node-gyp": "*",
-    "fast-cli": "*",
-    "svgo": "*"
-  }
-}
