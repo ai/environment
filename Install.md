@@ -438,12 +438,13 @@ dnf install yarn
 sudo dnf install ftp://ftp.pbone.net/vol2/www.pclinuxos.com/pclinuxos/apt/pclinuxos/2011/RPMS.x86_64/trimage-1.0.5-3pclos2013.noarch.rpm
 ```
 
-Устанавливаем Go:
+Устанавливаем Deis:
 
-```sh
-sudo dnf install golang
-mkdir -p ~/.go
-go get -u -f github.com/DarthSim/hivemind
+```
+curl -sSL http://deis.io/deis-cli/install-v2.sh | bash
+sudo mv $PWD/deis /usr/local/bin/deis
+rm $PWD/deis
+deis login https://deis.amplifr.com
 ```
 
 ### Текстовые редакторы
