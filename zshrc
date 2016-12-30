@@ -47,10 +47,10 @@ alias b='bundle exec'
 
 # Node.js
 function n {
-    if [ -d "`npm bin`" ]; then
+    if [ -d "`yarn bin`" ]; then
         PROG="$1"
         shift
-        "`npm bin`/$PROG" "$@"
+        "`yarn bin`/$PROG" "$@"
     else
         echo 'No node_modules in any dir of current path' 1>&2
         return 1
