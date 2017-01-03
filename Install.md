@@ -2,17 +2,11 @@
 
 ### Образ Федоры
 
-Скачиваем образ:
+Скачиваем образ. Записываем его на USB-флешку:
 
 ```sh
-wget https://download.fedoraproject.org/pub/fedora/linux/releases/23/Workstation/x86_64/iso/Fedora-Live-Workstation-x86_64-23-10.iso
-```
-
-Записываем его на USB-флешку:
-
-```sh
-sudo dnf install liveusb-creator
-sudo liveusb-creator
+sudo dnf install mediawriter
+mediawriter
 ```
 
 ### Установка
