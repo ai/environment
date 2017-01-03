@@ -493,17 +493,9 @@ source .antigen.zsh
 Удаляем папки иконок:
 
 ```sh
-mkdir -p ~/.config/autostart/
-echo '#!/bin/sh
-sleep 1
-gsettings set org.gnome.desktop.app-folders folder-children "[]"' > ~/.config/autostart/clean-folder.sh
-chmod a+x ~/.config/autostart/clean-folder.sh
-echo "[Desktop Entry]
-Type=Application
-Name=Приложения без папок
-Icon=accessories-system-cleaner
-Exec=/home/ai/.config/autostart/clean-folder.sh
-X-GNOME-Autostart-enabled=true" > ~/.config/autostart/clean-folder.desktop
+su -c "echo '[org.gnome.desktop.app-folders]
+folder-children=['']' > /usr/share/glib-2.0/schemas/my-settings.gschema.override"
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 ```
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
