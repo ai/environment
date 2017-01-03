@@ -1,5 +1,6 @@
 ## GNOME Shell Extensions
 
+- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [Always Zoom Workspaces](https://extensions.gnome.org/extension/503/always-zoom-workspaces/)
 - [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 - [Icon Hider](https://extensions.gnome.org/extension/351/icon-hider/)
@@ -12,3 +13,5 @@
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 - [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
 - [Dynamic Top Bar](https://extensions.gnome.org/extension/885/dynamic-top-bar/)
+- [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
+- [Focus my window](https://extensions.gnome.org/extension/1005/focus-my-window/)
