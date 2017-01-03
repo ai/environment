@@ -2,14 +2,16 @@
 
 Plugins:
 
+- `editorconfig`
 - `language-slim`
+- `linter-stylelint`
 - `language-jade`
+- `language-slim`
 - `language-postcss`
 - `gtk-dark-theme`
 - `file-icons`
 - `linter`
 - `linter-eslint`
-- `linter-stylelint`
 - `minimap`
 - `minimap-linter`
 - `minimap-find-and-replace`
