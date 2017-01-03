@@ -282,7 +282,7 @@ fc-cache
 Установить иконки и тему:
 
 ```sh
-sudo wget http://download.opensuse.org/repositories/home:snwh:moka-project/Fedora_21/home:snwh:moka-project.repo -O /etc/yum.repos.d/moka-project.repo
+sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:snwh:moka/Fedora_25/home:snwh:moka.repo
 sudo dnf install faba-icon-theme moka-icon-theme
 ```
 
