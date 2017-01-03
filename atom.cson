@@ -53,6 +53,9 @@
     zoomFontWhenCtrlScrolling: false
   "exception-reporting":
     userId: "51ccaaae-04bc-1ed3-3445-f9bd1a2f3a71"
+  linter:
+    errorPanelHeight: 116
+  "linter-eslint": {}
   minimap:
     displayPluginsControls: false
     plugins:
