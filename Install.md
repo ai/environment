@@ -212,25 +212,24 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 ### VPN
 
-Скачиваем сертификаты:
+Скачиваем файлы настроек и архив с ключами с сайта
+[ExpressVPN](https://www.expressvpn.com/ru/setup#manual).
 
 ```sh
-wget https://www.privateinternetaccess.com/openvpn/openvpn.zip
 mkdir ~/.cert
-unzip openvpn.zip -d ~/.cert/private-internet-access/
+unzip openvpn.zip -d ~/.cert
 rm openvpn.zip
 ```
 
-Создаём VPN-соединие:
+Создаём VPN-соединения:
 
-1. Настройки → Сеть → + → VPN → OpenVPN.
-2. Название: «Private Internet Access».
-3. Шлюз: «germany.privateinternetaccess.com».
-4. Тип: «Пароль».
-5. Указываем Сертификат ЦС `ca.crt` из скаченной папки.
-6. Дополнительно → Общие: оставляем только
-   «Использовать для сжатия данных LZO».
-7. Вводим логин и пароль.
+1. Настройки → Сеть → + → VPN → Импортировать из файла.
+2. Название: «ExpressVPN страна».
+5. Указываем Сертификат пользоваеля `client.cert`, Сертификат ЦС `ca2.crt`,
+   Личный ключ `client.key`.
+6. Дополнительно → Аутентификация TLS: ставим
+   «Использовать дополнительную аутентификацию TLS». Указываем Файл ключа
+   `ta.key`, Направление ключа `1`.
 
 ### Браузеры
 
