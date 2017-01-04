@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Программы
+Comment=Установка, удаление и обновление приложений на компьютере
+Icon=org.gnome.Software
+Exec=gnome-software %U
+Categories=GNOME;GTK;System;PackageManager;
+X-AppInstall-Package=gnome-software
+NoDisplay=true
