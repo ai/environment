@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Настройки GNOME
+Name=Тюнинг
 Comment=Настройка дополнительных параметров GNOME 3
 Icon=gnome-tweak-tool
 Exec=gnome-tweak-tool
