@@ -160,13 +160,6 @@ su -c 'dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfu
 su -c 'dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/fixes/fedora/russianfedora-fixes-release-stable.noarch.rpm'
 ```
 
-Подключаем репозиторий со свежим ядром:
-
-```sh
-curl -s https://repos.fedorapeople.org/repos/thl/kernel-vanilla.repo | sudo tee /etc/yum.repos.d/kernel-vanilla.repo
-sudo dnf --enablerepo=kernel-vanilla-stable update
-```
-
 Обновляем систему:
 
 ```sh
@@ -273,7 +266,8 @@ sudo dnf install mozilla-fira-mono-fonts
 mkdir -p ~/.fonts/FiraCode/
 ```
 
-Скачиваем файлы FiraCode с репозитория в новую папку.
+Скачиваем файлы FiraCode с [репозитория](https://github.com/tonsky/FiraCode)
+в новую папку.
 
 ```
 fc-cache
@@ -385,6 +379,12 @@ rm -R Видео Документы Изображения Музыка Обще
 sudo dnf install git gitg ack redis postgresql postgresql-server postgresql-contrib
 ```
 
+Устанавливаем Java:
+
+```sh
+sudo dnf install java-1.8.0-openjdk-…
+```
+
 Запускаем PostgreSQL:
 
 ```sh
@@ -416,7 +416,7 @@ chruby 2.3
 gem install bundler
 ```
 
-Устаналиваем `node` и `npm`:
+Устаналиваем `node` и `yarn`:
 
 ```sh
 sudo bash
@@ -429,7 +429,8 @@ dnf install yarn
 Устанавливаем Trimage:
 
 ```sh
-sudo dnf install ftp://ftp.pbone.net/vol2/www.pclinuxos.com/pclinuxos/apt/pclinuxos/2011/RPMS.x86_64/trimage-1.0.5-3pclos2013.noarch.rpm
+sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:zhonghuaren/Fedora_25/home:zhonghuaren.repo
+sudo dnf install trimage
 ```
 
 Устанавливаем Deis:
@@ -462,13 +463,6 @@ rm atom.rpm
 ```
 
 Устанавливаем темы и плагины из `Atom.md`.
-
-Устанавливаем ngrok. Скачиваем [архив](https://ngrok.com/download).
-
-```
-unzip ngrok.zip
-sudo cp ./ngrok /usr/local/bin/
-```
 
 ### zsh
 
