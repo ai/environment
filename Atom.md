@@ -4,9 +4,7 @@ Plugins:
 
 - `editorconfig`
 - `language-slim`
-- `linter-stylelint`
 - `language-jade`
-- `language-slim`
 - `language-postcss`
 - `gtk-dark-theme`
 - `file-icons`
