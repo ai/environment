@@ -11,14 +11,14 @@ mediawriter
 
 ### Установка
 
-Открываем `/usr/lib64/python3.4/site-packages/pyanaconda/bootloader.py`
+Открываем `/usr/lib64/python3.5/site-packages/pyanaconda/bootloader.py`
 и исправляем методы `is_valid_stage1_device` и `is_valid_stage2_device`,
 чтобы они всегда возвращали `True`.
 
 Запускаем установщик.
 
 1. Английскую раскладку на первое место. Переключение раскладок:
-   «Caps Lock (на первую раскладку), Shift+Caps Lock (на последнюю раскладку)».
+   «Super + Пробел».
 2. Сеть и имя узла: «flatline».
 3. Разбиение диска:
 
@@ -51,26 +51,26 @@ sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
 
 Копируем первое ядро руками.
 
-Узнаём UUID диска:
-
-```sh
-cryptsetup luksUUID /dev/mapper/flatline-root
-```
-
 Копируем EFI-загрузчик:
 
 ```sh
-sudo cp /usr/lib/systemd/boot/efi/systemd-bootx64.efi /boot/efi/EFI/fedora/
-sudo mkdir -p /boot/efi/loader/entries
+sudo cp usr/lib/systemd/boot/efi/systemd-bootx64.efi ../BOOT/EFI/fedora/
+sudo mkdir -p ../BOOT/loader/entries
 ```
 
-Создаём для него настройки. `/boot/efi/loader/loader.conf`:
+Создаём для него настройки. `../BOOT/loader/loader.conf`:
 
 ```
 default fedora
 ```
 
-`/boot/efi/loader/entries/fedora.conf`:
+Узнаём UUID диска:
+
+```sh
+sudo cryptsetup luksUUID /dev/mapper/flatline-root
+```
+
+Создаём `boot/efi/loader/entries/fedora.conf` и заменяем 2 `UUID`:
 
 ```
 title   Fedora
@@ -88,9 +88,9 @@ options root=/dev/mapper/luks-UUID rd.lvm.lv=flatline/root rd.luks.uuid=luks-UUI
 Переносим `/tmp` и `/var/tmp` в оперативную память:
 
 ```
-none /var/tmp  tmpfs noatime 0 0
-none /tmp/     tmpfs noatime 0 0
-/swapfile none swap defaults 0 0
+none /var/tmp  tmpfs noatime  0 0
+none /tmp/     tmpfs noatime  0 0
+/swapfile none swap  defaults 0 0
 ```
 
 Чистим каталоги `tmp` и `var/tmp`.
@@ -114,30 +114,10 @@ sudo systemctl enable fstrim.timer
 
 ### Обновление системы
 
-Включаем HiDPI:
-
-```sh
-gsettings set org.gnome.desktop.interface scaling-factor 2
-su -c 'echo "export QT_AUTO_SCREEN_SCALE_FACTOR=1" > /etc/profile.d/qt-hidpi.sh'
-```
-
-Включаем HiDPI для TTY:
-
-```sh
-sudo dnf install terminus-fonts-console
-```
-
-И записаем в `/etc/vconsole.conf`:
-
-```
-KEYMAP="us"
-FONT="ter-v32n"
-```
-
 Удаляем GRUB:
 
 ```sh
-sudo dnf remove shim grub2 grub2-tools grub2-efi
+sudo dnf removes grub2 grub2-tools grub2-efi
 sudo rm -R /boot/grub2
 sudo rm /boot/efi/EFI/fedora/grub*
 ```
@@ -145,7 +125,7 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese devassistant evolution evolution-ews evolution-help bijiben rhythmbox shotwell gnome-boxes gnome-documents gnome-weather empathy vinagre orca gnome-contacts yelp samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters
+sudo dnf remove gedit cheese evolution rhythmbox shotwell gnome-boxes gnome-documents gnome-weather orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters seahorse
 ```
 
 Подключаем RPM Fusion:
@@ -166,6 +146,19 @@ su -c 'dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/rus
 sudo dnf update --refresh
 ```
 
+Включаем HiDPI для TTY:
+
+```sh
+sudo dnf install terminus-fonts-console
+```
+
+И записаем в `/etc/vconsole.conf`:
+
+```
+KEYMAP="us"
+FONT="ter-v32n"
+```
+
 Перезагружаемся.
 
 ### Настройка GNOME
@@ -175,7 +168,7 @@ sudo dnf update --refresh
 - **Поиск:** выключаем «Nautilus», «Терминал» и «Центр приложений».
 - **Фон:** ставим обои из этой папки и стандартный фон на экран блокировки.
 - **Мышь и сенсорная панель:** чувствительность на максимум,
-  включаем «Естественная прокрутка».
+  включаем «Нажатие касанием».
 - **Энегропитание:** выключаем «Уменьшать яркость при простое»,
   ставим «Выключение экрана» в «Никогда».
 - **Пользователи:** ставим аватарку из этой папки и «Автоматический вход».
@@ -195,7 +188,8 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:win_space_toggle
 В Nautilus:
 
 - Параметры → Вид: включить «Помещать папки перед файлами».
-- Параметры → Поведение: включить «Открыть объекты одним щелчком».
+- Параметры → Поведение: включить «Открыть объекты одним щелчком»
+  и выключить «Распаковать файлы при открытии».
 
 Выключаем сканирование ФС:
 
@@ -203,33 +197,10 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:win_space_toggle
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
-### VPN
-
-Скачиваем файлы настроек и архив с ключами с сайта
-[ExpressVPN](https://www.expressvpn.com/ru/setup#manual).
-
-```sh
-mkdir ~/.cert
-unzip openvpn.zip -d ~/.cert
-rm openvpn.zip
-```
-
-Создаём VPN-соединения:
-
-1. Настройки → Сеть → + → VPN → Импортировать из файла.
-2. Название: «ExpressVPN страна».
-5. Указываем Сертификат пользоваеля `client.cert`, Сертификат ЦС `ca2.crt`,
-   Личный ключ `client.key`.
-6. Дополнительно → Аутентификация TLS: ставим
-   «Использовать дополнительную аутентификацию TLS». Указываем Файл ключа
-   `ta.key`, Направление ключа `1`.
-
 ### Браузеры
 
-Ставим для Фаерфокса расширения:
-
-- [HTitle](https://addons.mozilla.org/RU/firefox/addon/htitle/)
-- [GNOME 3](https://addons.mozilla.org/ru/firefox/addon/adwaita/)
+Ставим для Фаерфокса расширение
+[HTitle](https://addons.mozilla.org/RU/firefox/addon/htitle/).
 
 Ставим Хром:
 
@@ -244,34 +215,47 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Показать дополнительные настройки: выставить «Рабочий стол» в Скаченные файлы.
 
 Авторизоваться в Хроме. Авторизоваться в Твиттере, ГитХабе, Гиттере, Слаках,
-ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии.
+ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии, Телеграме.
 
-Добавляем расширения «[Evil Chrome]» и «SaveFrom.net помощник»
+Добавляем расширения «[Evil Chrome]» и «[SaveFrom.net помощник]»
 
 [SaveFrom.net помощник]: http://ru.savefrom.net/savefrom-helper-for-google-chrome.php
 [Evil Chrome]:           https://evilmartians.slack.com/files/yaroslav/F0XAA0LF4/evil-chrome__1_.crx
 
+### VPN
+
+Скачиваем файлы настроек и архив с ключами с сайта
+[ExpressVPN](https://www.expressvpn.com/ru/setup#manual).
+
+```sh
+mkdir ~/.cert
+unzip my_expressvpn_key.zip -d ~/.cert
+rm my_expressvpn_key.zip
+```
+
+Создаём VPN-соединения:
+
+1. Настройки → Сеть → + → VPN → Импортировать из файла.
+2. Название: «ExpressVPN страна».
+5. Указываем Сертификат пользоваеля `client.cert`, Сертификат ЦС `ca2.crt`,
+   Личный ключ `client.key`.
+6. Дополнительно → Аутентификация TLS: ставим
+   «Использовать дополнительную аутентификацию TLS». Указываем Файл ключа
+   `ta.key`, Направление ключа `1`.
+
 ### Внешний вид
 
-Запускаем `seahorse` и убираем пароль со «Вход» и «GNOME 2».
-Удаляем `seahorse`.
+Ставим расширения из [`GNOME.md`](./GNOME.md).
 
-Ставим расширения из `GNOME.md`. Добавляем Сан-Франциско, Москву, Пекин
-и Владивосток в Часы.
+Добавляем Сан-Франциско, Москву, Пекин и Владивосток в Часы.
 
 Установить шрифт Fira Mono и Fire Code:
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
-mkdir -p ~/.fonts/FiraCode/
 ```
 
-Скачиваем файлы FiraCode с [репозитория](https://github.com/tonsky/FiraCode)
-в новую папку.
-
-```
-fc-cache
-```
+Скачиваем файлы FiraCode с [репозитория](https://github.com/tonsky/FiraCode).
 
 Установить иконки и тему:
 
@@ -295,12 +279,11 @@ sudo dnf install gnome-tweak-tool
 И выставить в нём настроки:
 
 - **Верхняя панель:** включить «Показывать дату» и «Показывать секунды».
-- **Внешний вид:** тему и иконки выставить в «Moka»
-- **Рабочий стол:** включить «Показывать значки на рабочем столе» и выключить
-  все стандартные иконки.
+- **Внешний вид:** иконки выставить в «Moka»
+- **Рабочий стол:** включить «Показывать значки на рабочем столе»
+  и выключить все стандартные иконки.
 - **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
-  моноширный в «Fira Code», хиттинг в Slight
-- **Электропитание:** выставить «При нажатии кнопки выключения» в «Blank».
+  моноширный в «Fira Code», хиттинг в Slight.
 
 ### Кодеки и шрифты
 
@@ -362,7 +345,7 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 Удаляем лишние папки:
 
 ```sh
-rm -R Видео Документы Изображения Музыка Общедоступные
+rm -R ~/Видео ~/Документы ~/Изображения ~/Музыка ~/Общедоступные
 ```
 
 ### Разработка
@@ -457,12 +440,12 @@ include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 Установить Атом:
 
 ```sh
-wget https://atom.io/download/rpm?channel=beta -O atom.rpm
+wget https://atom.io/download/rpm -O atom.rpm
 sudo dnf install atom.rpm
 rm atom.rpm
 ```
 
-Устанавливаем темы и плагины из `Atom.md`.
+Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
 
 ### zsh
 
