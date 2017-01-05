@@ -31,5 +31,4 @@ else
     cp ~/.mpv/input.conf    ~/Dev/environment/mpv-input.conf
     cp ~/.atom/config.cson  ~/Dev/environment/atom.cson
     cp ~/.atom/styles.less  ~/Dev/environment/atom.less
-    rm ~/Dev/environment/icons/chrome-*
 fi
