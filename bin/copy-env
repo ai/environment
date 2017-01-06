@@ -8,11 +8,12 @@ if [ "$1" == "system" ]; then
     mkdir -p ~/.atom
     mkdir -p ~/.bundle
     mkdir -p ~/.node
+    mkdir -p ~/.prompt
     cp ~/Dev/environment/zshrc          ~/.zshrc
+    cp ~/Dev/environment/prompt/*       ~/.prompt/
     cp ~/Dev/environment/ackrc          ~/.ackrc
     cp ~/Dev/environment/gemrc          ~/.gemrc
     cp ~/Dev/environment/gitconfig      ~/.gitconfig
-    cp ~/Dev/environment/prompt.zsh     ~/.prompt.zsh
     cp ~/Dev/environment/mpv.conf       ~/.mpv/mpv.conf
     cp ~/Dev/environment/bundle         ~/.bundle/config
     cp ~/Dev/environment/mpv-input.conf ~/.mpv/input.conf
@@ -24,8 +25,8 @@ else
     cp ~/.zshrc             ~/Dev/environment/zshrc
     cp ~/.ackrc             ~/Dev/environment/ackrc
     cp ~/.gemrc             ~/Dev/environment/gemrc
+    cp ~/.prompt/*          ~/Dev/environment/prompt/
     cp ~/.gitconfig         ~/Dev/environment/gitconfig
-    cp ~/.prompt.zsh        ~/Dev/environment/prompt.zsh
     cp ~/.mpv/mpv.conf      ~/Dev/environment/mpv.conf
     cp ~/.bundle/config     ~/Dev/environment/bundle
     cp ~/.mpv/input.conf    ~/Dev/environment/mpv-input.conf
