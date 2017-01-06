@@ -18,7 +18,7 @@ mediawriter
 Запускаем установщик.
 
 1. Английскую раскладку на первое место. Переключение раскладок:
-   «Super + Пробел».
+   «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
 2. Сеть и имя узла: «flatline».
 3. Разбиение диска:
 
@@ -125,7 +125,7 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese evolution rhythmbox shotwell gnome-boxes gnome-documents gnome-weather orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters seahorse
+sudo dnf remove gedit cheese evolution rhythmbox shotwell gnome-boxes gnome-documents gnome-weather orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters seahorse gnome-maps gnome-calendar
 ```
 
 Подключаем RPM Fusion:
@@ -177,7 +177,7 @@ FONT="ter-v32n"
 Выставляем настройки клавиатуры:
 
 ```sh
-dconf write /org/gnome/desktop/input-sources/xkb-options "['grp:win_space_toggle', 'grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3', 'caps:none']"
+dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3', 'lv3:lsgt_switch', 'grp:shift_caps_switch']"
 ```
 
 В Терминале:
@@ -378,24 +378,10 @@ sudo systemctl start postgresql
 sudo su postgres -c 'createuser -s ai'
 ```
 
-Устаналиваем `chruby`:
+Собираем Ruby:
 
 ```sh
-wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-tar -xzvf chruby-0.3.9.tar.gz
-cd chruby-0.3.9/
-sudo make install
-cd ..
-rm -Rf chruby-0.3.9/
-```
-
-Собираем последний Ruby:
-
-```sh
-sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
-~/Dev/environment/bin/build-ruby 2.3.0
-source /usr/local/share/chruby/chruby.sh
-chruby 2.3
+sudo dnf install ruby
 gem install bundler
 ```
 
@@ -460,8 +446,8 @@ rm ~/.bash_history ~/.bash_logout
 Устанавливаем Antigen:
 
 ```sh
-curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > .antigen.zsh
-source .antigen.zsh
+curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antigen.zsh
+source ~/.antigen.zsh
 ```
 
 ### Ярлыки
@@ -472,6 +458,14 @@ source .antigen.zsh
 su -c "echo '[org.gnome.desktop.app-folders]
 folder-children=['']' > /usr/share/glib-2.0/schemas/my-settings.gschema.override"
 sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+sudo dnf install dconf-editor
+```
+
+Откройте в `dconf-editor` путь `org / gnome / desktop / app-folder` и на ключе
+`folder-children` выбрать `Set to default`.
+
+```sh
+sudo dnf remove dconf-editor
 ```
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
