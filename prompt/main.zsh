@@ -19,34 +19,6 @@
 # \e[K  => clears everything after the cursor on the current line
 # \e[2K => clear everything on the current line
 
-# turns seconds into human readable time
-# 165392 => 1d 21h 56m 32s
-# https://github.com/sindresorhus/pretty-time-zsh
-prompt_pure_human_time_to_var() {
-	local human=" " total_seconds=$1 var=$2
-	local days=$(( total_seconds / 60 / 60 / 24 ))
-	local hours=$(( total_seconds / 60 / 60 % 24 ))
-	local minutes=$(( total_seconds / 60 % 60 ))
-	local seconds=$(( total_seconds % 60 ))
-	(( days > 0 )) && human+="${days}d "
-	(( hours > 0 )) && human+="${hours}h "
-	(( minutes > 0 )) && human+="${minutes}m "
-	human+="${seconds}s"
-
-	# store human readable time in variable as specified by caller
-	typeset -g "${var}"="${human}"
-}
-
-# stores (into prompt_pure_cmd_exec_time) the exec time of the last command if set threshold was exceeded
-prompt_pure_check_cmd_exec_time() {
-	integer elapsed
-	(( elapsed = EPOCHSECONDS - ${prompt_pure_cmd_timestamp:-$EPOCHSECONDS} ))
-	prompt_pure_cmd_exec_time=
-	(( elapsed > ${PURE_CMD_MAX_EXEC_TIME:=5} )) && {
-		prompt_pure_human_time_to_var $elapsed "prompt_pure_cmd_exec_time"
-	}
-}
-
 prompt_pure_clear_screen() {
 	# enable output to terminal
 	zle -I
@@ -124,9 +96,6 @@ prompt_pure_preprompt_render() {
 	# make sure prompt_subst is unset to prevent parameter expansion in preprompt
 	setopt local_options no_prompt_subst
 
-	# check that no command is currently running, the preprompt will otherwise be rendered in the wrong place
-	[[ -n ${prompt_pure_cmd_timestamp+x} && "$1" != "precmd" ]] && return
-
 	# construct preprompt, beginning with path
   local prompt_dir="`echo "$PWD" | sed -r "s|^/home/$USER|~|g"`"
   prompt_dir="`echo "$prompt_dir" | sed -r "s|^~/Dev/||g"`"
@@ -141,8 +110,6 @@ prompt_pure_preprompt_render() {
 	preprompt+="%F{yellow}${prompt_pure_git_arrows}%f"
 	# username and machine if applicable
 	preprompt+=$prompt_pure_username
-	# execution time
-	preprompt+="%F{yellow}${prompt_pure_cmd_exec_time}%f"
 
 	# make sure prompt_pure_last_preprompt is a global array
 	typeset -g -a prompt_pure_last_preprompt
@@ -206,13 +173,6 @@ prompt_pure_preprompt_render() {
 }
 
 prompt_pure_precmd() {
-	# check exec time and store it in a variable
-	prompt_pure_check_cmd_exec_time
-
-	# by making sure that prompt_pure_cmd_timestamp is defined here the async functions are prevented from interfering
-	# with the initial preprompt rendering
-	prompt_pure_cmd_timestamp=
-
 	# check for git arrows
 	prompt_pure_check_git_arrows
 
