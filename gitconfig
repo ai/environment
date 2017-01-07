@@ -10,7 +10,7 @@
   ac = commit -am
   s  = status
   d  = diff
-  l  = "!git pull origin $(git current-branch)"
+  l  = "!git pull origin $(git current-branch) --rebase"
   h  = "!git push origin $(git current-branch)"
   lh = "!git l && git h"
   r  = "!git rm $(git ls-files --deleted) && git status"
