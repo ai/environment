@@ -100,7 +100,12 @@ prompt_pure_preprompt_render() {
   local prompt_dir="`echo "$PWD" | sed -r "s|^/home/$USER|~|g"`"
   prompt_dir="`echo "$prompt_dir" | sed -r "s|^~/Dev/||g"`"
 
-  local preprompt="%F{green}$prompt_dir"
+  local preprompt=""
+
+  # username and machine if applicable
+  preprompt+=$prompt_pure_username
+  # current dir
+  preprompt+="%F{green}$prompt_dir"
   # git info
   if [ "$vcs_info_msg_0_" != ' master' ]; then
     preprompt+=$vcs_info_msg_0_
@@ -108,8 +113,6 @@ prompt_pure_preprompt_render() {
   preprompt+=$prompt_pure_git_dirty
   # git pull/push arrows
   preprompt+="%F{yellow}${prompt_pure_git_arrows}%f"
-  # username and machine if applicable
-  preprompt+=$prompt_pure_username
 
   # make sure prompt_pure_last_preprompt is a global array
   typeset -g -a prompt_pure_last_preprompt
@@ -315,10 +318,10 @@ prompt_pure_setup() {
   fi
 
   # show username@host if logged in through SSH
-  [[ "$SSH_CONNECTION" != '' ]] && prompt_pure_username=' %F{242}%n@%m%f'
+  [[ "$SSH_CONNECTION" != '' ]] && prompt_pure_username='%F{242}%n@%m%f '
 
-  # show username@host if root, with username in white
-  [[ $UID -eq 0 ]] && prompt_pure_username=' %F{white}%n%f%F{242}@%m%f'
+  # show username if root, with username in white
+  [[ $UID -eq 0 ]] && prompt_pure_username='%F{white}%B%n%b%f '
 
   # prompt turns red if the previous command didn't exit with 0
   PROMPT="%F{green}➤%f "
