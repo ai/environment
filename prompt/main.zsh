@@ -87,7 +87,7 @@ prompt_ai_set_title() {
 
 prompt_ai_preexec() {
   # attempt to detect and prevent prompt_ai_async_git_fetch from interfering with user initiated git or hub fetch
-  [[ $2 =~ (git|hub)\ .*(pull|fetch) ]] && async_flush_jobs 'prompt_ai'
+  [[ $2 =~ (git|hub)\ .*(pull|fetch|l) ]] && async_flush_jobs 'prompt_ai'
 
   prompt_ai_cmd_timestamp=$EPOCHSECONDS
 
@@ -303,17 +303,17 @@ prompt_ai_async_tasks() {
   [[ -n $working_tree ]] || return
 
   # do not preform git fetch if it is disabled or working_tree == HOME
-  if (( ${PURE_GIT_PULL:-1} )) && [[ $working_tree != $HOME ]]; then
+  if (( ${PROMPT_GIT_PULL:-1} )) && [[ $working_tree != $HOME ]]; then
     # tell worker to do a git fetch
     async_job "prompt_ai" prompt_ai_async_git_fetch "${working_tree}"
   fi
 
   # if dirty checking is sufficiently fast, tell worker to check it again, or wait for timeout
   integer time_since_last_dirty_check=$(( EPOCHSECONDS - ${prompt_ai_git_last_dirty_check_timestamp:-0} ))
-  if (( time_since_last_dirty_check > ${PURE_GIT_DELAY_DIRTY_CHECK:-1800} )); then
+  if (( time_since_last_dirty_check > -1800 )); then
     unset prompt_ai_git_last_dirty_check_timestamp
     # check check if there is anything to pull
-    async_job "prompt_ai" prompt_ai_async_git_dirty "${PURE_GIT_UNTRACKED_DIRTY:-1}" "${working_tree}"
+    async_job "prompt_ai" prompt_ai_async_git_dirty "-1" "${working_tree}"
   fi
 }
 
