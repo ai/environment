@@ -450,22 +450,19 @@ curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antige
 source ~/.antigen.zsh
 ```
 
+Создаём `/root/.zshrc`:
+
+```
+source /home/ai/.prompt/async.zsh
+source /home/ai/.prompt/main.zsh
+```
+
 ### Ярлыки
 
 Удаляем папки иконок:
 
 ```sh
-su -c "echo '[org.gnome.desktop.app-folders]
-folder-children=['']' > /usr/share/glib-2.0/schemas/my-settings.gschema.override"
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
-sudo dnf install dconf-editor
-```
-
-Откройте в `dconf-editor` путь `org / gnome / desktop / app-folder` и на ключе
-`folder-children` выбрать `Set to default`.
-
-```sh
-sudo dnf remove dconf-editor
+gsettings set org.gnome.desktop.app-folders folder-children "['']"
 ```
 
 Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
