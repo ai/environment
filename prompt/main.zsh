@@ -105,6 +105,34 @@ prompt_ai_string_length_to_var() {
   typeset -g "${var}"="${length}"
 }
 
+prompt_ai_prev_exit_render() {
+  local exit_name;
+  # is this a signal name (error code = signal + 128) ?
+  case $prompt_ai_prev_exit in
+    -1)   exit_name=FATAL ;;
+    1)    exit_name=WARN ;;
+    2)    exit_name=BUILTINMISUSE ;;
+    19)   exit_name=STOP ;;
+    20)   exit_name=TSTP ;;
+    21)   exit_name=TTIN ;;
+    22)   exit_name=TTOU ;;
+    126)  exit_name=CCANNOTINVOKE ;;
+    127)  exit_name=CNOTFOUND ;;
+    129)  exit_name=HUP ;;
+    130)  exit_name=INT ;;
+    131)  exit_name=QUIT ;;
+    132)  exit_name=ILL ;;
+    134)  exit_name=ABRT ;;
+    136)  exit_name=FPE ;;
+    137)  exit_name=KILL ;;
+    139)  exit_name=SEGV ;;
+    141)  exit_name=PIPE ;;
+    143)  exit_name=TERM ;;
+
+  esac
+  print -P "%F{red}✖ $exit_name%f"
+}
+
 prompt_ai_preprompt_render() {
   # store the current prompt_subst setting so that it can be restored later
   local prompt_subst_status=$options[prompt_subst]
@@ -138,6 +166,9 @@ prompt_ai_preprompt_render() {
 
   # if executing through precmd, do not perform fancy terminal editing
   if [[ "$1" == "precmd" ]]; then
+    if [ ! $prompt_ai_prev_exit -eq 0 ]; then
+      prompt_ai_prev_exit_render
+    fi
     print -P "\n${preprompt}"
   else
     # only redraw if the expanded preprompt has changed
@@ -195,6 +226,9 @@ prompt_ai_preprompt_render() {
 }
 
 prompt_ai_precmd() {
+  # Save exit code of previous command
+  prompt_ai_prev_exit=$?
+
   # check for git arrows
   prompt_ai_check_git_arrows
 
