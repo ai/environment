@@ -43,6 +43,9 @@ alias la='ls -A'
 
 # Ruby
 alias b='bundle exec'
+if [ -d ~/.gem/ruby/bin ]; then
+  PATH="$PATH:/home/ai/.gem/ruby/bin/"
+fi
 
 # Node.js
 function n {
