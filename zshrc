@@ -42,10 +42,11 @@ alias ll='ls -lh'
 alias la='ls -A'
 
 # Ruby
-alias b='bundle exec'
-if [ -d ~/.gem/ruby/bin ]; then
-  PATH="$PATH:/home/ai/.gem/ruby/bin/"
+if [ -d /usr/local/share/chruby/ ]; then
+    source /usr/local/share/chruby/chruby.sh
+    chruby 2
 fi
+alias b='bundle exec'
 
 # Node.js
 function n {
