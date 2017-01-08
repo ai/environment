@@ -378,10 +378,24 @@ sudo systemctl start postgresql
 sudo su postgres -c 'createuser -s ai'
 ```
 
+Устаналиваем `chruby`:
+
+```sh
+wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+tar -xzvf chruby-0.3.9.tar.gz
+cd chruby-0.3.9/
+sudo make install
+cd ..
+rm -Rf chruby-0.3.9/
+```
+
 Собираем Ruby:
 
 ```sh
-sudo dnf install ruby
+sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
+~/Dev/environment/bin/build-ruby 2.3.3
+source /usr/local/share/chruby/chruby.sh
+chruby 2.3
 gem install bundler
 ```
 
