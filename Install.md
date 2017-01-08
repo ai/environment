@@ -386,7 +386,7 @@ tar -xzvf chruby-0.3.9.tar.gz
 cd chruby-0.3.9/
 sudo make install
 cd ..
-rm -Rf chruby-0.3.9/
+rm -Rf chruby-*
 ```
 
 Собираем Ruby:
