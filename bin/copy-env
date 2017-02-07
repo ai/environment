@@ -22,6 +22,7 @@ if [ "$1" == "system" ]; then
 else
     rm ~/Dev/environment/icons/*.desktop
     cp ~/.local/share/applications/*.desktop ~/Dev/environment/icons/
+    rm ~/Dev/environment/icons/chrome-*
     cp ~/.zshrc             ~/Dev/environment/zshrc
     cp ~/.ackrc             ~/Dev/environment/ackrc
     cp ~/.gemrc             ~/Dev/environment/gemrc
