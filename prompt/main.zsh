@@ -149,7 +149,7 @@ prompt_ai_preprompt_render() {
   # username and machine if applicable
   preprompt+=$prompt_ai_username
   # current dir
-  preprompt+="%F{green}$prompt_dir"
+  preprompt+="%F{green}$prompt_dir%f"
   # git info
   if [ "$vcs_info_msg_0_" != ' master' ]; then
     preprompt+=$vcs_info_msg_0_
