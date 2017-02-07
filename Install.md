@@ -392,7 +392,7 @@ rm -Rf chruby-*
 Собираем Ruby:
 
 ```sh
-sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel
+sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
 ~/Dev/environment/bin/build-ruby 2.3.3
 source /usr/local/share/chruby/chruby.sh
 chruby 2.3
