@@ -4,11 +4,11 @@
   signingkey = 1F710E4D
 [alias]
   current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
-  a  = "!git add . && git status"
+  a  = "!git add . && git s"
   ch = checkout
   c  = commit -m
   ac = commit -am
-  s  = status
+  s  = status --short --branch
   d  = diff
   l  = "!git pull origin $(git current-branch) --rebase"
   h  = "!git push origin $(git current-branch)"
