@@ -20,7 +20,7 @@ compinit
 if [ -f ~/.antigen.zsh ]; then
   source ~/.antigen.zsh
   antigen bundle yarn
-  antigen bundle per-directory-history
+  # antigen bundle per-directory-history
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
 fi
@@ -40,6 +40,7 @@ alias g='git'
 alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -A'
+source ~/.aliases.zsh
 
 # Ruby
 if [ -d /usr/local/share/chruby/ ]; then
