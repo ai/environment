@@ -87,7 +87,7 @@ prompt_ai_set_title() {
 
 prompt_ai_preexec() {
   # attempt to detect and prevent prompt_ai_async_git_fetch from interfering with user initiated git or hub fetch
-  [[ $2 =~ (git|hub)\ .*(pull|fetch|l) ]] && async_flush_jobs 'prompt_ai'
+  [[ $2 =~ git ]] && async_flush_jobs 'prompt_ai'
 
   prompt_ai_cmd_timestamp=$EPOCHSECONDS
 
