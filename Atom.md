@@ -10,6 +10,7 @@ Plugins:
 - `file-icons`
 - `linter`
 - `linter-eslint`
+- `linter-json-lint`
 - `minimap`
 - `minimap-linter`
 - `minimap-find-and-replace`
