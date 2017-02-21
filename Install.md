@@ -378,6 +378,12 @@ sudo systemctl start postgresql
 sudo su postgres -c 'createuser -s ai'
 ```
 
+В `/var/lib/pgsql/data/pg_hba.conf` меняем строчку на:
+
+```
+host    all             all             127.0.0.1/32            trust
+```
+
 Устаналиваем `chruby`:
 
 ```sh
