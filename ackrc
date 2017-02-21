@@ -1,9 +1,13 @@
 --smart-case
 
---ignore-dir=.bundle
---ignore-dir=tmp
---ignore-dir=log
---ignore-dir=node_modules
+--ignore-dir=.bundle/
+--ignore-dir=tmp/
+--ignore-dir=log/
+--ignore-dir=build/
+--ignore-dir=node_modules/
+--ignore-dir=build/
+--ignore-dir=coverage/
+--ignore-dir=docs/*.html
 
 --type-set
 haml=.haml
