@@ -54,8 +54,12 @@
   "exception-reporting":
     userId: "51ccaaae-04bc-1ed3-3445-f9bd1a2f3a71"
   linter:
-    errorPanelHeight: 116
+    lintOnChange: false
   "linter-eslint": {}
+  "linter-ui-default":
+    panelHeight: 81
+    showDecorations: false
+    showPanel: true
   minimap:
     displayPluginsControls: false
     plugins:
