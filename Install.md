@@ -489,18 +489,12 @@ gsettings set org.gnome.desktop.app-folders folder-children "['']"
 
 ### Чаты
 
-Грузим TeamSpeck с [teamspeak.com/downloads](https://teamspeak.com/downloads).
-
-Распаковываем:
+Устанавливаем Keybase:
 
 ```sh
-chmod a+x TeamSpeak3-Client-linux_amd64-*
-./TeamSpeak3-Client-linux_amd64-[TAB]
-rm ./TeamSpeak3-Client-linux_amd64-*
-mv TeamSpeak3-Client-linux_amd64 teamspeak
-sudo cp -R teamspeak /usr/local/share/
-rm -R teamspeak
-sudo chmod a+rx -R /usr/local/share/teamspeak/
-sudo ln -s /usr/local/share/teamspeak/ts3client_runscript.sh /usr/local/bin/teamspeak
-sudo chmod a+x /usr/local/bin/teamspeak
+sudo dnf install https://prerelease.keybase.io/keybase_amd64.rpm
+run_keybase
 ```
+
+Устанавливаем Zoom:
+[zoom.us/download?os=linux](https://zoom.us/download?os=linux)
