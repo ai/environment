@@ -35,7 +35,6 @@
       "deprecation-cop"
       "timecop"
       "styleguide"
-      "linter-stylelint"
     ]
     projectHome: "/home/ai/Dev"
     themes: [
