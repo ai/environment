@@ -496,5 +496,7 @@ sudo dnf install https://prerelease.keybase.io/keybase_amd64.rpm
 run_keybase
 ```
 
+Удаляем Keybase из автозагрузки.
+
 Устанавливаем Zoom:
 [zoom.us/download?os=linux](https://zoom.us/download?os=linux)
