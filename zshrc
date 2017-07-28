@@ -50,13 +50,4 @@ fi
 alias b='bundle exec'
 
 # Node.js
-function n {
-  if [ -d "`yarn bin`" ]; then
-    PROG="$1"
-    shift
-    "`yarn bin`/$PROG" "$@"
-  else
-    echo 'No node_modules in any dir of current path' 1>&2
-    return 1
-  fi
-}
+alias n='npx'
