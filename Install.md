@@ -500,3 +500,10 @@ run_keybase
 
 Устанавливаем Zoom:
 [zoom.us/download?os=linux](https://zoom.us/download?os=linux)
+
+Устанавливаем ripgrep:
+
+```sh
+sudo dnf copr enable carlwgeorge/ripgrep
+sudo dnf install ripgrep
+```
