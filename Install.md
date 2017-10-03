@@ -359,7 +359,7 @@ rm -R ~/Видео ~/Документы ~/Изображения ~/Музыка 
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git gitg ack redis postgresql postgresql-server postgresql-contrib
+sudo dnf install git tig ack redis postgresql postgresql-server postgresql-contrib
 ```
 
 Устанавливаем Java:
