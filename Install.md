@@ -313,7 +313,7 @@ sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/mst
 sudo dnf install fuse-encfs
 ```
 
-Скопировать `.Личное/`. Открыть его и скопировать папки `.ssh/` и `.gnupg/`.
+Скопировать `.Личное/`. Открыть его и скопировать папки `.ssh/`, `.gnupg/` и `.kube/`.
 
 ### Папки
 
