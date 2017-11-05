@@ -387,19 +387,15 @@ host    all             all             127.0.0.1/32            trust
 Устаналиваем `chruby`:
 
 ```sh
-wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-tar -xzvf chruby-0.3.9.tar.gz
-cd chruby-0.3.9/
-sudo make install
-cd ..
-rm -Rf chruby-*
+dnf copr enable nwallace/ruby-tools
+sudo dnf install chruby
 ```
 
 Собираем Ruby:
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
-~/Dev/environment/bin/build-ruby 2.3.3
+~/Dev/environment/bin/build-ruby 2.3.5
 source /usr/local/share/chruby/chruby.sh
 chruby 2.3
 gem install bundler
