@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name[ru]=FontForge
+Comment[ru]=Редактор шрифтов
+Exec=fontforge %U
+Icon=fontforge
+Type=Application
+Categories=Graphics;X-Fedora;
+MimeType=application/vnd.font-fontforge-sfd;application/x-font-ttf;application/x-font-otf;application/x-font-type1;application/x-font-bdf;application/x-font-pcf;application/x-font-tex;
+Keywords=font;fonts;editor;TTF;OTF;typeface;
+X-Desktop-File-Install-Version=0.23
+NoDisplay=true
