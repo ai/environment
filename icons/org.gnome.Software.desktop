@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=Приложения
+Comment=Установка, удаление и обновление программного обеспечения на компьютере
+Icon=org.gnome.Software
+Exec=gnome-software %U
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;System;PackageManager;
+Keywords=Обновления;Источники;Репозитории;Параметры;Установить;Удалить;Программа;Приложение;ПО;Магазин;
+StartupNotify=true
+MimeType=x-scheme-handler/appstream;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-software
+X-GNOME-Bugzilla-Component=gnome-software
+X-GNOME-UsesNotifications=true
+DBusActivatable=true
+X-Desktop-File-Install-Version=0.23
+X-AppInstall-Package=gnome-software
+NoDisplay=true
