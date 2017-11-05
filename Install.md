@@ -409,7 +409,7 @@ gem install bundler
 
 ```sh
 sudo bash
-curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
+curl --silent --location https://rpm.nodesource.com/setup_9.x | bash -
 dnf install -y nodejs
 wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 dnf install yarn
