@@ -13,3 +13,4 @@
 - [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
 - [Dynamic Top Bar](https://extensions.gnome.org/extension/885/dynamic-top-bar/)
 - [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
+- [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
