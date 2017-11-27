@@ -473,6 +473,15 @@ source /home/ai/.prompt/async.zsh
 source /home/ai/.prompt/main.zsh
 ```
 
+Подключаем телефон. Устанвливаем интсрмуенты отлкадки.
+
+```sh
+sudo dnf install adb
+sudo systemctl start adb
+```
+
+Разрешаем отладку с этого устройства на телефоне.
+
 ### Ярлыки
 
 Удаляем папки иконок:
