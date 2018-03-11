@@ -56,7 +56,7 @@
     lintOnChange: false
   "linter-eslint": {}
   "linter-ui-default":
-    panelHeight: 81
+    panelHeight: 222
     showDecorations: false
     showPanel: true
   minimap:
