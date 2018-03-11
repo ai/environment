@@ -19,12 +19,12 @@ mediawriter
 
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
-2. Сеть и имя узла: «flatline».
+2. Сеть и имя узла: `foxbat`.
 3. Разбиение диска:
 
     ```
    /boot/efi EFI  500 МиБ
-   /         ext4 LVM Имя: flatline-root
+   /         ext4 LVM Имя: foxbat-root
     ```
 4. Пользовать:
    - Полное имя: `Андрей Ситник`
@@ -67,7 +67,7 @@ default fedora
 Узнаём UUID диска:
 
 ```sh
-sudo cryptsetup luksUUID /dev/mapper/flatline-root
+sudo cryptsetup luksUUID /dev/mapper/foxbat-root
 ```
 
 Создаём `boot/efi/loader/entries/fedora.conf` и заменяем 2 `UUID`:
@@ -76,7 +76,7 @@ sudo cryptsetup luksUUID /dev/mapper/flatline-root
 title   Fedora
 linux   /EFI/fedora/vmlinuz.efi
 initrd  /EFI/fedora/initramfs.img
-options root=/dev/mapper/luks-UUID rd.lvm.lv=flatline/root rd.luks.uuid=luks-UUID ro rhgb quiet LANG=ru_RU.UTF-8
+options root=/dev/mapper/luks-UUID rd.lvm.lv=foxbat/root rd.luks.uuid=luks-UUID ro rhgb quiet LANG=ru_RU.UTF-8
 ```
 
 ### Оптимизация для SSD
