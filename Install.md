@@ -11,7 +11,7 @@ mediawriter
 
 ### Установка
 
-Открываем `/usr/lib64/python3.5/site-packages/pyanaconda/bootloader.py`
+Открываем `/usr/lib64/python3.6/site-packages/pyanaconda/bootloader.py`
 и исправляем методы `is_valid_stage1_device` и `is_valid_stage2_device`,
 чтобы они всегда возвращали `True`.
 
@@ -19,17 +19,12 @@ mediawriter
 
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
-2. Сеть и имя узла: `blackjack`.
-3. Разбиение диска:
+2. Разбиение диска:
 
     ```
    /boot/efi EFI  500 МиБ
-   /         ext4 LVM Имя: blackjack-root
+   /         ext4 LVM Группа томов: blackjack
     ```
-4. Пользовать:
-   - Полное имя: `Андрей Ситник`
-   - Имя пользователя: `ai`
-   - Сделать администратором
 
 Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
 
@@ -79,8 +74,6 @@ initrd  /EFI/fedora/initramfs.img
 options root=/dev/mapper/luks-UUID rd.lvm.lv=blackjack/root rd.luks.uuid=luks-UUID ro rhgb quiet LANG=ru_RU.UTF-8
 ```
 
-### Оптимизация для SSD
-
 Открываем `etc/fstab`.
 
 Добавляем опцию `noatime` для корневой системы.
@@ -103,10 +96,23 @@ sudo chmod 600 ./swapfile
 sudo mkswap ./swapfile
 ```
 
-Перезагружаемся в BIOS и добавляем EFI-образ `EFI/fedora/systemd-bootx64.efi`
-под именем «Fedora».
+Редактируем EFI:
 
-Перезагружаемся в систему и включаем TRIM:
+```sh
+sudo efibootmgr -b 0001 -B
+sudo efibootmgr --create --disk /dev/nvme0n1 --label Fedora --loader "EFI/fedora/systemd-bootx64.efi"
+```
+
+Перезагружаемся в систему. Указываем имя по английски и логин `ai`.
+Заходим в систему. Меняем имя на русское. И включаем автоматический вход.
+
+Указываем имя ноутбуку:
+
+```sh
+hostnamectl set-hostname blackjack
+```
+
+Включаем TRIM:
 
 ```sh
 sudo systemctl enable fstrim.timer
