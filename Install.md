@@ -123,7 +123,7 @@ sudo systemctl enable fstrim.timer
 Удаляем GRUB:
 
 ```sh
-sudo dnf removes grub2 grub2-tools grub2-efi
+sudo dnf remove grub2 grub2-tools grub2-efi
 sudo rm -R /boot/grub2
 sudo rm /boot/efi/EFI/fedora/grub*
 ```
