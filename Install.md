@@ -407,13 +407,6 @@ sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
 ```
 
-Устанавливаем Trimage:
-
-```sh
-sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:zhonghuaren/Fedora_25/home:zhonghuaren.repo
-sudo dnf install trimage
-```
-
 Устанавливаем Deis:
 
 ```
