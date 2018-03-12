@@ -365,6 +365,12 @@ sudo dnf install git tig ripgrep golang ack redis postgresql postgresql-server p
 sudo dnf install java-1.8.0-openjdk-…
 ```
 
+Создаём папку для Go:
+
+```sh
+mkdir ~/.go
+```
+
 Запускаем PostgreSQL:
 
 ```sh
