@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Зум
+Comment=Zoom Video Conference
+Exec=/usr/bin/zoom %U
+Icon=internet-telephony
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Network;Application;
+MimeType=x-scheme-handler/zoommtg;application/x-zoom;
+X-KDE-Protocols=zoommtg
+Name[en_US]=Zoom
