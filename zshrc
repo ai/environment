@@ -43,8 +43,8 @@ alias la='ls -A'
 source ~/.aliases.zsh
 
 # Ruby
-if [ -d /usr/local/share/chruby/ ]; then
-    source /usr/local/share/chruby/chruby.sh
+if [ -d /usr/share/chruby/ ]; then
+    source /usr/share/chruby/chruby.sh
     chruby 2
 fi
 alias b='bundle exec'
