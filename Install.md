@@ -378,7 +378,7 @@ host    all             all             127.0.0.1/32            trust
 Устаналиваем `chruby`:
 
 ```sh
-dnf copr enable nwallace/ruby-tools
+sudo dnf copr enable nwallace/ruby-tools
 sudo dnf install chruby
 ```
 
@@ -395,11 +395,11 @@ gem install bundler
 Устаналиваем `node` и `yarn`:
 
 ```sh
-sudo bash
-curl --silent --location https://rpm.nodesource.com/setup_9.x | bash -
-dnf install -y nodejs
-wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-dnf install yarn
+sudo dnf install https://rpm.nodesource.com/pub_9.x/fc/25/x86_64/nodesource-release-fc25-1.noarch.rpm
+sudo dnf update
+sudo dnf install -y nodejs
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+sudo dnf install yarn
 ```
 
 Устанавливаем Trimage:
@@ -452,7 +452,7 @@ rm atom.rpm
 
 ```sh
 sudo dnf install zsh
-chsh -s /usr/bin/zsh
+chsh -s /bin/zsh
 rm ~/.bash_history ~/.bash_logout
 ```
 
