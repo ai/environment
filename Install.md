@@ -356,7 +356,7 @@ rm -R ~/Документы ~/Изображения ~/Музыка ~/Общед�
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git tig ack redis postgresql postgresql-server postgresql-contrib
+sudo dnf install git tig ripgrep ack redis postgresql postgresql-server postgresql-contrib
 ```
 
 Устанавливаем Java:
@@ -491,10 +491,3 @@ run_keybase
 
 Устанавливаем Zoom:
 [zoom.us/download?os=linux](https://zoom.us/download?os=linux)
-
-Устанавливаем ripgrep:
-
-```sh
-sudo dnf copr enable carlwgeorge/ripgrep
-sudo dnf install ripgrep
-```
