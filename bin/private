@@ -2,7 +2,7 @@
 # Private encrypted folder
 
 STORE=$HOME/.Личное
-LINK=$HOME/Рабочий\ стол/Личное
+LINK=$HOME/Личное
 
 if [ -e "$LINK" ]; then
     # Lock
