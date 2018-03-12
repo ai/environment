@@ -418,6 +418,15 @@ rm $PWD/deis
 deis login https://deis.amplifr.com
 ```
 
+Подключаем телефон. Устанавливаем инструменты отладки.
+
+```sh
+sudo dnf install adb
+sudo systemctl start adb
+```
+
+Разрешаем отладку с этого устройства на телефоне.
+
 ### Текстовые редакторы
 
 Устанавливаем nano:
@@ -451,7 +460,7 @@ rm ~/.bash_history ~/.bash_logout
 
 ```sh
 curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antigen.zsh
-source ~/.antigen.zsh
+curl -L git.io/antigen > antigen.zsh
 ```
 
 Создаём `/root/.zshrc`:
@@ -460,15 +469,6 @@ source ~/.antigen.zsh
 source /home/ai/.prompt/async.zsh
 source /home/ai/.prompt/main.zsh
 ```
-
-Подключаем телефон. Устанавливаем инструменты отладки.
-
-```sh
-sudo dnf install adb
-sudo systemctl start adb
-```
-
-Разрешаем отладку с этого устройства на телефоне.
 
 ### Ярлыки
 
