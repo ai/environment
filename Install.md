@@ -384,8 +384,7 @@ host    all             all             127.0.0.1/32            trust
 Устаналиваем `chruby`:
 
 ```sh
-sudo dnf copr enable nwallace/ruby-tools
-sudo dnf install chruby
+sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-tools/fedora-26-x86_64/00140262-chruby/chruby-0.3.9-1.noarch.rpm
 ```
 
 Собираем Ruby:
@@ -412,7 +411,6 @@ sudo dnf install yarn
 ```
 curl -sSL http://deis.io/deis-cli/install-v2.sh | bash
 sudo mv $PWD/deis /usr/local/bin/deis
-rm $PWD/deis
 deis login https://deis.amplifr.com
 ```
 
