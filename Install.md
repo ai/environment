@@ -311,7 +311,7 @@ sudo dnf install fuse-encfs
 Создаём шаблон пустого файла:
 
 ```sh
-touch ~/Шаблоны/Пустой\ файл
+touch ~/.templates/Пустой\ файл
 ```
 
 Исправляем папки по-умолчанию `~/.config/user-dirs.dirs`:
@@ -324,7 +324,7 @@ XDG_PUBLICSHARE_DIR="$HOME/"
 XDG_DOCUMENTS_DIR="$HOME/"
 XDG_MUSIC_DIR="$HOME/"
 XDG_PICTURES_DIR="$HOME/"
-XDG_VIDEOS_DIR="$HOME/"
+XDG_VIDEOS_DIR="$HOME/Видео"
 ```
 
 Чистим закладки:
@@ -336,7 +336,7 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 Удаляем лишние папки:
 
 ```sh
-rm -R ~/Видео ~/Документы ~/Изображения ~/Музыка ~/Общедоступные
+rm -R ~/Документы ~/Изображения ~/Музыка ~/Общедоступные
 ```
 
 ### Разработка
