@@ -225,24 +225,14 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 ### VPN
 
-Скачиваем файлы настроек и архив с ключами с сайта
+Скачиваем файлы настроек для Германии и Гонконга с
 [ExpressVPN](https://www.expressvpn.com/ru/setup#manual).
-
-```sh
-mkdir ~/.cert
-unzip my_expressvpn_key.zip -d ~/.cert
-rm my_expressvpn_key.zip
-```
 
 Создаём VPN-соединения:
 
 1. Настройки → Сеть → + → VPN → Импортировать из файла.
 2. Название: «ExpressVPN страна».
-5. Указываем Сертификат пользоваеля `client.cert`, Сертификат ЦС `ca2.crt`,
-   Личный ключ `client.key`.
-6. Дополнительно → Аутентификация TLS: ставим
-   «Использовать дополнительную аутентификацию TLS». Указываем Файл ключа
-   `ta.key`, Направление ключа `1`.
+3. Копируем имя пользователя и пароль.
 
 ### Внешний вид
 
