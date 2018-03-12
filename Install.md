@@ -131,7 +131,7 @@ sudo rm /boot/efi/EFI/fedora/grub*
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters seahorse gnome-maps gnome-calendar
+sudo dnf remove gedit cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters gnome-maps gnome-calendar
 ```
 
 Подключаем RPM Fusion:
@@ -171,7 +171,7 @@ FONT="ter-v32n"
 
 Открываем Настройки:
 
-- **Поиск:** выключаем «Nautilus», «Терминал» и «Центр приложений».
+- **Поиск:** выключаем «Терминал» и «Центр приложений».
 - **Фон:** ставим обои из этой папки и стандартный фон на экран блокировки.
 - **Мышь и сенсорная панель:** чувствительность на максимум,
   включаем «Нажатие касанием».
@@ -194,8 +194,7 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 В Nautilus:
 
 - Параметры → Вид: включить «Помещать папки перед файлами».
-- Параметры → Поведение: включить «Открыть объекты одним щелчком»
-  и выключить «Распаковать файлы при открытии».
+- Параметры → Поведение: включить «Открыть объекты одним щелчком».
 
 Выключаем сканирование ФС:
 
@@ -204,9 +203,6 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
 ### Браузеры
-
-Ставим для Фаерфокса расширение
-[HTitle](https://addons.mozilla.org/RU/firefox/addon/htitle/).
 
 Ставим Хром:
 
@@ -223,9 +219,8 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Авторизоваться в Хроме. Авторизоваться в Твиттере, ГитХабе, Гиттере, Слаках,
 ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии, Телеграме.
 
-Добавляем расширения «[Evil Chrome]» и «[SaveFrom.net помощник]»
+Добавляем расширения «[Evil Chrome]».
 
-[SaveFrom.net помощник]: http://ru.savefrom.net/savefrom-helper-for-google-chrome.php
 [Evil Chrome]:           https://evilmartians.slack.com/files/yaroslav/F0XAA0LF4/evil-chrome__1_.crx
 
 ### VPN
