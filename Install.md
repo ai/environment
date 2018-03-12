@@ -391,7 +391,7 @@ sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-t
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
-~/Dev/environment/bin/build-ruby 2.3.5
+~/Dev/environment/bin/build-ruby 2.3.6
 source /usr/local/share/chruby/chruby.sh
 chruby 2.3
 gem install bundler
