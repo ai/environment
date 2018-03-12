@@ -396,8 +396,7 @@ gem install bundler
 
 ```sh
 sudo dnf install https://rpm.nodesource.com/pub_9.x/fc/25/x86_64/nodesource-release-fc25-1.noarch.rpm
-sudo dnf update
-sudo dnf install -y nodejs
+sudo dnf install nodejs
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
 ```
