@@ -459,8 +459,8 @@ rm ~/.bash_history ~/.bash_logout
 Устанавливаем Antigen:
 
 ```sh
-curl https://cdn.rawgit.com/zsh-users/antigen/v1.3.2/bin/antigen.zsh > ~/.antigen.zsh
-curl -L git.io/antigen > antigen.zsh
+curl -L git.io/antigen > ~/.antigen.zsh
+source ~/.antigen.zsh
 ```
 
 Создаём `/root/.zshrc`:
