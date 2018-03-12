@@ -53,6 +53,5 @@ alias b='bundle exec'
 alias n='npx'
 
 # Go
-
-GOPATH=.go/
+GOPATH=~/.go
 PATH=$PATH:$GOPATH/bin
