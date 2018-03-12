@@ -51,3 +51,8 @@ alias b='bundle exec'
 
 # Node.js
 alias n='npx'
+
+# Go
+
+GOPATH=.go/
+PATH=$PATH:$GOPATH/bin
