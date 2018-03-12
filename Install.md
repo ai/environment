@@ -425,9 +425,6 @@ deis login https://deis.amplifr.com
 ```sh
 sudo dnf install nano
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
-su -c "echo '
-set autoindent
-include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 ```
 
 Установить Атом:
