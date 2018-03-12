@@ -18,9 +18,9 @@ compinit
 
 # Zsh plugins
 if [ -f ~/.antigen.zsh ]; then
+  ANTIGEN_MUTEX=false
   source ~/.antigen.zsh
   antigen bundle yarn
-  # antigen bundle per-directory-history
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
 fi
