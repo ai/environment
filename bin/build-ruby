@@ -18,4 +18,4 @@ else
 fi
 
 rm -Rf /tmp/.ruby-build
-source /usr/local/share/chruby/chruby.sh
+source /usr/share/chruby/chruby.sh
