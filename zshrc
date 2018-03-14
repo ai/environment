@@ -23,6 +23,7 @@ if [ -f ~/.antigen.zsh ]; then
   antigen bundle yarn
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
+  antigen apply
 fi
 
 # Prompt
