@@ -357,7 +357,7 @@ rm -R ~/Документы ~/Изображения ~/Музыка ~/Общед�
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git tig ripgrep golang ack redis postgresql postgresql-server postgresql-contrib
+sudo dnf install git tig ripgrep golang redis postgresql postgresql-server postgresql-contrib
 ```
 
 Устанавливаем Java:

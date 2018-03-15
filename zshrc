@@ -35,6 +35,9 @@ if [ -d ~/Dev ]; then
   cdpath=(. ~/Dev)
 fi
 
+# Rip Grep
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
+
 # Aliases
 alias e='atom .'
 alias g='git'
