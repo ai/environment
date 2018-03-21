@@ -9,16 +9,18 @@ if [ "$1" == "system" ]; then
     mkdir -p ~/.bundle
     mkdir -p ~/.node
     mkdir -p ~/.prompt
-    cp ~/Dev/environment/zshrc          ~/.zshrc
-    cp ~/Dev/environment/prompt/*       ~/.prompt/
-    cp ~/Dev/environment/gemrc          ~/.gemrc
-    cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
-    cp ~/Dev/environment/gitconfig      ~/.gitconfig
-    cp ~/Dev/environment/mpv.conf       ~/.mpv/mpv.conf
-    cp ~/Dev/environment/bundle         ~/.bundle/config
-    cp ~/Dev/environment/mpv-input.conf ~/.mpv/input.conf
-    cp ~/Dev/environment/atom.cson      ~/.atom/config.cson
-    cp ~/Dev/environment/atom.less      ~/.atom/styles.less
+    mkdir -p ~/.local/share/themes/PTShell/gnome-shell
+    cp ~/Dev/environment/zshrc           ~/.zshrc
+    cp ~/Dev/environment/prompt/*        ~/.prompt/
+    cp ~/Dev/environment/gemrc           ~/.gemrc
+    cp ~/Dev/environment/ripgreprc       ~/.ripgreprc
+    cp ~/Dev/environment/gitconfig       ~/.gitconfig
+    cp ~/Dev/environment/mpv.conf        ~/.mpv/mpv.conf
+    cp ~/Dev/environment/bundle          ~/.bundle/config
+    cp ~/Dev/environment/mpv-input.conf  ~/.mpv/input.conf
+    cp ~/Dev/environment/atom.cson       ~/.atom/config.cson
+    cp ~/Dev/environment/atom.less       ~/.atom/styles.less
+    cp ~/Dev/environment/gnome-shell.css ~/.local/share/themes/PTShell/gnome-shell/gnome-shell.css
 else
     rm ~/Dev/environment/icons/*.desktop
     cp ~/.local/share/applications/*.desktop ~/Dev/environment/icons/
@@ -33,4 +35,5 @@ else
     cp ~/.mpv/input.conf    ~/Dev/environment/mpv-input.conf
     cp ~/.atom/config.cson  ~/Dev/environment/atom.cson
     cp ~/.atom/styles.less  ~/Dev/environment/atom.less
+    cp ~/.local/share/themes/PTShell/gnome-shell/gnome-shell.css ~/Dev/environment/gnome-shell.css
 fi
