@@ -397,10 +397,10 @@ sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-t
 Собираем Ruby:
 
 ```sh
-sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel compat-openssl10-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
-~/Dev/environment/bin/build-ruby 2.3.6
+sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
+~/Dev/environment/bin/build-ruby 2.5.1
 source /usr/local/share/chruby/chruby.sh
-chruby 2.3
+chruby 2.5.1
 gem install bundler
 ```
 
