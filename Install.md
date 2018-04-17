@@ -493,6 +493,3 @@ run_keybase
 ```
 
 Удаляем Keybase из автозагрузки.
-
-Устанавливаем Zoom:
-[zoom.us/download?os=linux](https://zoom.us/download?os=linux)
