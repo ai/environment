@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=История Git
-Comment=Просмотр репозиториев Git
-Icon=gitg
-Exec=gitg --no-wd %U
-Categories=GNOME;GTK;Development;
-MimeType=x-scheme-handler/gitg;
-NoDisplay=true
