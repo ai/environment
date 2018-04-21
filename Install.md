@@ -20,12 +20,18 @@ sudo dnf install WoeUSB
 2. Устанавливаем на диск 20 ГБ
 3. Включаем сжатие `Compact.exe /CompactOS:always`
 4. Выключаем гибернацию `powercfg /hibernate off`
-5. Ставим [драйвера и обновляем BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/)
-6. Ставим обновления
-7. Ставим Google Chrome
-8. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
-9. Скачиваем образ Федора и программу записи под Windows.
-10. Перезаписываем флешку образом Федоры.
+6. Удаляем ненужные приложения
+7. Параметры → Персонализация → Тема → Параметры значков рабочего стола, скрыть Коризину
+8. Параметры → Система → Питание, везде «Никогда»
+9. Параметры → Устройства → Мышь → Дополнительные параметры, ускоряем
+10. Параметры → Учетные записи → Парметры входа, ставим вход по отпечатку
+11. Скрываем ненужные иконки из панели и Пуска
+12. Ставим Google Chrome
+13. Ставим обою.
+14. Обновляем [BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/)
+15. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
+16. Скачиваем образ Федора и программу записи под Windows.
+17. Перезаписываем флешку образом Федоры.
 
 ### Установка
 
