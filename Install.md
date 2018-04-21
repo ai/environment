@@ -9,13 +9,11 @@
 sudo dnf install WoeUSB
 ```
 
-Скачиваем образ Fedora и программу записи. Написываем на внешний диск:
+Написываем на внешний диск:
 
-1. Образ Fedora.
-2. Программу записи образа для Windows.
-3. `.Личное/`
-4. `Видео/`
-5. `Dev/environment`
+1. `.Личное/`
+2. `Видео/`
+3. `Dev/environment`
 
 ### Windows
 
@@ -26,6 +24,8 @@ sudo dnf install WoeUSB
 6. Ставим обновления
 7. Ставим Google Chrome
 8. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
+9. Скачиваем образ Федора и программу записи под Windows.
+10. Перезаписываем флешку образом Федоры.
 
 ### Установка
 
