@@ -9,6 +9,15 @@ sudo dnf install mediawriter
 mediawriter
 ```
 
+### Windows
+
+1. [Скачиваем Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO)
+2. Устанавливаем на диск 20 ГБ
+3. Ставим [драйвера и обновляем BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/).
+4. Ставим обновления.
+5. Ставим Google Chrome.
+6. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
+
 ### Установка
 
 Открываем `/usr/lib64/python3.6/site-packages/pyanaconda/bootloader.py`
