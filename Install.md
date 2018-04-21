@@ -1,17 +1,24 @@
 ## Как я ставлю свою систему
 
-### Образ Федоры
+### Подготовка
 
-Скачиваем образ. Записываем его на USB-флешку:
+Скачиваем образ [Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO).
+Записываем его на USB-флешку:
 
 ```sh
-sudo dnf install mediawriter
-mediawriter
+sudo dnf install WoeUSB
 ```
+
+Скачиваем образ Fedora и программу записи. Написываем на внешний диск:
+
+1. Образ Fedora.
+2. Программу записи образа для Windows.
+3. `.Личное/`
+4. `Видео/`
+5. `Dev/environment`
 
 ### Windows
 
-1. [Скачиваем Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO)
 2. Устанавливаем на диск 20 ГБ
 3. Включаем сжатие `Compact.exe /CompactOS:always`
 4. Выключаем гибернацию `powercfg /hibernate off`
