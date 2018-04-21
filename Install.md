@@ -27,11 +27,11 @@ sudo dnf install WoeUSB
 10. Параметры → Учетные записи → Парметры входа, ставим вход по отпечатку
 11. Скрываем ненужные иконки из панели и Пуска
 12. Ставим Google Chrome
-13. Ставим обою.
+13. Ставим обою
 14. Обновляем [BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/)
 15. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
-16. Скачиваем образ Федора и программу записи под Windows.
-17. Перезаписываем флешку образом Федоры.
+16. Скачиваем образ Федора и программу записи под Windows
+17. Перезаписываем флешку образом Федоры
 
 ### Установка
 
