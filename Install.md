@@ -41,12 +41,10 @@ sudo dnf install WoeUSB
 
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
-2. Разбиение диска. Используем EFI-области от Windows.
-
-    ```
-   /boot 500 MB
-   / ext4 LVM Группа томов: blackjack, Имя: root
-    ```
+2. В ручном разбиение диска выбираем автоматичесски создать разделы.
+3. Переименовыем том в `blackjack`.
+4. Удаляем `root` и `home`.
+5. Создаём `root` снова на весь размер.
 
 Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
 
@@ -59,18 +57,9 @@ sudo dnf install WoeUSB
 ```
 none /var/tmp  tmpfs noatime  0 0
 none /tmp/     tmpfs noatime  0 0
-/swapfile none swap  defaults 0 0
 ```
 
 Чистим каталоги `tmp` и `var/tmp`.
-
-Создаём swap-файл:
-
-```sh
-sudo fallocate -l 8G ./swapfile
-sudo chmod 600 ./swapfile
-sudo mkswap ./swapfile
-```
 
 В BIOS меняем порядок загрузки.
 
@@ -92,7 +81,7 @@ sudo systemctl enable fstrim.timer
 Прячем GRUB, выставив `GRUB_TIMEOUT=0` в `/etc/default/grub` и запустив
 
 ```sh
-grub2-mkconfig -o /boot/grub2/grub.cfg
+grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
 
 ### Обновление системы
