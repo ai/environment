@@ -89,7 +89,7 @@ grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove gedit cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* setroubleshoot* gnome-characters gnome-maps gnome-calendar
+sudo dnf remove gedit cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-calendar gnome-photos simple-scan totem
 ```
 
 Подключаем RPM Fusion:
@@ -161,6 +161,8 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
 ### Браузеры
+
+Ставим `seahorse` и выключаем пароль со связик ключей.
 
 Ставим Хром:
 
