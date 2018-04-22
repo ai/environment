@@ -43,11 +43,10 @@ sudo dnf install WoeUSB
 
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
-2. Разбиение диска:
+2. Разбиение диска. Используем EFI-области от Windows.
 
     ```
-   /boot/efi EFI  500 МиБ
-   /         ext4 LVM Группа томов: blackjack
+   / ext4 LVM Группа томов: blackjack, Имя: root
     ```
 
 Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
@@ -89,7 +88,7 @@ default fedora
 sudo cryptsetup luksUUID /dev/mapper/blackjack-root
 ```
 
-Создаём `boot/efi/loader/entries/fedora.conf` и заменяем 2 `UUID`:
+Создаём `BOOT/loader/entries/fedora.conf` и заменяем 2 `UUID`:
 
 ```
 title   Fedora
@@ -120,10 +119,9 @@ sudo chmod 600 ./swapfile
 sudo mkswap ./swapfile
 ```
 
-Редактируем EFI:
+Редактируем EFI. Удаляем `Fedora`, добавляем новый раздел:
 
 ```sh
-sudo efibootmgr -b 0001 -B
 sudo efibootmgr --create --disk /dev/nvme0n1 --label Fedora --loader "EFI/fedora/systemd-bootx64.efi"
 ```
 
