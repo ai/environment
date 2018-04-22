@@ -89,15 +89,13 @@ hostnamectl set-hostname blackjack
 sudo systemctl enable fstrim.timer
 ```
 
-### Обновление системы
-
-Удаляем GRUB:
+Прячем GRUB, выставив `GRUB_TIMEOUT=0` в `/etc/default/grub` и запустив
 
 ```sh
-sudo dnf remove grub2 grub2-tools grub2-efi
-sudo rm -R /boot/grub2
-sudo rm /boot/efi/EFI/fedora/grub*
+grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
+
+### Обновление системы
 
 Удаляем ненужные пакеты:
 
