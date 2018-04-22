@@ -278,6 +278,7 @@ chmod 0600 .ssh/* .gnupg/*
 Создаём шаблон пустого файла:
 
 ```sh
+mkdir ~/.templates
 touch ~/.templates/Пустой\ файл
 ```
 
@@ -323,7 +324,7 @@ sudo dnf install git tig ripgrep golang redis postgresql postgresql-server postg
 Устанавливаем Java:
 
 ```sh
-sudo dnf install java-1.8.0-openjdk-…
+sudo dnf install java-1.8.0-openjdk
 ```
 
 Создаём папку для Go:
