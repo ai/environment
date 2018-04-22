@@ -23,21 +23,19 @@ sudo dnf install WoeUSB
 6. Удаляем ненужные приложения
 7. Параметры → Персонализация → Тема → Параметры значков рабочего стола, скрыть Коризину
 8. Параметры → Система → Питание, везде «Никогда»
-9. Параметры → Устройства → Мышь → Дополнительные параметры, ускоряем
-10. Параметры → Учетные записи → Парметры входа, ставим вход по отпечатку
-11. Скрываем ненужные иконки из панели и Пуска
-12. Ставим Google Chrome
-13. Ставим обою
-14. Обновляем [BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/)
-15. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
-16. Скачиваем образ Федора и программу записи под Windows
-17. Перезаписываем флешку образом Федоры
+9. Параметры → Устройства → USB, выключаем автозагрузку
+10. Параметры → Устройства → Мышь → Дополнительные параметры, ускоряем
+11. Параметры → Учетные записи → Парметры входа, ставим вход по отпечатку
+12. Скрываем ненужные иконки из панели и Пуска
+13. Ставим Google Chrome
+14. Записываем новый ключ BitLocker в 1Password.
+15. Обновляем [BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/)
+16. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
+17. Записываем новый пароль от BitLocker в 1Password
+18. Скачиваем образ Федора и программу записи под Windows
+19. Перезаписываем флешку образом Федоры
 
 ### Установка
-
-Открываем `/usr/lib64/python3.6/site-packages/pyanaconda/bootloader.py`
-и исправляем методы `is_valid_stage1_device` и `is_valid_stage2_device`,
-чтобы они всегда возвращали `True`.
 
 Запускаем установщик.
 
@@ -46,56 +44,11 @@ sudo dnf install WoeUSB
 2. Разбиение диска. Используем EFI-области от Windows.
 
     ```
+   /boot 500 MB
    / ext4 LVM Группа томов: blackjack, Имя: root
     ```
 
 Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
-
-Создаём в скрипт обновления EFI-файлов при обновлении ядра
-в `etc/kernel/postinst.d/99-update-efistub`:
-
-```sh
-#!/bin/bash
-
-rm -f /boot/efi/EFI/fedora/vmlinuz.efi
-rm -f /boot/efi/EFI/fedora/initramfs.img
-cp $(ls /boot/vmlinuz-* | sort -r | head -1) /boot/efi/EFI/fedora/vmlinuz.efi
-cp $(ls /boot/initramfs-* | sort -r | head -1) /boot/efi/EFI/fedora/initramfs.img
-```
-
-```sh
-sudo chmod a+x etc/kernel/postinst.d/99-update-efistub
-```
-
-Копируем первое ядро руками.
-
-Копируем EFI-загрузчик:
-
-```sh
-sudo cp usr/lib/systemd/boot/efi/systemd-bootx64.efi ../BOOT/EFI/fedora/
-sudo mkdir -p ../BOOT/loader/entries
-```
-
-Создаём для него настройки. `../BOOT/loader/loader.conf`:
-
-```
-default fedora
-```
-
-Узнаём UUID диска:
-
-```sh
-sudo cryptsetup luksUUID /dev/mapper/blackjack-root
-```
-
-Создаём `BOOT/loader/entries/fedora.conf` и заменяем 2 `UUID`:
-
-```
-title   Fedora
-linux   /EFI/fedora/vmlinuz.efi
-initrd  /EFI/fedora/initramfs.img
-options root=/dev/mapper/luks-UUID rd.lvm.lv=blackjack/root rd.luks.uuid=luks-UUID ro rhgb quiet LANG=ru_RU.UTF-8
-```
 
 Открываем `etc/fstab`.
 
@@ -119,11 +72,7 @@ sudo chmod 600 ./swapfile
 sudo mkswap ./swapfile
 ```
 
-Редактируем EFI. Удаляем `Fedora`, добавляем новый раздел:
-
-```sh
-sudo efibootmgr --create --disk /dev/nvme0n1 --label Fedora --loader "EFI/fedora/systemd-bootx64.efi"
-```
+В BIOS меняем порядок загрузки.
 
 Перезагружаемся в систему. Указываем имя по английски и логин `ai`.
 Заходим в систему. Меняем имя на русское. И включаем автоматический вход.
