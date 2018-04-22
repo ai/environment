@@ -13,7 +13,11 @@ sudo dnf install WoeUSB
 
 1. `.Личное/`
 2. `Видео/`
-3. `Dev/environment`
+3. `Dev/environment/`
+4. `.aliases.zsh`
+5. `Dev/amplifr/`
+6. `Dev/amplifr-fromt/`
+7. `Dev/amplifr-logux/`
 
 ### Windows
 
