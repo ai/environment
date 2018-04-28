@@ -252,7 +252,14 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape transmission-gtk
+sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk
+```
+
+Устанавливаем Gimp:
+
+```sh
+sudo dnf config-manager --add-repo https://copr.fedorainfracloud.org/coprs/nphilipp/gimp-unstable/repo/fedora-28/nphilipp-gimp-unstable-fedora-28.repo
+sudo dnf install gimp-unstable
 ```
 
 Устаналивливаем шрифты от Microsoft:
