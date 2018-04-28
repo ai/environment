@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Видео
+Comment=Воспроизведение фильмов
+Icon=org.gnome.Totem
+Exec=totem %U
+Categories=GTK;GNOME;AudioVideo;Player;Video;
+NoDisplay=true
