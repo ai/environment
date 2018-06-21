@@ -1,1 +1,3 @@
 --smart-case
+--glob=!.git/
+--hidden
