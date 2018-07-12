@@ -43,7 +43,7 @@
     ]
   editor:
     fontFamily: "Fira Code Retina"
-    fontSize: 17
+    fontSize: 18
     invisibles: {}
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
     showIndentGuide: true
