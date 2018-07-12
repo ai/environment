@@ -54,4 +54,4 @@ fi
 alias b='bundle exec'
 
 # Node.js
-alias n='npx'
+alias n='npx --no-install'
