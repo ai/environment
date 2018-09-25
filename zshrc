@@ -44,7 +44,6 @@ alias g='git'
 alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -A'
-source ~/.aliases.zsh
 
 # Ruby
 if [ -d /usr/share/chruby/ ]; then

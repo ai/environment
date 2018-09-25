@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Редактор
+Name=Разработка
 Comment=Текстовый редактор
 Icon=atom
 Exec=atom %U

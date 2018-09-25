@@ -1,0 +1,28 @@
+[Desktop Entry]
+Name=Редактор
+Comment=Редактор текстовых файлов
+Exec=gedit %U
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=text/plain;
+Icon=gedit
+Categories=GNOME;GTK;Utility;TextEditor;
+X-GNOME-DocPath=gedit/gedit.xml
+X-GNOME-FullName=Текстовый редактор gedit
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gedit
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=3.28.1
+X-GNOME-Bugzilla-ExtraInfoScript=/usr/libexec/gedit/gedit-bugreport.sh
+Actions=new-window;new-document;
+Keywords=Текст;Редактор;Запись;Текстовый;
+DBusActivatable=true
+
+[Desktop Action new-window]
+Name=Создать окно
+Exec=gedit --new-window
+
+[Desktop Action new-document]
+Name=Создать документ
+Exec=gedit --new-document

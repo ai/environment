@@ -4,4 +4,3 @@ Name=Пароли и ключи
 Comment=Управление паролями и ключами шифрования
 Icon=seahorse
 Exec=/usr/bin/seahorse
-NoDisplay=true
