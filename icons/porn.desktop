@@ -4,3 +4,8 @@ Name=Порно
 Comment=Запустить видно
 Icon=applications-community
 Exec=/home/ai/.porn
+Actions=New;
+
+[Desktop Action New]
+Name=Новое
+Exec=/home/ai/.porn-new
