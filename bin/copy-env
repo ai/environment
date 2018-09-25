@@ -33,4 +33,5 @@ else
     rm ~/Dev/environment/icons/*.desktop
     cp ~/.local/share/applications/*.desktop ~/Dev/environment/icons/
     rm ~/Dev/environment/icons/chrome-*
+    rm ~/Dev/environment/icons/org.gnome.Shell.Extensions.*
 fi
