@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Firefox on Wayland
-Exec=firefox-wayland --name firefox-wayland %u
-Terminal=false
-Type=Application
-Exec=firefox-wayland --private-window --name firefox-wayland %u
-NoDisplay=true
