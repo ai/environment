@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ "$1" == "--new" ]]; then
+  find /home/ai/Видео/.Эротика/Новое -type f -exec mpv --shuffle {} +
+else
+  find /home/ai/Видео/.Эротика -type f ! -path "/home/ai/Видео/.Эротика/Новое/*" -exec mpv --shuffle {} +
+fi
