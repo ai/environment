@@ -3,9 +3,9 @@ Type=Application
 Name=Порно
 Comment=Запустить видно
 Icon=applications-community
-Exec=/home/ai/.porn
+Exec=/home/ai/Dev/environment/bin/porn
 Actions=New;
 
 [Desktop Action New]
 Name=Новое
-Exec=/home/ai/.porn-new
+Exec=/home/ai/Dev/environment/bin/porn --new
