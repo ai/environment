@@ -389,13 +389,7 @@ sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
 ```
 
-Устанавливаем Deis:
-
-```
-curl -sSL http://deis.io/deis-cli/install-v2.sh | bash
-sudo mv $PWD/deis /usr/local/bin/deis
-deis login https://deis.amplifr.com
-```
+Устанавливаем [Helm](https://github.com/helm/helm/releases).
 
 Подключаем телефон. Устанавливаем инструменты отладки.
 
