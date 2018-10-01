@@ -210,13 +210,17 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 sudo dnf install mozilla-fira-mono-fonts
 ```
 
-Скачиваем файлы FiraCode с [репозитория](https://github.com/tonsky/FiraCode).
+Скачиваем файлы [FiraCode](https://github.com/tonsky/FiraCode):
+
+```sh
+sudo dnf copr enable evana/fira-code-fonts
+sudo dnf install fira-code-fonts
+```
 
 Установить иконки и тему:
 
 ```sh
-sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:snwh:moka/Fedora_25/home:snwh:moka.repo
-sudo dnf install faba-icon-theme moka-icon-theme
+sudo dnf install numix-icon-theme-circle
 ```
 
 Улучшаем рендер шрифтов:
@@ -234,7 +238,7 @@ sudo dnf install gnome-tweak-tool
 И выставить в нём настроки:
 
 - **Верхняя панель:** включить «Показывать дату» и «Показывать секунды».
-- **Внешний вид:** иконки выставить в «Moka».
+- **Внешний вид:** иконки выставить в «Numix-Circle».
 - **Звук:** включить «Сверхусиление».
 - **Клавиатура и мышь:** выключить «Вставка при нажатии средней кнопки мышки»
   и ставим «Adaptive» в профиле ускорения.
