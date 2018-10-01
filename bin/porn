@@ -3,5 +3,5 @@
 if [[ "$1" == "--new" ]]; then
   find /home/ai/Видео/Эротика/Новое -type f -exec mpv --shuffle --fullscreen {} +
 else
-  find /home/ai/Видео/.Эротика -type f ! -path "/home/ai/Видео/Эротика/Новое/*" -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Видео/Эротика -type f ! -path "/home/ai/Видео/Эротика/Новое/*" -exec mpv --shuffle --fullscreen {} +
 fi
