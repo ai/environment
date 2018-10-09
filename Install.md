@@ -93,7 +93,7 @@ grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-calendar gnome-photos simple-scan gnome-weather virtualbox-guest-additions
+sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan gnome-weather virtualbox-guest-additions
 ```
 
 Подключаем RPM Fusion:
@@ -117,7 +117,7 @@ sudo dnf update --refresh
 Включаем HiDPI для TTY:
 
 ```sh
-sudo dnf install terminus-fonts-console
+sudo dnf install terminus-fonts-console gnome-todo
 ```
 
 И записаем в `/etc/vconsole.conf`:
@@ -141,6 +141,7 @@ FONT="ter-v32n"
   ставим «Выключение экрана» в «Никогда».
 - **Пользователи:** ставим аватарку из этой папки и «Автоматический вход».
 - **Клавиатура:** заходим в «Комбинации клавиш» и очищаем «Сохранять снимок …».
+- **Сетевые учётные записи:** подключить Google.
 
 Выставляем настройки клавиатуры:
 

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Задачи
+Comment=Управляйте своими персональными задачами
+Exec=gnome-todo
+Icon=org.gnome.Todo
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
+Keywords=Задачи;Продуктивность;Todo;
+DBusActivatable=true
