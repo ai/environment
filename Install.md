@@ -93,7 +93,7 @@ grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan gnome-weather virtualbox-guest-additions
+sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions
 ```
 
 Подключаем RPM Fusion:
