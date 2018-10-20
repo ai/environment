@@ -10,7 +10,7 @@ if [ "$1" == "" ]; then
     cd /tmp/.ruby-build
     git init > /dev/null
     git remote add -f origin $REPO &> /dev/null
-    git ls-tree origin/master share/ruby-build/ --name-only | sed s/.*\\///
+    git ls-tree origin/master share/ruby-build/ --name-only | sed s/.*\\/// | grep '^[0-9]' --color=never
 
 else
     git clone git://github.com/sstephenson/ruby-build.git /tmp/.ruby-build
