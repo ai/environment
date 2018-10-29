@@ -2,6 +2,12 @@
 
 if [[ "$1" == "--new" ]]; then
   find /home/ai/Видео/Эротика/Новое -type f -exec mpv --shuffle --fullscreen {} +
+elif [[ "$1" == "--bdsm" ]]; then
+  find /home/ai/Видео/Эротика/БДСМ -type f -exec mpv --shuffle --fullscreen {} +
+elif [[ "$1" == "--private" ]]; then
+  find /home/ai/Видео/Эротика/Частное -type f -exec mpv --shuffle --fullscreen {} +
+elif [[ "$1" == "--other" ]]; then
+  find /home/ai/Видео/Эротика/Другое -type f -exec mpv --shuffle --fullscreen {} +
 else
   find /home/ai/Видео/Эротика -type f ! -path "/home/ai/Видео/Эротика/Новое/*" -exec mpv --shuffle --fullscreen {} +
 fi
