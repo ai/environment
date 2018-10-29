@@ -4,8 +4,20 @@ Name=Порно
 Comment=Запустить видно
 Icon=babe
 Exec=/home/ai/Dev/environment/bin/porn
-Actions=New;
+Actions=New;BDSM;Private;Other;
 
 [Desktop Action New]
 Name=Новое
 Exec=/home/ai/Dev/environment/bin/porn --new
+
+[Desktop Action BDSM]
+Name=БДСМ
+Exec=/home/ai/Dev/environment/bin/porn --bdsm
+
+[Desktop Action Private]
+Name=Частное
+Exec=/home/ai/Dev/environment/bin/porn --private
+
+[Desktop Action Other]
+Name=Другое
+Exec=/home/ai/Dev/environment/bin/porn --other
