@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=OpenJDK 8 Policy Tool #ARCH#
 Comment=Manage OpenJDK 8 policy files #ARCH#
-Exec=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181.b15-0.fc28.x86_64/jre/bin/policytool
+Exec=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.181.b15-6.fc28.x86_64/jre/bin/policytool
 Icon=java-8-openjdk
 Terminal=false
 Type=Application
