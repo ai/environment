@@ -6,7 +6,7 @@
 Записываем его на USB-флешку:
 
 ```sh
-sudo dnf install liveusb-creator
+sudo dnf install mediawriter
 ```
 
 Написываем на внешний диск:
