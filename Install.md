@@ -2,11 +2,11 @@
 
 ### Подготовка
 
-Скачиваем образ [Windows 10](https://www.microsoft.com/en-us/software-download/windows10ISO).
+Скачиваем образ [Fedora](https://getfedora.org/ru/workstation/).
 Записываем его на USB-флешку:
 
 ```sh
-sudo dnf install WoeUSB
+sudo dnf install liveusb-creator
 ```
 
 Написываем на внешний диск:
@@ -18,26 +18,6 @@ sudo dnf install WoeUSB
 5. `Dev/amplifr/`
 6. `Dev/amplifr-fromt/`
 7. `Dev/amplifr-logux/`
-
-### Windows
-
-2. Устанавливаем на диск 20 ГБ
-3. Включаем сжатие `Compact.exe /CompactOS:always`
-4. Выключаем гибернацию `powercfg /hibernate off`
-6. Удаляем ненужные приложения
-7. Параметры → Персонализация → Тема → Параметры значков рабочего стола, скрыть Коризину
-8. Параметры → Система → Питание, везде «Никогда»
-9. Параметры → Устройства → USB, выключаем автозагрузку
-10. Параметры → Устройства → Мышь → Дополнительные параметры, ускоряем
-11. Параметры → Учетные записи → Парметры входа, ставим вход по отпечатку
-12. Скрываем ненужные иконки из панели и Пуска
-13. Ставим Google Chrome
-14. Записываем новый ключ BitLocker в 1Password.
-15. Обновляем [BIOS](https://pcsupport.lenovo.com/us/ru/products/laptops-and-netbooks/yoga-series/yoga-920-13ikb/downloads/)
-16. Ставим [ПО для кликера](http://support.logitech.com/en_us/software/logi-presentation)
-17. Записываем новый пароль от BitLocker в 1Password
-18. Скачиваем образ Федора и программу записи под Windows
-19. Перезаписываем флешку образом Федоры
 
 ### Установка
 
