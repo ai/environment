@@ -21,7 +21,7 @@ sudo dnf install mediawriter
 
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
-2. В ручном разбиение диска выбираем автоматичесски создать разделы.
+2. В ручном разбиение диска выбираем автоматически создать разделы.
 3. Переименовыем том в `blackjack`.
 4. Удаляем `root` и `home`.
 5. Создаём `root` снова на весь размер.
@@ -56,12 +56,6 @@ hostnamectl set-hostname blackjack
 
 ```sh
 sudo systemctl enable fstrim.timer
-```
-
-Прячем GRUB, выставив `GRUB_TIMEOUT=0` в `/etc/default/grub` и запустив
-
-```sh
-grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
 
 ### Обновление системы
