@@ -5,13 +5,10 @@
 - [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 - [Icon Hider](https://extensions.gnome.org/extension/351/icon-hider/)
 и отключаем `a11y`, `keyboard` и индикатор расширения
-- [Imgur Screenshot Uploader](https://extensions.gnome.org/extension/683/imgur-screenshot-uploader/)
-и отключаем индикатор расширения
+- [Screenshot Tool](https://github.com/OttoAllmendinger/gnome-shell-screenshot)
 - [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
-- [AlternateTab](https://extensions.gnome.org/extension/15/alternatetab/)
-- [Dynamic Top Bar](https://extensions.gnome.org/extension/885/dynamic-top-bar/)
+- [Straight Top Bar](https://extensions.gnome.org/extension/1265/straight-top-bar/)
 - [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
 - [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
-- [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
