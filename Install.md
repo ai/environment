@@ -49,7 +49,7 @@ none /tmp/     tmpfs noatime  0 0
 Указываем имя ноутбуку:
 
 ```sh
-hostnamectl set-hostname blackjack
+sudo hostnamectl set-hostname blackjack
 ```
 
 Включаем TRIM:
@@ -87,7 +87,7 @@ sudo dnf update --refresh
 Включаем HiDPI для TTY:
 
 ```sh
-sudo dnf install terminus-fonts-console gnome-todo
+sudo dnf install terminus-fonts-console
 ```
 
 И записаем в `/etc/vconsole.conf`:
@@ -110,7 +110,6 @@ FONT="ter-v32n"
 - **Энегропитание:** выключаем «Уменьшать яркость при простое»,
   ставим «Выключение экрана» в «Никогда».
 - **Пользователи:** ставим аватарку из этой папки и «Автоматический вход».
-- **Клавиатура:** заходим в «Комбинации клавиш» и очищаем «Сохранять снимок …».
 - **Сетевые учётные записи:** подключить Google.
 
 Выставляем настройки клавиатуры:
@@ -149,7 +148,6 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 ```
 
 Настройки: «Раннее открытые вкладки».
-Показать дополнительные настройки: выставить «Рабочий стол» в Скаченные файлы.
 
 Авторизоваться в Хроме. Авторизоваться в Твиттере, ГитХабе, Гиттере, Слаках,
 ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии, Телеграме.
@@ -166,7 +164,7 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Создаём VPN-соединения:
 
 1. Настройки → Сеть → + → VPN → Импортировать из файла.
-2. Название: «ExpressVPN страна».
+2. Название: «ExpressVPN Германия» и «ExpressVPN Гонконг».
 3. Копируем имя пользователя и пароль.
 
 ### Внешний вид
@@ -181,23 +179,12 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 sudo dnf install mozilla-fira-mono-fonts
 ```
 
-Скачиваем файлы [FiraCode](https://github.com/tonsky/FiraCode):
-
-```sh
-sudo dnf copr enable evana/fira-code-fonts
-sudo dnf install fira-code-fonts
-```
+Скачиваем файлы [FiraCode](https://github.com/tonsky/FiraCode).
 
 Установить иконки и тему:
 
 ```sh
 sudo dnf install numix-icon-theme-circle
-```
-
-Улучшаем рендер шрифтов:
-
-```sh
-sudo dnf install freetype-freeworld
 ```
 
 Установить GNOME Tweek Tool:
@@ -208,11 +195,12 @@ sudo dnf install gnome-tweak-tool
 
 И выставить в нём настроки:
 
+- **Основное:** включить «Сверхусиление».
 - **Верхняя панель:** включить «Показывать дату» и «Показывать секунды».
 - **Внешний вид:** иконки выставить в «Numix-Circle».
-- **Звук:** включить «Сверхусиление».
 - **Клавиатура и мышь:** выключить «Вставка при нажатии средней кнопки мышки»
   и ставим «Adaptive» в профиле ускорения.
+- **Окна:** выключаем «Активные края».
 - **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
   моноширный в «Fira Code Retina».
 
@@ -227,14 +215,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk
-```
-
-Устанавливаем Gimp:
-
-```sh
-sudo dnf config-manager --add-repo https://copr.fedorainfracloud.org/coprs/nphilipp/gimp-unstable/repo/fedora-28/nphilipp-gimp-unstable-fedora-28.repo
-sudo dnf install gimp-unstable
+sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
 ```
 
 Устаналивливаем шрифты от Microsoft:
@@ -256,7 +237,7 @@ sudo dnf install fuse-encfs
 Ставим правильные права на ключи:
 
 ```sh
-chmod 0600 .ssh/* .gnupg/*
+chmod 0600 .ssh/id_rsa .ssh/id_ed25519 .gnupg/*.gpg .gnupg/pubring.kbx .gnupg/gpg.conf .gnupg/private-keys-v1.d/* .gnupg/gpg.conf
 ```
 
 ### Папки
@@ -313,12 +294,6 @@ sudo dnf install git tig ripgrep golang redis postgresql postgresql-server postg
 sudo dnf install java-1.8.0-openjdk
 ```
 
-Создаём папку для Go:
-
-```sh
-mkdir ~/.go
-```
-
 Запускаем PostgreSQL:
 
 ```sh
@@ -333,6 +308,15 @@ sudo su postgres -c 'createuser -s ai'
 
 ```
 host    all             all             127.0.0.1/32            trust
+```
+
+Устаналиваем `node` и `yarn`:
+
+```sh
+sudo dnf install https://rpm.nodesource.com/pub_11.x/fc/28/x86_64/nodesource-release-fc28-1.noarch.rpm
+sudo dnf install nodejs
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+sudo dnf install yarn
 ```
 
 Устаналиваем `chruby`:
@@ -351,25 +335,7 @@ chruby 2.5.3
 gem install bundler
 ```
 
-Устаналиваем `node` и `yarn`:
-
-```sh
-sudo dnf install https://rpm.nodesource.com/pub_11.x/fc/28/x86_64/nodesource-release-fc28-1.noarch.rpm
-sudo dnf install nodejs
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-sudo dnf install yarn
-```
-
 Устанавливаем [Helm](https://github.com/helm/helm/releases).
-
-Подключаем телефон. Устанавливаем инструменты отладки.
-
-```sh
-sudo dnf install adb
-sudo systemctl start adb
-```
-
-Разрешаем отладку с этого устройства на телефоне.
 
 ### Текстовые редакторы
 

@@ -4,11 +4,11 @@
 if [ "$1" == "system" ]; then
     rm ~/.local/share/applications/*.desktop
     cp ~/Dev/environment/icons/* ~/.local/share/applications/
-    mkdir -p ~/.mpv
     mkdir -p ~/.atom
     mkdir -p ~/.bundle
     mkdir -p ~/.node
     mkdir -p ~/.prompt
+    mkdir -p ~/.config/mpv/
     cp ~/Dev/environment/zshrc          ~/.zshrc
     cp ~/Dev/environment/prompt/*       ~/.prompt/
     cp ~/Dev/environment/gemrc          ~/.gemrc
