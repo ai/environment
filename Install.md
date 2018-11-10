@@ -97,6 +97,10 @@ KEYMAP="us"
 FONT="ter-v32n"
 ```
 
+```sh
+systemctl start systemd-vconsole-setup.service
+```
+
 Перезагружаемся.
 
 ### Настройка GNOME
@@ -238,6 +242,8 @@ sudo dnf install fuse-encfs
 
 ```sh
 chmod 0600 .ssh/id_rsa .ssh/id_ed25519 .gnupg/*.gpg .gnupg/pubring.kbx .gnupg/gpg.conf .gnupg/private-keys-v1.d/* .gnupg/gpg.conf
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_ed25519
 ```
 
 ### Папки
