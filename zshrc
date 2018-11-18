@@ -38,8 +38,11 @@ fi
 # Rip Grep
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
-# Aliases
+# Atom
+export ELECTRON_TRASH=gio
 alias e='atom .'
+
+# Aliases
 alias g='git'
 alias ..='cd ..'
 alias ll='ls -lh'
