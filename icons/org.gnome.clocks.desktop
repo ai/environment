@@ -6,4 +6,3 @@ Icon=org.gnome.clocks
 Exec=gnome-clocks
 Type=Application
 Categories=GNOME;GTK;Utility;Clock;
-NoDisplay=true
