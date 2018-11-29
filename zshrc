@@ -57,3 +57,8 @@ alias b='bundle exec'
 
 # Node.js
 alias n='npx --no-install'
+
+# Docker
+alias d='docker-compose run app'
+alias db='docker-compose run app bundle exec'
+alias dn='docker-compose run app npx --no-install'
