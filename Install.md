@@ -87,7 +87,7 @@ sudo dnf update --refresh
 Включаем HiDPI для TTY:
 
 ```sh
-sudo dnf install terminus-fonts-console
+sudo dnf install terminus-fonts-console tlp tlp-rdw
 ```
 
 И записаем в `/etc/vconsole.conf`:
@@ -252,16 +252,17 @@ chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-
 Создаём шаблон пустого файла:
 
 ```sh
-mkdir ~/.templates
-touch ~/.templates/Пустой\ файл
+mkdir ~/.local/share/desktop
+mkdir ~/.local/share/templates
+touch ~/.local/share/templates/Пустой\ файл
 ```
 
 Исправляем папки по-умолчанию `~/.config/user-dirs.dirs`:
 
 ```sh
-XDG_DESKTOP_DIR="$HOME/Рабочий стол"
+XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
 XDG_DOWNLOAD_DIR="$HOME/Загрузки"
-XDG_TEMPLATES_DIR="$HOME/Шаблоны"
+XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME/"
 XDG_DOCUMENTS_DIR="$HOME/"
 XDG_MUSIC_DIR="$HOME/"
@@ -278,7 +279,7 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 Удаляем лишние папки:
 
 ```sh
-rm -R ~/Документы ~/Изображения ~/Музыка ~/Общедоступные
+rm -R ~/Документы ~/Изображения ~/Музыка ~/Общедоступные ~/Шаблоны ~/Рабочий\ стол
 ```
 
 ### Разработка
