@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/bash
+# Run movies from specific category
 
 if [[ "$1" == "--new" ]]; then
   find /home/ai/Видео/Эротика/Новое -type f -exec mpv --shuffle --fullscreen {} +
