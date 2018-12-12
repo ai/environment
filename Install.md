@@ -87,7 +87,7 @@ sudo dnf update --refresh
 Включаем HiDPI для TTY:
 
 ```sh
-sudo dnf install terminus-fonts-console tlp tlp-rdw
+sudo dnf install terminus-fonts-console
 ```
 
 И записаем в `/etc/vconsole.conf`:
@@ -158,7 +158,7 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 
 Добавляем расширения «[Evil Chrome]».
 
-[Evil Chrome]:           https://evilmartians.slack.com/files/yaroslav/F0XAA0LF4/evil-chrome__1_.crx
+[Evil Chrome]: https://evilmartians.slack.com/files/yaroslav/F0XAA0LF4/evil-chrome__1_.crx
 
 ### VPN
 
