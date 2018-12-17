@@ -345,7 +345,22 @@ gem install bundler
 
 Устанавливаем [Helm](https://github.com/helm/helm/releases).
 
-Устаналиваем Docker:
+Устанавливаем Kubernetes:
+
+```sh
+sudo cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+sudo dnf install kubectl
+```
+
+Устанавливаем Docker:
 
 ```sh
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
