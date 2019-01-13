@@ -219,7 +219,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
+sudo dnf install man-pages-ru gnome-mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
 ```
 
 Устаналивливаем шрифты от Microsoft:
