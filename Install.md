@@ -14,6 +14,7 @@ sudo dnf install mediawriter
 1. `.Личное/`
 2. `Видео/`
 3. `Dev/`
+4. `.mozilla`
 
 ### Установка
 
