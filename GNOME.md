@@ -11,3 +11,6 @@
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 - [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
 - [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
+- [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
+- [Pause Night Light](https://extensions.gnome.org/extension/1327/pause-night-light/)
+- [Remove Alt+Tab Delay](https://extensions.gnome.org/extension/1403/remove-alttab-delay/)
