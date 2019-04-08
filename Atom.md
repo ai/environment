@@ -14,6 +14,7 @@ Plugins:
 - `minimap`
 - `minimap-linter`
 - `minimap-find-and-replace`
+- `docblockr`
 
 Themes:
 
