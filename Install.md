@@ -16,6 +16,7 @@ sudo dnf install mediawriter
 3. `Dev/`
 4. `.mozilla`
 
+
 ### Установка
 
 Запускаем установщик.
@@ -45,7 +46,7 @@ none /tmp/     tmpfs noatime  0 0
 В BIOS меняем порядок загрузки.
 
 Перезагружаемся в систему. Указываем имя по английски и логин `ai`.
-Заходим в систему. Меняем имя на русское. И включаем автоматический вход.
+Заходим в систему. И включаем автоматический вход.
 
 Указываем имя ноутбуку:
 
@@ -59,7 +60,7 @@ sudo hostnamectl set-hostname blackjack
 sudo systemctl enable fstrim.timer
 ```
 
-Выключаем засыпания
+Выключаем засыпания в настройках питания.
 
 ### Обновление системы
 
@@ -101,10 +102,11 @@ FONT="ter-v32n"
 ```
 
 ```sh
-systemctl start systemd-vconsole-setup.service
+sudo systemctl start systemd-vconsole-setup.service
 ```
 
 Перезагружаемся.
+
 
 ### Настройка GNOME
 
@@ -112,11 +114,11 @@ systemctl start systemd-vconsole-setup.service
 
 - **Поиск:** выключаем «Терминал» и «Центр приложений».
 - **Фон:** ставим обои из этой папки и стандартный фон на экран блокировки.
-- **Мышь и сенсорная панель:** чувствительность на максимум,
-  включаем «Нажатие касанием».
+- **Мышь и сенсорная панель:** скорость мыши на максимум, скорость панели
+  поднимаем, включаем «Нажатие касанием».
 - **Энегропитание:** выключаем «Уменьшать яркость при простое»,
   ставим «Выключение экрана» в «Никогда».
-- **Пользователи:** ставим аватарку из этой папки и «Автоматический вход».
+- **Пользователи:** ставим аватарку из этой папки.
 - **Сетевые учётные записи:** подключить Google.
 
 Выставляем настройки клавиатуры:
@@ -141,98 +143,21 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
-### Браузеры
+Выключаем засыпание компьютера при закрытии крышки:
 
-Ставим `seahorse` и выключаем пароль со связик ключей.
+1. `sudo vi /etc/systemd/logind.conf`
+2. Ставим `HandleLidSwitch=ignore`
 
-Ставим Хром:
+Перезапускаем.
 
-```sh
-wget https://dl.google.com/linux/linux_signing_key.pub
-sudo rpm --import linux_signing_key.pub
-rm linux_signing_key.pub
-sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-```
-
-Настройки: «Раннее открытые вкладки».
-
-Авторизоваться в Хроме. Авторизоваться в Твиттере, ГитХабе, Гиттере, Слаках,
-ВКонтакте, Фидли, Фейсбуке, Амплифере и Википедии, Телеграме.
-
-Добавляем расширения «[Evil Chrome]».
-
-[Evil Chrome]: https://evilmartians.slack.com/files/yaroslav/F0XAA0LF4/evil-chrome__1_.crx
-
-### VPN
-
-Скачиваем файлы настроек для Германии и Гонконга с
-[ExpressVPN](https://www.expressvpn.com/ru/setup#manual).
-
-Создаём VPN-соединения:
-
-1. Настройки → Сеть → + → VPN → Импортировать из файла.
-2. Название: «ExpressVPN Германия» и «ExpressVPN Гонконг».
-3. Копируем имя пользователя и пароль.
-
-### Внешний вид
-
-Ставим расширения из [`GNOME.md`](./GNOME.md).
-
-Добавляем Сан-Франциско, Москву, Пекин и Владивосток в Часы.
-
-Установить шрифт Fira Mono и Fire Code:
-
-```sh
-sudo dnf install mozilla-fira-mono-fonts
-```
-
-Скачиваем файлы [FiraCode](https://github.com/tonsky/FiraCode).
-
-Установить иконки и тему:
-
-```sh
-sudo dnf install numix-icon-theme-circle
-```
-
-Установить GNOME Tweek Tool:
-
-```sh
-sudo dnf install gnome-tweak-tool
-```
-
-И выставить в нём настроки:
-
-- **Основное:** включить «Сверхусиление», выключить «Режим ожидания
-  при закрытии ноутбука».
-- **Верхняя панель:** включить «Показывать дату» и «Показывать секунды».
-- **Внешний вид:** иконки выставить в «Numix-Circle».
-- **Клавиатура и мышь:** выключить «Вставка при нажатии средней кнопки мышки»
-  и ставим «Adaptive» в профиле ускорения.
-- **Окна:** выключаем «Активные края».
-- **Шрифты:** заголовок окон в «PT Sans Bold», интерфейс в «PT Sans Regular»,
-  моноширный в «Fira Code Retina».
-
-### Кодеки и шрифты
-
-Устанавливаем кодеки:
-
-```sh
-sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-fc gstreamer-plugins-ugly gstreamer-rtsp lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-base gstreamer-plugins-good
-```
-
-Устанавливаем программы:
-
-```sh
-sudo dnf install man-pages-ru gnome-mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
-```
-
-Устаналивливаем шрифты от Microsoft:
-
-```sh
-sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-```
 
 ### Личные файлы
+
+Скопировать конфиги:
+
+```sh
+~/Dev/environment/bin/copy-env system
+```
 
 Устанавливаем пакеты для расшировки:
 
@@ -250,6 +175,89 @@ chmod 644 ~/.ssh/* ~/.gnupg/*
 chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
 ```
+
+
+### Браузеры
+
+Ставим `seahorse` и выключаем пароль со связик ключей.
+
+Копируем `.mozilla`.
+
+Ставим Хром.
+
+
+### VPN
+
+Скачиваем файлы настроек для Германии и Гонконга с
+[ExpressVPN](https://www.expressvpn.com/ru/setup).
+
+```sh
+expressvpn activate
+```
+
+
+### Внешний вид
+
+Ставим расширения из [`GNOME.md`](./GNOME.md).
+
+Добавляем Сан-Франциско, Москву, Пекин и Владивосток в Часы.
+
+Установить шрифт Fira Mono и Fire Code:
+
+```sh
+sudo dnf install mozilla-fira-mono-fonts
+```
+
+Скачиваем файлы [FiraCode](https://github.com/tonsky/FiraCode):
+
+```sh
+sudo dnf copr enable evana/fira-code-fonts
+sudo dnf install fira-code-fonts
+```
+
+Установить иконки:
+
+```sh
+sudo dnf install numix-icon-theme-circle
+```
+
+Установить GNOME Tweek Tool:
+
+```sh
+sudo dnf install gnome-tweak-tool
+```
+
+И выставить в нём настроки:
+
+- **Основное:** включить «Сверхусиление».
+- **Верхняя панель:** включить «Показывать дату» и «Показывать секунды».
+- **Внешний вид:** иконки выставить в «Numix-Circle».
+- **Клавиатура и мышь:** выключить «Вставка при нажатии средней кнопки мышки»
+  и ставим «Adaptive» в профиле ускорения.
+- **Окна:** выключаем «Активные края».
+- **Шрифты:** моноширный в «Fira Code Retina».
+
+
+### Кодеки и шрифты
+
+Устанавливаем кодеки:
+
+```sh
+sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-fc gstreamer-plugins-ugly gstreamer-rtsp lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-base gstreamer-plugins-good
+```
+
+Устанавливаем программы:
+
+```sh
+sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
+```
+
+Устаналивливаем шрифты от Microsoft:
+
+```sh
+sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+```
+
 
 ### Папки
 
@@ -286,24 +294,13 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 rm -R ~/Документы ~/Изображения ~/Музыка ~/Общедоступные ~/Шаблоны ~/Рабочий\ стол
 ```
 
+
 ### Разработка
-
-Копируем файлы настройки:
-
-```sh
-~/Dev/environment/bin/copy-env system
-```
 
 Устанавливаем пакеты:
 
 ```sh
 sudo dnf install git tig ripgrep golang redis postgresql postgresql-server postgresql-contrib
-```
-
-Устанавливаем Java:
-
-```sh
-sudo dnf install java-1.8.0-openjdk
 ```
 
 Запускаем PostgreSQL:
@@ -322,10 +319,16 @@ sudo su postgres -c 'createuser -s ai'
 host    all             all             127.0.0.1/32            trust
 ```
 
+Устанавливаем Java:
+
+```sh
+sudo dnf install java-1.8.0-openjdk
+```
+
 Устаналиваем `node` и `yarn`:
 
 ```sh
-sudo dnf install https://rpm.nodesource.com/pub_11.x/fc/28/x86_64/nodesource-release-fc28-1.noarch.rpm
+sudo dnf install https://rpm.nodesource.com/pub_11.x/fc/29/x86_64/nodesource-release-fc29-1.noarch.rpm
 sudo dnf install nodejs
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
@@ -341,10 +344,10 @@ sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-t
 
 ```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
-~/Dev/environment/bin/build-ruby 2.5.3
+~/Dev/environment/bin/build-ruby 2.6.3
 source /usr/share/chruby/chruby.sh
-chruby 2.5.3
-gem install bundler
+chruby 2.6.3
+gem install bundler --version "<2.0.0"
 ```
 
 Устанавливаем [Helm](https://github.com/helm/helm/releases).
@@ -377,6 +380,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+
 ### Текстовые редакторы
 
 Устанавливаем nano:
@@ -395,6 +399,7 @@ rm atom.rpm
 ```
 
 Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
+
 
 ### zsh
 
@@ -420,6 +425,7 @@ source /home/ai/.prompt/async.zsh
 source /home/ai/.prompt/main.zsh
 ```
 
+
 ### Ярлыки
 
 Удаляем папки иконок:
@@ -428,7 +434,8 @@ source /home/ai/.prompt/main.zsh
 gsettings set org.gnome.desktop.app-folders folder-children "['']"
 ```
 
-Оставить в доке по-умолчанию только Хром, Наутилус и Терминал.
+Оставить в доке по-умолчанию только Фаерфокс, Наутилус и Терминал.
+
 
 ### Чаты
 
