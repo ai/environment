@@ -23,12 +23,12 @@ if [ -f ~/.antigen.zsh ]; then
   antigen bundle yarn
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
+  antigen theme denysdovhan/spaceship-prompt
   antigen apply
 fi
 
 # Prompt
-source ~/.prompt/async.zsh
-source ~/.prompt/main.zsh
+SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
 
 # Fast way to Dev projects
 if [ -d ~/Dev ]; then
