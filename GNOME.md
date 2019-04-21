@@ -5,7 +5,7 @@
 - [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 - [Icon Hider](https://extensions.gnome.org/extension/351/icon-hider/)
 и отключаем `a11y`, `keyboard` и индикатор расширения
-- [Screenshot Tool](https://github.com/OttoAllmendinger/gnome-shell-screenshot)
+- [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
 - [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
