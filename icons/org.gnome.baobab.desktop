@@ -2,7 +2,7 @@
 Type=Application
 Name=Место на диске
 Comment=Изучение размера папок и свободного места на дисках
-Icon=baobab
+Icon=org.gnome.baobab
 Exec=baobab
 Categories=GTK;GNOME;System;Filesystem;X-GNOME-Utilities;
 MimeType=inode/directory;

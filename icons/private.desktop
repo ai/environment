@@ -2,5 +2,5 @@
 Type=Application
 Name=Личная папка
 Comment=Расшифровать личную папку
-Icon=lock
+Icon=/home/ai/.local/share/applications/private.svg
 Exec=/home/ai/Dev/environment/bin/private
