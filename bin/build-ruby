@@ -6,15 +6,14 @@ REPO=https://github.com/sstephenson/ruby-build.git
 if [ -d /tmp/.ruby-build ]; then  rm -Rf /tmp/.ruby-build; fi
 
 if [ "$1" == "" ]; then
-    mkdir /tmp/.ruby-build
-    cd /tmp/.ruby-build
-    git init > /dev/null
-    git remote add -f origin $REPO &> /dev/null
-    git ls-tree origin/master share/ruby-build/ --name-only | sed s/.*\\/// | grep '^[0-9]' --color=never
-
+  mkdir /tmp/.ruby-build
+  cd /tmp/.ruby-build
+  git init > /dev/null
+  git remote add -f origin $REPO &> /dev/null
+  git ls-tree origin/master share/ruby-build/ --name-only | sed s/.*\\/// | grep '^[0-9]' --color=never
 else
-    git clone git://github.com/sstephenson/ruby-build.git /tmp/.ruby-build
-    /tmp/.ruby-build/bin/ruby-build $1 /home/ai/.rubies/$1
+  git clone git://github.com/sstephenson/ruby-build.git /tmp/.ruby-build
+  /tmp/.ruby-build/bin/ruby-build $1 /home/ai/.rubies/$1
 fi
 
 rm -Rf /tmp/.ruby-build

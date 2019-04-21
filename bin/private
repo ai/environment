@@ -5,12 +5,12 @@ STORE=$HOME/.Личное
 LINK=$HOME/Личное
 
 if [ -e "$LINK" ]; then
-    # Lock
-    fusermount -u "$LINK"
-    rm -R "$LINK"
+  # Lock
+  fusermount -u "$LINK"
+  rm -R "$LINK"
 else
-    # Unlock
-    mkdir "$LINK"
-    encfs "$STORE" "$LINK" --extpass "zenity --password"
-    nautilus "$LINK"
+  # Unlock
+  mkdir "$LINK"
+  encfs "$STORE" "$LINK" --extpass "zenity --password"
+  nautilus "$LINK"
 fi
