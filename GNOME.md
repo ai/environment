@@ -14,3 +14,4 @@
 - [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 - [Pause Night Light](https://extensions.gnome.org/extension/1327/pause-night-light/)
 - [Remove Alt+Tab Delay](https://extensions.gnome.org/extension/1403/remove-alttab-delay/)
+- [Transparent Top Bar](https://extensions.gnome.org/extension/1708/transparent-top-bar/)
