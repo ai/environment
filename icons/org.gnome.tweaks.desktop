@@ -2,6 +2,6 @@
 Type=Application
 Name=Тюнинг
 Comment=Настройка дополнительных параметров GNOME 3
-Icon=gnome-tweak-tool
+Icon=org.gnome.tweaks
 Exec=gnome-tweaks
 Categories=GNOME;GTK;Utility;

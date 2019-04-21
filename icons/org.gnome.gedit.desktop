@@ -2,15 +2,12 @@
 Type=Application
 Name=Редактор
 Comment=Редактор текстовых файлов
+Icon=org.gnome.gedit
 Exec=gedit %U
-Terminal=false
-StartupNotify=true
 MimeType=text/plain;
-Icon=gedit
 Categories=GNOME;GTK;Utility;TextEditor;
-Actions=new-window;new-document;
-Keywords=Текст;Редактор;Запись;Текстовый;
 DBusActivatable=true
+Actions=new-window;new-document;
 
 [Desktop Action new-window]
 Name=Создать окно

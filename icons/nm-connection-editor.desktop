@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Расширенные настройки сети
+Comment=Управление параметрами сетевых соединений
+Icon=preferences-system-network
+Exec=nm-connection-editor
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=GNOME;GTK;Settings;X-GNOME-NetworkSettings;
+NoDisplay=true

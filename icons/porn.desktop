@@ -2,7 +2,7 @@
 Type=Application
 Name=Порно
 Comment=Запустить видно
-Icon=babe
+Icon=org.gnome.Totem
 Exec=/home/ai/Dev/environment/bin/porn
 Actions=New;BDSM;Private;Other;
 
