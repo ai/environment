@@ -165,8 +165,8 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 Выключаем засыпание компьютера при закрытии крышки:
 
-1. `sudo vi /etc/systemd/logind.conf`
-2. Ставим `HandleLidSwitch=ignore`
+1. `sudo nano /etc/systemd/logind.conf`
+2. Ставим `HandleLidSwitch=lock`
 
 Перезапускаем.
 
