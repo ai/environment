@@ -20,7 +20,6 @@ compinit
 if [ -f ~/.antigen.zsh ]; then
   ANTIGEN_MUTEX=false
   source ~/.antigen.zsh
-  antigen bundle yarn
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
   antigen theme denysdovhan/spaceship-prompt
