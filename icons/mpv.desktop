@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=mpv Media Player
-Comment=Play movies and songs
+Name=mpv
+Comment=Проигрывание фильмов
 Icon=mpv
 TryExec=mpv
 Exec=mpv --profile=pseudo-gui -- %U

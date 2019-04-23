@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Видео
+Name=Totem
 Comment=Воспроизведение фильмов
 Icon=org.gnome.Totem
 Exec=totem %U
