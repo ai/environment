@@ -208,7 +208,7 @@ SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
 
 ### Настройка GNOME
 
-Ставим `seahorse` и выключаем пароль со связик ключей.
+Ставим `seahorse` и выключаем пароль со связки ключей.
 
 Открываем Настройки:
 
