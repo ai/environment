@@ -260,7 +260,7 @@ sudo dnf install gnome-tweak-tool
 И выставить в нём настроки:
 
 - **Основное:** включить «Сверхусиление».
-- **Верхняя панель:** включить дату» и «секунды».
+- **Верхняя панель:** включить «заряд в процентах», «дату» и «секунды».
 - **Внешний вид:** обои берём из этой папки.
 - **Заголовки окон:** двойное нажатие — «toggle maximize vertical»,
   средней — «toggle maximize».
@@ -332,7 +332,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
+sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins transmission-gtk gimp
 ```
 
 Устаналивливаем шрифты от Microsoft:
