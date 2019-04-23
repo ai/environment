@@ -47,6 +47,9 @@ none /tmp/     tmpfs noatime  0 0
 
 Перезагружаемся в систему. Указываем имя по английски и логин `ai`.
 
+Скопировть `Dev/environment` и локально открыть `Install.md`.
+Поставить на копирование `.Личное` и `.mozilla`.
+
 Указываем имя ноутбуку:
 
 ```sh
@@ -60,6 +63,7 @@ sudo systemctl enable fstrim.timer
 ```
 
 Выключаем засыпания в настройках питания.
+
 
 ### Обновление системы
 
@@ -87,6 +91,8 @@ sudo dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russi
 sudo dnf update --refresh
 ```
 
+### Базовая настройка
+
 Включаем HiDPI для TTY:
 
 ```sh
@@ -103,6 +109,17 @@ FONT="ter-v32n"
 ```sh
 sudo systemctl start systemd-vconsole-setup.service
 ```
+
+Выключаем сканирование ФС:
+
+```sh
+dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
+```
+
+Выключаем засыпание компьютера при закрытии крышки:
+
+1. `sudo vi /etc/systemd/logind.conf`
+2. Ставим `HandleLidSwitch=lock`
 
 Перезагружаемся.
 
@@ -127,7 +144,71 @@ rm atom.rpm
 Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
 
 
+### Личные файлы
+
+Скопировать конфиги:
+
+```sh
+~/Dev/environment/bin/copy-env system
+```
+
+Устанавливаем пакеты для расшировки:
+
+```sh
+sudo dnf install fuse-encfs
+```
+
+Скопировать `.Личное/`. Открыть его и скопировать папки `.ssh/`, `.gnupg/` и `.kube/`.
+
+Ставим правильные права на ключи:
+
+```sh
+chmod 744 ~/.ssh ~/.gnupg/
+chmod 644 ~/.ssh/* ~/.gnupg/*
+chmod 700 ~/.gnupg/private-keys-v1.d
+chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
+```
+
+
+### Терминал
+
+Устанавливаем zsh:
+
+```sh
+sudo dnf install zsh
+chsh -s /bin/zsh
+rm ~/.bash_history ~/.bash_logout
+```
+
+Устанавливаем Antigen:
+
+```sh
+curl -L git.io/antigen > ~/.antigen.zsh
+source ~/.antigen.zsh
+```
+
+Создаём `/root/.zshrc`:
+
+```
+if [ -f /home/ai/.antigen.zsh ]; then
+  ANTIGEN_MUTEX=false
+  source /home/ai/.antigen.zsh
+  antigen bundle yarn
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle zsh-users/zsh-history-substring-search
+  antigen theme denysdovhan/spaceship-prompt
+  antigen apply
+fi
+
+SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
+```
+
+Перезагружаемся.
+
+
 ### Настройка GNOME
+
+Ставим `seahorse` и выключаем пароль со связик ключей.
 
 Открываем Настройки:
 
@@ -157,67 +238,6 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 
 - Параметры → Вид: включить «Помещать папки перед файлами».
 - Параметры → Поведение: включить «Открыть объекты одним щелчком».
-
-Выключаем сканирование ФС:
-
-```sh
-dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
-```
-
-Выключаем засыпание компьютера при закрытии крышки:
-
-1. `sudo nano /etc/systemd/logind.conf`
-2. Ставим `HandleLidSwitch=lock`
-
-Перезапускаем.
-
-
-### Личные файлы
-
-Скопировать конфиги:
-
-```sh
-~/Dev/environment/bin/copy-env system
-```
-
-Устанавливаем пакеты для расшировки:
-
-```sh
-sudo dnf install fuse-encfs
-```
-
-Скопировать `.Личное/`. Открыть его и скопировать папки `.ssh/`, `.gnupg/` и `.kube/`.
-
-Ставим правильные права на ключи:
-
-```sh
-chmod 744 ~/.ssh ~/.gnupg/
-chmod 644 ~/.ssh/* ~/.gnupg/*
-chmod 700 ~/.gnupg/private-keys-v1.d
-chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
-```
-
-
-### Браузеры
-
-Ставим `seahorse` и выключаем пароль со связик ключей.
-
-Копируем `.mozilla`.
-
-Ставим Хром.
-
-
-### VPN
-
-Скачиваем файлы настроек для Германии и Гонконга с
-[ExpressVPN](https://www.expressvpn.com/ru/setup).
-
-```sh
-expressvpn activate
-```
-
-
-### Внешний вид
 
 Ставим расширения из [`GNOME.md`](./GNOME.md).
 
@@ -256,26 +276,13 @@ sudo dnf install gnome-tweak-tool
     Imgur с автоматическим открытием ссылки.
 - **Шрифты:** моноширный в «Fira Code Retina».
 
-
-### Кодеки и шрифты
-
-Устанавливаем кодеки:
+Удаляем папки иконок:
 
 ```sh
-sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-fc gstreamer-plugins-ugly gstreamer-rtsp lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-base gstreamer-plugins-good
+gsettings set org.gnome.desktop.app-folders folder-children "['']"
 ```
 
-Устанавливаем программы:
-
-```sh
-sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
-```
-
-Устаналивливаем шрифты от Microsoft:
-
-```sh
-sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-```
+Оставить в доке по-умолчанию только Фаерфокс, Наутилус и Терминал.
 
 
 ### Папки
@@ -314,6 +321,36 @@ rm -R ~/Документы ~/Изображения ~/Музыка ~/Общед�
 ```
 
 
+### Закрытое ПО
+
+Устанавливаем кодеки:
+
+```sh
+sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-fc gstreamer-plugins-ugly gstreamer-rtsp lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer-plugins-bad-free gstreamer-plugins-base gstreamer-plugins-good
+```
+
+Устанавливаем программы:
+
+```sh
+sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins inkscape transmission-gtk gimp
+```
+
+Устаналивливаем шрифты от Microsoft:
+
+```sh
+sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+```
+
+Ставим Хром через Приложения.
+
+Устаналиваем клиент [ExpressVPN](https://www.expressvpn.com/ru/setup)
+и активируем его:
+
+```sh
+expressvpn activate
+```
+
+
 ### Разработка
 
 Устанавливаем пакеты:
@@ -334,12 +371,6 @@ sudo su postgres -c 'createuser -s ai'
 
 В `/var/lib/pgsql/data/pg_hba.conf` меняем строчку `ident` на `trust`.
 
-Устанавливаем Java:
-
-```sh
-sudo dnf install java-1.8.0-openjdk
-```
-
 Устаналиваем `node` и `yarn`:
 
 ```sh
@@ -349,15 +380,10 @@ sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
 ```
 
-Устаналиваем `chruby`:
+Устаналиваем Ruby:
 
 ```sh
 sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-tools/fedora-26-x86_64/00140262-chruby/chruby-0.3.9-1.noarch.rpm
-```
-
-Собираем Ruby:
-
-```sh
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
 ~/Dev/environment/bin/build-ruby 2.6.3
 source /usr/share/chruby/chruby.sh
@@ -394,54 +420,6 @@ sudo systemctl start docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-
-
-### zsh
-
-Устанавливаем zsh:
-
-```sh
-sudo dnf install zsh
-chsh -s /bin/zsh
-rm ~/.bash_history ~/.bash_logout
-```
-
-Устанавливаем Antigen:
-
-```sh
-curl -L git.io/antigen > ~/.antigen.zsh
-source ~/.antigen.zsh
-```
-
-Создаём `/root/.zshrc`:
-
-```
-if [ -f /home/ai/.antigen.zsh ]; then
-  ANTIGEN_MUTEX=false
-  source /home/ai/.antigen.zsh
-  antigen bundle yarn
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-history-substring-search
-  antigen theme denysdovhan/spaceship-prompt
-  antigen apply
-fi
-
-SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
-```
-
-
-### Ярлыки
-
-Удаляем папки иконок:
-
-```sh
-gsettings set org.gnome.desktop.app-folders folder-children "['']"
-```
-
-Оставить в доке по-умолчанию только Фаерфокс, Наутилус и Терминал.
-
-
-### Чаты
 
 Устанавливаем Keybase:
 
