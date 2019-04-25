@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Инкскейп
-Comment=Векторный редактор
-Icon=inkscape
-Exec=inkscape %F
-Categories=Graphics;VectorGraphics;GTK;
-MimeType=image/svg+xml;image/svg+xml-compressed;application/vnd.corel-draw;application/pdf;application/postscript;image/x-eps;application/illustrator;image/cgm;image/x-wmf;application/x-xccx;application/x-xcgm;application/x-xcdt;application/x-xsk1;application/x-xcmx;image/x-xcdr;

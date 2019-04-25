@@ -1,8 +1,9 @@
 [Desktop Entry]
 Type=Application
-Name=Разработка
+Name=Atom
 Comment=Текстовый редактор
 Icon=atom
 Exec=atom %U
 Categories=TextEditor;Development;
 MimeType=text/plain;
+NoDisplay=true
