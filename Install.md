@@ -70,7 +70,7 @@ sudo systemctl enable fstrim.timer
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions
+sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit
 ```
 
 Подключаем RPM Fusion:
@@ -126,10 +126,10 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 ### Текстовые редакторы
 
-Устанавливаем nano:
+Устанавливаем GNOME Builder и nano:
 
 ```sh
-sudo dnf install nano
+sudo dnf install nano gnome-builder
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
