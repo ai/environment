@@ -374,7 +374,7 @@ sudo su postgres -c 'createuser -s ai'
 Устаналиваем `node` и `yarn`:
 
 ```sh
-sudo dnf install https://rpm.nodesource.com/pub_11.x/fc/29/x86_64/nodesource-release-fc29-1.noarch.rpm
+sudo dnf install https://rpm.nodesource.com/pub_12.x/fc/29/x86_64/nodesource-release-fc29-1.noarch.rpm
 sudo dnf install nodejs
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
