@@ -18,8 +18,8 @@ Plugins:
 
 Themes:
 
-- `atom-material-ui`
-- `atom-panda-syntax`
+- `Nucleus Dark`
+- `Atom Panda Syntax`
 
 Font:
 
