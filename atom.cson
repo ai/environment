@@ -28,7 +28,6 @@
       "language-clojure"
       "language-perl"
       "language-php"
-      "language-toml"
       "snippets"
       "welcome"
       "spell-check"
@@ -38,7 +37,7 @@
     ]
     projectHome: "/home/ai/Dev"
     themes: [
-      "atom-material-ui"
+      "nucleus-dark-ui"
       "atom-panda-syntax"
     ]
   editor:
