@@ -343,12 +343,8 @@ sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/mst
 
 Ставим Хром через Приложения.
 
-Устаналиваем клиент [ExpressVPN](https://www.expressvpn.com/ru/setup)
-и активируем его:
-
-```sh
-expressvpn activate
-```
+1. Скачиваем [файлы настроек VPN](https://www.expressvpn.com/ru/setup#manual)
+2. Добавляем их под именами `Германия` и `Гонконг`.
 
 
 ### Разработка
