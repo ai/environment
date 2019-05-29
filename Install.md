@@ -9,7 +9,7 @@
 sudo dnf install mediawriter
 ```
 
-Написываем на внешний диск:
+Записываем на внешний диск:
 
 1. `.Личное/`
 2. `Видео/`
@@ -24,7 +24,7 @@ sudo dnf install mediawriter
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
 2. В ручном разбиение диска выбираем автоматически создать разделы.
-3. Переименовыем том в `blackjack`.
+3. Переименовываем том в `blackjack`.
 4. Удаляем `root` и `home`.
 5. Создаём `root` снова на весь размер.
 
@@ -47,7 +47,7 @@ none /tmp/     tmpfs noatime  0 0
 
 Перезагружаемся в систему. Указываем имя по английски и логин `ai`.
 
-Скопировть `Dev/environment` и локально открыть `Install.md`.
+Скопировать `Dev/environment` и локально открыть `Install.md`.
 Поставить на копирование `.Личное` и `.mozilla`.
 
 Указываем имя ноутбуку:
@@ -99,7 +99,7 @@ sudo dnf update --refresh
 sudo dnf install terminus-fonts-console
 ```
 
-И записаем в `/etc/vconsole.conf`:
+И записываем в `/etc/vconsole.conf`:
 
 ```
 KEYMAP="us"
@@ -152,7 +152,7 @@ rm atom.rpm
 ~/Dev/environment/bin/copy-env system
 ```
 
-Устанавливаем пакеты для расшировки:
+Устанавливаем пакеты для расшифровки:
 
 ```sh
 sudo dnf install fuse-encfs
@@ -212,10 +212,10 @@ SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
 
 Открываем Настройки:
 
-- **Поиск:** отставляем только «Калькулятор».
+- **Поиск:** оставляем только «Калькулятор».
 - **Фон:** ставим треугольники на экран блокировки.
 - **Сетевые учётные записи:** подключить Google.
-- **Энегропитание:** выключаем «Уменьшать яркость при простое»,
+- **Энергопитание:** выключаем «Уменьшать яркость при простое»,
   ставим «Выключение экрана» в «Никогда».
 - **Устройства → Дисплей:** включаем ночную подсветку с 23:00 до 06:00.
 - **Устройства → Мышь и сенсорная панель:** скорость мыши на максимум,
@@ -257,7 +257,7 @@ sudo dnf install fira-code-fonts
 sudo dnf install gnome-tweak-tool
 ```
 
-И выставить в нём настроки:
+И выставить в нём настройки:
 
 - **Основное:** включить «Сверхусиление».
 - **Верхняя панель:** включить «заряд в процентах», «дату» и «секунды».
@@ -270,7 +270,7 @@ sudo dnf install gnome-tweak-tool
 - **Расширения:**
   - **Emoji selector:** выключаем «Always show the icon».
   - **Gsconnect:** подключаем телефон.
-  - **Icon Hider:** убираем `appMenu` и `keyboard`. Скрваю её иконку.
+  - **Icon Hider:** убираем `appMenu` и `keyboard`. Скрываю её иконку.
   - **Screenshot Tool:** убираем «Показывать иконку». Ставим «Автоматически
     сохранять скриншот» в «Загрузки» с именем `{Y}{m}{d}{H}{M}{S}`. Включаем
     Imgur с автоматическим открытием ссылки.
@@ -335,7 +335,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins transmission-gtk gimp
 ```
 
-Устаналивливаем шрифты от Microsoft:
+Устанавливаем шрифты от Microsoft:
 
 ```sh
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
@@ -367,7 +367,7 @@ sudo su postgres -c 'createuser -s ai'
 
 В `/var/lib/pgsql/data/pg_hba.conf` меняем строчку `ident` на `trust`.
 
-Устаналиваем `node` и `yarn`:
+Устанавливаем `node` и `yarn`:
 
 ```sh
 sudo dnf install https://rpm.nodesource.com/pub_12.x/fc/29/x86_64/nodesource-release-fc29-1.noarch.rpm
@@ -376,7 +376,7 @@ sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn
 ```
 
-Устаналиваем Ruby:
+Устанавливаем Ruby:
 
 ```sh
 sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-tools/fedora-26-x86_64/00140262-chruby/chruby-0.3.9-1.noarch.rpm
