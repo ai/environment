@@ -129,16 +129,17 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 Устанавливаем GNOME Builder и nano:
 
 ```sh
-sudo dnf install nano gnome-builder
+sudo dnf install nano gnome-builder wmctrl
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
-Установить Атом:
+Включаем Flathub и устанавливаем приложения оттуда:
 
 ```sh
-wget https://atom.io/download/rpm -O atom.rpm
-sudo dnf install atom.rpm
-rm atom.rpm
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub com.transmissionbt.Transmission
+sudo flatpak install flathub org.gimp.GIMP
+sudo flatpak install flathub io.atom.Atom
 ```
 
 Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
@@ -332,7 +333,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins transmission-gtk gimp
+sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins
 ```
 
 Устаналивливаем шрифты от Microsoft:

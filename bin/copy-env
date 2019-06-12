@@ -15,19 +15,19 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/gitconfig      ~/.gitconfig
   cp ~/Dev/environment/bundle         ~/.bundle/config
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
-  cp ~/Dev/environment/atom.cson      ~/.atom/config.cson
-  cp ~/Dev/environment/atom.less      ~/.atom/styles.less
+  cp ~/Dev/environment/atom.cson      ~/.var/app/io.atom.Atom/data/config.cson
+  cp ~/Dev/environment/atom.less      ~/.var/app/io.atom.Atom/data/styles.less
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
 else
-  cp ~/.zshrc                 ~/Dev/environment/zshrc
-  cp ~/.gemrc                 ~/Dev/environment/gemrc
-  cp ~/.gitconfig             ~/Dev/environment/gitconfig
-  cp ~/.ripgreprc             ~/Dev/environment/ripgreprc
-  cp ~/.bundle/config         ~/Dev/environment/bundle
-  cp ~/.atom/config.cson      ~/Dev/environment/atom.cson
-  cp ~/.atom/styles.less      ~/Dev/environment/atom.less
-  cp ~/.config/mpv/mpv.conf   ~/Dev/environment/mpv.conf
-  cp ~/.config/mpv/input.conf ~/Dev/environment/mpv-input.conf
+  cp ~/.zshrc                                 ~/Dev/environment/zshrc
+  cp ~/.gemrc                                 ~/Dev/environment/gemrc
+  cp ~/.gitconfig                             ~/Dev/environment/gitconfig
+  cp ~/.ripgreprc                             ~/Dev/environment/ripgreprc
+  cp ~/.bundle/config                         ~/Dev/environment/bundle
+  cp ~/.var/app/io.atom.Atom/data/config.cson ~/Dev/environment/atom.cson
+  cp ~/.var/app/io.atom.Atom/data/styles.less ~/Dev/environment/atom.less
+  cp ~/.config/mpv/mpv.conf                   ~/Dev/environment/mpv.conf
+  cp ~/.config/mpv/input.conf                 ~/Dev/environment/mpv-input.conf
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
   rm ~/Dev/environment/icons/chrome-* -f
