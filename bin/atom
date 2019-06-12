@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+# Run Atom with dark theme
+
+flatpak run io.atom.Atom .
+sleep 4
+xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT "dark" -id `wmctrl -l | grep Atom | cut -d " " -f 1`
