@@ -1,17 +1,4 @@
 "*":
-  "atom-material-ui":
-    colors:
-      abaseColor: "#ec407a"
-      accentColor: "#46ffc1"
-      paintCursor: true
-      predefinedColor: "Pink"
-    fonts: {}
-    tabs: {}
-    treeView:
-      compactList: true
-    ui:
-      panelContrast: true
-      panelShadows: true
   core:
     autoHideMenuBar: true
     customFileTypes:
@@ -22,7 +9,6 @@
       ]
     disabledPackages: [
       "language-objective-c"
-      "archive-view"
       "autosave"
       "bookmarks"
       "language-clojure"
@@ -54,10 +40,6 @@
   linter:
     lintOnChange: false
   "linter-eslint": {}
-  "linter-ui-default":
-    panelHeight: 222
-    showDecorations: false
-    showPanel: true
   minimap:
     displayPluginsControls: false
     plugins:
@@ -66,8 +48,6 @@
       linter: true
       linterDecorationsZIndex: 0
   "tree-view": {}
-  welcome:
-    showOnStartup: false
 ".pug.source":
   editor:
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"

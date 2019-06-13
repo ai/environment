@@ -39,7 +39,7 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # Atom
 export ELECTRON_TRASH=gio
-alias e='~/Dev/environment/bin/atom'
+alias e='atom .'
 
 # Aliases
 alias g='git'

@@ -133,13 +133,12 @@ sudo dnf install nano gnome-builder wmctrl
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
-Включаем Flathub и устанавливаем приложения оттуда:
+Установить Атом:
 
 ```sh
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install flathub com.transmissionbt.Transmission
-sudo flatpak install flathub org.gimp.GIMP
-sudo flatpak install flathub io.atom.Atom
+wget https://atom.io/download/rpm -O atom.rpm
+sudo dnf install atom.rpm hunspell-ru
+rm atom.rpm
 ```
 
 Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
@@ -322,7 +321,7 @@ rm -R ~/Документы ~/Изображения ~/Музыка ~/Общед�
 ```
 
 
-### Закрытое ПО
+### Остальное ПО
 
 Устанавливаем кодеки:
 
@@ -344,8 +343,19 @@ sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/mst
 
 Ставим Хром через Приложения.
 
+Ставим VPN:
+
 1. Скачиваем [файлы настроек VPN](https://www.expressvpn.com/ru/setup#manual)
 2. Добавляем их под именами `Германия` и `Гонконг`.
+
+
+Включаем Flathub и устанавливаем приложения оттуда:
+
+```sh
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub com.transmissionbt.Transmission
+sudo flatpak install flathub org.gimp.GIMP
+```
 
 
 ### Разработка
