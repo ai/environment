@@ -8,13 +8,17 @@ Plugins:
 - `language-postcss`
 - `gtk-dark-theme`
 - `file-icons`
+- `intentions`
+- `busy-signal`
 - `linter`
+- `linter-ui-default`
 - `linter-eslint`
 - `linter-jsonlint`
 - `minimap`
 - `minimap-linter`
 - `minimap-find-and-replace`
 - `docblockr`
+- `terminal-tab`
 
 Themes:
 
