@@ -18,11 +18,10 @@ Plugins:
 - `minimap-linter`
 - `minimap-find-and-replace`
 - `docblockr`
-- `terminal-tab`
 
 Themes:
 
-- `Nucleus Dark`
+- `Nucleus Dark UI`
 - `Atom Panda Syntax`
 
 Font:

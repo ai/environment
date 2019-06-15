@@ -136,9 +136,8 @@ su -c 'echo "export EDITOR=nano" >> /etc/profile'
 Установить Атом:
 
 ```sh
-wget https://atom.io/download/rpm -O atom.rpm
-sudo dnf install atom.rpm hunspell-ru
-rm atom.rpm
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub io.atom.Atom
 ```
 
 Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
@@ -349,12 +348,11 @@ sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/mst
 2. Добавляем их под именами `Германия` и `Гонконг`.
 
 
-Включаем Flathub и устанавливаем приложения оттуда:
+Устанавливаем GIMP и Transmission:
 
 ```sh
-sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak install flathub com.transmissionbt.Transmission
-sudo flatpak install flathub org.gimp.GIMP
+flatpak install flathub com.transmissionbt.Transmission
+flatpak install flathub org.gimp.GIMP
 ```
 
 
