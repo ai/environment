@@ -39,7 +39,7 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # Atom
 export ELECTRON_TRASH=gio
-alias e='atom .'
+alias e='flatpak run io.atom.Atom .'
 
 # Aliases
 alias g='git'
