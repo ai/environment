@@ -6,6 +6,8 @@ Plugins:
 - `language-slim`
 - `language-jade`
 - `language-postcss`
+- `language-diff`
+- `language-env`
 - `gtk-dark-theme`
 - `file-icons`
 - `intentions`
