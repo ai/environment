@@ -14,7 +14,6 @@
       "language-clojure"
       "language-perl"
       "language-php"
-      "snippets"
       "welcome"
       "spell-check"
       "deprecation-cop"
@@ -52,6 +51,10 @@
   linter:
     lintOnChange: false
   "linter-eslint": {}
+  "linter-ui-default":
+    showPanel: true
+  "markdown-preview":
+    breakOnSingleNewline: true
   minimap:
     displayPluginsControls: false
     plugins:
