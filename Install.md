@@ -70,7 +70,18 @@ sudo systemctl enable fstrim.timer
 Удаляем ненужные пакеты:
 
 ```sh
-sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit
+sudo dnf remove cheese evolution rhythmbox gnome-boxes gnome-documents orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-software
+```
+
+Выключаем автообновление:
+
+```sh
+sudo systemctl stop packagekit.service
+sudo systemctl disable packagekit.service
+sudo systemctl mask packagekit.service
+sudo systemctl stop packagekit-offline-update.service
+sudo systemctl disable packagekit-offline-update.service
+sudo systemctl mask packgekit-offline-update.service
 ```
 
 Подключаем RPM Fusion:
