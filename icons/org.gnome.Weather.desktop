@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Погода
+Comment=Показать погодные условия и прогноз
+Icon=org.gnome.Weather
+Exec=gapplication launch org.gnome.Weather
+Categories=GNOME;GTK;Utility;Core;
+Keywords=Погода;Прогноз;
+Keywords=Weather;Forecast;
+X-Geoclue-Reason=Позволяет показывать информацию о погоде для вашего местоположения.
+NoDisplay=true
