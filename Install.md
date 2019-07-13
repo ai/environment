@@ -102,6 +102,7 @@ sudo dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russi
 sudo dnf update --refresh
 ```
 
+
 ### Базовая настройка
 
 Включаем HiDPI для TTY:
@@ -351,7 +352,12 @@ sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
-Ставим Хром через Приложения.
+Ставим Хром:
+
+```sh
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install google-chrome-stable
+```
 
 Ставим VPN:
 
