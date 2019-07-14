@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=mpv
-Comment=Проигрывание фильмов
 Icon=mpv
 TryExec=mpv
 Exec=mpv --profile=pseudo-gui -- %U

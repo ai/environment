@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Бит-торрент
-Comment=Загружайте и обменивайтесь файлами в сети BitTorrent
-Icon=com.transmissionbt.Transmission
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=transmission-gtk --file-forwarding com.transmissionbt.Transmission @@u %U @@
-Categories=Network;FileTransfer;P2P;GTK;
-MimeType=application/x-bittorrent;x-scheme-handler/magnet;
-X-Flatpak=com.transmissionbt.Transmission

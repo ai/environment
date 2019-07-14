@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Просмотр изображений
-Comment=Просмотр и вращение изображений
+Name=Image Viewer
+Comment=Browse and rotate images
 Icon=eog
 Exec=eog %U
 Categories=GNOME;GTK;Graphics;2DGraphics;RasterGraphics;Viewer;

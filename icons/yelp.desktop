@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Справка
-Comment=Получение справки в среде GNOME
+Name=Help
 Icon=help-browser
 Exec=yelp %u
 Categories=GNOME;GTK;Core;Documentation;Utility;

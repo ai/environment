@@ -1,6 +1,5 @@
 [Desktop Entry]
-Name=Расширенные настройки сети
-Comment=Управление параметрами сетевых соединений
+Name=Advanced Network Configuration
 Icon=preferences-system-network
 Exec=nm-connection-editor
 Terminal=false

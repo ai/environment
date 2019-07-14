@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 # Private encrypted folder
 
-STORE=$HOME/.Личное
-LINK=$HOME/Личное
+STORE=$HOME/.Private
+LINK=$HOME/Private
 
 if [ -e "$LINK" ]; then
   # Lock

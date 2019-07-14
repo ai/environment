@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Менеджер архивов
-Comment=Создать или изменить архив
+Name=Archive Manager
 Icon=file-roller
 Exec=file-roller %U
 Categories=GTK;GNOME;Utility;Archiving;Compression;X-GNOME-Utilities;

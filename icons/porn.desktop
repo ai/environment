@@ -1,22 +1,22 @@
 [Desktop Entry]
 Type=Application
-Name=Порно
-Comment=Запустить видно
+Name=Erotics
+Comment=Play porn movies
 Icon=org.gnome.Totem
 Exec=/home/ai/Dev/environment/bin/porn
-Actions=New;BDSM;Private;Other;
+Actions=New;BDSM;Amateur;Other;
 
 [Desktop Action New]
-Name=Новое
+Name=New
 Exec=/home/ai/Dev/environment/bin/porn --new
 
 [Desktop Action BDSM]
-Name=БДСМ
+Name=BDSM
 Exec=/home/ai/Dev/environment/bin/porn --bdsm
 
-[Desktop Action Private]
-Name=Частное
-Exec=/home/ai/Dev/environment/bin/porn --private
+[Desktop Action Amateur]
+Name=Amateur
+Exec=/home/ai/Dev/environment/bin/porn --amateur
 
 [Desktop Action Other]
 Name=Другое
