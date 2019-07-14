@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Место на диске
-Comment=Изучение размера папок и свободного места на дисках
+Name=Disk Usage
+Comment=Check folder sizes and available disk space
 Icon=org.gnome.baobab
 Exec=baobab
 Categories=GTK;GNOME;System;Filesystem;X-GNOME-Utilities;

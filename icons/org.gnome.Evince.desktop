@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Просмотр документов
-Comment=Просмотр многостраничных документов
+Name=Document Viewer
 Keywords=pdf;ps;postscript;dvi;xps;djvu;tiff;документ;презентация;просмотр;
 Exec=evince %U
 StartupNotify=true

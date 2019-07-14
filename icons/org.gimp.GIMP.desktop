@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=Гимп
-Comment=Растровый редактор
+Name=GIMP
+Comment=Create images and edit photographs
 Icon=org.gimp.GIMP
 Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=gimp-2.10 --file-forwarding org.gimp.GIMP @@u %U @@
 Categories=Graphics;2DGraphics;RasterGraphics;GTK;

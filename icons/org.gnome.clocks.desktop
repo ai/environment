@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Часы
-Comment=Часы мирового времени, а также будильник, секундомер и таймер
-Keywords=время;таймер;будильник;мировое время;часовой пояс;
-Icon=org.gnome.clocks
-Exec=gnome-clocks
-Type=Application
-Categories=GNOME;GTK;Utility;Clock;

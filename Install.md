@@ -90,12 +90,6 @@ sudo systemctl mask packgekit-offline-update.service
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-Подключаем Russian Fedora:
-
-```sh
-sudo dnf install --nogpgcheck http://mirror.yandex.ru/fedora/russianfedora/russianfedora/free/fedora/russianfedora-free-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/nonfree/fedora/russianfedora-nonfree-release-stable.noarch.rpm http://mirror.yandex.ru/fedora/russianfedora/russianfedora/fixes/fedora/russianfedora-fixes-release-stable.noarch.rpm
-```
-
 Обновляем систему:
 
 ```sh
@@ -310,13 +304,13 @@ touch ~/.local/share/templates/Пустой\ файл
 
 ```sh
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
-XDG_DOWNLOAD_DIR="$HOME/Загрузки"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME/"
 XDG_DOCUMENTS_DIR="$HOME/"
 XDG_MUSIC_DIR="$HOME/"
 XDG_PICTURES_DIR="$HOME/"
-XDG_VIDEOS_DIR="$HOME/Видео"
+XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
 Чистим закладки:
@@ -328,7 +322,7 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 Удаляем лишние папки:
 
 ```sh
-rm -R ~/Документы ~/Изображения ~/Музыка ~/Общедоступные ~/Шаблоны ~/Рабочий\ стол
+rm -R ~/Documents ~/Pictures ~/Music ~/Public ~/Templates ~/Desktop
 ```
 
 
@@ -343,7 +337,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv unrar p7zip p7zip-plugins
+sudo dnf install mpv unrar p7zip p7zip-plugins
 ```
 
 Устанавливаем шрифты от Microsoft:

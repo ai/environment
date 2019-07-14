@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=Builder
-Comment=Сборка программного обеспечения для GNOME
 Icon=org.gnome.Builder
 Exec=gnome-builder %U
 Categories=GNOME;GTK;Development;IDE;

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Atom
-Comment=Текстовый редактор
+Comment=Code editor
 Icon=io.atom.Atom
 Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=atom --file-forwarding io.atom.Atom @@ %F @@
 Categories=TextEditor;Development;

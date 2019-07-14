@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Пароли и ключи
-Comment=Управление паролями и ключами шифрования
+Name=Keys
+Comment=Manage your passwords and encryption keys
 Icon=org.gnome.seahorse.Application
 Exec=seahorse
