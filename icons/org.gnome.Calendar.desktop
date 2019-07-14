@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Calendar
-Icon=org.gnome.Calendar
-Exec=gnome-calendar
-Categories=GNOME;GTK;Office;Calendar;Core;
-Keywords=Календарь;Событие;Напоминание;
-DBusActivatable=true
-NoDisplay=true

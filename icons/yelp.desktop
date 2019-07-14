@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Help
-Icon=help-browser
-Exec=yelp %u
-Categories=GNOME;GTK;Core;Documentation;Utility;
-MimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;
-NoDisplay=true
