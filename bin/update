@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo echo "Update system…"
+cd ~/.mozilla/firefox/*/chrome
+git pull origin master &
+flatpak update -y &
+sudo dnf update -y
