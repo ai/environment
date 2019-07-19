@@ -19,5 +19,5 @@ Name=Amateur
 Exec=/home/ai/Dev/environment/bin/porn --amateur
 
 [Desktop Action Other]
-Name=Другое
+Name=Other
 Exec=/home/ai/Dev/environment/bin/porn --other
