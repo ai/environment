@@ -46,7 +46,6 @@ alias g='git'
 alias ..='cd ..'
 alias ll='ls -lh'
 alias la='ls -A'
-alias update='~/Dev/environment/bin/update'
 
 # Ruby
 if [ -d /usr/share/chruby/ ]; then
