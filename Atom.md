@@ -8,6 +8,8 @@ Plugins:
 - `language-postcss`
 - `language-diff`
 - `language-env`
+- `language-docker`
+- `language-nginx`
 - `gtk-dark-theme`
 - `file-icons`
 - `intentions`
