@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 sudo echo "Update system…"
 cd ~/.mozilla/firefox/*/chrome/firefox-gnome-theme
