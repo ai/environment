@@ -4,7 +4,7 @@
 if [[ "$1" == "--new" ]]; then
   find /home/ai/Videos/Erotics/New -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--bdsm" ]]; then
-  find /home/ai/Videos/Erotics/BSDM -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Videos/Erotics/BDSM -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--amateur" ]]; then
   find /home/ai/Videos/Erotics/Amateur -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--other" ]]; then
