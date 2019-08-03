@@ -18,6 +18,7 @@ Plugins:
 - `linter-ui-default`
 - `linter-eslint`
 - `linter-jsonlint`
+- `linter-js-yaml`
 - `minimap`
 - `minimap-linter`
 - `minimap-find-and-replace`
