@@ -359,11 +359,12 @@ sudo dnf install google-chrome-stable
 2. Добавляем их под именами `Германия` и `Гонконг`.
 
 
-Устанавливаем GIMP и Transmission:
+Устанавливаем GIMP, Transmission и Zoom:
 
 ```sh
 flatpak install flathub com.transmissionbt.Transmission
 flatpak install flathub org.gimp.GIMP
+flatpak install flathub us.zoom.Zoom
 ```
 
 
