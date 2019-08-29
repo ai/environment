@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Fonts
+Icon=org.gnome.font-viewer
+Exec=gnome-font-viewer %u
+MimeType=application/x-font-ttf;application/x-font-pcf;application/x-font-type1;application/x-font-otf;font/ttf;font/otf;
+NoDisplay=true
