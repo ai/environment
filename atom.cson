@@ -52,7 +52,7 @@
     lintOnChange: false
   "linter-eslint": {}
   "linter-ui-default":
-    showPanel: true
+    panelHeight: 192.75
   "markdown-preview":
     breakOnSingleNewline: true
   minimap:
