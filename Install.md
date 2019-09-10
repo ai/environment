@@ -252,8 +252,13 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
-sudo dnf copr enable evana/fira-code-fonts
-sudo dnf install fira-code-fonts
+mkdir -p ~/.local/share/fonts
+for type in Bold Light Medium Regular Retina; do
+  file_path="~/.local/share/fonts/FiraCode-${type}.ttf"
+  file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
+  wget -O "${file_path}" "${file_url}"
+done
+fc-cache -f
 ```
 
 Установить GNOME Tweek Tool:
