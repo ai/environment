@@ -415,6 +415,19 @@ gem install bundler --version "<2.0.0"
 
 Устанавливаем [Helm](https://github.com/helm/helm/releases).
 
+Устанавливаем контейнеры:
+
+```sh
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install podman buildah docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 Устанавливаем Kubernetes:
 
 ```sh
@@ -427,7 +440,7 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
-sudo dnf install kubectl podman buildah
+sudo dnf install kubectl
 ```
 
 Устанавливаем Google Cloud:
