@@ -378,20 +378,8 @@ flatpak install flathub us.zoom.Zoom
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git tig ripgrep golang redis postgresql postgresql-server postgresql-contrib
+sudo dnf install git tig ripgrep
 ```
-
-Запускаем PostgreSQL:
-
-```sh
-sudo postgresql-setup initdb
-sudo systemctl enable redis
-sudo systemctl enable postgresql
-sudo systemctl start postgresql
-sudo su postgres -c 'createuser -s ai'
-```
-
-В `/var/lib/pgsql/data/pg_hba.conf` меняем строчку `ident` на `trust`.
 
 Устанавливаем `node` и `yarn`:
 
@@ -409,8 +397,8 @@ sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-t
 sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
 ~/Dev/environment/bin/build-ruby 2.6.3
 source /usr/share/chruby/chruby.sh
-chruby 2.6.3
-gem install bundler --version "<2.0.0"
+chruby 2.6.4
+gem install bundler
 ```
 
 Устанавливаем [Helm](https://github.com/helm/helm/releases).
