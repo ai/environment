@@ -14,3 +14,4 @@
 - [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 - [Remove Alt+Tab Delay](https://extensions.gnome.org/extension/1403/remove-alttab-delay/)
 - [Transparent Top Bar](https://extensions.gnome.org/extension/1708/transparent-top-bar/)
+- [micro-camera-privacy](https://extensions.gnome.org/extension/2099/micro-camera-privacy/)
