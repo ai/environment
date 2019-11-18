@@ -30,6 +30,7 @@
       "language-property-list"
       "open-on-github"
       "package-generator"
+      "whitespace"
     ]
     projectHome: "/home/ai/Dev"
     telemetryConsent: "limited"
