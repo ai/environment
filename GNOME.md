@@ -15,3 +15,5 @@
 - [Remove Alt+Tab Delay](https://extensions.gnome.org/extension/1403/remove-alttab-delay/)
 - [Transparent Top Bar](https://extensions.gnome.org/extension/1708/transparent-top-bar/)
 - [micro-camera-privacy](https://extensions.gnome.org/extension/2099/micro-camera-privacy/)
+- [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
+- [Dark Theme Switcher](https://extensions.gnome.org/extension/1798/dark-theme-switcher/)
