@@ -202,7 +202,7 @@ chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-
 Устанавливаем zsh:
 
 ```sh
-sudo dnf install zsh
+sudo dnf install zsh util-linux-user
 chsh -s /bin/zsh
 rm ~/.bash_history ~/.bash_logout
 ```
