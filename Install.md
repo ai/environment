@@ -26,7 +26,7 @@ sudo dnf install mediawriter
 1. Английскую раскладку на первое место. Переключение раскладок:
    «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
 2. В ручном разбиение диска выбираем автоматически создать разделы.
-3. Переименовываем том в `blackjack`.
+3. Переименовываем том в `foxbat`.
 4. Удаляем `root` и `home`.
 5. Создаём `root` снова на весь размер.
 
@@ -55,7 +55,7 @@ none /tmp/     tmpfs noatime  0 0
 Указываем имя ноутбуку:
 
 ```sh
-sudo hostnamectl set-hostname blackjack
+sudo hostnamectl set-hostname foxbat
 ```
 
 Включаем TRIM:
