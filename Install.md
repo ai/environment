@@ -12,7 +12,7 @@ sudo dnf install mediawriter
 Записываем на внешний диск:
 
 1. `.Private/`
-2. `Видео/`
+2. `Videos/`
 3. `Dev/`
 4. `.mozilla`
 
