@@ -129,6 +129,25 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 1. `sudo vi /etc/systemd/logind.conf`
 2. Ставим `HandleLidSwitch=lock`
 
+Исправляем GRUB на HiDPI:
+
+```sh
+sudo grub2-mkfont -s 40 -o /boot/efi/EFI/fedora/fonts/firamono.pf2 /usr/share/fonts/mozilla-fira/FiraMono-Regular.otf
+```
+
+Добавляем в `/etc/default/grub`:
+
+```
+GRUB_FONT="/boot/efi/EFI/fedora/fonts/firamono.pf2"
+GRUB_TERMINAL_OUTPUT="gfxterm"
+```
+
+Пересобираем GRUB:
+
+```sh
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+```
+
 Перезагружаемся.
 
 
