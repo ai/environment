@@ -405,10 +405,9 @@ sudo dnf install git tig ripgrep
 Устанавливаем `node` и `yarn`:
 
 ```sh
-sudo dnf install https://rpm.nodesource.com/pub_12.x/fc/30/x86_64/nodesource-release-fc30-1.noarch.rpm
-sudo dnf install nodejs
+sudo dnf install https://rpm.nodesource.com/pub_13.x/fc/30/x86_64/nodesource-release-fc30-1.noarch.rpm
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-sudo dnf install yarn
+sudo dnf install yarn nodejs
 ```
 
 Устанавливаем Ruby:
