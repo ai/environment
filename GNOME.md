@@ -2,7 +2,6 @@
 
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [Always Zoom Workspaces](https://extensions.gnome.org/extension/503/always-zoom-workspaces/)
-- [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 - [Icon Hider](https://extensions.gnome.org/extension/351/icon-hider/)
 и отключаем `a11y`, `keyboard` и индикатор расширения
 - [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
