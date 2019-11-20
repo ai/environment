@@ -382,10 +382,7 @@ sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install google-chrome-stable
 ```
 
-Ставим VPN:
-
-1. Скачиваем [файлы настроек VPN](https://www.expressvpn.com/ru/setup#manual)
-2. Добавляем их под именами `Германия` и `Гонконг`.
+Скачиваем [файл настроек VPN](https://www.expressvpn.com/ru/setup#manual) для Гонконга.
 
 
 Устанавливаем GIMP, Transmission и Zoom:
