@@ -3,7 +3,6 @@
 Plugins:
 
 - `editorconfig`
-- `language-slim`
 - `language-jade`
 - `language-postcss`
 - `language-diff`
