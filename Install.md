@@ -377,6 +377,7 @@ sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/mst
 Ставим Хром:
 
 ```sh
+sudo dnf install fedora-workstation-repositories
 sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install google-chrome-stable
 ```
