@@ -48,16 +48,8 @@ alias ll='ls -lh'
 alias la='ls -A'
 
 # Ruby
-if [ -d /usr/share/chruby/ ]; then
-    source /usr/share/chruby/chruby.sh
-    chruby 2
-fi
+export PATH=~/.gem/ruby/bin/:$PATH
 alias b='bundle exec'
 
 # Node.js
 alias n='npx --no-install'
-
-# Docker
-alias d='docker-compose run app'
-alias db='docker-compose run app bundle exec'
-alias dn='docker-compose run app npx --no-install'

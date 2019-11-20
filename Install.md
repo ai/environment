@@ -413,11 +413,7 @@ sudo dnf install yarn nodejs
 Устанавливаем Ruby:
 
 ```sh
-sudo dnf install https://copr-be.cloud.fedoraproject.org/results/nwallace/ruby-tools/fedora-26-x86_64/00140262-chruby/chruby-0.3.9-1.noarch.rpm
-sudo dnf install gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel
-~/Dev/environment/bin/build-ruby 2.6.3
-source /usr/share/chruby/chruby.sh
-chruby 2.6.4
+sudo dnf install ruby gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel ruby-devel rpm-build
 gem install bundler
 ```
 
