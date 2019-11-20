@@ -19,7 +19,8 @@ sudo dnf install mediawriter
 
 ### Установка
 
-Загружаемся с USB-флешки. На экране GRUB нажимаем <kbd>e</kbd> и дописываем `modprobe.blacklist=intel_lpss_pci` в строку запуска.
+Загружаемся с USB-флешки. На экране GRUB нажимаем <kbd>e</kbd> и дописываем
+`modprobe.blacklist=intel_lpss_pci` в строку запуска.
 
 Запускаем установщик.
 
@@ -193,7 +194,7 @@ sudo dnf install fuse-encfs
 chmod 744 ~/.ssh ~/.gnupg/
 chmod 644 ~/.ssh/* ~/.gnupg/*
 chmod 700 ~/.gnupg/private-keys-v1.d
-chmod 600 ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
+chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
 ```
 
 
