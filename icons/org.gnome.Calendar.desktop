@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Calendar=
+Exec=gnome-calendar
+Icon=org.gnome.Calendar
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Office;Calendar;Core;
+Keywords=Calendar;Event;Reminder;
+NoDisplay=true
