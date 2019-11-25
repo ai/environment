@@ -64,6 +64,12 @@ sudo hostnamectl set-hostname foxbat
 sudo systemctl enable fstrim.timer
 ```
 
+Уменьшаем использование свапа в `/etc/sysctl.d/99-swappiness.conf`:
+
+```
+vm.swappiness=1
+```
+
 Выключаем засыпания в настройках питания.
 
 
