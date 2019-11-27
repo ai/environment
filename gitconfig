@@ -23,3 +23,4 @@
   autosetuprebase = always
 [core]
   editor = nano
+	pager = diff-so-fancy | less --tabs=4 -RFX
