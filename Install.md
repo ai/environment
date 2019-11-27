@@ -177,6 +177,13 @@ flatpak install flathub io.atom.Atom
 
 Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
 
+Установить утилиту для diff:
+
+```sh
+sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
+sudo chmod a+x /usr/local/bin/diff-so-fancy
+```
+
 
 ### Личные файлы
 
