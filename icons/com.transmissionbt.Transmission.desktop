@@ -1,0 +1,26 @@
+[Desktop Entry]
+Name=Transmission
+GenericName=BitTorrent Client
+Comment=Download and share files over BitTorrent
+Keywords=torrents;downloading;uploading;share;sharing;
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=transmission-gtk --file-forwarding com.transmissionbt.Transmission @@u %U @@
+Icon=com.transmissionbt.Transmission
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=application/x-bittorrent;x-scheme-handler/magnet;
+Categories=Network;FileTransfer;P2P;GTK;
+X-Ubuntu-Gettext-Domain=transmission
+X-AppInstall-Keywords=torrent
+Actions=Pause;Minimize;
+X-Flatpak-RenamedFrom=transmission-gtk.desktop;
+X-Flatpak=com.transmissionbt.Transmission
+NoDisplay=true
+
+[Desktop Action Pause]
+Name=Start Transmission with All Torrents Paused
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=transmission-gtk com.transmissionbt.Transmission --paused
+
+[Desktop Action Minimize]
+Name=Start Transmission Minimized
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=transmission-gtk com.transmissionbt.Transmission --minimized
