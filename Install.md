@@ -134,7 +134,6 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 1. `sudo vi /etc/systemd/logind.conf`
 2. Ставим `HandleLidSwitch=lock`
-```
 
 Копируем шрифт:
 
