@@ -284,7 +284,7 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 
 Добавляем Сан-Франциско, Москву, Пекин и Владивосток в Часы.
 
-Установить шрифт Fira Mono и Fire Code:
+Установить шрифт Fira Mono и Fira Code:
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
@@ -297,7 +297,7 @@ done
 fc-cache -f
 ```
 
-Установить GNOME Tweek Tool:
+Установить GNOME Tweak Tool:
 
 ```sh
 sudo dnf install gnome-tweak-tool
