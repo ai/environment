@@ -52,6 +52,8 @@
   linter:
     lintOnChange: false
   "linter-eslint": {}
+  "linter-stylelint-plus":
+    fixOnSave: true
   "linter-ui-default":
     panelHeight: 192.75
     showPanel: true
