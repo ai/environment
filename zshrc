@@ -53,3 +53,7 @@ alias b='bundle exec'
 
 # Node.js
 alias n='npx --no-install'
+
+# Podman
+alias docker=podman
+alias docker-compose=podman-compose

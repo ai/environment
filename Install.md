@@ -435,8 +435,13 @@ gem install bundler
 Устанавливаем контейнеры:
 
 ```sh
+sudo dnf install podman buildah
+sudo pip3 install podman-compose
+```
+
+```sh
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install podman buildah docker-ce docker-ce-cli containerd.io
+sudo dnf install docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
