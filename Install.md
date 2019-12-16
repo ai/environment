@@ -436,7 +436,7 @@ gem install bundler
 
 ```sh
 sudo dnf install podman buildah
-sudo pip3 install podman-compose
+sudo pip3 install https://github.com/containers/podman-compose/archive/devel.tar.gz
 ```
 
 ```sh
