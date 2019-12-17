@@ -449,6 +449,13 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+Исправляем [баг](https://github.com/docker/for-linux/issues/665) Федоры:
+
+```sh
+sudo dnf install grubby
+sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+```
+
 Устанавливаем Kubernetes:
 
 ```sh
