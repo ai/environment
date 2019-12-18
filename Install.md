@@ -70,6 +70,13 @@ sudo systemctl enable fstrim.timer
 vm.swappiness=1
 ```
 
+Меняем клавиши-стрелки `sudo nano /usr/share/X11/xkb/symbols/pc` и заменяем:
+
+```
+    key <PGUP> {        [  Left                 ]	};
+    key <PGDN> {        [  Right                ]	};
+```
+
 Выключаем засыпания в настройках питания.
 
 
