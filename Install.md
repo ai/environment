@@ -9,12 +9,11 @@
 sudo dnf install mediawriter
 ```
 
-Записываем на внешний диск:
+Записываем бэкап на внешний диск:
 
-1. `.Private/`
-2. `Videos/`
-3. `Dev/`
-4. `.mozilla`
+```sh
+~/environment/backup
+```
 
 
 ### Установка
