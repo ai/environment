@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+
+rsync -ah --info=progress2 ~/Dev/environment "/run/media/ai/Sitnik Card/Dev/" && \
+rsync -ah --info=progress2 ~/.Private "/run/media/ai/Sitnik Card/" && \
+rsync -ah --info=progress2 ~/.mozilla/firefox "/run/media/ai/Sitnik Card/.mozilla" && \
+rsync -ah --info=progress2 ~/Videos/Erotics "/run/media/ai/Sitnik Card/Videos/"
