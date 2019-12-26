@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-# Find Java icon in launcher
-
-rm ~/.local/share/applications/java-*
-cp /usr/share/applications/java-* ~/.local/share/applications/
-for i in ~/.local/share/applications/java-*; do
-  echo "NoDisplay=true" >> $i
-done
