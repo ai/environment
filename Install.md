@@ -418,7 +418,7 @@ flatpak install flathub us.zoom.Zoom
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git tig ripgrep
+sudo dnf install git tig ripgrep exa
 ```
 
 Устанавливаем `node` и `yarn`:
