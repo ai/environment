@@ -45,7 +45,7 @@ alias e='flatpak run io.atom.Atom .'
 alias g='git'
 alias ..='cd ..'
 alias l='exa --all'
-alias ll='exa --long --all'
+alias ll='exa --long --all --git'
 
 # Ruby
 export PATH=~/.gem/ruby/bin/:$PATH
