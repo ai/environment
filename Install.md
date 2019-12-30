@@ -209,7 +209,8 @@ sudo dnf install fuse-encfs
 Ставим правильные права на ключи:
 
 ```sh
-chmod 744 ~/.ssh ~/.gnupg/
+chmod 744 ~/.ssh
+chmod 700 ~/.gnupg/
 chmod 644 ~/.ssh/* ~/.gnupg/*
 chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
