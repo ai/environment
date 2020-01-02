@@ -76,6 +76,13 @@ vm.swappiness=1
     key <PGDN> {        [  Right                ]	};
 ```
 
+Выключаем оптимизации батарейки в Tunables:
+
+```sh
+sudo dnf install powertop
+sudo powertop
+```
+
 Выключаем засыпания в настройках питания.
 
 
