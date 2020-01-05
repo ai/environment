@@ -83,6 +83,16 @@ sudo dnf install powertop
 sudo powertop
 ```
 
+Ставим [ядро 5.4](https://koji.fedoraproject.org/koji/builds?prefix=k&order=-build_id) и чиним WiFi:
+
+```
+git clone https://chromium.googlesource.com/chromiumos/third_party/linux-firmware chromiumos-linux-firmware --depth=1
+cd chromiumos-linux-firmware/
+sudo cp iwlwifi-*  /lib/firmware/
+cd /lib/firmware
+sudo ln -s iwlwifi-Qu-c0-hr-b0-50.ucode iwlwifi-Qu-b0-hr-b0-50.ucode
+```
+
 Выключаем засыпания в настройках питания.
 
 
