@@ -427,11 +427,12 @@ sudo dnf install google-chrome-stable
 Скачиваем [файл настроек VPN](https://www.expressvpn.com/ru/setup#manual) для Гонконга.
 
 
-Устанавливаем GIMP, Fragments, Transmission и Zoom:
+Устанавливаем GIMP, Telegram, Fragments, Transmission и Zoom:
 
 ```sh
 flatpak install flathub com.transmissionbt.Transmission
 flatpak install flathub de.haeckerfelix.Fragments
+flatpak install flathub org.telegram.desktop
 flatpak install flathub org.gimp.GIMP
 flatpak install flathub us.zoom.Zoom
 ```
