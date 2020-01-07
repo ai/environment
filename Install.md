@@ -354,7 +354,9 @@ sudo dnf install gnome-tweak-tool
 Удаляем папки иконок:
 
 ```sh
-gsettings set org.gnome.desktop.app-folders folder-children "['']"
+gsettings set org.gnome.desktop.app-folders folder-children "['Utilities']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ name 'Utilities'
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps "['gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.DiskUtility.desktop']"
 ```
 
 Оставить в доке по-умолчанию только Фаерфокс, Наутилус и Терминал.
@@ -425,7 +427,6 @@ sudo dnf install google-chrome-stable
 ```
 
 Скачиваем [файл настроек VPN](https://www.expressvpn.com/ru/setup#manual) для Гонконга.
-
 
 Устанавливаем GIMP, Telegram, Fragments, Transmission и Zoom:
 
