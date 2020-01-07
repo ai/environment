@@ -4,4 +4,3 @@ Exec=yelp %u
 Icon=org.gnome.Yelp
 Type=Application
 MimeType=x-scheme-handler/ghelp;x-scheme-handler/help;x-scheme-handler/info;x-scheme-handler/man;
-NoDisplay=true
