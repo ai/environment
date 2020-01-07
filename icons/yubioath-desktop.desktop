@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Yubico 2FA
+GenericName=Yubico 2FA
+Comment=Graphical interface for displaying OATH codes with a YubiKey.
+Exec=yubioath-desktop
+Icon=yubioath
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=Yubico;Authenticator;
+X-Desktop-File-Install-Version=0.24

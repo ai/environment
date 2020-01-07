@@ -443,7 +443,7 @@ flatpak install flathub us.zoom.Zoom
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git tig ripgrep exa
+sudo dnf install git tig ripgrep exa yubioath-desktop
 ```
 
 Устанавливаем `node` и `yarn`:
