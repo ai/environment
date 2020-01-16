@@ -313,7 +313,8 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 
 Добавляем Сан-Франциско, Москву, Пекин и Владивосток в Часы.
 
-Установить шрифт Fira Mono и Fira Code:
+Установить шрифт [JetBrains Mono](https://www.jetbrains.com/lp/mono/),
+Fira Mono и Fira Code:
 
 ```sh
 sudo dnf install mozilla-fira-mono-fonts
@@ -349,7 +350,7 @@ sudo dnf install gnome-tweak-tool
   - **Screenshot Tool:** убираем «Показывать иконку». Ставим «Автоматически
     сохранять скриншот» в «Загрузки» с именем `{Y}{m}{d}{H}{M}{S}`. Включаем
     Imgur с автоматическим открытием ссылки.
-- **Шрифты:** моноширный в «Fira Code Retina».
+- **Шрифты:** моноширный в «JetBrains Mono».
 
 Удаляем папки иконок:
 
