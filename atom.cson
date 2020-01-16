@@ -39,7 +39,7 @@
       "atom-panda-syntax"
     ]
   editor:
-    fontFamily: "Fira Code Retina"
+    fontFamily: "JetBrains Mono"
     fontSize: 18
     invisibles: {}
     nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
