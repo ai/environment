@@ -76,11 +76,11 @@ vm.swappiness=1
     key <PGDN> {        [  Right                ]	};
 ```
 
-Выключаем оптимизации батарейки в Tunables:
+Меням настройки сна добавляя `mem_sleep_default=deep` в `GRUB_CMDLINE_LINUX`:
 
 ```sh
-sudo dnf install powertop
-sudo powertop
+sudo nano /etc/default/grub
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 Ставим [ядро 5.4](https://koji.fedoraproject.org/koji/builds?prefix=k&order=-build_id) и чиним WiFi:
