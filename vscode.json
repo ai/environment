@@ -1,25 +1,30 @@
 {
-    "workbench.colorTheme": "GNOME dark",
-    "window.zoomLevel": 0,
-    "editor.fontSize": 18,
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontLigatures": true,
-    "editor.tabSize": 2,
+    "breadcrumbs.enabled": false,
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    "breadcrumbs.enabled": false,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
     "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": true,
-    "window.menuBarVisibility": "toggle",
-    "editor.suggestSelection": "first",
     "editor.renderWhitespace": "selection",
+    "editor.rulers": [80],
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
     "eslint.migration.2_x": "off",
     "eslint.run": "onSave",
-    "editor.rulers": [80],
+    "git.confirmSync": false,
+    "projectManager.git.baseFolders": [
+        "/home/ai/Dev/"
+    ],
+    "projectManager.git.maxDepthRecursion": 1,
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#151515"
     },
-    "workbench.statusBar.visible": true,
-    "git.confirmSync": false
+    "workbench.colorTheme": "GNOME dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.statusBar.visible": true
 }
