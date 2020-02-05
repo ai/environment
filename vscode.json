@@ -8,12 +8,15 @@
     "editor.fontSize": 18,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
-    "editor.rulers": [80],
+    "editor.rulers": [
+        80
+    ],
     "editor.suggestSelection": "first",
     "editor.tabSize": 2,
     "eslint.migration.2_x": "off",
     "eslint.run": "onSave",
     "git.confirmSync": false,
+    "gitHistory.hideCommitViewExplorer": true,
     "projectManager.git.baseFolders": [
         "/home/ai/Dev/"
     ],
