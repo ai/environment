@@ -1,0 +1,23 @@
+{
+    "workbench.colorTheme": "GNOME dark",
+    "window.zoomLevel": 0,
+    "editor.fontSize": 18,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "breadcrumbs.enabled": false,
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.visible": false,
+    "window.menuBarVisibility": "toggle",
+    "editor.suggestSelection": "first",
+    "editor.renderWhitespace": "selection",
+    "eslint.migration.2_x": "off",
+    "eslint.run": "onSave",
+    "editor.rulers": [80],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#151515"
+    }
+}

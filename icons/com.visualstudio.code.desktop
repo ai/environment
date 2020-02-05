@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=VS Code
+Comment=Code Editing. Redefined.
+GenericName=Text Editor
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code --reuse-window @@ %F @@
+Icon=com.visualstudio.code
+Type=Application
+StartupNotify=true
+StartupWMClass=Code
+Categories=Utility;TextEditor;Development;IDE;
+MimeType=text/plain;inode/directory;
+Actions=new-empty-window;
+Keywords=vscode;
+X-Flatpak-Tags=proprietary;
+X-Flatpak=com.visualstudio.code
+
+[Desktop Action new-empty-window]
+Name=New Empty Window
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code --new-window @@ %F @@
+Icon=com.visualstudio.code
