@@ -1,103 +1,104 @@
-## Как я ставлю свою систему
+## How I install my system
 
-### Подготовка
+### Preparing
 
-Скачиваем образ [Fedora](https://getfedora.org/ru/workstation/).
-Записываем его на USB-флешку:
+Download [Fedora image](https://getfedora.org/ru/workstation/)
+and write it to the USB drive:
 
 ```sh
 sudo dnf install mediawriter
 ```
 
-Записываем бэкап на внешний диск:
+Write backup to external HDD:
 
 ```sh
 ~/environment/backup
 ```
 
 
-### Установка
+### Install
 
-Загружаемся с USB-флешки. На экране GRUB нажимаем <kbd>e</kbd> и дописываем
-`modprobe.blacklist=intel_lpss_pci` в строку запуска.
+Boot from USB drive. On GRUB screen press <kbd>e</kbd> and add
+`modprobe.blacklist=intel_lpss_pci` to kernel parameters.
 
-Запускаем установщик.
+Start installer.
 
-1. Добавляем русскую раскладку. Переключение раскладок:
-   «CapsLock (на первую раскладку), Shift+CapsLock (на последнюю раскладку)».
-2. В ручном разбиение диска выбираем автоматически создать разделы.
-3. Переименовываем том в `foxbat`.
-4. В томе выбрать ширфование.
-5. Удаляем `root` и `home`.
-6. Создаём `root` снова на весь размер.
+1. Add the Russian keyboard layout. Layout switching:
+ CapsLock to the first layout, Shift+CapsLock, to the last layout.
+2. Use disk manual mode. Create partitions automatically.
+3. Rename volume to `foxbat`.
+4. Set encryption in volume settings.
+5. Remove `root` and `home`.
+6. Create `root` again.
 
-Перезагружаемся ещё раз в Live-USB. Подключаем диски установленной системы.
+Reboot to USB drive again. Mount laptop SSD.
 
-Открываем `etc/fstab`.
+Open `etc/fstab`.
 
-Добавляем опцию `noatime` для корневой системы.
+Add `noatime` to root partitions.
 
-Переносим `/tmp` и `/var/tmp` в оперативную память:
+Move `/tmp` and `/var/tmp` to RAM:
 
 ```
-vartmp /var/tmp  tmpfs defaults,noatime  0  0
-vartmp /tmp      tmpfs defaults,noatime  0  0
+vartmp /var/tmp tmpfs defaults,noatime 0 0
+vartmp /tmp tmpfs defaults,noatime 0 0
 ```
 
-Чистим каталоги `tmp` и `var/tmp`.
+Clean `tmp` and `var/tmp` dirs.
 
-Перезагружаемся в систему. Указываем имя по английски и логин `ai`.
+Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
 
-Скопировать `Dev/environment` и локально открыть `Install.md`.
-Поставить на копирование `.Private` и `.mozilla`.
+Copy `Dev/environment` and open `Install.md` locally.
+Start to copy `.Private` and `.mozilla` in background.
 
-Указываем имя ноутбуку:
+Set laptop name:
 
 ```sh
 sudo hostnamectl set-hostname foxbat
 ```
 
-Включаем TRIM:
+Enable TRIM:
 
 ```sh
 sudo systemctl enable fstrim.timer
 ```
 
-Уменьшаем использование свапа в `/etc/sysctl.d/99-swappiness.conf`:
+Reduce swap usage `/etc/sysctl.d/99-swappiness.conf`:
 
 ```
 vm.swappiness=1
 ```
 
-Меняем клавиши-стрелки `sudo nano /usr/share/X11/xkb/symbols/pc` и заменяем:
+Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
+`sudo nano /usr/share/X11/xkb/symbols/pc`:
 
 ```
-    key <PGUP> {        [  Left                 ]	};
-    key <PGDN> {        [  Right                ]	};
+ key <PGUP> { [ Left ] };
+ key <PGDN> { [ Right ] };
 ```
 
-Ставим [ядро 5.4](https://koji.fedoraproject.org/koji/builds?prefix=k&order=-build_id) и чиним WiFi:
+Install [kernel 5.4](https://koji.fedoraproject.org/koji/builds?prefix=k&order=-build_id) and fix WiFi:
 
 ```
 git clone https://chromium.googlesource.com/chromiumos/third_party/linux-firmware chromiumos-linux-firmware --depth=1
 cd chromiumos-linux-firmware/
-sudo cp iwlwifi-*  /lib/firmware/
+sudo cp iwlwifi-* /lib/firmware/
 cd /lib/firmware
 sudo ln -s iwlwifi-Qu-c0-hr-b0-50.ucode iwlwifi-Qu-b0-hr-b0-50.ucode
 ```
 
-Выключаем засыпания в настройках питания.
+Disable `Blank screen` and `Dim Screen…` in Power settings.
 
 
-### Обновление системы
+### System Update
 
-Удаляем ненужные пакеты:
+Remove unnecessary packages:
 
 ```sh
 sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-software
 ```
 
-Выключаем автообновление:
+Disable :
 
 ```sh
 sudo systemctl stop packagekit.service
@@ -108,89 +109,89 @@ sudo systemctl disable packagekit-offline-update.service
 sudo systemctl mask packgekit-offline-update.service
 ```
 
-Подключаем RPM Fusion:
+Add RPM Fusion:
 
 ```sh
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-Обновляем систему:
+Update system:
 
 ```sh
 sudo dnf update --refresh
 ```
 
 
-### Базовая настройка
+### Base Settings
 
-Включаем HiDPI для TTY:
+Enable HiDPI in TTY:
 
 ```sh
 sudo dnf install terminus-fonts-console
 ```
 
-И записываем в `/etc/vconsole.conf`:
+Add to `/etc/vconsole.conf`:
 
 ```
 KEYMAP="us"
 FONT="ter-v32n"
 ```
 
-```sh
-sudo systemctl start systemd-vconsole-setup.service
-```
-
-Выключаем сканирование ФС:
-
-```sh
-dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
-```
-
-Выключаем засыпание компьютера при закрытии крышки:
-
-1. `sudo vi /etc/systemd/logind.conf`
-2. Ставим `HandleLidSwitch=lock`
-
-Копируем шрифт:
+Copy font:
 
 ```sh
 sudo dnf install terminus-fonts-console terminus-fonts-grub2
 sudo cp /usr/share/grub/ter-u32n.pf2 /boot/efi/EFI/fedora/fonts/
 ```
 
-Добавляем в `/etc/default/grub`:
+Add to `/etc/default/grub`:
 
 ```
 GRUB_FONT="/boot/efi/EFI/fedora/fonts/firamono.pf2"
 GRUB_TERMINAL_OUTPUT="gfxterm"
 ```
 
-Пересобираем GRUB:
+Rebuild GRUB:
 
 ```sh
 sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
 
-Перезагружаемся.
+```sh
+sudo systemctl start systemd-vconsole-setup.service
+```
+
+Disable file system scanning:
+
+```sh
+dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
+```
+
+Disable sleep on lid closing:
+
+1. `sudo vi /etc/systemd/logind.conf`
+2. Ставим `HandleLidSwitch=lock`
+
+Restart.
 
 
-### Текстовые редакторы
+### Text Editors
 
-Устанавливаем GNOME Builder и nano:
+Install GNOME Builder add nano:
 
 ```sh
 sudo dnf install nano gnome-builder wmctrl
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
-Установить VS Code:
+Install VS Code:
 
 ```sh
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.visualstudio.code
 ```
 
-Установить расширения для VS Code:
+Install VS Code extensions:
 
 * `christian-kohler.npm-intellisense`
 * `coenraads.bracket-pair-colorizer`
@@ -204,7 +205,7 @@ flatpak install flathub io.visualstudio.code
 * `visualstudioexptteam.vscodeintellicode`
 * `william-voyek.vscode-nginx`
 
-Выключить расширения:
+Disable extensions:
 
 * `vscode.extension-editing`
 * `vscode.grunt`
@@ -233,7 +234,7 @@ flatpak install flathub io.visualstudio.code
 * `vscode.bat`
 * и все темы
 
-Установить утилиту для diff:
+Install better diff:
 
 ```sh
 sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
@@ -241,23 +242,23 @@ sudo chmod a+x /usr/local/bin/diff-so-fancy
 ```
 
 
-### Личные файлы
+### Personal Files
 
-Скопировать конфиги:
+Copy configs:
 
 ```sh
 ~/Dev/environment/bin/copy-env system
 ```
 
-Устанавливаем пакеты для расшифровки:
+Install encryption tools:
 
 ```sh
 sudo dnf install fuse-encfs
 ```
 
-Скопировать `.Private/`. Открыть его и скопировать папки `.ssh/`, `.gnupg/` и `.kube/`.
+Open Private files and copy `.ssh/`, `.gnupg/`, and `.kube/`.
 
-Ставим правильные права на ключи:
+Change persmissions:
 
 ```sh
 chmod 744 ~/.ssh
@@ -267,16 +268,16 @@ chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
 ```
 
-Устанавливаем 2FA через ключ:
+Install 2FA reader:
 
 ```sh
 sudo dnf install yubioath-desktop
 ```
 
 
-### Терминал
+### Terminal
 
-Устанавливаем zsh:
+Install zsh:
 
 ```sh
 sudo dnf install zsh util-linux-user
@@ -284,109 +285,90 @@ chsh -s /bin/zsh
 rm ~/.bash_history ~/.bash_logout
 ```
 
-Устанавливаем Antigen:
+Install Antigen:
 
 ```sh
 curl -L git.io/antigen > ~/.antigen.zsh
 source ~/.antigen.zsh
 ```
 
-Создаём `/root/.zshrc`:
+Create `/root/.zshrc`:
 
 ```
 if [ -f /home/ai/.antigen.zsh ]; then
-  ANTIGEN_MUTEX=false
-  source /home/ai/.antigen.zsh
-  antigen bundle yarn
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-history-substring-search
-  antigen theme denysdovhan/spaceship-prompt
-  antigen apply
+ ANTIGEN_MUTEX=false
+ source /home/ai/.antigen.zsh
+ antigen bundle yarn
+ antigen bundle zsh-users/zsh-syntax-highlighting
+ antigen bundle zsh-users/zsh-history-substring-search
+ antigen theme denysdovhan/spaceship-prompt
+ antigen apply
 fi
 
 SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
 ```
 
-Перезагружаемся.
+Reboot.
 
 
-### Настройка GNOME
+### GNOME Settings
 
-Ставим `seahorse` и выключаем пароль со связки ключей.
+Install `seahorse` and disable the password for the main keychain.
 
-Открываем Настройки:
+Open settings:
 
-- **Поиск:** оставляем только «Калькулятор».
-- **Фон:** ставим треугольники на экран блокировки.
-- **Сетевые учётные записи:** подключить Google.
-- **Энергопитание:** выключаем «Уменьшать яркость при простое»,
-  ставим «Выключение экрана» в «Никогда».
-- **Устройства → Дисплей:** включаем ночную подсветку с 23:00 до 06:00.
-- **Устройства → Мышь и сенсорная панель:** скорость мыши на максимум,
-  скорость панели поднимаем, включаем «Нажатие касанием».
-- **Подробности → Пользователи:** ставим аватарку из этой папки
-  и автоматический вход.
+* **Search:** keep only Calculator, Weather, and Firefox.
+* **Background:** use standard GNOME wallpaper.
+* **Online Accounts:** add Google account.
+* **Devices → Display:** enable Night Light from 23:00 to 06:00.
+* **Devices → Mouse & Touchpad:** mouse speed to 75%,
+ touchpad speed to 90%, enable Tap to Click.
+* **Details → Users:** set avatar and Automatic Login.
 
-Выставляем настройки клавиатуры:
+Set keyboard settings:
 
 ```sh
 dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3', 'lv3:lsgt_switch', 'grp:shift_caps_switch']"
 ```
 
-В Терминале:
+Terminal:
 
-- Параметры → Общие: выключить «Показывать панель меню …».
-- Параметры профиля → Общие: выключить «Подавать гудок».
+* **Unnamed Profile:88 disable Terminal bell.
 
-В Nautilus:
+Nautilus:
 
-- Параметры → Вид: включить «Помещать папки перед файлами».
-- Параметры → Поведение: включить «Открыть объекты одним щелчком».
+* **Views:** enable Sort folders before files.
+* **Behaviour:** enable Single click to open items.
 
-Ставим расширения из [`GNOME.md`](./GNOME.md).
+Install extensions from [`GNOME.md`](./GNOME.md).
 
-Добавляем Сан-Франциско, Москву, Пекин и Владивосток в Часы.
+* **Emoji selector:** disable Always show the icon.
+* **Gsconnect:** add phone.
+* **Icon Hider:** убираем `appMenu` и `keyboard`. Скрываю её иконку.
+* **Screenshot Tool:** убираем «Показывать иконку». Ставим «Автоматически
+ сохранять скриншот» в «Загрузки» с именем `{Y}{m}{d}{H}{M}{S}`. Включаем
+ Imgur с автоматическим открытием ссылки.
 
-Установить шрифт [JetBrains Mono](https://www.jetbrains.com/lp/mono/),
-Fira Mono и Fira Code:
+Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
 
-```sh
-sudo dnf install mozilla-fira-mono-fonts
-mkdir -p ~/.local/share/fonts
-for type in Bold Light Medium Regular Retina; do
-  file_path="~/.local/share/fonts/FiraCode-${type}.ttf"
-  file_url="https://github.com/tonsky/FiraCode/blob/master/distr/ttf/FiraCode-${type}.ttf?raw=true"
-  wget -O "${file_path}" "${file_url}"
-done
-fc-cache -f
-```
+Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
-Установить GNOME Tweak Tool:
+Install GNOME Tweaks:
 
 ```sh
 sudo dnf install gnome-tweak-tool
 ```
 
-И выставить в нём настройки:
+* **General:** enable Over-Amplification.
+* **Top Bar:** enable Battery Percentage, Date, and Seconds.
+* **Window Titlebars:** Double-Click: toggle maximize vertical,
+ Middle-Click: toggle maximize.
+* **Keyboard & Mouse:** enable Middle Click Paste and Adaptive
+ in Acceleration Profile.
+* **Windows:** disable Edge Tiling.
+* **Fonts:** monospace to JetBrains Mono.
 
-- **Основное:** включить «Сверхусиление».
-- **Верхняя панель:** включить «заряд в процентах», «дату» и «секунды».
-- **Внешний вид:** обои берём из этой папки.
-- **Заголовки окон:** двойное нажатие — «toggle maximize vertical»,
-  средней — «toggle maximize».
-- **Клавиатура и мышь:** выключить «Вставка при нажатии средней кнопки мышки»
-  и ставим «Adaptive» в профиле ускорения.
-- **Окна:** выключаем «Активные края».
-- **Расширения:**
-  - **Emoji selector:** выключаем «Always show the icon».
-  - **Gsconnect:** подключаем телефон.
-  - **Icon Hider:** убираем `appMenu` и `keyboard`. Скрываю её иконку.
-  - **Screenshot Tool:** убираем «Показывать иконку». Ставим «Автоматически
-    сохранять скриншот» в «Загрузки» с именем `{Y}{m}{d}{H}{M}{S}`. Включаем
-    Imgur с автоматическим открытием ссылки.
-- **Шрифты:** моноширный в «JetBrains Mono».
-
-Удаляем папки иконок:
+Set application folder:
 
 ```sh
 gsettings set org.gnome.desktop.app-folders folder-children "['Utilities']"
@@ -394,20 +376,20 @@ gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folder
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps "['gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.DiskUtility.desktop']"
 ```
 
-Оставить в доке по-умолчанию только Фаерфокс, Наутилус и Терминал.
+Left only Firefox, Nautilus, and Terminal in the dock.
 
 
-### Папки
+### Folders
 
-Создаём шаблон пустого файла:
+Create empty file template:
 
 ```sh
 mkdir ~/.local/share/desktop
 mkdir ~/.local/share/templates
-touch ~/.local/share/templates/Пустой\ файл
+touch ~/.local/share/templates/Empty\ file
 ```
 
-Исправляем папки по-умолчанию `~/.config/user-dirs.dirs`:
+Fix folders at `~/.config/user-dirs.dirs`:
 
 ```sh
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
@@ -420,40 +402,40 @@ XDG_PICTURES_DIR="$HOME/"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
-Чистим закладки:
+Clean bookmarks:
 
 ```sh
 echo "" > ~/.config/gtk-3.0/bookmarks
 ```
 
-Удаляем лишние папки:
+Remove unnecessary folders:
 
 ```sh
 rm -R ~/Documents ~/Pictures ~/Music ~/Public ~/Templates ~/Desktop
 ```
 
 
-### Остальное ПО
+### Additional Software
 
-Устанавливаем кодеки:
+Install codecs:
 
 ```sh
 sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-fc gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer-plugins-base gstreamer1-plugins-ugly-free
 ```
 
-Устанавливаем программы:
+Install tools:
 
 ```sh
 sudo dnf install mpv unrar p7zip p7zip-plugins
 ```
 
-Устанавливаем шрифты от Microsoft:
+Install Microsoft fonts:
 
 ```sh
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
-Ставим Хром:
+Install Chrome:
 
 ```sh
 sudo dnf install fedora-workstation-repositories
@@ -461,9 +443,9 @@ sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install google-chrome-stable
 ```
 
-Скачиваем [файл настроек VPN](https://www.expressvpn.com/ru/setup#manual) для Гонконга.
+Download [VPN config](https://www.expressvpn.com/ru/setup#manual) for Hong Kong.
 
-Устанавливаем GIMP, Telegram, Fragments, Transmission и Zoom:
+Install GIMP, Telegram, Fragments, Transmission, and Zoom:
 
 ```sh
 flatpak install flathub com.transmissionbt.Transmission
@@ -474,15 +456,15 @@ flatpak install flathub us.zoom.Zoom
 ```
 
 
-### Разработка
+### Development Tools
 
-Устанавливаем пакеты:
+Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa yubioath-desktop
+sudo dnf install git tig ripgrep exa
 ```
 
-Устанавливаем `node` и `yarn`:
+Install `node` and `yarn`:
 
 ```sh
 sudo dnf install https://rpm.nodesource.com/pub_13.x/fc/30/x86_64/nodesource-release-fc30-1.noarch.rpm
@@ -490,16 +472,14 @@ sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn nodejs
 ```
 
-Устанавливаем Ruby:
+Install Ruby:
 
 ```sh
 sudo dnf install ruby gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel ruby-devel make rpm-build
 gem install bundler
 ```
 
-Устанавливаем [Helm](https://github.com/helm/helm/releases).
-
-Устанавливаем контейнеры:
+Install containers:
 
 ```sh
 sudo dnf install podman buildah
@@ -516,35 +496,20 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Исправляем [баг](https://github.com/docker/for-linux/issues/665) Федоры:
+Fix [Docker bug](https://github.com/docker/for-linux/issues/665):
 
 ```sh
 sudo dnf install grubby
 sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
 ```
 
-Устанавливаем Kubernetes:
-
-```sh
-sudo cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-EOF
-sudo dnf install kubectl
-```
-
-Устанавливаем Keybase:
+Install Keybase:
 
 ```sh
 sudo dnf install https://prerelease.keybase.io/keybase_amd64.rpm
 run_keybase
 ```
 
-Удаляем Keybase из автозагрузки.
+Remove Keybase from Autostart.
 
-Устаналиваем [Projecteur](https://github.com/jahnf/Projecteur#download).
+Install [Projecteur](https://github.com/jahnf/Projecteur#download).
