@@ -15,6 +15,8 @@
 * `PKief.material-icon-theme`
 * `christian-kohler.path-intellisense`
 * `alefragnani.project-manager`
+* `mhutchie.git-graph`
+* `richie5um2.vscode-sort-json`
 
 Disabled extensions:
 
