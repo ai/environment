@@ -191,52 +191,7 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 flatpak install flathub io.visualstudio.code
 ```
 
-Install VS Code extensions:
-
-* `christian-kohler.npm-intellisense`
-* `coenraads.bracket-pair-colorizer`
-* `dbaeumer.vscode-eslint`
-* `editorconfig.editorconfig`
-* `fkrull.gtk-dark-titlebar`
-* `mhmadhamster.postcss-language`
-* `mikestead.dotenv`
-* `rafaelmardojai.vscode-gnome-theme`
-* `stylelint.vscode-stylelint`
-* `visualstudioexptteam.vscodeintellicode`
-* `william-voyek.vscode-nginx`
-* `yzhang.markdown-all-in-one`
-* `PKief.material-icon-theme`
-* `christian-kohler.path-intellisense`
-* `alefragnani.project-manager`
-
-Disable extensions:
-
-* `vscode.extension-editing`
-* `vscode.grunt`
-* `vscode.gulp`
-* `vscode.jake`
-* `ms-vscode.node-debug`
-* `vscode.cpp`
-* `vscode.csharp`
-* `vscode.clojure`
-* `vscode.coffeescript`
-* `vscode.fsharp`
-* `vscode.go`
-* `vscode.groovy`
-* `vscode.hlsl`
-* `vscode.java`
-* `vscode.lua`
-* `vscode.objective-c`
-* `vscode.perl`
-* `vscode.powershell`
-* `vscode.python`
-* `vscode.r`
-* `vscode.razor`
-* `vscode.shaderlab`
-* `vscode.swift`
-* `vscode.vb`
-* `vscode.bat`
-* и все темы
+Install [VS Code extensions](./VSCode.md).
 
 Install better diff:
 
