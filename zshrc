@@ -37,9 +37,9 @@ fi
 # Rip Grep
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
-# Atom
+# VS Code
 export ELECTRON_TRASH=gio
-alias e='flatpak run io.atom.Atom .'
+alias e='flatpak run com.visualstudio.code .'
 
 # Aliases
 alias g='git'

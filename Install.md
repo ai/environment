@@ -76,13 +76,6 @@ vm.swappiness=1
     key <PGDN> {        [  Right                ]	};
 ```
 
-Меням настройки сна добавляя `mem_sleep_default=deep` в `GRUB_CMDLINE_LINUX`:
-
-```sh
-sudo nano /etc/default/grub
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-```
-
 Ставим [ядро 5.4](https://koji.fedoraproject.org/koji/builds?prefix=k&order=-build_id) и чиним WiFi:
 
 ```
@@ -190,14 +183,55 @@ sudo dnf install nano gnome-builder wmctrl
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
-Установить Атом:
+Установить VS Code:
 
 ```sh
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.atom.Atom
+flatpak install flathub io.visualstudio.code
 ```
 
-Устанавливаем темы и плагины из [`Atom.md`](./Atom.md).
+Установить расширения для VS Code:
+
+* `christian-kohler.npm-intellisense`
+* `coenraads.bracket-pair-colorizer`
+* `dbaeumer.vscode-eslint`
+* `editorconfig.editorconfig`
+* `fkrull.gtk-dark-titlebar`
+* `mhmadhamster.postcss-language`
+* `mikestead.dotenv`
+* `rafaelmardojai.vscode-gnome-theme`
+* `stylelint.vscode-stylelint`
+* `visualstudioexptteam.vscodeintellicode`
+* `william-voyek.vscode-nginx`
+
+Выключить расширения:
+
+* `vscode.extension-editing`
+* `vscode.grunt`
+* `vscode.gulp`
+* `vscode.jake`
+* `ms-vscode.node-debug`
+* `vscode.cpp`
+* `vscode.csharp`
+* `vscode.clojure`
+* `vscode.coffeescript`
+* `vscode.fsharp`
+* `vscode.go`
+* `vscode.groovy`
+* `vscode.hlsl`
+* `vscode.java`
+* `vscode.lua`
+* `vscode.objective-c`
+* `vscode.perl`
+* `vscode.powershell`
+* `vscode.python`
+* `vscode.r`
+* `vscode.razor`
+* `vscode.shaderlab`
+* `vscode.swift`
+* `vscode.vb`
+* `vscode.bat`
+* и все темы
 
 Установить утилиту для diff:
 
