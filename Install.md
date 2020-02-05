@@ -204,6 +204,10 @@ Install VS Code extensions:
 * `stylelint.vscode-stylelint`
 * `visualstudioexptteam.vscodeintellicode`
 * `william-voyek.vscode-nginx`
+* `yzhang.markdown-all-in-one`
+* `PKief.material-icon-theme`
+* `christian-kohler.path-intellisense`
+* `alefragnani.project-manager`
 
 Disable extensions:
 
