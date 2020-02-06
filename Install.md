@@ -177,10 +177,10 @@ Restart.
 
 ### Text Editors
 
-Install GNOME Builder add nano:
+Install nano:
 
 ```sh
-sudo dnf install nano gnome-builder wmctrl
+sudo dnf install nano wmctrl
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
