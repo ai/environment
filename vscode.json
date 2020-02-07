@@ -1,9 +1,10 @@
 {
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
     "gitHistory.hideCommitViewExplorer": true,
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    "files.useIgnoreFiles": false,
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
     "editor.fontSize": 18,
@@ -27,5 +28,14 @@
     },
     "workbench.colorTheme": "GNOME dark",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "files.associations": {
+        "**/test/errors.ts": "plaintext"
+    },
+    "markdown.extension.italic.indicator": "_",
+    "markdown.extension.toc.levels": "2..6",
+    "markdown.extension.toc.omittedFromToc": {
+        "README.md": ["## Table of Contents"]
+    },
+    "markdown.extension.toc.unorderedList.marker": "*"
 }

@@ -98,14 +98,6 @@ Remove unnecessary packages:
 sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit
 ```
 
-Disable:
-
-```sh
-sudo systemctl stop packagekit-offline-update.service
-sudo systemctl disable packagekit-offline-update.service
-sudo systemctl mask packgekit-offline-update.service
-```
-
 Add RPM Fusion:
 
 ```sh
@@ -186,6 +178,12 @@ Install VS Code:
 ```sh
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub io.visualstudio.code
+```
+
+Add to `/etc/sysctl.conf`:
+
+```
+fs.inotify.max_user_watches=524288
 ```
 
 Install [VS Code extensions](./VSCode.md).
