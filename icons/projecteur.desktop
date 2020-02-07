@@ -6,4 +6,12 @@ GenericName=Linux/X11 application for the Logitech Spotlight device.
 Icon=projecteur
 Terminal=false
 Categories=Office;Presentation;
-NoDisplay=true
+Actions=Settings;Quit;
+
+[Desktop Action Settings]
+Name=Settings
+Exec=/usr/local/bin/projecteur -c settings=show
+
+[Desktop Action Quit]
+Name=Switch Off
+Exec=/usr/local/bin/projecteur -c quit
