@@ -39,7 +39,7 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # VS Code
 export ELECTRON_TRASH=gio
-alias e='flatpak run com.visualstudio.code .'
+alias e='code .'
 
 # Aliases
 alias g='git'

@@ -1,13 +1,13 @@
 # VS Code Extentions
 
+* `rafaelmardojai.vscode-gnome-theme`
+* `fkrull.gtk-dark-titlebar`
 * `christian-kohler.npm-intellisense`
 * `coenraads.bracket-pair-colorizer`
 * `dbaeumer.vscode-eslint`
 * `editorconfig.editorconfig`
-* `fkrull.gtk-dark-titlebar`
 * `mhmadhamster.postcss-language`
 * `mikestead.dotenv`
-* `rafaelmardojai.vscode-gnome-theme`
 * `stylelint.vscode-stylelint`
 * `visualstudioexptteam.vscodeintellicode`
 * `william-voyek.vscode-nginx`
@@ -16,7 +16,7 @@
 * `christian-kohler.path-intellisense`
 * `alefragnani.project-manager`
 * `mhutchie.git-graph`
-* `richie5um2.vscode-sort-json`
+* `orta.vscode-jest`
 
 Disabled extensions:
 
