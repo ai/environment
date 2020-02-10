@@ -16,7 +16,6 @@
 * `christian-kohler.path-intellisense`
 * `alefragnani.project-manager`
 * `mhutchie.git-graph`
-* `orta.vscode-jest`
 
 Disabled extensions:
 
