@@ -1,5 +1,5 @@
 {
-    "breadcrumbs.enabled": true,
+    "breadcrumbs.enabled": false,
     "gitHistory.hideCommitViewExplorer": true,
     "editor.codeActionsOnSave": {
         "source.fixAll": true
@@ -30,7 +30,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.statusBar.visible": true,
     "files.associations": {
-        "**/test/errors.ts": "plaintext"
+        "**/test/errors.ts": "rust"
     },
     "markdown.extension.italic.indicator": "_",
     "markdown.extension.toc.levels": "2..6",
