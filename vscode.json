@@ -28,7 +28,8 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.statusBar.visible": true,
     "files.associations": {
-        "**/test/errors.ts": "rust"
+        "**/test/errors.ts": "rust",
+        "**/test/*.errors.ts": "rust"
     },
     "markdown.extension.italic.indicator": "_",
     "markdown.extension.toc.levels": "2..6",
@@ -36,5 +37,7 @@
         "README.md": ["## Table of Contents"]
     },
     "markdown.extension.toc.unorderedList.marker": "*",
-    "jest.enableInlineErrorMessages": true
+    "jest.enableInlineErrorMessages": true,
+    "terminal.integrated.fontSize": 16,
+    "debug.console.fontSize": 16
 }
