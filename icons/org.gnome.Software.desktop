@@ -16,4 +16,3 @@ X-GNOME-UsesNotifications=true
 DBusActivatable=true
 X-Desktop-File-Install-Version=0.24
 X-AppInstall-Package=gnome-software
-NoDisplay=true
