@@ -16,6 +16,7 @@
 * `christian-kohler.path-intellisense`
 * `alefragnani.project-manager`
 * `mhutchie.git-graph`
+* `mariusschulz.yarn-lock-syntax`
 
 Disabled extensions:
 
