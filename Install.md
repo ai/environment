@@ -16,10 +16,17 @@ Write backup to external HDD:
 ```
 
 
-### Install
+### BIOS
 
-Boot from USB drive. On GRUB screen press <kbd>e</kbd> and add
-`modprobe.blacklist=intel_lpss_pci` to kernel parameters.
+Boot to BIOS:
+
+1. Switch SATA to AHCI.
+2. Disable Intel SpeedStep.
+3. Set custom battery charge to 70/90.
+4. Disable keyboard backlight and backlight timeout.
+
+
+### Install
 
 Start installer.
 
@@ -70,21 +77,11 @@ vm.swappiness=1
 ```
 
 Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
-`sudo nano /usr/share/X11/xkb/symbols/pc`:
+`usr/share/X11/xkb/symbols/pc`:
 
 ```
- key <PGUP> { [ Left ] };
- key <PGDN> { [ Right ] };
-```
-
-Install [kernel 5.4](https://koji.fedoraproject.org/koji/builds?prefix=k&order=-build_id) and fix WiFi:
-
-```
-git clone https://chromium.googlesource.com/chromiumos/third_party/linux-firmware chromiumos-linux-firmware --depth=1
-cd chromiumos-linux-firmware/
-sudo cp iwlwifi-* /lib/firmware/
-cd /lib/firmware
-sudo ln -s iwlwifi-Qu-c0-hr-b0-50.ucode iwlwifi-Qu-b0-hr-b0-50.ucode
+    key <PGUP> { [ Left ] };
+    key <PGDN> { [ Right ] };
 ```
 
 Disable `Blank screen` and `Dim Screen…` in Power settings.
@@ -95,7 +92,7 @@ Disable `Blank screen` and `Dim Screen…` in Power settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes
 ```
 
 Add RPM Fusion:
@@ -136,7 +133,7 @@ sudo cp /usr/share/grub/ter-u32n.pf2 /boot/efi/EFI/fedora/fonts/
 Add to `/etc/default/grub`:
 
 ```
-GRUB_FONT="/boot/efi/EFI/fedora/fonts/firamono.pf2"
+GRUB_FONT="/boot/efi/EFI/fedora/fonts/ter-u32n.pf2"
 GRUB_TERMINAL_OUTPUT="gfxterm"
 ```
 
@@ -158,7 +155,7 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 Disable sleep on lid closing:
 
-1. `sudo vi /etc/systemd/logind.conf`
+1. `sudo nano /etc/systemd/logind.conf`
 2. Ставим `HandleLidSwitch=lock`
 
 Restart.
@@ -169,7 +166,6 @@ Restart.
 Install nano:
 
 ```sh
-sudo dnf install nano wmctrl
 su -c 'echo "export EDITOR=nano" >> /etc/profile'
 ```
 
@@ -220,7 +216,7 @@ chmod 744 ~/.ssh
 chmod 700 ~/.gnupg/
 chmod 644 ~/.ssh/* ~/.gnupg/*
 chmod 700 ~/.gnupg/private-keys-v1.d
-chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/secring.gpg ~/.gnupg/private-keys-v1.d/* ~/.gnupg/random_seed
+chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
 ```
 
 Install 2FA reader:
@@ -275,10 +271,10 @@ Open settings:
 * **Search:** keep only Calculator, Weather, and Firefox.
 * **Background:** use standard GNOME wallpaper.
 * **Online Accounts:** add Google account.
-* **Devices → Display:** enable Night Light from 23:00 to 06:00.
-* **Devices → Mouse & Touchpad:** mouse speed to 75%,
+* **Display:** enable Night Light from 23:00 to 06:00.
+* **Mouse & Touchpad:** mouse speed to 75%,
  touchpad speed to 90%, enable Tap to Click.
-* **Details → Users:** set avatar and Automatic Login.
+* **Users:** set avatar and Automatic Login.
 
 Set keyboard settings:
 
@@ -288,7 +284,7 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 
 Terminal:
 
-* **Unnamed Profile:88 disable Terminal bell.
+* **Unnamed Profile:** disable Terminal bell.
 
 Nautilus:
 
@@ -330,8 +326,6 @@ gsettings set org.gnome.desktop.app-folders folder-children "['Utilities']"
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ name 'Utilities'
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps "['gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.DiskUtility.desktop']"
 ```
-
-Left only Firefox, Nautilus, and Terminal in the dock.
 
 
 ### Folders
@@ -375,7 +369,7 @@ rm -R ~/Documents ~/Pictures ~/Music ~/Public ~/Templates ~/Desktop
 Install codecs:
 
 ```sh
-sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-fc gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer-plugins-base gstreamer1-plugins-ugly-free
+sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free
 ```
 
 Install tools:
@@ -403,12 +397,12 @@ Download [VPN config](https://www.expressvpn.com/ru/setup#manual) for Hong Kong.
 Install GIMP, Telegram, Fragments, Transmission, and Zoom:
 
 ```sh
-flatpak install flathub com.transmissionbt.Transmission
-flatpak install flathub de.haeckerfelix.Fragments
-flatpak install flathub org.telegram.desktop
-flatpak install flathub org.gimp.GIMP
-flatpak install flathub us.zoom.Zoom
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.transmissionbt.Transmission de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom
 ```
+
+Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA,
+Software in the dock.
 
 
 ### Development Tools
@@ -422,7 +416,7 @@ sudo dnf install git tig ripgrep exa
 Install `node` and `yarn`:
 
 ```sh
-sudo dnf install https://rpm.nodesource.com/pub_13.x/fc/30/x86_64/nodesource-release-fc30-1.noarch.rpm
+sudo dnf install https://rpm.nodesource.com/pub_13.x/fc/31/x86_64/nodesource-release-fc31-1.noarch.rpm
 sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
 sudo dnf install yarn nodejs
 ```
@@ -431,6 +425,7 @@ Install Ruby:
 
 ```sh
 sudo dnf install ruby gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel ruby-devel make rpm-build
+sudo dnf remove rubygem-bundler
 gem install bundler
 ```
 

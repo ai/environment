@@ -17,32 +17,3 @@
 * `alefragnani.project-manager`
 * `mhutchie.git-graph`
 * `mariusschulz.yarn-lock-syntax`
-
-Disabled extensions:
-
-* `vscode.extension-editing`
-* `vscode.grunt`
-* `vscode.gulp`
-* `vscode.jake`
-* `ms-vscode.node-debug`
-* `vscode.cpp`
-* `vscode.csharp`
-* `vscode.clojure`
-* `vscode.coffeescript`
-* `vscode.fsharp`
-* `vscode.go`
-* `vscode.groovy`
-* `vscode.hlsl`
-* `vscode.java`
-* `vscode.lua`
-* `vscode.objective-c`
-* `vscode.perl`
-* `vscode.powershell`
-* `vscode.python`
-* `vscode.r`
-* `vscode.razor`
-* `vscode.shaderlab`
-* `vscode.swift`
-* `vscode.vb`
-* `vscode.bat`
-* and all default themes
