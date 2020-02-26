@@ -22,7 +22,7 @@ Boot to BIOS:
 
 1. Switch SATA to AHCI.
 2. Disable Intel SpeedStep.
-3. Set custom battery charge to 70/90.
+3. Set custom battery charge to 50/80.
 4. Disable keyboard backlight and backlight timeout.
 
 
