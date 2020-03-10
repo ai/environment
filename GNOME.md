@@ -1,9 +1,9 @@
 ## GNOME Shell Extensions
 
 * [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+* [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Always Zoom Workspaces](https://extensions.gnome.org/extension/503/always-zoom-workspaces/)
 * [Icon Hider](https://extensions.gnome.org/extension/351/icon-hider/)
-и отключаем `a11y`, `keyboard` и индикатор расширения
 * [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
@@ -15,3 +15,4 @@
 * [Transparent Top Bar](https://extensions.gnome.org/extension/1708/transparent-top-bar/)
 * [micro-camera-privacy](https://extensions.gnome.org/extension/2099/micro-camera-privacy/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
+* [Hide Frequent View](https://extensions.gnome.org/extension/1367/hide-frequent-view/)
