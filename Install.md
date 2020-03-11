@@ -295,10 +295,10 @@ Install extensions from [`GNOME.md`](./GNOME.md).
 
 * **Emoji selector:** disable Always show the icon.
 * **Gsconnect:** add phone.
-* **Icon Hider:** убираем `appMenu` и `keyboard`. Скрываю её иконку.
-* **Screenshot Tool:** убираем «Показывать иконку». Ставим «Автоматически
- сохранять скриншот» в «Загрузки» с именем `{Y}{m}{d}{H}{M}{S}`. Включаем
- Imgur с автоматическим открытием ссылки.
+* **Icon Hider:** hide `appMenu`, `keyboard`, and its own icon.
+* **Screenshot Tool:** disable Show Indicator, enable Auto-Save to Downloads
+  with `{Y}{m}{d}{H}{M}{S}` name, enable Imgur Upload
+  with Copy Link After Upload.
 
 Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
 
