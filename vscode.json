@@ -28,7 +28,7 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.statusBar.visible": true,
     "files.associations": {
-        "**/test/errors.ts": "rust",
+        "errors.ts": "rust",
         "**/test/*.errors.ts": "rust"
     },
     "markdown.extension.italic.indicator": "_",
