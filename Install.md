@@ -324,7 +324,7 @@ Set application folder:
 ```sh
 gsettings set org.gnome.desktop.app-folders folder-children "['Utilities']"
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ name 'Utilities'
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps "['gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.DiskUtility.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps "['gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.baobab.desktop']"
 ```
 
 
@@ -398,7 +398,7 @@ Install GIMP, Telegram, Fragments, Transmission, and Zoom:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom
+flatpak install flathub com.transmissionbt.Transmission de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave
 ```
 
 Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA,
