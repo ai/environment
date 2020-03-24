@@ -375,7 +375,7 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Install tools:
 
 ```sh
-sudo dnf install mpv unrar p7zip p7zip-plugins
+sudo dnf install celluloid unrar p7zip p7zip-plugins
 ```
 
 Install Microsoft fonts:
@@ -424,9 +424,7 @@ sudo dnf install yarn nodejs
 Install Ruby:
 
 ```sh
-sudo dnf install ruby gcc automake gdbm-devel libffi-devel libyaml-devel openssl-devel ncurses-devel readline-devel zlib-devel gcc-c++ libxml2 libxml2-devel libxslt libxslt-devel postgresql-devel sqlite-devel ruby-devel make rpm-build
-sudo dnf remove rubygem-bundler
-gem install bundler
+sudo dnf install rubygems
 ```
 
 Install containers:
