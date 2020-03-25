@@ -5,26 +5,21 @@ if [ "$1" == "system" ]; then
   rm ~/.local/share/applications/*.{desktop,svg} -f
   cp ~/Dev/environment/icons/* ~/.local/share/applications/
   mkdir -p ~/.atom
-  mkdir -p ~/.bundle
   mkdir -p ~/.node
   mkdir -p ~/.prompt
   mkdir -p ~/.config/mpv/
   mkdir -p ~/.config/Code/User/
   cp ~/Dev/environment/zshrc          ~/.zshrc
-  cp ~/Dev/environment/gemrc          ~/.gemrc
   cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
   cp ~/Dev/environment/gitconfig      ~/.gitconfig
-  cp ~/Dev/environment/bundle         ~/.bundle/config
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.zshrc                                    ~/Dev/environment/zshrc
-  cp ~/.gemrc                                    ~/Dev/environment/gemrc
   cp ~/.gitconfig                                ~/Dev/environment/gitconfig
   cp ~/.ripgreprc                                ~/Dev/environment/ripgreprc
-  cp ~/.bundle/config                            ~/Dev/environment/bundle
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
