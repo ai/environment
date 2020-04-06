@@ -17,3 +17,6 @@
 * `alefragnani.project-manager`
 * `mhutchie.git-graph`
 * `mariusschulz.yarn-lock-syntax`
+* `bungcip.better-toml`
+* `ms-azuretools.vscode-docker`
+* `ms-python.python`
