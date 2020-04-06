@@ -16,3 +16,6 @@
 * [micro-camera-privacy](https://extensions.gnome.org/extension/2099/micro-camera-privacy/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Hide Frequent View](https://extensions.gnome.org/extension/1367/hide-frequent-view/)
+* [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
+* [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
+* [Hide Activities Button](https://extensions.gnome.org/extension/1128/hide-activities-button/)
