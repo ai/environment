@@ -449,6 +449,7 @@ Fix [Docker bug](https://github.com/docker/for-linux/issues/665):
 ```sh
 sudo dnf install grubby
 sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
 ```
 
 Install Keybase:
