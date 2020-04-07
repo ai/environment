@@ -13,7 +13,6 @@
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Remove Alt+Tab Delay](https://extensions.gnome.org/extension/1403/remove-alttab-delay/)
 * [Transparent Top Bar](https://extensions.gnome.org/extension/1708/transparent-top-bar/)
-* [micro-camera-privacy](https://extensions.gnome.org/extension/2099/micro-camera-privacy/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Hide Frequent View](https://extensions.gnome.org/extension/1367/hide-frequent-view/)
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
