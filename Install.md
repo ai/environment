@@ -56,7 +56,8 @@ Clean `tmp` and `var/tmp` dirs.
 Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
 
 Copy `Dev/environment` and open `Install.md` locally.
-Start to copy `.Private` and `.mozilla` in background.
+Start to copy `.Private` and `.var/app/org.mozilla.firefox/.mozilla`
+in background.
 
 Set laptop name:
 
@@ -92,13 +93,20 @@ Disable `Blank screen` and `Dim Screen…` in Power settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes firefox
 ```
 
 Add RPM Fusion:
 
 ```sh
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+Install GIMP, Telegram, Fragments, Transmission, and Zoom:
+
+```sh
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.transmissionbt.Transmission de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox
 ```
 
 Update system:
@@ -393,13 +401,6 @@ sudo dnf install google-chrome-stable
 ```
 
 Download [VPN config](https://www.expressvpn.com/ru/setup#manual) for Hong Kong.
-
-Install GIMP, Telegram, Fragments, Transmission, and Zoom:
-
-```sh
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave
-```
 
 Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA,
 Software in the dock.
