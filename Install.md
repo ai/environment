@@ -106,7 +106,7 @@ Install GIMP, Telegram, Fragments, Transmission, and Zoom:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox org.gnome.SoundRecorder
 ```
 
 Update system:
