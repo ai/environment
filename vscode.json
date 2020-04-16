@@ -37,7 +37,6 @@
         "README.md": ["## Table of Contents"]
     },
     "markdown.extension.toc.unorderedList.marker": "*",
-    "jest.enableInlineErrorMessages": true,
     "terminal.integrated.fontSize": 16,
     "debug.console.fontSize": 16
 }
