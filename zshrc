@@ -47,9 +47,12 @@ alias ..='cd ..'
 alias l='exa --all'
 alias ll='exa --long --all --git'
 
-# Ruby
-export PATH=~/.gem/ruby/bin/:$PATH
-alias b='bundle exec'
-
 # Node.js
 alias n='npx --no-install'
+export NVM_DIR="$HOME/.nvm"
+
+# Python
+export PATH=~/.local/bin/:$PATH
+
+# Fix mpv
+export MESA_LOADER_DRIVER_OVERRIDE=i965
