@@ -20,3 +20,4 @@
 * `bungcip.better-toml`
 * `ms-azuretools.vscode-docker`
 * `ms-python.python`
+* `znck.grammarly`
