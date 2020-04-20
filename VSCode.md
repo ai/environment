@@ -1,4 +1,4 @@
-# VS Code Extentions
+# VS Code Extensions
 
 * `rafaelmardojai.vscode-gnome-theme`
 * `fkrull.gtk-dark-titlebar`
