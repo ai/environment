@@ -3,9 +3,14 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": false
+        }
+    },
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
-    "editor.fontSize": 18,
+    "editor.fontSize": 15,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
     "editor.rulers": [80],
@@ -37,6 +42,7 @@
         "README.md": ["## Table of Contents"]
     },
     "markdown.extension.toc.unorderedList.marker": "*",
-    "terminal.integrated.fontSize": 16,
-    "debug.console.fontSize": 16
+    "terminal.integrated.fontSize": 15,
+    "debug.console.fontSize": 15,
+    "python.jediEnabled": false
 }
