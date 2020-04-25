@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Yubico 2FA
-GenericName=Yubico 2FA
 Comment=Graphical interface for displaying OATH codes with a YubiKey.
 Exec=yubioath-desktop
 Icon=com.yubico.yubioath
