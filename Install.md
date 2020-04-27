@@ -106,7 +106,7 @@ Install GIMP, Telegram, Fragments, Transmission, and Zoom:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox org.gnome.SoundRecorder
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath
 ```
 
 Update system:
@@ -225,12 +225,6 @@ chmod 700 ~/.gnupg/
 chmod 644 ~/.ssh/* ~/.gnupg/*
 chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
-```
-
-Install 2FA reader:
-
-```sh
-sudo dnf install yubioath-desktop
 ```
 
 

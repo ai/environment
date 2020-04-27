@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=Yubico 2FA
 Comment=Graphical interface for displaying OATH codes with a YubiKey.
-Exec=yubioath-desktop
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=yubioath-desktop com.yubico.yubioath
 Icon=com.yubico.yubioath
 StartupNotify=false
 Terminal=false
 Type=Application
 Categories=Utility;
 Keywords=Yubico;Authenticator;
-X-Desktop-File-Install-Version=0.24
+X-Flatpak=com.yubico.yubioath
