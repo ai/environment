@@ -21,3 +21,4 @@
 * `ms-azuretools.vscode-docker`
 * `ms-python.python`
 * `znck.grammarly`
+* `esbenp.prettier-vscode`
