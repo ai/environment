@@ -3,11 +3,6 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    "[markdown]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll": false
-        }
-    },
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
     "editor.fontSize": 15,
@@ -44,5 +39,23 @@
     "markdown.extension.toc.unorderedList.marker": "*",
     "terminal.integrated.fontSize": 15,
     "debug.console.fontSize": 15,
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "prettier.requireConfig": true,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": false
+        }
+    },
 }
