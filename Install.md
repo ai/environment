@@ -102,11 +102,11 @@ Add RPM Fusion:
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-Install GIMP, Telegram, Fragments, Transmission, and Zoom:
+Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom de.haeckerfelix.Shortwave org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath org.inkscape.Inkscape
 ```
 
 Update system:
