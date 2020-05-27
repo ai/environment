@@ -22,3 +22,4 @@
 * `ms-python.python`
 * `znck.grammarly`
 * `esbenp.prettier-vscode`
+* `kshetline.ligatures-limited`
