@@ -18,3 +18,4 @@
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Hide Activities Button](https://extensions.gnome.org/extension/1128/hide-activities-button/)
+* [Nothing to say](https://extensions.gnome.org/extension/1113/nothing-to-say/)
