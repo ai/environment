@@ -23,3 +23,4 @@
 * `znck.grammarly`
 * `esbenp.prettier-vscode`
 * `kshetline.ligatures-limited`
+* `formulahendry.auto-rename-tag`
