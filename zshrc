@@ -49,6 +49,8 @@ alias ll='exa --long --all --git'
 
 # Node.js
 alias n='npx --no-install'
+alias yui='yarn upgrade-interactive --latest'
+alias yu='yarn upgrade'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
