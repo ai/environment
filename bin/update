@@ -4,4 +4,4 @@ sudo echo "Update system…"
 cd ~/.var/app/org.mozilla.firefox/.mozilla/firefox/*/chrome/firefox-gnome-theme
 git pull origin master &
 flatpak update -y &
-sudo dnf update -y
+sudo dnf update --refresh -y
