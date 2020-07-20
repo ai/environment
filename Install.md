@@ -106,7 +106,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath org.inkscape.Inkscape
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath org.inkscape.Inkscape
 ```
 
 Update system:
@@ -394,7 +394,7 @@ sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install google-chrome-stable
 ```
 
-Download [VPN config](https://www.expressvpn.com/ru/setup#manual) for Hong Kong.
+Download [VPN client](https://mullvad.net/download/).
 
 Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA,
 Software in the dock.
