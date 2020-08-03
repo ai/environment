@@ -8,7 +8,9 @@
     "editor.fontSize": 15,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
-    "editor.rulers": [80],
+    "editor.rulers": [
+    
+    80],
     "editor.suggestSelection": "first",
     "editor.tabSize": 2,
     "eslint.migration.2_x": "off",
@@ -19,7 +21,7 @@
     ],
     "projectManager.git.maxDepthRecursion": 1,
     "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.activityBar.visible": true,
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#151515"
@@ -39,7 +41,6 @@
     "markdown.extension.toc.unorderedList.marker": "*",
     "terminal.integrated.fontSize": 15,
     "debug.console.fontSize": 15,
-    "python.jediEnabled": false,
     "prettier.requireConfig": true,
     "[javascript]": {
         "editor.formatOnSave": true,
@@ -59,4 +60,6 @@
         }
     },
     "editor.wordWrap": "on",
+    "stylelint.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
 }

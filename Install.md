@@ -196,8 +196,7 @@ Install [VS Code extensions](./VSCode.md).
 Install better diff:
 
 ```sh
-sudo wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
-sudo chmod a+x /usr/local/bin/diff-so-fancy
+dnf install git-delta
 ```
 
 
