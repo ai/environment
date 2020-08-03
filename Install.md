@@ -193,10 +193,10 @@ fs.inotify.max_user_watches=524288
 
 Install [VS Code extensions](./VSCode.md).
 
-Install better diff:
+Install better diff can cat:
 
 ```sh
-dnf install git-delta
+dnf install git-delta bat
 ```
 
 
