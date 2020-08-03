@@ -23,4 +23,6 @@
   autosetuprebase = always
 [core]
   editor = nano
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
