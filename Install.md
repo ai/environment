@@ -269,6 +269,7 @@ Install `seahorse` and disable the password for the main keychain.
 
 Open settings:
 
+* **Notifictions:** disable Lock Screen Notifications.
 * **Search:** keep only Calculator, Weather, and Firefox.
 * **Background:** use standard GNOME wallpaper.
 * **Online Accounts:** add Google account.
