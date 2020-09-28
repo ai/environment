@@ -299,7 +299,7 @@ Install extensions from [`GNOME.md`](./GNOME.md).
 * **Icon Hider:** hide `appMenu`, `keyboard`, and its own icon.
 * **Screenshot Tool:** disable Show Indicator, enable Auto-Save to Downloads
   with `{Y}{m}{d}{H}{M}{S}` name, enable Imgur Upload
-  with Copy Link After Upload.
+  with Copy Link After Upload, set `Print` keyboard binding.
 
 Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
 
