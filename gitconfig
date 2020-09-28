@@ -1,7 +1,7 @@
 [user]
   name  = Andrey Sitnik
   email = andrey@sitnik.ru
-  signingkey = 72999A65
+  signingkey = 63BC24D98C77F786
 [alias]
   current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
   a  = "!git add . && git s"
@@ -24,5 +24,3 @@
 [core]
   editor = nano
   pager = delta
-[interactive]
-  diffFilter = delta --color-only
