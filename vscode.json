@@ -5,10 +5,12 @@
     },
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
-    "editor.fontSize": 15,
+    "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
     "editor.rulers": [
+
+
     
     80],
     "editor.suggestSelection": "first",
@@ -42,6 +44,10 @@
     "terminal.integrated.fontSize": 15,
     "debug.console.fontSize": 15,
     "prettier.requireConfig": true,
+    "editor.wordWrap": "on",
+    "stylelint.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "editor.gotoLocation.multipleDefinitions": "goto",
     "[javascript]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -59,7 +65,7 @@
             "source.fixAll": false
         }
     },
-    "editor.wordWrap": "on",
-    "stylelint.packageManager": "yarn",
-    "eslint.packageManager": "yarn",
+    "workbench.editorAssociations": [
+    
+    ]
 }
