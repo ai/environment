@@ -408,25 +408,19 @@ Install tools:
 sudo dnf install git tig ripgrep exa
 ```
 
-Install `node` and `yarn`:
+Install Node.js and Volta:
 
 ```sh
-sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-sudo dnf install yarn nodejs
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/latest/install.sh | bash
+sudo dnf install nodejs
+https://dl.yarnpkg.com/rpm/yarn.repo
 ~/Dev/environment/bin/copy-env system
 ```
 
 Restart terminal
 
-```
-nvm install node
-```
-
-Install Ruby:
-
 ```sh
-sudo dnf install rubygems
+volta install node
+volta install yarn
 ```
 
 Install containers:
