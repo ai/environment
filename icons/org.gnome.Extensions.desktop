@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Extensions
-Icon=org.gnome.Extensions
-Comment=Configure GNOME Shell Extensions
-Exec=/usr/bin/gnome-shell-extension-prefs %u
-Categories=GNOME;GTK;
-OnlyShowIn=GNOME;
-NoDisplay=true
