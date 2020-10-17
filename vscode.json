@@ -33,6 +33,7 @@
     "workbench.statusBar.visible": true,
     "files.associations": {
         "errors.ts": "rust",
+        "errors.tsx": "rust",
         "**/test/*.errors.ts": "rust"
     },
     "markdown.extension.italic.indicator": "_",
@@ -41,7 +42,6 @@
         "README.md": ["## Table of Contents"]
     },
     "markdown.extension.toc.unorderedList.marker": "*",
-    "terminal.integrated.fontSize": 15,
     "debug.console.fontSize": 15,
     "prettier.requireConfig": true,
     "editor.wordWrap": "on",
@@ -67,5 +67,6 @@
     },
     "workbench.editorAssociations": [
     
-    ]
+    ],
+    "editor.formatOnSaveMode": "modifications"
 }
