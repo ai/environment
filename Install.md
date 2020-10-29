@@ -12,7 +12,7 @@ sudo dnf install mediawriter
 Write backup to external HDD:
 
 ```sh
-~/environment/backup
+~/environment/bin/backup
 ```
 
 
