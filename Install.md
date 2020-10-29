@@ -321,13 +321,7 @@ sudo dnf install gnome-tweak-tool
 * **Windows:** disable Edge Tiling.
 * **Fonts:** monospace to JetBrains Mono.
 
-Set application folder:
-
-```sh
-gsettings set org.gnome.desktop.app-folders folder-children "['Utilities']"
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ name 'Utilities'
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/Utilities/ apps "['gnome-system-log.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.baobab.desktop']"
-```
+Move applications from folders.
 
 
 ### Folders
@@ -396,8 +390,8 @@ sudo dnf install google-chrome-stable
 
 Download [VPN client](https://mullvad.net/download/).
 
-Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA,
-Software in the dock.
+Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA
+in the dock.
 
 
 ### Development Tools
@@ -412,11 +406,11 @@ Install Node.js and Volta:
 
 ```sh
 sudo dnf install nodejs
-https://dl.yarnpkg.com/rpm/yarn.repo
+curl https://get.volta.sh | bash
 ~/Dev/environment/bin/copy-env system
 ```
 
-Restart terminal
+Restart terminal:
 
 ```sh
 volta install node
@@ -436,7 +430,7 @@ sudo systemctl start docker
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -456,5 +450,3 @@ run_keybase
 ```
 
 Remove Keybase from Autostart.
-
-Install [Projecteur](https://github.com/jahnf/Projecteur#download).
