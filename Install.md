@@ -171,12 +171,6 @@ Restart.
 
 ### Text Editors
 
-Install nano:
-
-```sh
-su -c 'echo "export EDITOR=nano" >> /etc/profile'
-```
-
 Install VS Code:
 
 ```sh
