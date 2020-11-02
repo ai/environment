@@ -35,20 +35,18 @@ Start installer.
 2. Use disk manual mode. Create partitions automatically.
 3. Rename volume to `foxbat`.
 4. Set encryption in volume settings.
-5. Remove `root` and `home`.
-6. Create `root` again.
 
 Reboot to USB drive again. Mount laptop SSD.
 
 Open `etc/fstab`.
 
-Add `noatime` to root partitions.
+Add `noatime,nodiratime` to root partitions.
 
 Move `/tmp` and `/var/tmp` to RAM:
 
 ```
-vartmp /var/tmp tmpfs defaults,noatime 0 0
-vartmp /tmp tmpfs defaults,noatime 0 0
+vartmp /var/tmp tmpfs defaults,noatime,nodiratime 0 0
+vartmp /tmp     tmpfs defaults,noatime,nodiratime 0 0
 ```
 
 Clean `tmp` and `var/tmp` dirs.
@@ -71,12 +69,6 @@ Enable TRIM:
 sudo systemctl enable fstrim.timer
 ```
 
-Reduce swap usage `/etc/sysctl.d/99-swappiness.conf`:
-
-```
-vm.swappiness=1
-```
-
 Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
 `usr/share/X11/xkb/symbols/pc`:
 
@@ -85,7 +77,7 @@ Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
     key <PGDN> { [ Right ] };
 ```
 
-Disable `Blank screen` and `Dim Screen…` in Power settings.
+Disable `Blank screen` and `Automatic Suspend` in Power settings.
 
 
 ### System Update
@@ -106,13 +98,21 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath org.inkscape.Inkscape
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath
 ```
 
 Update system:
 
 ```sh
 sudo dnf update --refresh
+```
+
+Install Chrome:
+
+```sh
+sudo dnf install fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install google-chrome-stable
 ```
 
 
@@ -190,7 +190,7 @@ Install [VS Code extensions](./VSCode.md).
 Install better diff can cat:
 
 ```sh
-dnf install git-delta bat
+sudo dnf install git-delta bat
 ```
 
 
@@ -235,6 +235,7 @@ Install Antigen:
 
 ```sh
 curl -L git.io/antigen > ~/.antigen.zsh
+zsh
 source ~/.antigen.zsh
 ```
 
@@ -264,13 +265,14 @@ Install `seahorse` and disable the password for the main keychain.
 Open settings:
 
 * **Notifictions:** disable Lock Screen Notifications.
-* **Search:** keep only Calculator, Weather, and Firefox.
+* **Search:** keep only Calculator and Weather.
 * **Background:** use standard GNOME wallpaper.
 * **Online Accounts:** add Google account.
-* **Display:** enable Night Light from 23:00 to 06:00.
 * **Mouse & Touchpad:** mouse speed to 75%,
  touchpad speed to 90%, enable Tap to Click.
 * **Users:** set avatar and Automatic Login.
+* **Power:** Show Battery Percentage.
+* **Region & Language:** UK formats.
 
 Set keyboard settings:
 
@@ -280,7 +282,7 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:
 
 Terminal:
 
-* **Unnamed Profile:** disable Terminal bell.
+* **Unnamed Profile:** disable Terminal bell and disable scrollback limit.
 
 Nautilus:
 
@@ -291,7 +293,6 @@ Install extensions from [`GNOME.md`](./GNOME.md).
 
 * **Emoji selector:** disable Always show the icon.
 * **Gsconnect:** add phone.
-* **Icon Hider:** hide `appMenu`, `keyboard`, and its own icon.
 * **Screenshot Tool:** disable Show Indicator, enable Auto-Save to Downloads
   with `{Y}{m}{d}{H}{M}{S}` name, enable Imgur Upload
   with Copy Link After Upload, set `Print` keyboard binding.
@@ -307,11 +308,10 @@ sudo dnf install gnome-tweak-tool
 ```
 
 * **General:** enable Over-Amplification.
-* **Top Bar:** enable Battery Percentage, Date, and Seconds.
+* **Top Bar:** enable Date and Seconds.
 * **Window Titlebars:** Double-Click: toggle maximize vertical,
  Middle-Click: toggle maximize.
-* **Keyboard & Mouse:** enable Middle Click Paste and Adaptive
- in Acceleration Profile.
+* **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
 * **Windows:** disable Edge Tiling.
 * **Fonts:** monospace to JetBrains Mono.
 
@@ -365,21 +365,13 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Install tools:
 
 ```sh
-sudo dnf install celluloid unrar p7zip p7zip-plugins
+sudo dnf install unrar p7zip p7zip-plugins
 ```
 
 Install Microsoft fonts:
 
 ```sh
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-```
-
-Install Chrome:
-
-```sh
-sudo dnf install fedora-workstation-repositories
-sudo dnf config-manager --set-enabled google-chrome
-sudo dnf install google-chrome-stable
 ```
 
 Download [VPN client](https://mullvad.net/download/).
@@ -408,6 +400,7 @@ Restart terminal:
 
 ```sh
 volta install node
+volta install node@latest
 volta install yarn
 ```
 
