@@ -380,7 +380,7 @@ in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa
+sudo dnf install git tig ripgrep exa make gcc-c++
 ```
 
 Install Node.js and Volta:
@@ -397,6 +397,12 @@ Restart terminal:
 volta install node
 volta install node@latest
 volta install yarn
+```
+
+Sign-in to npm:
+
+```sh
+npm login
 ```
 
 Install containers:
