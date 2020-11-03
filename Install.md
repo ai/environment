@@ -63,12 +63,6 @@ Set laptop name:
 sudo hostnamectl set-hostname foxbat
 ```
 
-Enable TRIM:
-
-```sh
-sudo systemctl enable fstrim.timer
-```
-
 Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
 `usr/share/X11/xkb/symbols/pc`:
 
