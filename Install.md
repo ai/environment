@@ -71,7 +71,8 @@ Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
     key <PGDN> { [ Right ] };
 ```
 
-Disable `Blank screen` and `Automatic Suspend` in Power settings.
+Disable `Blank screen`, `Automatic Suspend`, `Automatick Brightness`,
+and `Dim Screen` in Power settings.
 
 
 ### System Update
