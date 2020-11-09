@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Fonts
+Comment=View fonts on your system
+Keywords=fonts;fontface;
+Icon=org.gnome.font-viewer
+Exec=gnome-font-viewer %u
+Terminal=false
+Type=Application
+DBusActivatable=true
+StartupNotify=true
+Categories=GTK;GNOME;Utility;X-GNOME-Utilities;
+MimeType=application/x-font-ttf;application/x-font-pcf;application/x-font-type1;application/x-font-otf;font/ttf;font/otf;
+NoDisplay=true
