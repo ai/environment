@@ -17,7 +17,6 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
-  cp ~/Dev/environment/zoomus.conf    ~/.var/app/us.zoom.Zoom/config/zoomus.conf  
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.zshrc                                    ~/Dev/environment/zshrc
@@ -27,7 +26,6 @@ else
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
-  cp ~/.var/app/us.zoom.Zoom/config/zoomus.conf  ~/Dev/environment/zoomus.conf
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
   rm ~/Dev/environment/icons/chrome-* -f
   rm ~/Dev/environment/icons/userapp-* -f
