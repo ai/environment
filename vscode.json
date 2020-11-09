@@ -68,5 +68,6 @@
     "workbench.editorAssociations": [
     
     ],
-    "editor.formatOnSaveMode": "modifications"
+    "editor.formatOnSaveMode": "modifications",
+    "workbench.startupEditor": "none"
 }
