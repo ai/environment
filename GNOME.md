@@ -13,3 +13,4 @@
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
+* [Extension Update Notifier](https://extensions.gnome.org/extension/1166/extension-update-notifier/)
