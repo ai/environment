@@ -9,8 +9,6 @@
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
     "editor.rulers": [
-
-
     
     80],
     "editor.suggestSelection": "first",
@@ -34,7 +32,11 @@
     "files.associations": {
         "errors.ts": "rust",
         "errors.tsx": "rust",
-        "**/test/*.errors.ts": "rust"
+        "**/test/*.errors.ts": "rust",
+        ".huskyrc": "json",
+        ".lintstagedrc": "json",
+        ".stylelintrc": "json",
+        ".posthtmlrc": "json"
     },
     "markdown.extension.italic.indicator": "_",
     "markdown.extension.toc.levels": "2..6",
@@ -45,7 +47,7 @@
     "debug.console.fontSize": 15,
     "prettier.requireConfig": true,
     "editor.wordWrap": "on",
-    "stylelint.packageManager": "yarn",
+    "typescript.tsdk": "node_modules/typescript/lib",
     "eslint.packageManager": "yarn",
     "editor.gotoLocation.multipleDefinitions": "goto",
     "[javascript]": {
@@ -65,9 +67,9 @@
             "source.fixAll": false
         }
     },
-    "workbench.editorAssociations": [
-    
-    ],
     "editor.formatOnSaveMode": "modifications",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "stylelint.config": {
+        "run": "onSave"
+    }
 }
