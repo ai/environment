@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=System Update
+Comment=Update RPM, Flatpak, and Mozilla Theme
+Icon=org.fedoraproject.AnacondaInstaller
+Exec=gnome-terminal -- /bin/zsh -c "/home/ai/Dev/environment/bin/update;$SHELL"
+
