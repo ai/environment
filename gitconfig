@@ -24,3 +24,5 @@
 [core]
   editor = nano
   pager = delta
+[init]
+  defaultBranch = main
