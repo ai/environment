@@ -27,6 +27,7 @@ EXTENSIONS=(
  esbenp.prettier-vscode
  kshetline.ligatures-limited
  formulahendry.auto-rename-tag
+ webben.browserslist
 )
 for EXTENSION in ${EXTENSIONS[@]}; do
   code --install-extension $EXTENSION
