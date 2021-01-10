@@ -51,6 +51,7 @@ alias ll='exa --long --all --git'
 alias n='npx --no-install'
 alias yui='yarn upgrade-interactive --latest'
 alias yu='yarn upgrade'
+alias p='dos2unix node_modules/clean-publish/clean-publish.js && n clean-publish'
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
