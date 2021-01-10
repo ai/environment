@@ -54,8 +54,7 @@ Clean `tmp` and `var/tmp` dirs.
 Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
 
 Copy `Dev/environment` and open `Install.md` locally.
-Start to copy `.Private` and `.var/app/org.mozilla.firefox/.mozilla`
-in background.
+Start to copy `.Private` and `.mozilla` in background.
 
 Set laptop name:
 
@@ -80,7 +79,7 @@ and `Dim Screen` in Power settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes firefox
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes
 ```
 
 Add RPM Fusion:
@@ -93,7 +92,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.mozilla.firefox org.gnome.SoundRecorder com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.gnome.SoundRecorder com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08
 ```
 
 Update system:
