@@ -22,6 +22,7 @@
 [branch]
   autosetuprebase = always
 [core]
+  autocrlf = input
   editor = nano
   pager = delta
 [init]
