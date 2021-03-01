@@ -382,20 +382,26 @@ Install tools:
 sudo dnf install git tig ripgrep exa make gcc-c++ zlib-devel
 ```
 
-Install Node.js and Volta:
+Install Node.js:
 
 ```sh
 sudo dnf install nodejs
-curl https://get.volta.sh | bash
+```
+
+Install asdf:
+
+```sh
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 ~/Dev/environment/bin/copy-env system
 ```
 
 Restart terminal:
 
 ```sh
-volta install node
-volta install node@latest
-volta install yarn
+asdf install nodejs latest
 ```
 
 Sign-in to npm:

@@ -16,12 +16,14 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/batconfig      ~/.config/bat/config
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
+  cp ~/Dev/environment/tool-versions  ~/.tool-versions
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.zshrc                                    ~/Dev/environment/zshrc
   cp ~/.gitconfig                                ~/Dev/environment/gitconfig
   cp ~/.ripgreprc                                ~/Dev/environment/ripgreprc
+  cp ~/.tool-versions                            ~/Dev/environment/tool-versions
   cp ~/.config/bat/config                        ~/Dev/environment/batconfig
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf

@@ -47,13 +47,15 @@ alias ..='cd ..'
 alias l='exa --all'
 alias ll='exa --long --all --git'
 
+# Dev Tools
+. $HOME/.asdf/asdf.sh
+
 # Node.js
 alias n='npx --no-install'
 alias yui='yarn upgrade-interactive --latest'
 alias yu='yarn upgrade'
 alias p='dos2unix node_modules/clean-publish/clean-publish.js && n clean-publish'
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+alias j="NODE_OPTIONS=--experimental-vm-modules npx jest"
 
 # Python
 export PATH=~/.local/bin/:$PATH

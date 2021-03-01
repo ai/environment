@@ -8,9 +8,7 @@
     "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
-    "editor.rulers": [
-    
-    80],
+    "editor.rulers": [80],
     "editor.suggestSelection": "first",
     "editor.tabSize": 2,
     "eslint.migration.2_x": "off",
