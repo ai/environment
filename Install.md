@@ -394,6 +394,7 @@ Install asdf:
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
 git checkout "$(git describe --abbrev=0 --tags)"
+asdf plugin-add yarn
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 ~/Dev/environment/bin/copy-env system
 ```
@@ -402,6 +403,7 @@ Restart terminal:
 
 ```sh
 asdf install nodejs latest
+asdf install yarn latest
 ```
 
 Sign-in to npm:
