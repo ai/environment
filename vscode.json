@@ -1,7 +1,8 @@
 {
     "breadcrumbs.enabled": false,
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll": true
+        "source.fixAll": false
     },
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
