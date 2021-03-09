@@ -54,7 +54,7 @@ alias ll='exa --long --all --git'
 alias n='npx --no-install'
 alias yui='yarn upgrade-interactive --latest'
 alias yu='yarn upgrade'
-alias p='dos2unix node_modules/clean-publish/clean-publish.js && n clean-publish'
+alias p='n clean-publish'
 alias j="NODE_OPTIONS=--experimental-vm-modules npx jest"
 
 # Python
