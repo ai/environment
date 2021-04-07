@@ -9,5 +9,8 @@ cd ~
 . $HOME/.asdf/asdf.sh
 asdf plugin update --all
 
+source ~/.antigen.zsh
+antigen update
+
 flatpak update -y
 sudo dnf update --refresh -y
