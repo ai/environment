@@ -6,7 +6,6 @@
     },
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontLigatures": true,
-    "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "selection",
     "editor.rulers": [80],
@@ -20,7 +19,6 @@
     ],
     "projectManager.git.maxDepthRecursion": 1,
     "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 1,
     "workbench.activityBar.visible": true,
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#151515"
@@ -43,7 +41,6 @@
         "README.md": ["## Table of Contents"]
     },
     "markdown.extension.toc.unorderedList.marker": "*",
-    "debug.console.fontSize": 15,
     "prettier.requireConfig": true,
     "editor.wordWrap": "on",
     "typescript.tsdk": "node_modules/typescript/lib",
@@ -70,5 +67,20 @@
     "workbench.startupEditor": "none",
     "stylelint.config": {
         "run": "onSave"
-    }
+    },
+    "editor.fontSize": 14,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "none",
+    "prettier.quoteProps": "consistent",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.zoomLevel": 1
 }
