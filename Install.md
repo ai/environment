@@ -109,6 +109,16 @@ sudo dnf config-manager --set-enabled google-chrome
 sudo dnf install google-chrome-stable
 ```
 
+Disable Software auto-start:
+
+```sh
+dconf write /org/gnome/software/allow-updates false
+dconf write /org/gnome/software/download-updates false
+mkdir -pv ~/.config/autostart && cp /etc/xdg/autostart/gnome-software-service.desktop ~/.config/autostart/
+echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/gnome-software-service.desktop
+dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.desktop']"
+```
+
 
 ### Base Settings
 
