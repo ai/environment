@@ -20,10 +20,10 @@ Write backup to external HDD:
 
 Boot to BIOS:
 
-1. Switch SATA to AHCI.
-2. Disable Intel SpeedStep.
+1. Swap Fn and Ctrl.
+2. Switch to Linux sleep mode.
 3. Set custom battery charge to 50/80.
-4. Disable keyboard backlight and backlight timeout.
+4. Set BIOS password.
 
 
 ### Install
@@ -33,7 +33,7 @@ Start installer.
 1. Add the Russian keyboard layout. Layout switching:
  CapsLock to the first layout, Shift+CapsLock, to the last layout.
 2. Use disk manual mode. Create partitions automatically.
-3. Rename volume to `foxbat`.
+3. Rename volume to `fullback`.
 4. Set encryption in volume settings.
 
 Reboot to USB drive again. Mount laptop SSD.
