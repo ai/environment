@@ -54,19 +54,10 @@ Start to copy `.Private` and `.mozilla` in background.
 Set laptop name:
 
 ```sh
-sudo hostnamectl set-hostname foxbat
+sudo hostnamectl set-hostname fullback
 ```
 
-Disable <kbd>PgUp</kbd> and <kbd>PgDn</kbd>
-`usr/share/X11/xkb/symbols/pc`:
-
-```
-    key <PGUP> { [ Left ] };
-    key <PGDN> { [ Right ] };
-```
-
-Disable `Blank screen`, `Automatic Suspend`, `Automatick Brightness`,
-and `Dim Screen` in Power settings.
+Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 
 
 ### System Update
