@@ -217,7 +217,6 @@ Install zsh:
 ```sh
 sudo dnf install zsh util-linux-user
 chsh -s /bin/zsh
-rm ~/.bash_history ~/.bash_logout
 ```
 
 Install Antigen:
@@ -226,6 +225,7 @@ Install Antigen:
 curl -L git.io/antigen > ~/.antigen.zsh
 zsh
 source ~/.antigen.zsh
+rm ~/.bash_history ~/.bash_logout
 ```
 
 Create `/root/.zshrc`:
