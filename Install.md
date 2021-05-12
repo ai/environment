@@ -387,7 +387,7 @@ in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa make gcc-c++ zlib-devel
+sudo dnf install git tig ripgrep exa make gcc-c++ zlib-devel xkill
 ```
 
 Install Node.js:
