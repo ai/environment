@@ -413,12 +413,6 @@ Sign-in to npm:
 npm login
 ```
 
-Install containers:
-
-```sh
-sudo dnf install podman buildah
-```
-
 ```sh
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install docker-ce docker-ce-cli containerd.io
