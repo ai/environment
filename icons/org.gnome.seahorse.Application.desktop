@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Keys
-Comment=Manage your passwords and encryption keys
-Icon=org.gnome.seahorse.Application
-Exec=seahorse

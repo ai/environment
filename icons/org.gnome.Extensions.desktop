@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Extensions
+Icon=org.gnome.Extensions
+Comment=Configure GNOME Shell Extensions
+Exec=/usr/bin/gnome-extensions-app
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+OnlyShowIn=GNOME;
+NoDisplay=true

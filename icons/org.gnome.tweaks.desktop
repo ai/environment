@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Tweaks
+Comment=Tweak advanced GNOME 3 settings
+Icon=org.gnome.tweaks
+Exec=gnome-tweaks
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=gnome-tweaks
+Categories=GNOME;GTK;Utility;
+Keywords=Settings;Advanced;Preferences;Extensions;Fonts;Theme;XKB;Keyboard;Typing;
+OnlyShowIn=GNOME;Unity;Pantheon;
+NoDisplay=true

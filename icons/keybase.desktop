@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Keybase
-Comment=Secure chat
-Exec=run_keybase
-Icon=keybase
-Terminal=false
-Type=Application
-Categories=Network;
-StartupNotify=false
