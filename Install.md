@@ -65,7 +65,7 @@ Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour
 ```
 
 Add RPM Fusion:
@@ -306,8 +306,6 @@ sudo dnf install gnome-tweak-tool
 
 * **General:** enable Over-Amplification.
 * **Top Bar:** enable Date and Seconds.
-* **Window Titlebars:** Double-Click: toggle maximize vertical,
- Middle-Click: toggle maximize.
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
 * **Windows:** disable Edge Tiling.
 * **Fonts:** monospace to JetBrains Mono.
