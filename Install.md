@@ -273,8 +273,8 @@ Terminal:
 
 Nautilus:
 
-* **Views:** enable Sort folders before files.
-* **Behaviour:** enable Single click to open items.
+* Enable Sort folders before files.
+* Enable Single click to open items.
 
 ```sh
 sudo dnf install lm_sensors
