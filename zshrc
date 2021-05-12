@@ -48,7 +48,7 @@ alias l='exa --all'
 alias ll='exa --long --all --git'
 
 # Dev Tools
-if [ -d ~/asdf ]; then
+if [ -d ~/.asdf/ ]; then
   . $HOME/.asdf/asdf.sh
 fi
 
