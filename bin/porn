@@ -2,7 +2,7 @@
 # Run movies from specific category
 
 if [[ "$1" == "--new" ]]; then
-  find /run/media/ai/SitnikCard/Videos/Erotics/New -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Videos/Erotics/New -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--bdsm" ]]; then
   find /home/ai/Videos/Erotics/BDSM -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--amateur" ]]; then
@@ -10,5 +10,5 @@ elif [[ "$1" == "--amateur" ]]; then
 elif [[ "$1" == "--other" ]]; then
   find /home/ai/Videos/Erotics/Other -type f -exec mpv --shuffle --fullscreen {} +
 else
-  find /home/ai/Videos/Erotics -type f ! -path "/home/ai/Videos/Erotics/New/*" -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Videos/Erotics -type f ! -path "/home/ai/Videos/Erotics/{New,Together}/*" -exec mpv --shuffle --fullscreen {} +
 fi
