@@ -249,6 +249,8 @@ Reboot.
 
 ### GNOME Settings
 
+Install `seahorse` and disable the password for the main keychain.
+
 Open settings:
 
 * **Notifictions:** disable Lock Screen Notifications.
