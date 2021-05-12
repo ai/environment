@@ -13,7 +13,6 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/zshrc          ~/.zshrc
   cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
   cp ~/Dev/environment/gitconfig      ~/.gitconfig
-  cp ~/Dev/environment/batconfig      ~/.config/bat/config
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
   cp ~/Dev/environment/tool-versions  ~/.tool-versions
@@ -24,7 +23,6 @@ else
   cp ~/.gitconfig                                ~/Dev/environment/gitconfig
   cp ~/.ripgreprc                                ~/Dev/environment/ripgreprc
   cp ~/.tool-versions                            ~/Dev/environment/tool-versions
-  cp ~/.config/bat/config                        ~/Dev/environment/batconfig
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json

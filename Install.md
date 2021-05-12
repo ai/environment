@@ -111,7 +111,7 @@ dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.d
 Enable HiDPI in TTY:
 
 ```sh
-sudo dnf install terminus-fonts-console
+sudo dnf install terminus-fonts-console terminus-fonts-grub2
 ```
 
 Add to `/etc/vconsole.conf`:
@@ -124,7 +124,6 @@ FONT="ter-v32n"
 Copy font:
 
 ```sh
-sudo dnf install terminus-fonts-console terminus-fonts-grub2
 sudo cp /usr/share/grub/ter-u32n.pf2 /boot/efi/EFI/fedora/fonts/
 ```
 
@@ -180,7 +179,7 @@ Install [VS Code extensions](./VSCode.md).
 Install better diff can cat:
 
 ```sh
-sudo dnf install git-delta bat
+sudo dnf install git-delta
 ```
 
 
@@ -260,7 +259,7 @@ Open settings:
 * **Online Accounts:** add Google account.
 * **Mouse & Touchpad:** mouse speed to 75%,
  touchpad speed to 90%, enable Tap to Click.
-* **Users:** set avatar and Automatic Login.
+* **Users:** set fingerprint, avatar and Automatic Login.
 * **Power:** Show Battery Percentage.
 * **Region & Language:** UK formats.
 
