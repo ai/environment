@@ -4,7 +4,6 @@
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
 * [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
-* [Freon](https://extensions.gnome.org/extension/841/freon/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Gnome 40 UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [Icon Hider](https://extensions.gnome.org/extension/351/icon-hider/)
