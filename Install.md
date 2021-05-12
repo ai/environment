@@ -279,7 +279,7 @@ Nautilus:
 * Enable Single click to open items.
 
 ```sh
-sudo dnf install lm_sensors gnome-extensions-app
+sudo dnf install lm_sensors gnome-extensions-app openssl
 ```
 
 Install extensions from [`GNOME.md`](./GNOME.md).
