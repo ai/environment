@@ -137,6 +137,7 @@ sudo cp /usr/share/grub/ter-u32n.pf2 /boot/efi/EFI/fedora/fonts/
 Add to `/etc/default/grub`:
 
 ```
+GRUB_TIMEOUT=0
 GRUB_FONT="/boot/efi/EFI/fedora/fonts/ter-u32n.pf2"
 GRUB_TERMINAL_OUTPUT="gfxterm"
 ```
