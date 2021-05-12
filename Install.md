@@ -85,7 +85,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.gnome.SoundRecorder com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08 org.inkscape.Inkscape
 ```
 
 Update system:
