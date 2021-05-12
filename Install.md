@@ -197,7 +197,7 @@ Install encryption tools:
 sudo dnf install fuse-encfs
 ```
 
-Open Private files and copy `.ssh/`, `.gnupg/`, and `.kube/`.
+Open Private files and copy `.ssh/` and `.gnupg/`.
 
 Change permissions:
 
