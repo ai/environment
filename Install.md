@@ -287,7 +287,14 @@ Nautilus:
 * Enable Single click to open items.
 
 ```sh
-sudo dnf install gnome-extensions-app openssl
+sudo dnf install gnome-extensions-app openssl tlp
+```
+
+Set battery mode by openning `/etc/tlp.conf`:
+
+```
+START_CHARGE_THRESH_BAT0=75
+STOP_CHARGE_THRESH_BAT0=100
 ```
 
 Install extensions from [`GNOME.md`](./GNOME.md).
