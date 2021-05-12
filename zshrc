@@ -48,7 +48,9 @@ alias l='exa --all'
 alias ll='exa --long --all --git'
 
 # Dev Tools
-. $HOME/.asdf/asdf.sh
+if [ -d ~/asdf ]; then
+  . $HOME/.asdf/asdf.sh
+fi
 
 # Node.js
 alias n='npx --no-install'
