@@ -59,6 +59,13 @@ sudo hostnamectl set-hostname fullback
 
 Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 
+Clean Windows EFI record:
+
+```sh
+sudo efibootmgr
+sudo efibootmgr -B 0
+```
+
 
 ### System Update
 
