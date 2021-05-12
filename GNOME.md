@@ -1,6 +1,5 @@
 ## GNOME Shell Extensions
 
-* [Always Zoom Workspaces](https://extensions.gnome.org/extension/503/always-zoom-workspaces/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
