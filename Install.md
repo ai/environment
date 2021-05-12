@@ -18,12 +18,7 @@ Write backup to external HDD:
 
 ### BIOS
 
-Boot to BIOS:
-
-1. Swap Fn and Ctrl.
-2. Switch to Linux sleep mode.
-3. Set custom battery charge to 50/80.
-4. Set BIOS password.
+Boot to BIOS and set supervisor password.
 
 
 ### Install
