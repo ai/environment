@@ -66,6 +66,16 @@ sudo efibootmgr
 sudo efibootmgr -B 0
 ```
 
+Swap <kbd>PgUp</kbd>/<kbd>PgDown</kbd> and <kbd>Home</kbd>/<kbd>End</kbd>
+by editing `/usr/share/X11/xkb/symbols/pc`:
+
+```
+    key <PGUP> { [ Home ] };
+    key <PGDN> { [ End ] };
+    key <HOME> { [ Prior ] };
+    key <END> { [ Next ] };
+```
+
 
 ### System Update
 
