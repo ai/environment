@@ -455,3 +455,8 @@ run_keybase
 ```
 
 Remove Keybase from Autostart.
+
+Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/<long name>/metadata`
+and change `~/Documents/Zoom` to `~/Downloads`.
+
+Open Zoom and sign-in into corporate account.
