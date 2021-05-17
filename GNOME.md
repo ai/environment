@@ -1,5 +1,6 @@
 ## GNOME Shell Extensions
 
+* [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [Always Show Workspace Thumbnails](https://extensions.gnome.org/extension/4156/always-show-workspace-thumbnails/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
