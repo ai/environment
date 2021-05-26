@@ -86,5 +86,21 @@
     "css.validate": false,
     "less.validate": false,
     "scss.validate": false,
-    "postcss.validate": false
+    "postcss.validate": false,
+    "svelte.enable-ts-plugin": true,
+    "eslint.probe": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "svelte"
+    ],
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "svelte"
+    ]
 }
