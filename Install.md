@@ -76,6 +76,12 @@ by editing `/usr/share/X11/xkb/symbols/pc`:
     key <END> { [ Next ] };
 ```
 
+Add `i915.enable_psr=0` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub` and run:
+
+```sh
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+```
+
 
 ### System Update
 
