@@ -8,6 +8,7 @@
 * [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
+* [Quick Close in Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 * [Gnome 40 UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
