@@ -63,25 +63,22 @@
             "source.fixAll": false
         }
     },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
     "editor.formatOnSaveMode": "modifications",
     "workbench.startupEditor": "none",
     "stylelint.config": {
         "run": "onSave"
     },
     "editor.fontSize": 14,
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
     "prettier.semi": false,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "none",
     "prettier.quoteProps": "consistent",
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "window.zoomLevel": 1,
     "css.validate": false,
     "less.validate": false,
