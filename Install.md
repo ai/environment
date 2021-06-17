@@ -351,20 +351,20 @@ Create empty file template:
 ```sh
 mkdir ~/.local/share/desktop
 mkdir ~/.local/share/templates
-touch ~/.local/share/templates/Empty\ file
+touch ~/.local/share/templates/Пустой\ файл
 ```
 
 Fix folders at `~/.config/user-dirs.dirs`:
 
 ```sh
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
-XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_DOWNLOAD_DIR="$HOME/Загрузки"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME/"
 XDG_DOCUMENTS_DIR="$HOME/"
 XDG_MUSIC_DIR="$HOME/"
 XDG_PICTURES_DIR="$HOME/"
-XDG_VIDEOS_DIR="$HOME/Videos"
+XDG_VIDEOS_DIR="$HOME/Видео"
 ```
 
 Clean bookmarks:
@@ -472,7 +472,7 @@ run_keybase
 
 Remove Keybase from Autostart.
 
-Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/<long name>/metadata`
+Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/active/metadata`
 and change `~/Documents/Zoom` to `~/Downloads`.
 
 Open Zoom and sign-in into corporate account.

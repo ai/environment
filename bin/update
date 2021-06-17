@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-sudo echo "Update system…"
+sudo echo "Обновление системы…"
 
 cd ~/.mozilla/firefox/*/chrome/firefox-gnome-theme
 git pull origin master
