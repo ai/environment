@@ -14,4 +14,4 @@ source ~/.antigen.zsh
 antigen update
 
 flatpak update -y
-sudo dnf update --refresh
+sudo dnf update --refresh --assumeno

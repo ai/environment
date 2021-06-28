@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gsettings reset org.gnome.Weather locations
