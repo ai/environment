@@ -293,6 +293,12 @@ Set keyboard settings:
 dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3', 'lv3:lsgt_switch', 'grp:shift_caps_switch']"
 ```
 
+Update typography keyboard layout:
+
+```sh
+sudo cp ~/Dev/environment/typo.txt /usr/share/X11/xkb/symbols/typo
+```
+
 Terminal:
 
 * **Unnamed Profile:** disable Terminal bell and disable scrollback limit.
