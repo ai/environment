@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Extensions
+Name=Расширения
 Icon=org.gnome.Extensions
 Comment=Configure GNOME Shell Extensions
 Exec=/usr/bin/gnome-extensions-app

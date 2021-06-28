@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Settings
+Name=Настройки
 Icon=org.gnome.Settings
 Exec=gnome-control-center
 Terminal=false
