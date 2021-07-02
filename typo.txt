@@ -1,11 +1,10 @@
 // Typographic Keyboard
+
+// Based on work:
+// Ilya Birman http://ilyabirman.ru/projects/typography-layout/
+// Alexey Ten <alexeyten+deb@gmail.com>
 // Sergei Stolyarov <sergei@regolit.com>
-
-// Initial contribution by Alexey Ten <alexeyten+deb@gmail.com>
-// Additional contribution and code cleanup by Artur Dryomov <artur.dryomov@gmail.com>
-
-// Mainly based on the layout proposed by Ilya Birman
-// http://ilyabirman.ru/projects/typography-layout/
+// Artur Dryomov <artur.dryomov@gmail.com>
 
 default partial
 xkb_symbols "base" {
@@ -26,6 +25,8 @@ xkb_symbols "base" {
     key <AE12> { [ NoSymbol,   NoSymbol,              notequal,             plusminus ] }; // "="
 
     // 2nd keyboard row
+    key <AD01> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "q"
+    key <AD02> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "w"
     key <AD03> { [ NoSymbol,   NoSymbol,              EuroSign,              NoSymbol ] }; // "e"
     key <AD04> { [ NoSymbol,   NoSymbol,            registered,              NoSymbol ] }; // "r"
     key <AD05> { [ NoSymbol,   NoSymbol,             trademark,              NoSymbol ] }; // "t"
@@ -35,6 +36,7 @@ xkb_symbols "base" {
     key <AD10> { [ NoSymbol,   NoSymbol,                 acute,           doubleacute ] }; // "p"
     key <AD11> { [ NoSymbol,   NoSymbol,           bracketleft,             braceleft ] }; // "["
     key <AD12> { [ NoSymbol,   NoSymbol,          bracketright,            braceright ] }; // "]"
+    key <AD13> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "\"
 
     // 3rd keyboard row
     key <AC01> { [ NoSymbol,   NoSymbol,                 U0301,              NoSymbol ] }; // "a"
@@ -49,6 +51,7 @@ xkb_symbols "base" {
     key <AC11> { [ NoSymbol,   NoSymbol,  rightsinglequotemark,               seconds ] }; // "'"
 
     // 4th keyboard row
+    key <AB01> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "z"
     key <AB02> { [ NoSymbol,   NoSymbol,              multiply,                 U22C5 ] }; // "x"
     key <AB03> { [ NoSymbol,   NoSymbol,             copyright,                  cent ] }; // "c"
     key <AB04> { [ NoSymbol,   NoSymbol,             downarrow,                 U25CA ] }; // "v"
@@ -59,7 +62,7 @@ xkb_symbols "base" {
     key <AB10> { [ NoSymbol,   NoSymbol,              ellipsis,          questiondown ] }; // "/"
 
     // 5th keyboard row
-    key <SPCE> { [    space,      space,          nobreakspace,          nobreakspace ] }; // " "
+    key <SPCE> { [    space,      space,          nobreakspace,                 U202F ] }; // " "
 
     // Reference
     // U+2030 PER MILLE SIGN
@@ -69,4 +72,5 @@ xkb_symbols "base" {
     // U+22C5 DOT OPERATOR
     // U+25CA LOZENGE
     // U+2212 MINUS SIGN
+    // U+202F NARROW NO-BREAK SPACE
 };
