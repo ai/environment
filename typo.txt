@@ -10,7 +10,7 @@ default partial
 xkb_symbols "base" {
 
     // 1st keyboard row
-    key <TLDE> { [ NoSymbol,   NoSymbol,              NoSymbol,              approxeq ] }; // "~"
+    key <TLDE> { [ NoSymbol,   NoSymbol,              approxeq,              NoSymbol ] }; // "~"
     key <AE01> { [ NoSymbol,   NoSymbol,           onesuperior,            exclamdown ] }; // "1"
     key <AE02> { [ NoSymbol,   NoSymbol,           twosuperior,               onehalf ] }; // "2"
     key <AE03> { [ NoSymbol,   NoSymbol,         threesuperior,              onethird ] }; // "3"
@@ -31,15 +31,15 @@ xkb_symbols "base" {
     key <AD04> { [ NoSymbol,   NoSymbol,            registered,              NoSymbol ] }; // "r"
     key <AD05> { [ NoSymbol,   NoSymbol,             trademark,              NoSymbol ] }; // "t"
     key <AD06> { [ NoSymbol,   NoSymbol,                   yen,              NoSymbol ] }; // "y"
-    key <AD07> { [ NoSymbol,   NoSymbol,                 U20B4,              NoSymbol ] }; // "u"
-    key <AD09> { [ NoSymbol,   NoSymbol,             checkmark,              NoSymbol ] }; // "o"
-    key <AD10> { [ NoSymbol,   NoSymbol,                 acute,           doubleacute ] }; // "p"
+    key <AD07> { [ NoSymbol,   NoSymbol,                 U0308,              NoSymbol ] }; // "u"
+    key <AD09> { [ NoSymbol,   NoSymbol,             checkmark,             masculine ] }; // "o"
+    key <AD10> { [ NoSymbol,   NoSymbol,              ellipsis,              NoSymbol ] }; // "p"
     key <AD11> { [ NoSymbol,   NoSymbol,           bracketleft,             braceleft ] }; // "["
     key <AD12> { [ NoSymbol,   NoSymbol,          bracketright,            braceright ] }; // "]"
     key <AD13> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "\"
 
     // 3rd keyboard row
-    key <AC01> { [ NoSymbol,   NoSymbol,                 U0301,              NoSymbol ] }; // "a"
+    key <AC01> { [ NoSymbol,   NoSymbol,                 U0301,           ordfeminine ] }; // "a"
     key <AC02> { [ NoSymbol,   NoSymbol,               section,              NoSymbol ] }; // "s"
     key <AC03> { [ NoSymbol,   NoSymbol,                degree,              division ] }; // "d"
     key <AC04> { [ NoSymbol,   NoSymbol,              sterling,              NoSymbol ] }; // "f"
@@ -57,20 +57,20 @@ xkb_symbols "base" {
     key <AB04> { [ NoSymbol,   NoSymbol,             downarrow,                 U25CA ] }; // "v"
     key <AB06> { [ NoSymbol,   NoSymbol,                ntilde,                Ntilde ] }; // "n"
     key <AB07> { [ NoSymbol,   NoSymbol,                 U2212,    enfilledcircbullet ] }; // "m"
-    key <AB08> { [ NoSymbol,   NoSymbol,         guillemotleft,                  less ] }; // ","
-    key <AB09> { [ NoSymbol,   NoSymbol,        guillemotright,               greater ] }; // "."
-    key <AB10> { [ NoSymbol,   NoSymbol,              ellipsis,          questiondown ] }; // "/"
+    key <AB08> { [ NoSymbol,   NoSymbol,         guillemotleft,         lessthanequal ] }; // ","
+    key <AB09> { [ NoSymbol,   NoSymbol,        guillemotright,      greaterthanequal ] }; // "."
+    key <AB10> { [ NoSymbol,   NoSymbol,          questiondown,              NoSymbol ] }; // "/"
 
     // 5th keyboard row
     key <SPCE> { [    space,      space,          nobreakspace,                 U202F ] }; // " "
 
     // Reference
     // U+2030 PER MILLE SIGN
-    // U+20B4 HRYVNIA SIGN
     // U+0301 COMBINING ACUTE ACCENT
     // U+20BD RUBLE SIGN
     // U+22C5 DOT OPERATOR
     // U+25CA LOZENGE
     // U+2212 MINUS SIGN
     // U+202F NARROW NO-BREAK SPACE
+    // U+0308 COMBINING DIAERESIS
 };
