@@ -11,7 +11,7 @@ xkb_symbols "base" {
 
     // 1st keyboard row
     key <TLDE> { [ NoSymbol,   NoSymbol,              approxeq,              NoSymbol ] }; // "~"
-    key <AE01> { [ NoSymbol,   NoSymbol,           onesuperior,            exclamdown ] }; // "1"
+    key <AE01> { [ NoSymbol,   NoSymbol,            exclamdown,              NoSymbol ] }; // "1"
     key <AE02> { [ NoSymbol,   NoSymbol,           twosuperior,               onehalf ] }; // "2"
     key <AE03> { [ NoSymbol,   NoSymbol,         threesuperior,              onethird ] }; // "3"
     key <AE04> { [ NoSymbol,   NoSymbol,                dollar,            onequarter ] }; // "4"
