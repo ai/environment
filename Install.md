@@ -104,6 +104,13 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08 org.inkscape.Inkscape
 ```
 
+Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
+
+```
+fastestmirror=true
+deltarpm=true
+```
+
 Update system:
 
 ```sh
