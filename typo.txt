@@ -6,6 +6,9 @@
 // Sergei Stolyarov <sergei@regolit.com>
 // Artur Dryomov <artur.dryomov@gmail.com>
 
+// Install:
+// sudo cp ~/Dev/environment/typo.txt /usr/share/X11/xkb/symbols/typo
+
 default partial
 xkb_symbols "base" {
 
