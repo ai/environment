@@ -55,7 +55,7 @@ xkb_symbols "base" {
 
     // 4th keyboard row
     key <AB01> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "z"
-    key <AB02> { [ NoSymbol,   NoSymbol,              multiply,                 U22C5 ] }; // "x"
+    key <AB02> { [ NoSymbol,   NoSymbol,              multiply,                 periodcentered ] }; // "x"
     key <AB03> { [ NoSymbol,   NoSymbol,             copyright,                  cent ] }; // "c"
     key <AB04> { [ NoSymbol,   NoSymbol,             downarrow,                 U25CA ] }; // "v"
     key <AB06> { [ NoSymbol,   NoSymbol,                ntilde,                Ntilde ] }; // "n"
@@ -67,11 +67,13 @@ xkb_symbols "base" {
     // 5th keyboard row
     key <SPCE> { [    space,      space,          nobreakspace,                 U202F ] }; // " "
 
-    // Reference
+    // Symbol names:
+    // https://cgit.freedesktop.org/xorg/proto/x11proto/tree/keysymdef.h
+
+    // Other symbols
     // U+2030 PER MILLE SIGN
     // U+0301 COMBINING ACUTE ACCENT
     // U+20BD RUBLE SIGN
-    // U+22C5 DOT OPERATOR
     // U+25CA LOZENGE
     // U+2212 MINUS SIGN
     // U+202F NARROW NO-BREAK SPACE
