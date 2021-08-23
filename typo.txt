@@ -52,10 +52,11 @@ xkb_symbols "base" {
     key <AC09> { [ NoSymbol,   NoSymbol,  rightdoublequotemark,  rightsinglequotemark ] }; // "l"
     key <AC10> { [ NoSymbol,   NoSymbol,   leftsinglequotemark,               minutes ] }; // ";"
     key <AC11> { [ NoSymbol,   NoSymbol,  rightsinglequotemark,               seconds ] }; // "'"
+    key <RTRN> { [   Return,     Return,                 U21B5,                 U23CE ] }; // "'"
 
     // 4th keyboard row
     key <AB01> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "z"
-    key <AB02> { [ NoSymbol,   NoSymbol,              multiply,                 periodcentered ] }; // "x"
+    key <AB02> { [ NoSymbol,   NoSymbol,              multiply,        periodcentered ] }; // "x"
     key <AB03> { [ NoSymbol,   NoSymbol,             copyright,                  cent ] }; // "c"
     key <AB04> { [ NoSymbol,   NoSymbol,             downarrow,                 U25CA ] }; // "v"
     key <AB06> { [ NoSymbol,   NoSymbol,                ntilde,                Ntilde ] }; // "n"
@@ -78,4 +79,6 @@ xkb_symbols "base" {
     // U+2212 MINUS SIGN
     // U+202F NARROW NO-BREAK SPACE
     // U+0308 COMBINING DIAERESIS
+    // U+21B5 DOWNWARDS ARROW WITH CORNER LEFTWARDS
+    // U+23CE RETURN SYMBOL
 };
