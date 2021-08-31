@@ -6,6 +6,7 @@
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
 * [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
+* [Expandable Notifications](https://extensions.gnome.org/extension/4463/expandable-notifications/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Quick Close in Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
