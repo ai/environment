@@ -77,7 +77,6 @@
     "stylelint.config": {
         "run": "onSave"
     },
-    "editor.fontSize": 14,
     "prettier.semi": false,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "none",
@@ -103,5 +102,8 @@
         "javascriptreact",
         "svelte"
     ],
-    "markdown.extension.toc.updateOnSave": false
+    "markdown.extension.toc.updateOnSave": false,
+    "editor.lineHeight": 18,
+    "terminal.integrated.fontFamily": "JetBrains Mono",
+    "security.workspace.trust.untrustedFiles": "newWindow"
 }
