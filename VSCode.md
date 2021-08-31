@@ -20,10 +20,14 @@ EXTENSIONS=(
   mhmadhamster.postcss-language
   mhutchie.git-graph
   mikestead.dotenv
+  monasticpanic.vscode-astroturf
+  mrorz.language-gettext
   ms-azuretools.vscode-docker
+  MS-CEINTL.vscode-language-pack-ru
   PKief.material-icon-theme
   rafaelmardojai.vscode-gnome-theme
   stylelint.vscode-stylelint
+  svelte.svelte-vscode
   VisualStudioExptTeam.vscodeintellicode
   webben.browserslist
   william-voyek.vscode-nginx
