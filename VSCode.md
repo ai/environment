@@ -8,7 +8,6 @@ EXTENSIONS=(
   bungcip.better-toml
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
-  CoenraadS.bracket-pair-colorizer
   csstools.postcss
   dbaeumer.vscode-eslint
   EditorConfig.EditorConfig

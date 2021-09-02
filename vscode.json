@@ -105,5 +105,6 @@
     "markdown.extension.toc.updateOnSave": false,
     "editor.lineHeight": 18,
     "terminal.integrated.fontFamily": "JetBrains Mono",
-    "security.workspace.trust.untrustedFiles": "newWindow"
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "editor.bracketPairColorization.enabled": true
 }
