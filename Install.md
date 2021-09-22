@@ -442,6 +442,7 @@ git checkout "$(git describe --abbrev=0 --tags)"
 asdf plugin-add yarn
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 ~/Dev/environment/bin/copy-env system
+asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
 ```
 
 Restart terminal:
