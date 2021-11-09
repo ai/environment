@@ -82,6 +82,26 @@ Add `i915.enable_psr=0` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub` and run:
 sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
 
+Clean sound device name by finding node’s name in `pactl list` and adding rule
+to `~/.config/pipewire/media-session.d/alsa-monitor.conf`:
+
+```
+rules = [
+  {
+    matches = [
+      {
+        device.name = "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
+      }
+    ]
+    actions = {
+      update-props = {
+        node.description = "Laptop"
+      }
+    }
+  }
+]
+```
+
 
 ### System Update
 
