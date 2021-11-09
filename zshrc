@@ -57,7 +57,6 @@ alias n='npx --no-install'
 alias yui='yarn upgrade-interactive --latest'
 alias yu='yarn upgrade'
 alias p='n clean-publish'
-alias j="NODE_OPTIONS=--experimental-vm-modules npx jest"
 
 # Python
 export PATH=~/.local/bin/:$PATH
