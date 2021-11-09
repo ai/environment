@@ -25,6 +25,8 @@ EXTENSIONS=(
   MS-CEINTL.vscode-language-pack-ru
   PKief.material-icon-theme
   rafaelmardojai.vscode-gnome-theme
+  streetsidesoftware.code-spell-checker
+  streetsidesoftware.code-spell-checker-russian
   stylelint.vscode-stylelint
   svelte.svelte-vscode
   VisualStudioExptTeam.vscodeintellicode

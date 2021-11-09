@@ -106,5 +106,22 @@
     "editor.lineHeight": 18,
     "terminal.integrated.fontFamily": "JetBrains Mono",
     "security.workspace.trust.untrustedFiles": "newWindow",
-    "editor.bracketPairColorization.enabled": true
+    "editor.bracketPairColorization.enabled": true,
+    "cSpell.language": "en,ru",
+    "cSpell.userWords": [
+        "andrey",
+        "catched",
+        "CRDT",
+        "gzipped",
+        "logux",
+        "nanodelay",
+        "nanostores",
+        "Preact",
+        "sharec",
+        "sitnik",
+        "slowreader",
+        "Weblate"
+    ],
+    "editor.fontSize": 12,
+    "terminal.integrated.fontSize": 12
 }
