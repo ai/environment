@@ -1,4 +1,5 @@
 --smart-case
 --glob=!.git/
+--glob=!.yarn/
 --hidden
 --no-heading
