@@ -76,39 +76,20 @@ by editing `/usr/share/X11/xkb/symbols/pc`:
     key <END> { [ Next ] };
 ```
 
-Add `i915.enable_psr=0` to `GRUB_CMDLINE_LINUX` in `/etc/default/grub` and run:
-
-```sh
-sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-```
-
-Clean sound device name by finding node’s name in `pactl list` and adding rule
-to `~/.config/pipewire/media-session.d/alsa-monitor.conf`:
-
-```
-rules = [
-  {
-    matches = [
-      {
-        device.name = "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"
-      }
-    ]
-    actions = {
-      update-props = {
-        node.description = "Laptop"
-      }
-    }
-  }
-]
-```
-
 
 ### System Update
 
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter
+```
+
+Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
+
+```
+fastestmirror=true
+deltarpm=true
 ```
 
 Add RPM Fusion:
@@ -121,28 +102,15 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08 org.inkscape.Inkscape
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom com.yubico.yubioath org.freedesktop.Platform.ffmpeg-full/x86_64/19.08 org.inkscape.Inkscape org.gnome.TextEditor
 ```
 
-Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
+Update system via Software Center.
 
-```
-fastestmirror=true
-deltarpm=true
-```
-
-Update system:
+Install 2FA app:
 
 ```sh
-sudo dnf update --refresh
-```
-
-Install Chrome:
-
-```sh
-sudo dnf install fedora-workstation-repositories
-sudo dnf config-manager --set-enabled google-chrome
-sudo dnf install google-chrome-stable
+sudo dnf install yubioath-desktop
 ```
 
 Disable Software auto-start:
@@ -174,6 +142,7 @@ FONT="ter-v32n"
 Copy font:
 
 ```sh
+sudo mkdir -p /boot/efi/EFI/fedora/fonts/
 sudo cp /usr/share/grub/ter-u32n.pf2 /boot/efi/EFI/fedora/fonts/
 ```
 
@@ -216,7 +185,7 @@ Install VS Code:
 ```sh
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-sudo dnf install code
+sudo dnf install code git-delta
 ```
 
 Add to `/etc/sysctl.conf`:
@@ -226,12 +195,6 @@ fs.inotify.max_user_watches=524288
 ```
 
 Install [VS Code extensions](./VSCode.md).
-
-Install better diff can cat:
-
-```sh
-sudo dnf install git-delta
-```
 
 
 ### Personal Files
@@ -276,7 +239,6 @@ Install Antigen:
 curl -L git.io/antigen > ~/.antigen.zsh
 zsh
 source ~/.antigen.zsh
-rm ~/.bash_history ~/.bash_logout
 ```
 
 Create `/root/.zshrc`:
@@ -297,6 +259,10 @@ SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
 
 Reboot.
 
+```sh
+rm ~/.bash_history ~/.bash_logout
+```
+
 
 ### GNOME Settings
 
@@ -304,15 +270,15 @@ Install `seahorse` and disable the password for the main keychain.
 
 Open settings:
 
-* **Notifictions:** disable Lock Screen Notifications.
-* **Search:** keep only Calculator and Weather.
 * **Background:** use standard GNOME wallpaper.
+* **Notifictions:** disable Lock Screen Notifications.
+* **Search:** keep only Calculator.
+* **Multitasking:** disable Active Screen Edges.
 * **Online Accounts:** add Google account.
-* **Mouse & Touchpad:** mouse speed to 75%,
- touchpad speed to 90%, enable Tap to Click.
-* **Users:** set fingerprint, avatar and Automatic Login.
 * **Power:** Show Battery Percentage.
-* **Region & Language:** UK formats.
+* **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
+  enable Tap to Click.
+* **Users:** set fingerprint, avatar and Automatic Login.
 
 Set keyboard settings:
 
@@ -349,10 +315,8 @@ STOP_CHARGE_THRESH_BAT0=100
 Install extensions from [`GNOME.md`](./GNOME.md).
 
 * **Autohide battery:** use battery level from BIOS.
-* **Freon:** move it to the right, hide `°C`, show only maximum value.
 * **Emoji selector:** disable Always show the icon.
 * **GSConnect:** add phone.
-* **Icon Hider:** hide `appMenu`, `dwellClick`, `a11y`, `keyboard`, `GSConnect`.
 * **Screenshot Tool:** disable Show Indicator, enable Auto-Save to Downloads
   with `{Y}{m}{d}{H}{M}{S}` name, enable Imgur Upload
   with Copy Link After Upload, set `Print` keyboard binding.
@@ -371,7 +335,7 @@ sudo dnf install gnome-tweak-tool
 * **General:** enable Over-Amplification.
 * **Top Bar:** enable Date and Seconds.
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
-* **Windows:** disable Edge Tiling.
+* **Windows:** enable window scaling with right mouse button.
 * **Fonts:** monospace to JetBrains Mono.
 
 Move applications from folders.
@@ -393,10 +357,10 @@ Fix folders at `~/.config/user-dirs.dirs`:
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
 XDG_DOWNLOAD_DIR="$HOME/Загрузки"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
-XDG_PUBLICSHARE_DIR="$HOME/"
-XDG_DOCUMENTS_DIR="$HOME/"
-XDG_MUSIC_DIR="$HOME/"
-XDG_PICTURES_DIR="$HOME/"
+XDG_PUBLICSHARE_DIR="$HOME"
+XDG_DOCUMENTS_DIR="$HOME"
+XDG_MUSIC_DIR="$HOME"
+XDG_PICTURES_DIR="$HOME"
 XDG_VIDEOS_DIR="$HOME/Видео"
 ```
 
@@ -433,6 +397,12 @@ Install Microsoft fonts:
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
+Install Chrome:
+
+```sh
+sudo dnf install google-chrome-stable
+```
+
 Download [VPN client](https://mullvad.net/download/).
 
 Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA
@@ -459,15 +429,14 @@ Install asdf:
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
 git checkout "$(git describe --abbrev=0 --tags)"
-asdf plugin-add yarn
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-~/Dev/environment/bin/copy-env system
-asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
 ```
 
 Restart terminal:
 
 ```sh
+asdf plugin-add yarn
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+~/Dev/environment/bin/copy-env system
 asdf install nodejs latest
 asdf install yarn latest
 ```
@@ -504,9 +473,9 @@ sudo dnf install https://prerelease.keybase.io/keybase_amd64.rpm
 run_keybase
 ```
 
-Remove Keybase from Autostart.
+Disable autostart in Keybase settings.
 
 Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/active/metadata`
-and change `~/Documents/Zoom` to `~/Downloads`.
+and change `~/Documents/Zoom` to `~/.Documents/Zoom`.
 
 Open Zoom and sign-in into corporate account.

@@ -1,7 +1,6 @@
 ## GNOME Shell Extensions
 
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
-* [Always Show Workspace Thumbnails](https://extensions.gnome.org/extension/4156/always-show-workspace-thumbnails/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
@@ -12,7 +11,6 @@
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
-* [Quick Close in Overview](https://extensions.gnome.org/extension/352/middle-click-to-close-in-overview/)
 * [Remove App Menu](https://extensions.gnome.org/extension/3906/remove-app-menu/)
 * [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
 * [System Monitor](https://extensions.gnome.org/extension/1064/system-monitor/)
