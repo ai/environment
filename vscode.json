@@ -67,7 +67,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[svelte]": {
-        "editor.defaultFormatter": "svelte.svelte-vscode"
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
@@ -110,6 +111,7 @@
     "cSpell.language": "en,ru",
     "cSpell.userWords": [
         "andrey",
+        "browserslist",
         "catched",
         "CRDT",
         "gzipped",
@@ -120,6 +122,8 @@
         "sharec",
         "sitnik",
         "slowreader",
+        "stylelint",
+        "vite",
         "Weblate"
     ],
     "editor.fontSize": 12,
