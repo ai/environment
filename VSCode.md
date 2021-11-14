@@ -5,7 +5,6 @@ Copy-paste following to terminal:
 ```bash
 EXTENSIONS=(
   alefragnani.project-manager
-  bungcip.better-toml
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
   csstools.postcss
@@ -16,10 +15,7 @@ EXTENSIONS=(
   formulahendry.auto-rename-tag
   kshetline.ligatures-limited
   mariusschulz.yarn-lock-syntax
-  mhmadhamster.postcss-language
-  mhutchie.git-graph
   mikestead.dotenv
-  monasticpanic.vscode-astroturf
   mrorz.language-gettext
   ms-azuretools.vscode-docker
   MS-CEINTL.vscode-language-pack-ru
@@ -31,7 +27,6 @@ EXTENSIONS=(
   svelte.svelte-vscode
   VisualStudioExptTeam.vscodeintellicode
   webben.browserslist
-  william-voyek.vscode-nginx
   yzhang.markdown-all-in-one
 )
 for EXTENSION in ${EXTENSIONS[@]}; do
