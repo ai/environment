@@ -154,6 +154,8 @@ GRUB_FONT="/boot/efi/EFI/fedora/fonts/ter-u32n.pf2"
 GRUB_TERMINAL_OUTPUT="gfxterm"
 ```
 
+Add `i915.enable_guc=2` to `GRUB_CMDLINE_LINUX`.
+
 Rebuild GRUB:
 
 ```sh
