@@ -13,7 +13,7 @@
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Remove App Menu](https://extensions.gnome.org/extension/3906/remove-app-menu/)
 * [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
+* [Scroll Panel](https://extensions.gnome.org/extension/4257/scroll-panel/)
 * [System Monitor](https://extensions.gnome.org/extension/1064/system-monitor/)
-* [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
 * [Weather In The Clock](https://extensions.gnome.org/extension/1380/weather-in-the-clock/)
