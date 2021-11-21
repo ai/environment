@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Календарь
+Comment=Доступ и управление календарями
+Exec=gnome-calendar %U
+Icon=org.gnome.Calendar
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Office;Calendar;Core;
+Keywords=Календарь;Событие;Напоминание;
+MimeType=text/calendar;
+DBusActivatable=true
+NoDisplay=true

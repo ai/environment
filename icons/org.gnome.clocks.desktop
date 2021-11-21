@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Часы
+GenericName=Часы
+X-GNOME-FullName=Часы GNOME
+Comment=Часы мирового времени, а также будильник, секундомер и таймер
+Keywords=время;таймер;будильник;мировое время;часовой пояс;
+Exec=gnome-clocks
+Icon=org.gnome.clocks
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Utility;Clock;
+StartupNotify=true
+DBusActivatable=true
+X-GNOME-UsesNotifications=true
+X-Geoclue-Reason=Позволяет отображать мировые часы для вашего часового пояса.
+X-Purism-FormFactor=Workstation;Mobile;
+NoDisplay=true
