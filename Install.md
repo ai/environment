@@ -82,7 +82,7 @@ by editing `/usr/share/X11/xkb/symbols/pc`:
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp
 ```
 
 Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
@@ -178,6 +178,13 @@ Disable sleep on lid closing:
 
 1. `sudo nano /etc/systemd/logind.conf`
 2. Set `HandleLidSwitch=lock`
+
+Install `pavucontrol` and set microphone to Mono Input:
+
+```sh
+sudo dnf install pavucontrol
+pavucontrol
+```
 
 Restart.
 
