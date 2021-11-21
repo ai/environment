@@ -15,6 +15,7 @@ EXTENSIONS=(
   formulahendry.auto-rename-tag
   kshetline.ligatures-limited
   mariusschulz.yarn-lock-syntax
+  mhmadhamster.postcss-language
   mikestead.dotenv
   mrorz.language-gettext
   ms-azuretools.vscode-docker
