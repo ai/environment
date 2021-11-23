@@ -2,10 +2,6 @@
 
 sudo echo "Обновление системы…"
 
-cd ~/.mozilla/firefox/*/chrome/firefox-gnome-theme
-git pull origin master
-cd ~
-
 . $HOME/.asdf/asdf.sh
 asdf update
 asdf plugin update --all
