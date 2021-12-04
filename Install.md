@@ -447,9 +447,11 @@ Restart terminal:
 ```sh
 asdf plugin-add yarn
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin-add pnpm https://github.com/jonathanmorley/asdf-pnpm.git
 ~/Dev/environment/bin/copy-env system
 asdf install nodejs latest
 asdf install yarn latest
+asdf install pnpm latest
 ```
 
 Sign-in to npm:
