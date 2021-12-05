@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
-let { readdir, readFile, writeFile } = require('fs/promises')
-let { existsSync } = require('fs')
+let { readdirSync, readFileSync, writeFileSync, existsSync } = require('fs')
+let { exec, execSync } = require('child_process')
 let { promisify } = require('util')
-let child = require('child_process')
 let { join } = require('path')
 
-let exec = promisify(child.exec)
+exec = promisify(exec)
 
 const HOME = '/home/ai'
 const DEV_DIR = join(HOME, 'Dev')
@@ -40,12 +39,14 @@ function replace (str) {
   process.stdout.write(`\x1b[1G\x1b[2K\x1b[1G${str}`)
 }
 
-async function getLatest (tool, prefix) {
+function getLatest (tool, prefix) {
   let cacheKey = `${tool} ${prefix}`
   if (!LATEST_CACHE[cacheKey]) {
     if (!VERSIONS_CACHE[tool]) {
-      let all = await exec(`asdf list all ${tool}`)
-      VERSIONS_CACHE[tool] = all.stdout.trim().split('\n')
+      VERSIONS_CACHE[tool] = execSync(`asdf list all ${tool}`)
+        .toString()
+        .trim()
+        .split('\n')
     }
     let versions = VERSIONS_CACHE[tool]
       .filter(i => i.startsWith(prefix))
@@ -75,12 +76,11 @@ function progress (line) {
 async function processFile (file) {
   print('')
   print(gray(file.replace(HOME, '~')))
-  let buffer = await readFile(file)
-  let content = buffer.toString()
+  let content = readFileSync(file).toString()
   let versions = content.trim().split('\n').map(i => i.split(' '))
   for (let [tool, version] of versions) {
     let major = version.split('.')[0]
-    let latest = await getLatest(tool, `${major}.`)
+    let latest = getLatest(tool, `${major}.`)
     if (version !== latest) {
       let title = `${tool} ${red(version)} → ${green(latest)}`
       let spinner = progress(title)
@@ -92,11 +92,11 @@ async function processFile (file) {
       print(`${green('✓')} ${tool} ${version}`)
     }
   }
-  await writeFile(file, content)
+  writeFileSync(file, content)
 }
 
 async function run () {
-  let projects = await readdir(DEV_DIR)
+  let projects = readdirSync(DEV_DIR)
   let files = [join(HOME, '.tool-versions')]
     .concat(projects.map(i => join(DEV_DIR, i, '.tool-versions')))
   for (let file of files) {
