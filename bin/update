@@ -6,9 +6,12 @@ cd .mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
 cd
 
-. $HOME/.asdf/asdf.sh
+. ~/.asdf/asdf.sh
 asdf update
 asdf plugin update --all
+
+~/Dev/environment/bin/update-asdf
+echo ""
 
 source ~/.antigen.zsh
 antigen update

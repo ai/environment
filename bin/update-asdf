@@ -1,0 +1,109 @@
+#!/usr/bin/env node
+
+let { readdir, readFile, writeFile } = require('fs/promises')
+let { existsSync } = require('fs')
+let { promisify } = require('util')
+let child = require('child_process')
+let { join } = require('path')
+
+let exec = promisify(child.exec)
+
+const HOME = '/home/ai'
+const DEV_DIR = join(HOME, 'Dev')
+
+const PROGRESS = ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
+
+const LATEST_CACHE = {}
+const VERSIONS_CACHE = {}
+
+function gray (str) {
+  return `\x1b[90m${str}\x1b[39m`
+}
+
+function yellow (str) {
+  return `\x1b[33m${str}\x1b[39m`
+}
+
+function red (str) {
+  return `\x1b[31m${str}\x1b[39m`
+}
+
+function green (str) {
+  return `\x1b[32m${str}\x1b[39m`
+}
+
+function print (str) {
+  process.stdout.write(str + '\n')
+}
+
+function replace (str) {
+  process.stdout.write(`\x1b[1G\x1b[2K\x1b[1G${str}`)
+}
+
+async function getLatest (tool, prefix) {
+  let cacheKey = `${tool} ${prefix}`
+  if (!LATEST_CACHE[cacheKey]) {
+    if (!VERSIONS_CACHE[tool]) {
+      let all = await exec(`asdf list all ${tool}`)
+      VERSIONS_CACHE[tool] = all.stdout.trim().split('\n')
+    }
+    let versions = VERSIONS_CACHE[tool]
+      .filter(i => i.startsWith(prefix))
+      .filter(i => !/-\d\d\d\d\d\d\d+$/.test(i))
+    LATEST_CACHE[cacheKey] = versions[versions.length - 1]
+  }
+  return LATEST_CACHE[cacheKey]
+}
+
+function progress (line) {
+  let current = 0
+  function tick () {
+    current = ++current % PROGRESS.length
+    replace(`${yellow(PROGRESS[current])} ${line}`)
+  }
+  tick()
+  let timer = setInterval(tick, 50)
+  return {
+    stop () {
+      clearInterval(timer)
+      replace(`${green('✓')} ${line}`)
+      print('')
+    }
+  }
+}
+
+async function processFile (file) {
+  print('')
+  print(gray(file.replace(HOME, '~')))
+  let buffer = await readFile(file)
+  let content = buffer.toString()
+  let versions = content.trim().split('\n').map(i => i.split(' '))
+  for (let [tool, version] of versions) {
+    let major = version.split('.')[0]
+    let latest = await getLatest(tool, `${major}.`)
+    if (version !== latest) {
+      let title = `${tool} ${red(version)} → ${green(latest)}`
+      let spinner = progress(title)
+      await exec(`asdf install ${tool} ${latest}`)
+      await exec(`asdf uninstall ${tool} ${version}`)
+      spinner.stop()
+      content = content.replace(`${tool} ${version}`, `${tool} ${latest}`)
+    } else {
+      print(`${green('✓')} ${tool} ${version}`)
+    }
+  }
+  await writeFile(file, content)
+}
+
+async function run () {
+  let projects = await readdir(DEV_DIR)
+  let files = [join(HOME, '.tool-versions')]
+    .concat(projects.map(i => join(DEV_DIR, i, '.tool-versions')))
+  for (let file of files) {
+    if (existsSync(file)) {
+      await processFile(file)
+    }
+  }
+}
+
+run()
