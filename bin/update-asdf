@@ -76,6 +76,7 @@ function progress (line) {
 async function processFile (file) {
   print('')
   print(gray(file.replace(HOME, '~')))
+  let changed = false
   let content = readFileSync(file).toString()
   let versions = content.trim().split('\n').map(i => i.split(' '))
   for (let [tool, version] of versions) {
@@ -88,11 +89,12 @@ async function processFile (file) {
       await exec(`asdf uninstall ${tool} ${version}`)
       spinner.stop()
       content = content.replace(`${tool} ${version}`, `${tool} ${latest}`)
+      changed = true
     } else {
-      print(`${green('✓')} ${tool} ${version}`)
+      print(`${green('✓')} ${gray(tool)} ${gray(version)}`)
     }
   }
-  writeFileSync(file, content)
+  if (changed) writeFileSync(file, content)
 }
 
 async function run () {
