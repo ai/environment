@@ -49,9 +49,10 @@ function getLatest (tool, prefix) {
         .trim()
         .split('\n')
     }
-    let versions = VERSIONS_CACHE[tool]
-      .filter(i => i.startsWith(prefix))
-      .filter(i => !/-\d\d\d\d\d\d\d+$/.test(i))
+    let versions = VERSIONS_CACHE[tool].filter(i => i.startsWith(prefix))
+    if (tool === 'pnpm') {
+      versions = versions.filter(i => !i.includes('-'))
+    }
     LATEST_CACHE[cacheKey] = versions[versions.length - 1]
   }
   return LATEST_CACHE[cacheKey]
