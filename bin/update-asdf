@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 let { readdirSync, readFileSync, writeFileSync, existsSync } = require('fs')
-let { exec, execSync } = require('child_process')
 let { promisify } = require('util')
+let { exec } = require('child_process')
 let { join } = require('path')
 
 exec = promisify(exec)
@@ -40,11 +40,12 @@ function replace (str) {
   process.stdout.write(`\x1b[1G\x1b[2K\x1b[1G${str}`)
 }
 
-function getLatest (tool, prefix) {
+async function getLatest (tool, prefix) {
   let cacheKey = `${tool} ${prefix}`
   if (!LATEST_CACHE[cacheKey]) {
     if (!VERSIONS_CACHE[tool]) {
-      VERSIONS_CACHE[tool] = execSync(`asdf list all ${tool}`)
+      let result = await exec(`asdf list all ${tool}`)
+      VERSIONS_CACHE[tool] = result.stdout
         .toString()
         .trim()
         .split('\n')
@@ -66,11 +67,18 @@ function startProgress (line) {
   }
   tick()
   let timer = setInterval(tick, 50)
-  return () => {
+
+  function stop(final) {
+    if (!final) final = `${green('✓')} ${line}`
     clearInterval(timer)
-    replace(`${green('✓')} ${line}`)
+    replace(final)
     print('')
   }
+  function replaceTitle (title) {
+    line = title
+    replace(`${yellow(PROGRESS[current])} ${line}`)
+  }
+  return [stop, replaceTitle]
 }
 
 async function processFile (file) {
@@ -81,22 +89,23 @@ async function processFile (file) {
   let versions = content.trim().split('\n').map(i => i.split(' '))
   for (let [tool, version] of versions) {
     let major = version.split('.')[0]
-    let latest = getLatest(tool, `${major}.`)
+    let [stop, replaceTitle] = startProgress(gray(`${tool} ${version}`))
+    let latest = await getLatest(tool, `${major}.`)
     if (version !== latest) {
       let title = `${tool} ${red(version)} → ${green(latest)}`
+      replaceTitle(title)
       if (INSTALLED[`${tool} ${latest}`]) {
-        print(`${green('✓')} ${title}`)
+        stop()
       } else {
-        let stop = startProgress(title)
         await exec(`asdf install ${tool} ${latest}`)
         await exec(`asdf uninstall ${tool} ${version}`)
-        stop()
         INSTALLED[`${tool} ${latest}`] = true
+        stop()
       }
       content = content.replace(`${tool} ${version}`, `${tool} ${latest}`)
       changed = true
     } else {
-      print(`${green('✓')} ${gray(tool)} ${gray(version)}`)
+      stop()
     }
   }
   if (changed) writeFileSync(file, content)
