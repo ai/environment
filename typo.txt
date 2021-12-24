@@ -30,7 +30,7 @@ xkb_symbols "base" {
     // 2nd keyboard row
     key <AD01> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "q"
     key <AD02> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "w"
-    key <AD03> { [ NoSymbol,   NoSymbol,              EuroSign,              NoSymbol ] }; // "e"
+    key <AD03> { [ NoSymbol,   NoSymbol,              EuroSign,                  cent ] }; // "e"
     key <AD04> { [ NoSymbol,   NoSymbol,            registered,              NoSymbol ] }; // "r"
     key <AD05> { [ NoSymbol,   NoSymbol,             trademark,              NoSymbol ] }; // "t"
     key <AD06> { [ NoSymbol,   NoSymbol,                   yen,              NoSymbol ] }; // "y"
@@ -55,9 +55,9 @@ xkb_symbols "base" {
     key <RTRN> { [   Return,     Return,                 U21B5,                 U23CE ] }; // "'"
 
     // 4th keyboard row
-    key <AB01> { [ NoSymbol,   NoSymbol,              NoSymbol,              NoSymbol ] }; // "z"
+    key <AB01> { [ NoSymbol,   NoSymbol,                 U0300,              NoSymbol ] }; // "z"
     key <AB02> { [ NoSymbol,   NoSymbol,              multiply,        periodcentered ] }; // "x"
-    key <AB03> { [ NoSymbol,   NoSymbol,             copyright,                  cent ] }; // "c"
+    key <AB03> { [ NoSymbol,   NoSymbol,              ccedilla,              Ccedilla ] }; // "c"
     key <AB04> { [ NoSymbol,   NoSymbol,             downarrow,                 U25CA ] }; // "v"
     key <AB06> { [ NoSymbol,   NoSymbol,                ntilde,                Ntilde ] }; // "n"
     key <AB07> { [ NoSymbol,   NoSymbol,                 U2212,    enfilledcircbullet ] }; // "m"
@@ -73,6 +73,7 @@ xkb_symbols "base" {
 
     // Other symbols
     // U+2030 PER MILLE SIGN
+    // U+0300 COMBINING GRAVE ACCENT
     // U+0301 COMBINING ACUTE ACCENT
     // U+20BD RUBLE SIGN
     // U+25CA LOZENGE
