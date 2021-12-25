@@ -27,19 +27,19 @@ zstyle :compinstall filename '/home/ai/.zshrc'
 autoload -Uz compinit
 compinit
 
-# Dev Tools
-if [ -d ~/.asdf/ ]; then
-  source $HOME/.asdf/asdf.sh
-  autoload -U +X bashcompinit && bashcompinit
-  source $HOME/.asdf/completions/asdf.bash
-fi
-
 # Prompt
 SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
 
 # Fast way to Dev projects
 if [ -d ~/Dev ]; then
   cdpath=(. ~/Dev)
+fi
+
+# Dev tools
+if [ -d ~/.asdf/ ]; then
+  source $HOME/.asdf/asdf.sh
+  autoload -U +X bashcompinit && bashcompinit
+  source $HOME/.asdf/completions/asdf.bash
 fi
 
 # Rip Grep
@@ -63,13 +63,13 @@ alias pui='pnpm update --interactive --latest'
 alias pu='pnpm update'
 alias p='n clean-publish'
 
+# pnpm
+if [ -f ~/.config/tabtab/zsh/pnpm.zsh ]; then
+  source ~/.config/tabtab/zsh/pnpm.zsh
+fi
+
 # Python
 export PATH=~/.local/bin/:$PATH
 
 # Fix mpv
 export MESA_LOADER_DRIVER_OVERRIDE=i965
-
-# pnpm completion
-if [ -f ~/.config/tabtab/zsh/pnpm.zsh ]; then
-  source ~/.config/tabtab/zsh/pnpm.zsh
-fi
