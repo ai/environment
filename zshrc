@@ -11,11 +11,6 @@ bindkey -e
 bindkey ';5D' backward-word # ctrl+left
 bindkey ';5C' forward-word  # ctrl+right
 
-# Completion
-zstyle :compinstall filename '/home/ai/.zshrc'
-autoload -Uz compinit
-compinit
-
 # Zsh plugins
 if [ -f ~/.antigen.zsh ]; then
   ANTIGEN_MUTEX=false
@@ -23,7 +18,20 @@ if [ -f ~/.antigen.zsh ]; then
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
   antigen theme denysdovhan/spaceship-prompt
+  antigen bundle zsh-users/zsh-completions
   antigen apply
+fi
+
+# Completion
+zstyle :compinstall filename '/home/ai/.zshrc'
+autoload -Uz compinit
+compinit
+
+# Dev Tools
+if [ -d ~/.asdf/ ]; then
+  source $HOME/.asdf/asdf.sh
+  autoload -U +X bashcompinit && bashcompinit
+  source $HOME/.asdf/completions/asdf.bash
 fi
 
 # Prompt
@@ -47,15 +55,12 @@ alias ..='cd ..'
 alias l='exa --all'
 alias ll='exa --long --all --git'
 
-# Dev Tools
-if [ -d ~/.asdf/ ]; then
-  . $HOME/.asdf/asdf.sh
-fi
-
 # Node.js
-alias n='npx --no-install'
+alias n='pnpx --no-install'
 alias yui='yarn upgrade-interactive --latest'
 alias yu='yarn upgrade'
+alias pui='pnpm update --interactive --latest'
+alias pu='pnpm update'
 alias p='n clean-publish'
 
 # Python
@@ -63,3 +68,8 @@ export PATH=~/.local/bin/:$PATH
 
 # Fix mpv
 export MESA_LOADER_DRIVER_OVERRIDE=i965
+
+# pnpm completion
+if [ -f ~/.config/tabtab/zsh/pnpm.zsh ]; then
+  source ~/.config/tabtab/zsh/pnpm.zsh
+fi
