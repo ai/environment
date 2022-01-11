@@ -115,10 +115,19 @@ async function run () {
   let projects = readdirSync(DEV_DIR)
   let files = [join(HOME, '.tool-versions')]
     .concat(projects.map(i => join(DEV_DIR, i, '.tool-versions')))
-  for (let file of files) {
-    if (existsSync(file)) {
-      await processFile(file)
+  try {
+    for (let file of files) {
+      if (existsSync(file)) {
+        await processFile(file)
+      }
     }
+  } catch (e) {
+    if (e.stderr) {
+      process.stderr.write('\n\n' + red(e.stderr))
+    } else {
+      process.stderr.write('\n' + red(e.stack) + '\n')
+    }
+    process.exit(1)
   }
 }
 
