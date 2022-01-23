@@ -7,7 +7,6 @@ EXTENSIONS=(
   alefragnani.project-manager
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
-  csstools.postcss
   dbaeumer.vscode-eslint
   EditorConfig.EditorConfig
   esbenp.prettier-vscode
@@ -22,6 +21,7 @@ EXTENSIONS=(
   MS-CEINTL.vscode-language-pack-ru
   PKief.material-icon-theme
   rafaelmardojai.vscode-gnome-theme
+  ryanluker.vscode-coverage-gutters
   streetsidesoftware.code-spell-checker
   streetsidesoftware.code-spell-checker-russian
   stylelint.vscode-stylelint
