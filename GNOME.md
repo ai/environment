@@ -15,5 +15,6 @@
 * [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
 * [Scroll Panel](https://extensions.gnome.org/extension/4257/scroll-panel/)
 * [System Monitor](https://extensions.gnome.org/extension/1064/system-monitor/)
+* [Thinkpad Battery Threshold](https://extensions.gnome.org/extension/4798/thinkpad-battery-threshold/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
 * [Weather In The Clock](https://extensions.gnome.org/extension/1380/weather-in-the-clock/)
