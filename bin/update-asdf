@@ -88,9 +88,10 @@ async function processFile (file) {
   let content = readFileSync(file).toString()
   let versions = content.trim().split('\n').map(i => i.split(' '))
   for (let [tool, version] of versions) {
-    let major = version.split('.')[0]
+    let requirement = version.split('.')[0]
+    if (tool === 'ruby') requirement = version.split('.').splice(0, 2).join('.')
     let [stop, replaceTitle] = startProgress(gray(`${tool} ${version}`))
-    let latest = await getLatest(tool, `${major}.`)
+    let latest = await getLatest(tool, `${requirement}.`)
     if (version !== latest) {
       let title = `${tool} ${red(version)} → ${green(latest)}`
       replaceTitle(title)
