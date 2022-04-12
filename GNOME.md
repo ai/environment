@@ -4,6 +4,7 @@
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Bluetooth quick connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Disconnect Wifi](https://extensions.gnome.org/extension/904/disconnect-wifi/)
+* [Draw On Your Screen 2](https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/)
 * [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
 * [Expandable Notifications](https://extensions.gnome.org/extension/4463/expandable-notifications/)
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
