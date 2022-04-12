@@ -1,139 +1,139 @@
 {
-    "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false
+  },
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "selection",
+  "editor.rulers": [80],
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "eslint.migration.2_x": "off",
+  "eslint.run": "onSave",
+  "git.confirmSync": false,
+  "projectManager.git.baseFolders": ["/home/ai/Dev/"],
+  "projectManager.git.maxDepthRecursion": 1,
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#151515"
+  },
+  "workbench.colorTheme": "GNOME dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.statusBar.visible": true,
+  "files.associations": {
+    "errors.ts": "rust",
+    "errors.tsx": "rust",
+    "**/test/*.errors.ts": "rust",
+    ".huskyrc": "json",
+    ".lintstagedrc": "json",
+    ".stylelintrc": "json",
+    ".posthtmlrc": "json"
+  },
+  "markdown.extension.italic.indicator": "_",
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.toc.omittedFromToc": {
+    "README.md": ["## Table of Contents"]
+  },
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "prettier.requireConfig": true,
+  "editor.wordWrap": "on",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.packageManager": "yarn",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "[javascript]": {
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
     "editor.codeActionsOnSave": {
-        "source.fixAll": false
-    },
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontLigatures": true,
-    "editor.minimap.enabled": false,
-    "editor.renderWhitespace": "selection",
-    "editor.rulers": [80],
-    "editor.suggestSelection": "first",
-    "editor.tabSize": 2,
-    "eslint.migration.2_x": "off",
-    "eslint.run": "onSave",
-    "git.confirmSync": false,
-    "projectManager.git.baseFolders": [
-        "/home/ai/Dev/"
-    ],
-    "projectManager.git.maxDepthRecursion": 1,
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.visible": true,
-    "workbench.colorCustomizations": {
-        "editorRuler.foreground": "#151515"
-    },
-    "workbench.colorTheme": "GNOME dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.statusBar.visible": true,
-    "files.associations": {
-        "errors.ts": "rust",
-        "errors.tsx": "rust",
-        "**/test/*.errors.ts": "rust",
-        ".huskyrc": "json",
-        ".lintstagedrc": "json",
-        ".stylelintrc": "json",
-        ".posthtmlrc": "json"
-    },
-    "markdown.extension.italic.indicator": "_",
-    "markdown.extension.toc.levels": "2..6",
-    "markdown.extension.toc.omittedFromToc": {
-        "README.md": ["## Table of Contents"]
-    },
-    "markdown.extension.toc.unorderedList.marker": "*",
-    "prettier.requireConfig": true,
-    "editor.wordWrap": "on",
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "eslint.packageManager": "yarn",
-    "editor.gotoLocation.multipleDefinitions": "goto",
-    "[javascript]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[markdown]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll": false
-        }
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[svelte]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "editor.formatOnSaveMode": "modifications",
-    "workbench.startupEditor": "none",
-    "stylelint.config": {
-        "run": "onSave"
-    },
-    "prettier.semi": false,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "none",
-    "prettier.quoteProps": "consistent",
-    "window.zoomLevel": 1,
-    "css.validate": false,
-    "less.validate": false,
-    "scss.validate": false,
-    "postcss.validate": false,
-    "svelte.enable-ts-plugin": true,
-    "eslint.probe": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "html",
-        "vue",
-        "markdown",
-        "svelte"
-    ],
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "svelte"
-    ],
-    "markdown.extension.toc.updateOnSave": false,
-    "editor.lineHeight": 18,
-    "terminal.integrated.fontFamily": "JetBrains Mono",
-    "security.workspace.trust.untrustedFiles": "newWindow",
-    "editor.bracketPairColorization.enabled": true,
-    "cSpell.language": "en,ru",
-    "cSpell.userWords": [
-        "andrey",
-        "browserslist",
-        "catched",
-        "CRDT",
-        "esbuild",
-        "globby",
-        "gzipped",
-        "logux",
-        "nanodelay",
-        "nanoevents",
-        "nanospy",
-        "nanostores",
-        "pico",
-        "pnpm",
-        "Preact",
-        "preadd",
-        "sharec",
-        "sitnik",
-        "slowreader",
-        "stylelint",
-        "subprotocol",
-        "vite",
-        "Weblate"
-    ],
-    "editor.fontSize": 12,
-    "terminal.integrated.fontSize": 12
+      "source.fixAll": false
+    }
+  },
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.formatOnSaveMode": "modifications",
+  "workbench.startupEditor": "none",
+  "stylelint.config": {
+    "run": "onSave"
+  },
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  "prettier.quoteProps": "consistent",
+  "window.zoomLevel": 1,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "postcss.validate": false,
+  "svelte.enable-ts-plugin": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "svelte"
+  ],
+  "eslint.validate": ["javascript", "javascriptreact", "svelte"],
+  "markdown.extension.toc.updateOnSave": false,
+  "editor.lineHeight": 18,
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "editor.bracketPairColorization.enabled": true,
+  "cSpell.language": "en,ru",
+  "cSpell.userWords": [
+    "andrey",
+    "browserslist",
+    "catched",
+    "CRDT",
+    "esbuild",
+    "globby",
+    "gzipped",
+    "logux",
+    "nanodelay",
+    "nanoevents",
+    "nanospy",
+    "nanostores",
+    "oklch",
+    "pico",
+    "pnpm",
+    "Preact",
+    "preadd",
+    "sharec",
+    "sitnik",
+    "slowreader",
+    "stylelint",
+    "subprotocol",
+    "vite",
+    "Weblate"
+  ],
+  "editor.fontSize": 12,
+  "terminal.integrated.fontSize": 12
 }
