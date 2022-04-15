@@ -76,6 +76,9 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "[css]": {
+    "editor.formatOnSave": false
+  },
   "editor.formatOnSaveMode": "modifications",
   "workbench.startupEditor": "none",
   "stylelint.config": {
