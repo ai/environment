@@ -313,14 +313,7 @@ Nautilus:
 * Enable Single click to open items.
 
 ```sh
-sudo dnf install gnome-extensions-app openssl tlp
-```
-
-Set battery mode by openning `/etc/tlp.conf`:
-
-```
-START_CHARGE_THRESH_BAT0=75
-STOP_CHARGE_THRESH_BAT0=100
+sudo dnf install gnome-extensions-app openssl
 ```
 
 Install extensions from [`GNOME.md`](./GNOME.md).
@@ -332,6 +325,7 @@ Install extensions from [`GNOME.md`](./GNOME.md).
   with `{Y}{m}{d}{H}{M}{S}` name, enable Imgur Upload
   with Copy Link After Upload, set `Print` keyboard binding.
 * **System monitor:** move to left, hide activity.
+* **Thinkpad Battery Threshold:** 75 and 80%.
 
 Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
 
