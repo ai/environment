@@ -31,7 +31,8 @@
     ".huskyrc": "json",
     ".lintstagedrc": "json",
     ".stylelintrc": "json",
-    ".posthtmlrc": "json"
+    ".posthtmlrc": "json",
+    "*.css": "postcss"
   },
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.levels": "2..6",
