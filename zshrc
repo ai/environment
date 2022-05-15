@@ -56,7 +56,7 @@ alias l='exa --all'
 alias ll='exa --long --all --git'
 
 # Node.js
-alias n='pnpx --no-install'
+alias n='pnpm '
 alias pui='pnpm update --interactive --latest'
 alias pu='pnpm update'
 alias p='n clean-publish'
