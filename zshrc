@@ -45,6 +45,9 @@ fi
 # Rip Grep
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
+# Console editor
+export EDITOR=micro
+
 # VS Code
 export ELECTRON_TRASH=gio
 alias e='code .'

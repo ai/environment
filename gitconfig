@@ -23,7 +23,7 @@
   autosetuprebase = always
 [core]
   autocrlf = input
-  editor = nano
+  editor = micro
   pager = delta
 [init]
   defaultBranch = main
