@@ -191,6 +191,13 @@ Restart.
 
 ### Text Editors
 
+Install `micro` and its plugins:
+
+```sh
+sudo dnf install xclip micro
+micro -plugin install editorconfig
+```
+
 Install VS Code:
 
 ```sh
@@ -419,7 +426,7 @@ in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa make gcc-c++ zlib-devel xkill xclip micro bat
+sudo dnf install git tig ripgrep exa make gcc-c++ zlib-devel xkill bat
 ```
 
 Install Node.js:
