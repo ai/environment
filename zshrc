@@ -57,6 +57,7 @@ alias g='git'
 alias ..='cd ..'
 alias l='exa --all'
 alias ll='exa --long --all --git'
+alias cat='bat'
 
 # Node.js
 alias n='pnpm '
