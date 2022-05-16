@@ -16,6 +16,7 @@
 * [Remove App Menu](https://extensions.gnome.org/extension/3906/remove-app-menu/)
 * [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
 * [Scroll Panel](https://extensions.gnome.org/extension/4257/scroll-panel/)
+* [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 * [System Monitor](https://extensions.gnome.org/extension/1064/system-monitor/)
 * [Thinkpad Battery Threshold](https://extensions.gnome.org/extension/4798/thinkpad-battery-threshold/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
