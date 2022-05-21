@@ -22,6 +22,7 @@ EXTENSIONS=(
   PKief.material-icon-theme
   rafaelmardojai.vscode-gnome-theme
   ryanluker.vscode-coverage-gutters
+  sianglim.slim
   streetsidesoftware.code-spell-checker
   streetsidesoftware.code-spell-checker-russian
   stylelint.vscode-stylelint
