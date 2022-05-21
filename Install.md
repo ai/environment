@@ -9,11 +9,13 @@ and write it to the USB drive:
 sudo dnf install mediawriter
 ```
 
-Write backup to external HDD:
+Copy `.ssh` and `.gnupg` into `Private`.
 
-```sh
-~/environment/bin/backup
-```
+Copy these files to external SDD:
+* `Dev/`
+* `.Private/`
+* `.mozilla/firefox`
+* `Видео/`
 
 
 ### BIOS
