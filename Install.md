@@ -68,23 +68,13 @@ sudo efibootmgr
 sudo efibootmgr -B 0
 ```
 
-Swap <kbd>PgUp</kbd>/<kbd>PgDown</kbd> and <kbd>Home</kbd>/<kbd>End</kbd>
-by editing `/usr/share/X11/xkb/symbols/pc`:
-
-```
-    key <PGUP> { [ Home ] };
-    key <PGDN> { [ End ] };
-    key <HOME> { [ Prior ] };
-    key <END> { [ Next ] };
-```
-
 
 ### System Update
 
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts samba-client gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman
 ```
 
 Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
