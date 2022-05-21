@@ -181,13 +181,6 @@ Disable sleep on lid closing:
 1. `sudo nano /etc/systemd/logind.conf`
 2. Set `HandleLidSwitch=lock`
 
-Install `pavucontrol` and set microphone to Mono Input:
-
-```sh
-sudo dnf install pavucontrol
-pavucontrol
-```
-
 Restart.
 
 
