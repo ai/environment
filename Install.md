@@ -200,6 +200,12 @@ sudo dnf install xclip micro
 micro -plugin install editorconfig
 ```
 
+Remove `nano`:
+
+```sh
+sudo dnf remove nano
+```
+
 Install VS Code:
 
 ```sh
