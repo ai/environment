@@ -14,7 +14,6 @@
 * [Nano System Monitor](https://extensions.gnome.org/extension/5037/nano-system-monitor/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Remove App Menu](https://extensions.gnome.org/extension/3906/remove-app-menu/)
-* [Screenshot Tool](https://extensions.gnome.org/extension/1112/screenshot-tool/)
 * [Scroll Panel](https://extensions.gnome.org/extension/4257/scroll-panel/)
 * [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 * [System Monitor](https://extensions.gnome.org/extension/1064/system-monitor/)
