@@ -275,8 +275,6 @@ Install [VS Code extensions](./VSCode.md).
 
 ### GNOME Settings
 
-Install `seahorse` and disable the password for the main keychain.
-
 Open settings:
 
 * **Background:** use standard GNOME wallpaper.
