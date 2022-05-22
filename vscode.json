@@ -16,8 +16,8 @@
   "git.confirmSync": false,
   "projectManager.git.baseFolders": ["/home/ai/Dev/"],
   "projectManager.git.maxDepthRecursion": 1,
-  "window.menuBarVisibility": "toggle",
-  "workbench.activityBar.visible": true,
+  "window.menuBarVisibility": "visible",
+  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#151515"
   },
@@ -140,5 +140,6 @@
     "Weblate"
   ],
   "editor.fontSize": 12,
-  "terminal.integrated.fontSize": 12
+  "terminal.integrated.fontSize": 12,
+  "window.titleBarStyle": "custom"
 }

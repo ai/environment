@@ -10,15 +10,14 @@ EXTENSIONS=(
   dbaeumer.vscode-eslint
   EditorConfig.EditorConfig
   esbenp.prettier-vscode
-  fkrull.gtk-dark-titlebar
   formulahendry.auto-rename-tag
   kshetline.ligatures-limited
   mariusschulz.yarn-lock-syntax
-  mhmadhamster.postcss-language
   mikestead.dotenv
   mrorz.language-gettext
   ms-azuretools.vscode-docker
   MS-CEINTL.vscode-language-pack-ru
+  ms-vscode.live-server
   PKief.material-icon-theme
   rafaelmardojai.vscode-gnome-theme
   ryanluker.vscode-coverage-gutters
