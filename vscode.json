@@ -32,7 +32,8 @@
     ".lintstagedrc": "json",
     ".stylelintrc": "json",
     ".posthtmlrc": "json",
-    "*.css": "postcss"
+    "*.css": "postcss",
+    "*.desktop": "ini"
   },
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.levels": "2..6",
