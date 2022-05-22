@@ -21,17 +21,19 @@ Copy these files to external SDD:
 ### BIOS
 
 Boot to BIOS and set supervisor password.
+Block changing boot without password.
 
 
 ### Install
 
 Start installer.
 
-1. Add the Russian keyboard layout. Layout switching:
+1. Select English (US) language.
+2. Add the Russian keyboard layout. Layout switching:
  CapsLock to the first layout, Shift+CapsLock, to the last layout.
-2. Use disk manual mode. Create partitions automatically.
-3. Rename volume to `fullback`.
-4. Set encryption in volume settings.
+3. Use disk manual mode. Create partitions automatically.
+4. Rename volume to `fullback`.
+5. Set encryption in volume settings.
 
 Reboot to USB drive again. Mount laptop SSD.
 
@@ -48,18 +50,15 @@ vartmp /tmp     tmpfs defaults,noatime,nodiratime 0 0
 
 Clean `tmp` and `var/tmp` dirs.
 
-Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
+Reboot to system. Set name to `Андрей Ситник` and login `ai`.
 
-Copy `Dev/environment` and open `Install.md` locally.
-Start to copy `.Private` and `.mozilla` in background.
+Change language and format rules to Russians.
 
 Set laptop name:
 
 ```sh
 sudo hostnamectl set-hostname fullback
 ```
-
-Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 
 Clean Windows EFI record:
 
@@ -68,6 +67,28 @@ sudo efibootmgr
 sudo efibootmgr -B 0
 ```
 
+Reboot.
+
+Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
+
+```
+fastestmirror=true
+```
+
+Disable NVIDIA, Flathub Selection, and PyCharm repositories in Software Center settings.
+
+Install `micro` and its plugins:
+
+```sh
+sudo dnf install xclip micro
+micro -plugin install editorconfig
+```
+
+Copy `Dev/environment` and open `Install.md` locally.
+Start to copy `.Private` and `.mozilla` in background.
+
+Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
+
 
 ### System Update
 
@@ -75,13 +96,6 @@ Remove unnecessary packages:
 
 ```sh
 sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman
-```
-
-Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
-
-```
-fastestmirror=true
-deltarpm=true
 ```
 
 Add RPM Fusion:
@@ -93,11 +107,9 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.freedesktop.Platform.ffmpeg-full/x86_64/19.08 org.inkscape.Inkscape org.gnome.TextEditor
+flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.inkscape.Inkscape
 ```
-
-Disable NVIDIA and PyCharm repositories in Software Center settings.
 
 Update system via Software Center.
 
@@ -148,8 +160,6 @@ GRUB_FONT="/boot/efi/EFI/fedora/fonts/ter-u32n.pf2"
 GRUB_TERMINAL_OUTPUT="gfxterm"
 ```
 
-Add `i915.enable_guc=2` to `GRUB_CMDLINE_LINUX`.
-
 Rebuild GRUB:
 
 ```sh
@@ -168,42 +178,8 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 Disable sleep on lid closing:
 
-1. `sudo nano /etc/systemd/logind.conf`
+1. `sudo micro /etc/systemd/logind.conf`
 2. Set `HandleLidSwitch=lock`
-
-Restart.
-
-
-### Text Editors
-
-Install `micro` and its plugins:
-
-```sh
-sudo dnf install xclip micro
-micro -plugin install editorconfig
-```
-
-Remove `nano`:
-
-```sh
-sudo dnf remove nano
-```
-
-Install VS Code:
-
-```sh
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-sudo dnf install code git-delta
-```
-
-Add to `/etc/sysctl.conf`:
-
-```
-fs.inotify.max_user_watches=524288
-```
-
-Install [VS Code extensions](./VSCode.md).
 
 
 ### Personal Files
@@ -273,6 +249,31 @@ rm ~/.bash_history ~/.bash_logout
 ```
 
 
+### Text Editors
+
+Remove `nano`:
+
+```sh
+sudo dnf remove nano
+```
+
+Install VS Code:
+
+```sh
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf install code git-delta
+```
+
+Add to `/etc/sysctl.conf`:
+
+```
+fs.inotify.max_user_watches=524288
+```
+
+Install [VS Code extensions](./VSCode.md).
+
+
 ### GNOME Settings
 
 Install `seahorse` and disable the password for the main keychain.
@@ -314,15 +315,23 @@ Nautilus:
 sudo dnf install gnome-extensions-app openssl
 ```
 
+Install Microsoft fonts:
+
+```sh
+sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+```
+
+Disable GNOME extenstion version check:
+
+```
+gsettings set org.gnome.shell disable-extension-version-validation true
+```
+
 Install extensions from [`GNOME.md`](./GNOME.md).
 
-* **Autohide battery:** use battery level from BIOS.
+* **Autohide battery:** use battery level from Thinkpad Battery Threshold.
 * **Emoji selector:** disable Always show the icon.
 * **GSConnect:** add phone.
-* **Screenshot Tool:** disable Show Indicator, enable Auto-Save to Downloads
-  with `{Y}{m}{d}{H}{M}{S}` name, enable Imgur Upload
-  with Copy Link After Upload, set `Print` keyboard binding.
-* **System monitor:** move to left, hide activity.
 * **Thinkpad Battery Threshold:** 75 and 80%.
 
 Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
@@ -394,12 +403,6 @@ Install tools:
 sudo dnf install unrar p7zip p7zip-plugins
 ```
 
-Install Microsoft fonts:
-
-```sh
-sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-```
-
 Install Chrome:
 
 ```sh
@@ -417,7 +420,13 @@ in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa make gcc-c++ zlib-devel xkill bat
+sudo dnf install git tig ripgrep exa xkill bat
+```
+
+Install tools for compile:
+
+```sh
+dnf install -y make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
 ```
 
 Install Node.js:
@@ -440,35 +449,13 @@ Restart terminal:
 asdf plugin-add yarn
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin-add pnpm https://github.com/jonathanmorley/asdf-pnpm.git
-~/Dev/environment/bin/copy-env system
-asdf install nodejs latest
-asdf install yarn latest
-asdf install pnpm latest
+asdf install
 ```
 
 Sign-in to npm:
 
 ```sh
 npm login
-```
-
-```sh
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io
-sudo systemctl start docker
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-Fix [Docker bug](https://github.com/docker/for-linux/issues/665):
-
-```sh
-sudo dnf install grubby
-sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
-sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
 ```
 
 Install Keybase:
