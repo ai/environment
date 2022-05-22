@@ -1,0 +1,17 @@
+[Added Associations]
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+video/x-msvideo=mpv.desktop;
+video/x-matroska=mpv.desktop;
+video/mp4=mpv.desktop;
+video/x-ms-wmv=mpv.desktop;
+video/x-flv=mpv.desktop;
+video/mpeg=mpv.desktop;
+
+[Default Applications]
+video/x-matroska=mpv.desktop
+video/mp4=mpv.desktop
+video/x-ms-wmv=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/x-flv=mpv.desktop
+video/mpeg=mpv.desktop
