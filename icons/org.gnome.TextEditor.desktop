@@ -1,15 +1,15 @@
 [Desktop Entry]
 Categories=GNOME;GTK;Utility;TextEditor;
 DBusActivatable=true
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=gnome-text-editor --file-forwarding org.gnome.TextEditor @@u %U @@
+Exec=gnome-text-editor %U
 MimeType=text/plain;
 Name=Текстовый редактор
 GenericName=Текстовый редактор
-CommentПросмотр и редактирование текстовых файлов
+Comment=Просмотр и редактирование текстовых файлов
 Icon=org.gnome.TextEditor
 StartupNotify=true
 Terminal=false
 Type=Application
-X-Flatpak-RenamedFrom=gnome-text-editor;
-X-Flatpak=org.gnome.TextEditor
+X-Flatpak-RenamedFrom=gnome-text-editor
 NoDisplay=true
+
