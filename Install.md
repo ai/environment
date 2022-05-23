@@ -80,7 +80,7 @@ Disable NVIDIA, Flathub Selection, and PyCharm repositories in Software Center s
 Install `micro` and its plugins:
 
 ```sh
-sudo dnf install xclip micro
+sudo dnf install xclip micro gnome-console
 micro -plugin install editorconfig
 ```
 
@@ -95,7 +95,7 @@ Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman gnome-terminal
 ```
 
 Add RPM Fusion:
