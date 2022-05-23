@@ -7,6 +7,9 @@ video/mp4=mpv.desktop;
 video/x-ms-wmv=mpv.desktop;
 video/x-flv=mpv.desktop;
 video/mpeg=mpv.desktop;
+image/jpeg=org.gimp.GIMP.desktop;
+image/avif=org.gnome.eog.desktop;org.gimp.GIMP.desktop;
+image/webp=org.gnome.eog.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
