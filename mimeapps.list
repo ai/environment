@@ -10,6 +10,7 @@ video/mpeg=mpv.desktop;
 image/jpeg=org.gimp.GIMP.desktop;
 image/avif=org.gnome.eog.desktop;org.gimp.GIMP.desktop;
 image/webp=org.gnome.eog.desktop;
+image/svg+xml=org.gnome.TextEditor.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
