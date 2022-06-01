@@ -33,7 +33,11 @@
     ".stylelintrc": "json",
     ".posthtmlrc": "json",
     "*.css": "postcss",
-    "*.desktop": "ini"
+    "*.desktop": "ini",
+    "*.bu": "yaml",
+    "*.ign": "json",
+    "*.service": "ini",
+    "*.timer": "ini"
   },
   "markdown.extension.italic.indicator": "_",
   "markdown.extension.toc.levels": "2..6",
@@ -41,7 +45,6 @@
     "README.md": ["## Table of Contents"]
   },
   "markdown.extension.toc.unorderedList.marker": "*",
-  "prettier.requireConfig": true,
   "editor.wordWrap": "on",
   "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.packageManager": "yarn",
