@@ -3,4 +3,4 @@ Type=Application
 Name=Обновление системы
 Comment=Update RPM, Flatpak, and Mozilla Theme
 Icon=org.fedoraproject.AnacondaInstaller
-Exec=kgx -- /bin/zsh -c "/home/ai/Dev/environment/bin/update;$SHELL"
+Exec=kgx -e /home/ai/Dev/environment/bin/update
