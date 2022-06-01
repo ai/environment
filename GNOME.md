@@ -10,6 +10,7 @@
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
+* [Hide Lock item in System Menu](https://extensions.gnome.org/extension/5091/hide-lock-item-in-system-menu/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Nano System Monitor](https://extensions.gnome.org/extension/5037/nano-system-monitor/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
