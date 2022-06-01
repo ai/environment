@@ -2,7 +2,7 @@
 
 sudo echo "Обновление системы…"
 
-cd .mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
+cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
 cd
 
@@ -17,4 +17,4 @@ source ~/.antigen.zsh
 antigen update
 
 flatpak update -y
-sudo dnf update --refresh --assumeno
+sudo dnf update --refresh -y
