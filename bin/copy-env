@@ -10,10 +10,12 @@ if [ "$1" == "system" ]; then
   mkdir -p ~/.config/bat/
   mkdir -p ~/.config/mpv/
   mkdir -p ~/.config/Code/User/
+  mkdir -p ~/.config/git/
   cp ~/Dev/environment/zshrc          ~/.zshrc
   cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
   cp ~/Dev/environment/gitconfig      ~/.gitconfig
   cp ~/Dev/environment/batconfig      ~/.config/bat/config
+  cp ~/Dev/environment/gitignore      ~/.config/git/ignore
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
   cp ~/Dev/environment/tool-versions  ~/.tool-versions
@@ -25,6 +27,7 @@ else
   cp ~/.gitconfig                                ~/Dev/environment/gitconfig
   cp ~/.ripgreprc                                ~/Dev/environment/ripgreprc
   cp ~/.tool-versions                            ~/Dev/environment/tool-versions
+  cp ~/.config/git/ignore                        ~/Dev/environment/gitignore      
   cp ~/.config/bat/config                        ~/Dev/environment/batconfig
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
