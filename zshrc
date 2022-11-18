@@ -61,11 +61,16 @@ alias cat='bat'
 
 # Node.js
 alias n='pnpm '
-alias pui='pnpm update --interactive --latest'
-alias pu='pnpm update'
+alias pui='pnpm update --interactive --latest -r --include-workspace-root'
+alias pu='pnpm update -r --include-workspace-root'
+alias ptr='pnpm test -r --include-workspace-root'
 alias p='n clean-publish'
+alias pui1='pnpm update --interactive --latest'
+alias pu1='pnpm update'
 
 # pnpm
+export PNPM_HOME="/home/ai/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 if [ -f ~/.config/tabtab/zsh/pnpm.zsh ]; then
   source ~/.config/tabtab/zsh/pnpm.zsh
 fi
