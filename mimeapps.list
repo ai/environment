@@ -14,6 +14,10 @@ image/svg+xml=org.gnome.TextEditor.desktop;
 application/x-bittorrent=com.transmissionbt.Transmission.desktop;de.haeckerfelix.Fragments.desktop;
 image/png=org.gimp.GIMP.desktop;
 video/mp2t=mpv.desktop;
+video/webm=mpv.desktop;
+video/quicktime=mpv.desktop;
+image/heif=org.gimp.GIMP.desktop;
+application/octet-stream=org.gnome.TextEditor.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
@@ -23,3 +27,5 @@ video/x-msvideo=mpv.desktop
 video/x-flv=mpv.desktop
 video/mpeg=mpv.desktop
 video/mp2t=mpv.desktop
+video/webm=mpv.desktop
+video/quicktime=mpv.desktop
