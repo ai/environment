@@ -1,5 +1,4 @@
 {
-  "breadcrumbs.enabled": false,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": false
@@ -17,7 +16,6 @@
   "projectManager.git.baseFolders": ["/home/ai/Dev/"],
   "projectManager.git.maxDepthRecursion": 1,
   "window.menuBarVisibility": "visible",
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#151515"
   },
@@ -144,5 +142,8 @@
   ],
   "editor.fontSize": 12,
   "terminal.integrated.fontSize": 12,
-  "window.titleBarStyle": "custom"
+  "window.titleBarStyle": "custom",
+  "breadcrumbs.enabled": false,
+  "window.commandCenter": true,
+  "git.mergeEditor": true
 }
