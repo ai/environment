@@ -297,6 +297,12 @@ Update typography keyboard layout:
 sudo cp ~/Dev/environment/typo.txt /usr/share/X11/xkb/symbols/typo
 ```
 
+Disable Terminal beep:
+
+```sh
+dconf write /org/gnome/desktop/sound/event-sounds "false"
+```
+
 Nautilus:
 
 * Enable Sort folders before files.
