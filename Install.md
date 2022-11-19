@@ -28,9 +28,9 @@ Block changing boot without password.
 
 Start installer.
 
-1. Select English (US) language.
-2. Add the Russian keyboard layout. Layout switching:
- CapsLock to the first layout, Shift+CapsLock, to the last layout.
+1. Select Spanish language.
+2. Add the US and Russian keyboard layouts. Layout switching:
+   CapsLock to the first layout, Shift+CapsLock, to the last layout.
 3. Use disk manual mode. Create partitions automatically.
 4. Rename volume to `fullback`.
 5. Set encryption in volume settings.
@@ -124,8 +124,6 @@ Disable Software auto-start:
 ```sh
 dconf write /org/gnome/software/allow-updates false
 dconf write /org/gnome/software/download-updates false
-mkdir -pv ~/.config/autostart && cp /etc/xdg/autostart/org.gnome.Software.desktop ~/.config/autostart/
-echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
 ```
 
 
@@ -299,10 +297,6 @@ Update typography keyboard layout:
 sudo cp ~/Dev/environment/typo.txt /usr/share/X11/xkb/symbols/typo
 ```
 
-Terminal:
-
-* **Unnamed Profile:** disable Terminal bell and disable scrollback limit.
-
 Nautilus:
 
 * Enable Sort folders before files.
@@ -357,20 +351,20 @@ Create empty file template:
 ```sh
 mkdir ~/.local/share/desktop
 mkdir ~/.local/share/templates
-touch ~/.local/share/templates/Пустой\ файл
+touch ~/.local/share/templates/Archivo\ vacío
 ```
 
 Fix folders at `~/.config/user-dirs.dirs`:
 
 ```sh
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
-XDG_DOWNLOAD_DIR="$HOME/Загрузки"
+XDG_DOWNLOAD_DIR="$HOME/Descargas"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME"
 XDG_DOCUMENTS_DIR="$HOME"
 XDG_MUSIC_DIR="$HOME"
 XDG_PICTURES_DIR="$HOME"
-XDG_VIDEOS_DIR="$HOME/Видео"
+XDG_VIDEOS_DIR="$HOME/Vídeos"
 ```
 
 Clean bookmarks:
@@ -382,7 +376,7 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 Remove unnecessary folders:
 
 ```sh
-rm -R ~/Documents ~/Pictures ~/Music ~/Public ~/Templates ~/Desktop
+rm -R ~/Documentos ~/Imágenes ~/Música ~/Público ~/Plantillas ~/Escritorio
 ```
 
 
@@ -406,10 +400,7 @@ Install Chrome:
 sudo dnf install google-chrome-stable
 ```
 
-Download [VPN client](https://mullvad.net/download/).
-
-Left only Telegram, Firefox, Nautilus, and Terminal, VS Code, Yubico 2FA
-in the dock.
+Left only Telegram, Firefox, Nautilus, and Terminal, Yubico 2FA in the dock.
 
 
 ### Development Tools
@@ -423,7 +414,7 @@ sudo dnf install git tig ripgrep exa xkill bat
 Install tools for compile:
 
 ```sh
-dnf install -y make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+sudo dnf install make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
 ```
 
 Install Node.js:
