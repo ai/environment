@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-sudo echo "Обновление системы…"
+sudo echo "Actualización del sistema…"
 
 cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
