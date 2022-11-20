@@ -308,6 +308,18 @@ Nautilus:
 * Enable Sort folders before files.
 * Enable Single click to open items.
 
+Install `nautilus-code`:
+
+```sh
+sudo dnf install nautilus-devel meson
+git clone --depth=1 https://github.com/realmazharhussain/nautilus-code.git
+cd nautilus-code
+meson setup build
+meson install -C build
+cd ..
+rm -R nautilus-code
+```
+
 ```sh
 sudo dnf install gnome-extensions-app openssl
 ```
