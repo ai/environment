@@ -108,7 +108,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.inkscape.Inkscape
+flatpak install flathub com.transmissionbt.Transmission org.telegram.desktop org.gimp.GIMP us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader
 ```
 
 Update system via Software Center.
