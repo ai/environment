@@ -2,13 +2,13 @@
 # Run movies from specific category
 
 if [[ "$1" == "--new" ]]; then
-  find /home/ai/Видео/Erótica/Nuevos -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/Nuevos -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--bdsm" ]]; then
-  find /home/ai/Видео/Erótica/BDSM -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/BDSM -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--amateur" ]]; then
-  find /home/ai/Видео/Erótica/Aficionados -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/Aficionados -type f -exec mpv --shuffle --fullscreen {} +
 elif [[ "$1" == "--other" ]]; then
-  find /home/ai/Видео/Erótica/Otros -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/Otros -type f -exec mpv --shuffle --fullscreen {} +
 else
-  find /home/ai/Видео/Erótica/{Otros,BDSM,Aficionado} -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/{Otros,BDSM,Aficionado} -type f -exec mpv --shuffle --fullscreen {} +
 fi
