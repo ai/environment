@@ -284,6 +284,7 @@ Open settings:
 * **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
   enable Tap to Click.
 * **Users:** set fingerprint, avatar and Automatic Login.
+* **Keyboard:** add hot key for screenshot.
 
 Set keyboard settings:
 
@@ -330,7 +331,7 @@ Install Microsoft fonts:
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
-Disable GNOME extenstion version check:
+Disable GNOME extension version check:
 
 ```
 gsettings set org.gnome.shell disable-extension-version-validation true
