@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Личная папка
+Name=Carpeta privada
 Comment=Decrypt safe storage
 Icon=/home/ai/.local/share/applications/private.svg
 Exec=/home/ai/Dev/environment/bin/private

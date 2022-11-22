@@ -1,23 +1,23 @@
 [Desktop Entry]
 Type=Application
-Name=Эротика
+Name=Erótica
 Comment=Play porn movies
 Icon=org.gnome.Totem
 Exec=env MESA_LOADER_DRIVER_OVERRIDE=i965 /home/ai/Dev/environment/bin/porn
 Actions=New;BDSM;Amateur;Other;
 
 [Desktop Action New]
-Name=Новое
+Name=Nuevos
 Exec=env MESA_LOADER_DRIVER_OVERRIDE=i965 /home/ai/Dev/environment/bin/porn --new
 
 [Desktop Action BDSM]
-Name=БДСМ
+Name=BDSM
 Exec=env MESA_LOADER_DRIVER_OVERRIDE=i965 /home/ai/Dev/environment/bin/porn --bdsm
 
 [Desktop Action Amateur]
-Name=Частное
+Name=Aficionados
 Exec=env MESA_LOADER_DRIVER_OVERRIDE=i965 /home/ai/Dev/environment/bin/porn --amateur
 
 [Desktop Action Other]
-Name=Другое
+Name=Otros
 Exec=env MESA_LOADER_DRIVER_OVERRIDE=i965 /home/ai/Dev/environment/bin/porn --other

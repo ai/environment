@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Обновление системы
+Name=Actualización
 Comment=Update RPM, Flatpak, and Mozilla Theme
 Icon=org.fedoraproject.AnacondaInstaller
 Exec=kgx -e /home/ai/Dev/environment/bin/update
