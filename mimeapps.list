@@ -17,7 +17,6 @@ video/mp2t=mpv.desktop;
 video/webm=mpv.desktop;
 video/quicktime=mpv.desktop;
 image/heif=org.gimp.GIMP.desktop;
-application/octet-stream=org.gnome.TextEditor.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
