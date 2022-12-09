@@ -10,5 +10,5 @@ elif [[ "$1" == "--amateur" ]]; then
 elif [[ "$1" == "--other" ]]; then
   find /home/ai/Vídeos/Erótica/Otros -type f -exec mpv --shuffle --fullscreen {} +
 else
-  find /home/ai/Vídeos/Erótica/{Otros,BDSM,Aficionado} -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/{Otros,BDSM,Aficionados} -type f -exec mpv --shuffle --fullscreen {} +
 fi
