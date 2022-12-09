@@ -400,6 +400,17 @@ Remove unnecessary folders:
 rm -R ~/Documentos ~/Imágenes ~/Música ~/Público ~/Plantillas ~/Escritorio
 ```
 
+Add icon theme:
+
+```sh
+sudo dnf copr enable dusansimic/themes
+sudo dnf install morewaita-icon-theme
+gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
+```
+
+Set `/usr/share/icons/MoreWaita/places/scalables/folder-code.svg` icon
+for `~/Dev/`.
+
 
 ### Additional Software
 
