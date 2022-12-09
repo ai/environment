@@ -7,6 +7,7 @@ EXTENSIONS=(
   alefragnani.project-manager
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
+  csstools.postcss
   dbaeumer.vscode-eslint
   EditorConfig.EditorConfig
   esbenp.prettier-vscode
