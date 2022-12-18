@@ -59,7 +59,7 @@ xkb_symbols "base" {
     key <AB02> { [ NoSymbol,   NoSymbol,              multiply,        periodcentered ] }; // "x"
     key <AB03> { [ NoSymbol,   NoSymbol,              ccedilla,              Ccedilla ] }; // "c"
     key <AB04> { [ NoSymbol,   NoSymbol,             downarrow,                 U25CA ] }; // "v"
-    key <AB06> { [ NoSymbol,   NoSymbol,                ntilde,                Ntilde ] }; // "n"
+    key <AB06> { [ NoSymbol,   NoSymbol,                 U00F1,                 U00D1 ] }; // "n"
     key <AB07> { [ NoSymbol,   NoSymbol,                 U2212,    enfilledcircbullet ] }; // "m"
     key <AB08> { [ NoSymbol,   NoSymbol,         guillemotleft,         lessthanequal ] }; // ","
     key <AB09> { [ NoSymbol,   NoSymbol,        guillemotright,      greaterthanequal ] }; // "."
@@ -82,4 +82,6 @@ xkb_symbols "base" {
     // U+0308 COMBINING DIAERESIS
     // U+21B5 DOWNWARDS ARROW WITH CORNER LEFTWARDS
     // U+23CE RETURN SYMBOL
+    // U+00F1 LATIN SMALL LETTER N WITH TILDE
+    // U+00D1 LATIN CAPITAL LETTER N WITH TILDE
 };
