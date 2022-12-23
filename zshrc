@@ -77,6 +77,3 @@ fi
 
 # Python
 export PATH=~/.local/bin/:$PATH
-
-# Fix mpv
-export MESA_LOADER_DRIVER_OVERRIDE=i965
