@@ -348,7 +348,7 @@ Install extensions from [`GNOME.md`](./GNOME.md).
 
 Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
 
-Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
+Install [Martians Mono](https://github.com/evilmartians/mono/releases) font.
 
 Install GNOME Tweaks:
 
@@ -360,7 +360,7 @@ sudo dnf install gnome-tweak-tool
 * **Top Bar:** enable Date and Seconds.
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
 * **Windows:** enable window scaling with right mouse button.
-* **Fonts:** monospace to JetBrains Mono.
+* **Fonts:** monospace to `Martians Mono Nr Lt` and size `10`.
 
 Move applications from folders.
 

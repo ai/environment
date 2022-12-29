@@ -3,7 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": false
   },
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "Martian Mono Nr Lt",
   "editor.fontLigatures": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "selection",
@@ -140,7 +140,7 @@
     "vite",
     "Weblate"
   ],
-  "editor.fontSize": 12,
+  "editor.fontSize": 12.5,
   "terminal.integrated.fontSize": 12,
   "window.titleBarStyle": "custom",
   "breadcrumbs.enabled": false,
