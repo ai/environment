@@ -3,8 +3,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": false
   },
-  "editor.fontFamily": "Martian Mono Nr Lt",
-  "editor.fontLigatures": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "selection",
   "editor.rulers": [80],
@@ -109,8 +107,6 @@
   ],
   "eslint.validate": ["javascript", "javascriptreact", "svelte"],
   "markdown.extension.toc.updateOnSave": false,
-  "editor.lineHeight": 18,
-  "terminal.integrated.fontFamily": "JetBrains Mono",
   "security.workspace.trust.untrustedFiles": "newWindow",
   "editor.bracketPairColorization.enabled": true,
   "cSpell.language": "en,ru",
@@ -140,10 +136,15 @@
     "vite",
     "Weblate"
   ],
-  "editor.fontSize": 12.5,
-  "terminal.integrated.fontSize": 12,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Martian Mono",
+  "editor.fontSize": 11,
+  "editor.fontWeight": "300",
+  "editor.lineHeight": 16,
+  "terminal.integrated.fontSize": 10,
+  "terminal.integrated.fontWeight": "300",
   "window.titleBarStyle": "custom",
   "breadcrumbs.enabled": false,
   "window.commandCenter": true,
-  "git.mergeEditor": true
+  "git.mergeEditor": true,
 }
