@@ -17,7 +17,7 @@ if [ -f ~/.antigen.zsh ]; then
   source ~/.antigen.zsh
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
-  antigen theme denysdovhan/spaceship-prompt
+  antigen theme spaceship-prompt/spaceship-prompt
   antigen bundle zsh-users/zsh-completions
   antigen apply
 fi
@@ -29,6 +29,7 @@ compinit
 
 # Prompt
 SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
+SPACESHIP_PROMPT_ASYNC=false
 
 # Fast way to Dev projects
 if [ -d ~/Dev ]; then
@@ -71,9 +72,6 @@ alias pu1='pnpm update'
 # pnpm
 export PNPM_HOME="/home/ai/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-if [ -f ~/.config/tabtab/zsh/pnpm.zsh ]; then
-  source ~/.config/tabtab/zsh/pnpm.zsh
-fi
 
 # Python
 export PATH=~/.local/bin/:$PATH
