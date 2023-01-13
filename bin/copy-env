@@ -18,6 +18,7 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/gitignore      ~/.config/git/ignore
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
+  cp ~/Dev/environment/starship.toml  ~/.config/starship.toml
   cp ~/Dev/environment/tool-versions  ~/.tool-versions
   cp ~/Dev/environment/mimeapps.list  ~/.config/mimeapps.list
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
@@ -30,8 +31,9 @@ else
   cp ~/.config/git/ignore                        ~/Dev/environment/gitignore      
   cp ~/.config/bat/config                        ~/Dev/environment/batconfig
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
+  cp ~/.config/starship.toml                     ~/Dev/environment/starship.toml  
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
-  cp  ~/.config/mimeapps.list                    ~/Dev/environment/mimeapps.list 
+  cp ~/.config/mimeapps.list                    ~/Dev/environment/mimeapps.list 
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
   rm ~/Dev/environment/icons/chrome-* -f
