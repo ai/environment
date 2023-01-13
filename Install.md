@@ -217,7 +217,8 @@ chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
 Install zsh:
 
 ```sh
-sudo dnf install zsh util-linux-user
+dnf copr enable atim/starship
+sudo dnf install zsh util-linux-user starship
 chsh -s /bin/zsh
 ```
 
@@ -231,18 +232,8 @@ source ~/.antigen.zsh
 
 Create `/root/.zshrc`:
 
-```
-if [ -f /home/ai/.antigen.zsh ]; then
- ANTIGEN_MUTEX=false
- source /home/ai/.antigen.zsh
- antigen bundle yarn
- antigen bundle zsh-users/zsh-syntax-highlighting
- antigen bundle zsh-users/zsh-history-substring-search
- antigen theme denysdovhan/spaceship-prompt
- antigen apply
-fi
-
-SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
+```sh
+eval "$(starship init zsh)"
 ```
 
 Reboot.

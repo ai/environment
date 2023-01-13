@@ -17,7 +17,6 @@ if [ -f ~/.antigen.zsh ]; then
   source ~/.antigen.zsh
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle zsh-users/zsh-history-substring-search
-  antigen theme spaceship-prompt/spaceship-prompt
   antigen bundle zsh-users/zsh-completions
   antigen apply
 fi
@@ -28,8 +27,7 @@ autoload -Uz compinit
 compinit
 
 # Prompt
-SPACESHIP_PROMPT_ORDER=(time user dir host git exit_code line_sep char)
-SPACESHIP_PROMPT_ASYNC=false
+eval "$(starship init zsh)"
 
 # Fast way to Dev projects
 if [ -d ~/Dev ]; then
