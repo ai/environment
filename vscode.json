@@ -89,7 +89,6 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
   "prettier.quoteProps": "consistent",
-  "window.zoomLevel": 1,
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
@@ -147,4 +146,5 @@
   "breadcrumbs.enabled": false,
   "window.commandCenter": true,
   "git.mergeEditor": true,
+  "window.zoomLevel": 1,
 }
