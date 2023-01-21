@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+echo "Before $(df -h / | tail -1 | awk '{print $4}')"
+podman rmi --all --force
+pnpm store prune
+yarn cache clean
+npm cache clean -f
+echo "After $(df -h / | tail -1 | awk '{print $4}')"
