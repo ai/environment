@@ -108,7 +108,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader org.gnome.World.PikaBackup
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
@@ -435,7 +435,7 @@ Left only Telegram, Firefox, Nautilus, and Terminal, Yubico 2FA in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa xkill bat
+sudo dnf install git tig ripgrep exa xkill bat borgbackup
 ```
 
 Install tools for compile:
@@ -489,8 +489,7 @@ Open Zoom and sign-in into corporate account.
 
 Create backup:
 
-1. To `sftp://ai@susedko.local`/`var/mnt/vault/ai/.backup`
-2. With password
-3. `~/Dev/susedko`, `~/Dev/environment`, Firefox profile, `~/.ssh`, `~/.gnupg`,
-   `.Private`
-4. Make it daily and enable auto-cleaning
+```sh
+borg init --encryption repokey-blake2 ai@susedko.local:/var/mnt/vault/ai/.backup
+~/Dev/environment/bin/backup
+```

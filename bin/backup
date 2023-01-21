@@ -1,0 +1,51 @@
+#!/bin/sh
+
+export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
+
+info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
+trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
+
+info "Starting backup"
+borg create                         \
+    --verbose                       \
+    --filter AME                    \
+    --list                          \
+    --stats                         \
+    --show-rc                       \
+    --compression lz4               \
+    --exclude-caches                \
+    --exclude '*.iso'               \
+    --exclude 'node_modules'        \
+    ::'{hostname}-{now}'            \
+    ~/Dev/susedko                   \
+    ~/Dev/environment               \
+    ~/.ssh                          \
+    ~/.gnupg                        \
+    ~/.Private                      \
+    ~/.mozilla/firefox/iesxdh6c.default-release
+backup_exit=$?
+
+info "Pruning repository"
+borg prune                          \
+    --list                          \
+    --glob-archives '{hostname}-*'  \
+    --show-rc                       \
+    --keep-last 1
+prune_exit=$?
+
+info "Compacting repository"
+borg compact
+compact_exit=$?
+
+global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+global_exit=$(( compact_exit > global_exit ? compact_exit : global_exit ))
+
+if [ ${global_exit} -eq 0 ]; then
+  info "Backup, Prune, and Compact finished successfully"
+elif [ ${global_exit} -eq 1 ]; then
+  info "Backup, Prune, and/or Compact finished with warnings"
+else
+  info "Backup, Prune, and/or Compact finished with errors"
+fi
+
+exit ${global_exit}
