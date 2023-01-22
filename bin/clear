@@ -5,4 +5,5 @@ podman rmi --all --force
 pnpm store prune
 yarn cache clean
 npm cache clean -f
+rm -Rf ~/.local/share/Trash/
 echo "After $(df -h / | tail -1 | awk '{print $4}')"
