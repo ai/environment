@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Copia de seguridad
+Comment=Backup
+Icon=/home/ai/.local/share/applications/backup.svg
+Exec=kgx -e /home/ai/Dev/environment/bin/backup
