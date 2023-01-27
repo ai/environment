@@ -18,4 +18,3 @@
 * [Thinkpad Battery Threshold](https://extensions.gnome.org/extension/4798/thinkpad-battery-threshold/)
 * [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
-* [Wifi QrCode](https://extensions.gnome.org/extension/5416/wifi-qrcode/)
