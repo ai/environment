@@ -2,6 +2,7 @@
 
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
+* [Battery Indicator Icon](https://extensions.gnome.org/extension/5718/battery-indicator-icon/)
 * [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
 * [Bluetooth Quick Connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
 * [Draw On Your Screen 2](https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/)
