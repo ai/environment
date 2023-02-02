@@ -91,8 +91,9 @@ chmod 600 ~/.ssh/id_ed25519
 Open backup and copy files from it.
 
 ```sh
+cd /
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
-borg extract $BORG_REPO::$(borg list --last 1 $BORG_REPO) ~/
+borg extract $BORG_REPO::$(borg list --short --last 1 $BORG_REPO)
 ```
 
 Start copying `Видео` from HDD in the background.
