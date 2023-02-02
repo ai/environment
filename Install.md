@@ -12,10 +12,9 @@ sudo dnf install mediawriter
 Copy `.ssh` and `.gnupg` into `Private`.
 
 Copy these files to external SDD:
-* `Dev/`
-* `.Private/`
-* `.mozilla/firefox`
-* `Видео/`
+* `Dev/environment`
+* `.ssh`
+* `Видео`
 
 
 ### BIOS
@@ -77,17 +76,33 @@ fastestmirror=true
 
 Disable NVIDIA, Flathub Selection, and PyCharm repositories in Software Center settings.
 
+Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
+
+Copy `Dev/environment` and open `Install.md` locally.
+
+Copy `.ssh` and change permissions:
+
+```sh
+chmod 744 ~/.ssh
+chmod 644 ~/.ssh/*
+chmod 600 ~/.ssh/id_ed25519
+```
+
+Open backup and copy files from it.
+
+```sh
+export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
+borg extract $BORG_REPO::$(borg list --last 1 $BORG_REPO) ~/
+```
+
+Start copying `Видео` from HDD in the background.
+
 Install `micro` and its plugins:
 
 ```sh
 sudo dnf install xclip micro gnome-console
 micro -plugin install editorconfig
 ```
-
-Copy `Dev/environment` and open `Install.md` locally.
-Start to copy `.Private` and `.mozilla` in background.
-
-Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 
 
 ### System Update
@@ -198,8 +213,6 @@ Install encryption tools:
 ```sh
 sudo dnf install fuse-encfs
 ```
-
-Open Private files and copy `.ssh/` and `.gnupg/`.
 
 Change permissions:
 
