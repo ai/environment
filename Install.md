@@ -349,10 +349,12 @@ gsettings set org.gnome.shell disable-extension-version-validation true
 
 Install extensions from [`GNOME.md`](./GNOME.md).
 
-* **Autohide battery:** use battery level from Thinkpad Battery Threshold.
-* **Emoji selector:** disable Always show the icon.
-* **GSConnect:** add phone.
-* **Thinkpad Battery Threshold:** 75 and 80%.
+Set `.config/gnome-extensions.json` at Extensions Sync settings
+and restore extension settings:
+
+```sh
+busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync read
+```
 
 Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
 
