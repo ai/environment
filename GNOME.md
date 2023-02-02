@@ -11,6 +11,7 @@
 * [Focus Indicator](https://extensions.gnome.org/extension/5612/focus-indicator/)
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
+* [Hide Activities Button](https://extensions.gnome.org/extension/1128/hide-activities-button/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
