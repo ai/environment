@@ -501,10 +501,3 @@ Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/active/metadata`
 and change `~/Documents/Zoom` to `~/.Documents/Zoom`.
 
 Open Zoom and sign-in into corporate account.
-
-Create backup:
-
-```sh
-borg init --encryption repokey-blake2 ai@susedko.local:/var/mnt/vault/ai/.backup
-~/Dev/environment/bin/backup
-```
