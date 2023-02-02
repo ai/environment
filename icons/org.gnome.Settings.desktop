@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Параметры
+Icon=org.gnome.Settings
+Exec=gnome-control-center
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Settings;
+OnlyShowIn=GNOME;Unity;
+Keywords=Настройки;Параметры;
+NoDisplay=true
+
