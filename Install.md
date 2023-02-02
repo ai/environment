@@ -440,7 +440,7 @@ Install Chrome:
 sudo dnf install google-chrome-stable
 ```
 
-Left only Telegram, Firefox, Nautilus, and Terminal, Yubico 2FA in the dock.
+Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
 
 
 ### Development Tools
