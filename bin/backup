@@ -8,23 +8,28 @@ info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
 info "Starting backup"
-borg create                                 \
-    --verbose                               \
-    --filter AME                            \
-    --list                                  \
-    --stats                                 \
-    --show-rc                               \
-    --compression lz4                       \
-    --exclude-caches                        \
-    --exclude '*.iso'                       \
-    --exclude 'node_modules'                \
-    ::'{hostname}-{now}'                    \
-    ~/Dev/susedko                           \
-    ~/Dev/environment                       \
-    ~/.ssh                                  \
-    ~/.gnupg                                \
-    ~/.Private                              \
-    ./.config/.config/gnome-extensions.json \
+borg create                                          \
+    --verbose                                        \
+    --filter AME                                     \
+    --list                                           \
+    --stats                                          \
+    --show-rc                                        \
+    --compression lz4                                \
+    --exclude-caches                                 \
+    --exclude '*.iso'                                \
+    --exclude '**/node_modules'                      \
+    --exclude '**/mozilla/**/lock'                   \
+    --exclude '**/mozilla/**/crashes'                \
+    --exclude '**/mozilla/**/bookmarkbackups'        \
+    --exclude '**/mozilla/**/datareporting/archived' \
+    --exclude '**/mozilla/**/weave/logs'             \
+    ::'{hostname}-{now}'                             \
+    ~/Dev/susedko                                    \
+    ~/Dev/environment                                \
+    ~/.ssh                                           \
+    ~/.gnupg                                         \
+    ~/.Private                                       \
+    ./.config/.config/gnome-extensions.json          \
     ~/.mozilla/firefox/iesxdh6c.default-release
 backup_exit=$?
 
