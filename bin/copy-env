@@ -33,7 +33,7 @@ else
   cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
   cp ~/.config/starship.toml                     ~/Dev/environment/starship.toml  
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
-  cp ~/.config/mimeapps.list                    ~/Dev/environment/mimeapps.list 
+  cp ~/.config/mimeapps.list                     ~/Dev/environment/mimeapps.list 
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
   rm ~/Dev/environment/icons/chrome-* -f
