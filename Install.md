@@ -80,31 +80,6 @@ Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
 
 Copy `Dev/environment` and open `Install.md` locally.
 
-Copy `.ssh` and change permissions:
-
-```sh
-chmod 744 ~/.ssh
-chmod 644 ~/.ssh/*
-chmod 600 ~/.ssh/id_ed25519
-```
-
-Open backup and copy files from it.
-
-```sh
-cd /
-export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
-borg extract $BORG_REPO::$(borg list --short --last 1 $BORG_REPO)
-```
-
-Start copying `Видео` from HDD in the background.
-
-Install `micro` and its plugins:
-
-```sh
-sudo dnf install xclip micro gnome-console
-micro -plugin install editorconfig
-```
-
 
 ### System Update
 
@@ -254,6 +229,29 @@ Reboot.
 
 ```sh
 rm ~/.bash_history ~/.bash_logout
+```
+
+Install backup tool:
+
+```sh
+sudo dnf install borgbackup
+```
+
+Open backup and copy files from it.
+
+```sh
+cd /
+export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
+borg extract $BORG_REPO::$(borg list --short --last 1 $BORG_REPO)
+```
+
+Start copying `Видео` from HDD in the background.
+
+Install `micro` and its plugins:
+
+```sh
+sudo dnf install xclip micro gnome-console
+micro -plugin install editorconfig
 ```
 
 
@@ -451,7 +449,7 @@ Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa xkill bat borgbackup
+sudo dnf install git tig ripgrep exa xkill bat
 ```
 
 Install tools for compile:
