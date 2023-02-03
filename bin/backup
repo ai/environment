@@ -18,18 +18,18 @@ borg create                                          \
     --exclude-caches                                 \
     --exclude '*.iso'                                \
     --exclude '**/node_modules'                      \
-    --exclude '**/mozilla/**/lock'                   \
-    --exclude '**/mozilla/**/crashes'                \
-    --exclude '**/mozilla/**/bookmarkbackups'        \
-    --exclude '**/mozilla/**/datareporting/archived' \
-    --exclude '**/mozilla/**/weave/logs'             \
+    --exclude '~/.mozilla/**/lock'                   \
+    --exclude '~/.mozilla/**/crashes'                \
+    --exclude '~/.mozilla/**/bookmarkbackups'        \
+    --exclude '~/.mozilla/**/datareporting/archived' \
+    --exclude '~/.mozilla/**/weave/logs'             \
     ::'{hostname}-{now}'                             \
     ~/Dev/susedko                                    \
     ~/Dev/environment                                \
     ~/.ssh                                           \
     ~/.gnupg                                         \
     ~/.Private                                       \
-    ./.config/.config/gnome-extensions.json          \
+    ./.config/gnome-extensions.json                  \
     ~/.mozilla/firefox/iesxdh6c.default-release
 backup_exit=$?
 
