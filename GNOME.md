@@ -17,6 +17,7 @@
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Project Manager for VSCode](https://extensions.gnome.org/extension/5289/project-manager-for-vscode/)
+* [Quick Settings Button Remover](https://extensions.gnome.org/extension/5443/quick-settings-button-remover/)
 * [Scroll Panel](https://extensions.gnome.org/extension/4257/scroll-panel/)
 * [Thinkpad Battery Threshold](https://extensions.gnome.org/extension/4798/thinkpad-battery-threshold/)
 * [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
