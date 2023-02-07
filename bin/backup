@@ -23,6 +23,7 @@ borg create                                          \
     --exclude '~/.mozilla/**/bookmarkbackups'        \
     --exclude '~/.mozilla/**/datareporting/archived' \
     --exclude '~/.mozilla/**/weave/logs'             \
+    --exclude '**/sitnik.ru/dist'                    \
     ::'{hostname}-{now}'                             \
     ~/Dev/susedko                                    \
     ~/Dev/environment                                \
