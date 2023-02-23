@@ -21,6 +21,7 @@ borg create                                          \
     --exclude '~/.mozilla/**/bookmarkbackups'        \
     --exclude '~/.mozilla/**/datareporting/archived' \
     --exclude '~/.mozilla/**/weave/logs'             \
+    --exclude '**/*.log'                             \
     --exclude '**/sitnik.ru/dist'                    \
     ::'{hostname}-{now}'                             \
     ~/Dev/susedko                                    \
@@ -29,6 +30,8 @@ borg create                                          \
     ~/.ssh                                           \
     ~/.gnupg                                         \
     ~/.Private                                       \
+    ./.config/syncthing                              \
+    ./.local/share/notes                             \
     ./.config/gnome-extensions.json                  \
     ~/.mozilla/firefox/iesxdh6c.default-release
 backup_exit=$?
