@@ -71,6 +71,7 @@ Reboot.
 Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
 
 ```
+deltarpm=false
 fastestmirror=true
 ```
 
