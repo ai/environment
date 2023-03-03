@@ -510,3 +510,79 @@ sudo dnf install syncthing
 
 Add `Start Syncthing` to Autorun applications
 (temporary remove `NoDisplay` from application icon).
+
+
+## Language Server
+
+Prepare [ngrams](https://languagetool.org/download/ngram-data/):
+
+```sh
+mkdir -p .local/share/ngrams
+cd .local/share/ngrams
+wget https://languagetool.org/download/ngram-data/ngrams-en-20150817.zip
+wget https://languagetool.org/download/ngram-data/ngrams-es-20150915.zip
+wget https://languagetool.org/download/ngram-data/untested/ngram-ru-20150914.zip
+unzip ngrams-en-20150817.zip
+unzip ngrams-es-20150915.zip
+unzip ngram-ru-20150914.zip
+rm ngram*.zip
+wget https://languagetool.org/download/ngram-lang-detect/model_ml50_new.zip
+```
+
+Prepare `fasttext`:
+
+```sh
+sudo dnf install fasttext
+mkdir -p .local/share/fasttext
+cd .local/share/fasttext
+wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
+```
+
+Install Java:
+
+```sh
+sudo dnf install java-17-openjdk
+```
+
+Install LanguageTool:
+
+```sh
+wget https://languagetool.org/download/LanguageTool-stable.zip
+unzip LanguageTool-stable.zip
+rm LanguageTool-stable.zip
+mkdir -p .local/lib/languagetool
+mv LanguageTool-*/* .local/lib/languagetool
+rm -R LanguageTool-*
+```
+
+Create config `.config/languagetool.properties`:
+
+```
+languageModel=/home/ai/.local/share/ngrams
+fasttextModel=/home/ai/.local/share/fasttext/lid.176.bin
+fasttextBinary=/usr/bin/fasttext
+ngramLangIdentData=/home/ai/.local/share/ngrams/model_ml50_new.zi
+```
+
+Create service unit `~/.config/systemd/user/languagetool.service`:
+
+```ini
+[Unit]
+Description=LanguageTool Server
+
+[Service]
+ExecStart=java -Xms512m -Xmx2g \
+          -cp .local/lib/languagetool/languagetool-server.jar \
+          org.languagetool.server.HTTPServer \
+          --config .config/languagetool.properties \
+          --port 8081 --allow-origin
+
+[Install]
+WantedBy=default.target
+```
+
+Enable service:
+
+```sh
+systemctl --user enable languagetool.service
+```
