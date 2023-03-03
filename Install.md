@@ -512,7 +512,7 @@ Add `Start Syncthing` to Autorun applications
 (temporary remove `NoDisplay` from application icon).
 
 
-## Language Server
+## LanguageTool Server
 
 Prepare [ngrams](https://languagetool.org/download/ngram-data/):
 
