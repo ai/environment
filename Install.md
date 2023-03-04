@@ -526,7 +526,6 @@ unzip ngrams-en-20150817.zip
 unzip ngrams-es-20150915.zip
 unzip ngram-ru-20150914.zip
 rm ngram*.zip
-wget https://languagetool.org/download/ngram-lang-detect/model_ml50_new.zip
 ```
 
 Prepare `fasttext`:
@@ -561,7 +560,6 @@ Create config `.config/languagetool.properties`:
 languageModel=/home/ai/.local/share/ngrams
 fasttextModel=/home/ai/.local/share/fasttext/lid.176.bin
 fasttextBinary=/usr/bin/fasttext
-ngramLangIdentData=/home/ai/.local/share/ngrams/model_ml50_new.zi
 ```
 
 Create service unit `~/.config/systemd/user/languagetool.service`:
