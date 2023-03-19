@@ -2,6 +2,7 @@
 
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
+* [Autohide Volume](https://extensions.gnome.org/extension/4539/autohide-volume/)
 * [Battery Indicator Icon](https://extensions.gnome.org/extension/5718/battery-indicator-icon/)
 * [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
 * [Bluetooth Quick Connect](https://extensions.gnome.org/extension/1401/bluetooth-quick-connect/)
@@ -19,7 +20,6 @@
 * [Project Manager for VSCode](https://extensions.gnome.org/extension/5289/project-manager-for-vscode/)
 * [Quick Settings Button Remover](https://extensions.gnome.org/extension/5443/quick-settings-button-remover/)
 * [Scroll Panel](https://extensions.gnome.org/extension/4257/scroll-panel/)
-* [Smart Resize](https://extensions.gnome.org/extension/5790/smart-resize/)
 * [Thinkpad Battery Threshold](https://extensions.gnome.org/extension/4798/thinkpad-battery-threshold/)
 * [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
