@@ -4,20 +4,8 @@ Name=Erótica
 Comment=Play porn movies
 Icon=org.gnome.Totem
 Exec=/home/ai/Dev/environment/bin/porn
-Actions=New;BDSM;Amateur;Other;
+Actions=New;
 
 [Desktop Action New]
 Name=Nuevos
 Exec=/home/ai/Dev/environment/bin/porn --new
-
-[Desktop Action BDSM]
-Name=BDSM
-Exec=/home/ai/Dev/environment/bin/porn --bdsm
-
-[Desktop Action Amateur]
-Name=Aficionados
-Exec=/home/ai/Dev/environment/bin/porn --amateur
-
-[Desktop Action Other]
-Name=Otros
-Exec=/home/ai/Dev/environment/bin/porn --other
