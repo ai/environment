@@ -4,12 +4,6 @@
 if [[ "$1" == "--new" ]]; then
   FILES=$(ssh ai@susedko.local find /var/mnt/vault/ai/New/ -maxdepth 1 -type f ! -name "*.part" -printf '__START__%p__END__' | sed 's/"/\\"/g' | sed 's/__START__/"sftp:\/\/ai@susedko.local:/g' | sed 's/__END__/" /g')
   bash -c "mpv --shuffle --fullscreen $FILES"
-elif [[ "$1" == "--bdsm" ]]; then
-  find /home/ai/Vídeos/Erótica/BDSM -type f -exec mpv --shuffle --fullscreen {} +
-elif [[ "$1" == "--amateur" ]]; then
-  find /home/ai/Vídeos/Erótica/Aficionados -type f -exec mpv --shuffle --fullscreen {} +
-elif [[ "$1" == "--other" ]]; then
-  find /home/ai/Vídeos/Erótica/Otros -type f -exec mpv --shuffle --fullscreen {} +
 else
-  find /home/ai/Vídeos/Erótica/{Otros,BDSM,Aficionados} -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/ -type f -exec mpv --shuffle --fullscreen {} +
 fi
