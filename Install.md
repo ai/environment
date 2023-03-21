@@ -579,7 +579,7 @@ ExecStart=java -Xms512m -Xmx2g \
 WantedBy=default.target
 ```
 
-Enable service:
+Enable service when needed.
 
 ```sh
 systemctl --user enable languagetool.service
