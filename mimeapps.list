@@ -17,6 +17,7 @@ video/mp2t=mpv.desktop;
 video/webm=mpv.desktop;
 video/quicktime=mpv.desktop;
 image/heif=org.gimp.GIMP.desktop;
+text/vnd.trolltech.linguist=mpv.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
@@ -29,3 +30,4 @@ video/mp2t=mpv.desktop
 video/webm=mpv.desktop
 video/quicktime=mpv.desktop
 application/x-bittorrent=io.github.TransmissionRemoteGtk.desktop
+text/vnd.trolltech.linguist=mpv.desktop
