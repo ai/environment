@@ -66,6 +66,12 @@ sudo efibootmgr
 sudo efibootmgr -B 0
 ```
 
+Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
+
+```
+vm.swappiness = 10
+```
+
 Reboot.
 
 Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
