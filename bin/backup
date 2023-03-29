@@ -54,6 +54,7 @@ global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 global_exit=$(( compact_exit > global_exit ? compact_exit : global_exit ))
 
 rsync -a --delete --progress \
+  --no-perms --no-owner --no-group \
   /home/ai/Vídeos/Erótica/ ai@susedko.local:/var/mnt/vault/ai/Selected
 
 echo ""
