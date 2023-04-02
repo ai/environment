@@ -106,7 +106,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader vn.hoabinh.quan.CoBang md.obsidian.Obsidian
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader com.belmoussaoui.Decoder md.obsidian.Obsidian
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
@@ -507,6 +507,9 @@ Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/active/metadata`
 and change `~/Documents/Zoom` to `~/.Documents/Zoom`.
 
 Open Zoom and sign-in into corporate account.
+
+Set `autoScale=false` and `useSystemTheme=true`
+in `~/.var/app/us.zoom.Zoom/config/zoomus.conf`.
 
 Install Syncthing.
 
