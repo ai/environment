@@ -93,7 +93,7 @@ Copy `Dev/environment` and open `Install.md` locally.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman gnome-terminal
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman gnome-terminal eog
 ```
 
 Add RPM Fusion:
@@ -106,7 +106,7 @@ Install applications from Flatpak:
 
 ```sh
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader com.belmoussaoui.Decoder md.obsidian.Obsidian
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader vn.hoabinh.quan.CoBang md.obsidian.Obsidian org.gnome.Loupe
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
