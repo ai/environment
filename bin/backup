@@ -1,7 +1,5 @@
 #!/bin/sh
 
-busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync save
-
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
 
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
@@ -30,10 +28,9 @@ borg create                                          \
     ~/.ssh                                           \
     ~/.gnupg                                         \
     ~/.Private                                       \
-    ./.config/syncthing                              \
-    ./.local/share/notes                             \
-    ./.config/gnome-extensions.json                  \
-    ~/.mozilla/firefox/iesxdh6c.default-release
+    ~/.config/syncthing                              \
+    ~/.local/share/notes                             \
+    ~/.mozilla/firefox
 backup_exit=$?
 
 echo ""
