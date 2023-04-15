@@ -17,4 +17,5 @@
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Project Manager for VSCode](https://extensions.gnome.org/extension/5289/project-manager-for-vscode/)
 * [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/)
+* [Tofu Menu](https://extensions.gnome.org/extension/4272/tofu-menu/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
