@@ -120,7 +120,7 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom com.github.unrud.VideoDownloader com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
@@ -189,6 +189,13 @@ Disable sleep on lid closing:
 
 1. `sudo nano /etc/systemd/logind.conf`
 2. Set `HandleLidSwitch=lock`
+
+Enable HiPDI on login screen:
+
+```sh
+sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
+sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
+```
 
 
 ### Personal Files
