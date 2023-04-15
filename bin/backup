@@ -4,32 +4,33 @@ export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
 
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
-borg create                                          \
-    --verbose                                        \
-    --filter AME                                     \
-    --list                                           \
-    --stats                                          \
-    --show-rc                                        \
-    --compression lz4                                \
-    --exclude-caches                                 \
-    --exclude '*.iso'                                \
-    --exclude '**/node_modules'                      \
-    --exclude '~/.mozilla/**/lock'                   \
-    --exclude '~/.mozilla/**/crashes'                \
-    --exclude '~/.mozilla/**/bookmarkbackups'        \
-    --exclude '~/.mozilla/**/datareporting/archived' \
-    --exclude '~/.mozilla/**/weave/logs'             \
-    --exclude '**/*.log'                             \
-    --exclude '**/sitnik.ru/dist'                    \
-    ::'{hostname}-{now}'                             \
-    ~/Dev/susedko                                    \
-    ~/Dev/environment                                \
-    ~/Dev/sitnik.ru                                  \
-    ~/.ssh                                           \
-    ~/.gnupg                                         \
-    ~/.Private                                       \
-    ~/.config/syncthing                              \
-    ~/.local/share/notes                             \
+borg create                                           \
+    --verbose                                         \
+    --filter AME                                      \
+    --list                                            \
+    --stats                                           \
+    --show-rc                                         \
+    --compression lz4                                 \
+    --exclude-caches                                  \
+    --exclude '*.iso'                                 \
+    --exclude '**/node_modules'                       \
+    --exclude '**/.mozilla/**/lock'                   \
+    --exclude '**/.mozilla/**/crashes'                \
+    --exclude '**/.mozilla/**/bookmarkbackups'        \
+    --exclude '**/.mozilla/**/datareporting/archived' \
+    --exclude '**/.mozilla/**/weave/logs'             \
+    --exclude '**/.mozilla/firefox/firefox-mpris'     \
+    --exclude '**/*.log'                              \
+    --exclude '**/sitnik.ru/dist'                     \
+    ::'{hostname}-{now}'                              \
+    ~/Dev/susedko                                     \
+    ~/Dev/environment                                 \
+    ~/Dev/sitnik.ru                                   \
+    ~/.ssh                                            \
+    ~/.gnupg                                          \
+    ~/.Private                                        \
+    ~/.config/syncthing                               \
+    ~/.local/share/notes                              \
     ~/.mozilla/firefox
 backup_exit=$?
 
