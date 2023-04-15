@@ -9,12 +9,18 @@ and write it to the USB drive:
 sudo dnf install mediawriter
 ```
 
-Copy `.ssh` and `.gnupg` into `Private`.
+Copy `.ssh` and `.gnupg` into `.Private`.
+
+Clean `node_modules`:
+
+```sh
+rm -R ~/Dev/*/node_modules
+rm -R ~/Dev/*/*/node_modules
+```
 
 Copy these files to external SDD:
-* `Dev/environment`
-* `.ssh`
-* `Видео`
+* `Dev/`
+* `.Private`
 
 
 ### BIOS
@@ -47,11 +53,7 @@ vartmp /var/tmp tmpfs defaults,noatime,nodiratime 0 0
 vartmp /tmp     tmpfs defaults,noatime,nodiratime 0 0
 ```
 
-Clean `tmp` and `var/tmp` dirs.
-
-Reboot to system. Set name to `Андрей Ситник` and login `ai`.
-
-Change language and format rules to Russians.
+Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
 
 Set laptop name:
 
@@ -66,13 +68,15 @@ sudo efibootmgr
 sudo efibootmgr -B 0
 ```
 
+Reboot.
+
+Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
+
 Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 
 ```
 vm.swappiness = 10
 ```
-
-Reboot.
 
 Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
 
@@ -81,19 +85,30 @@ deltarpm=false
 fastestmirror=true
 ```
 
-Disable NVIDIA, Flathub Selection, and PyCharm repositories in Software Center settings.
+Enable `Rendimiento`, disable `Apagar la pantalla`,
+`Suspender automaticámente`, and `Dim Screen` in Energía settings.
 
-Disable `Blank screen`, `Automatic Suspend`, and `Dim Screen` in Power settings.
-
-Copy `Dev/environment` and open `Install.md` locally.
+Enable `Flathub` and `google-chrome` in Software Center settings.
 
 
 ### System Update
 
+Replace old GNOME Terminal:
+
+```sh
+sudo dnf install gnome-console
+```
+
+Start new terminal:
+
+```
+sudo dnf remove gnome-terminal
+```
+
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman gnome-terminal eog
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter yelp podman eog
 ```
 
 Add RPM Fusion:
@@ -105,19 +120,12 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.inkscape.Inkscape com.github.unrud.VideoDownloader com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
 
 Update system via Software Center.
-
-Install 2FA app:
-
-```sh
-sudo dnf install yubioath-desktop
-```
 
 Disable Software auto-start:
 
@@ -179,7 +187,7 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 Disable sleep on lid closing:
 
-1. `sudo micro /etc/systemd/logind.conf`
+1. `sudo nano /etc/systemd/logind.conf`
 2. Set `HandleLidSwitch=lock`
 
 
@@ -194,7 +202,13 @@ Copy configs:
 Install encryption tools:
 
 ```sh
-sudo dnf install fuse-encfs
+sudo dnf install fuse-encfs zenity
+```
+
+Copy `.ssh` and `.gnupg`:
+
+```sh
+~/Dev/environment/bin/private
 ```
 
 Change permissions:
@@ -213,7 +227,7 @@ chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
 Install zsh:
 
 ```sh
-dnf copr enable atim/starship
+sudo dnf copr enable atim/starship
 sudo dnf install zsh util-linux-user starship
 chsh -s /bin/zsh
 ```
@@ -247,28 +261,30 @@ sudo dnf install borgbackup
 Open backup and copy files from it.
 
 ```sh
-cd /
+mkdir ~/backup
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
-borg extract $BORG_REPO::$(borg list --short --last 1 $BORG_REPO)
+borg mount $BORG_REPO::$(borg list --short --last 1 $BORG_REPO) ~/backup
 ```
 
-Start copying `Видео` from HDD in the background.
+Copy files.
+
+```sh
+borg umount ~/backup
+rmdir ~/backup
+```
+
+Start copying `Vídeos/Erótica` from server in the background.
 
 Install `micro` and its plugins:
 
 ```sh
-sudo dnf install xclip micro gnome-console
+sudo dnf install xclip micro
 micro -plugin install editorconfig
+sudo dnf remove nano
 ```
 
 
 ### Text Editors
-
-Remove `nano`:
-
-```sh
-sudo dnf remove nano
-```
 
 Install VS Code:
 
@@ -291,7 +307,7 @@ Install [VS Code extensions](./VSCode.md).
 
 Open settings:
 
-* **Background:** use standard GNOME wallpaper.
+* **Appearance:** use standard GNOME wallpaper.
 * **Notifictions:** disable Lock Screen Notifications.
 * **Search:** keep only Calculator.
 * **Multitasking:** disable Active Screen Edges.
@@ -314,28 +330,10 @@ Update typography keyboard layout:
 sudo cp ~/Dev/environment/typo.txt /usr/share/X11/xkb/symbols/typo
 ```
 
-Disable Terminal beep:
-
-```sh
-dconf write /org/gnome/desktop/sound/event-sounds "false"
-```
-
 Nautilus:
 
 * Enable Sort folders before files.
 * Enable Single click to open items.
-
-Install `nautilus-code`:
-
-```sh
-sudo dnf install nautilus-devel meson
-git clone --depth=1 https://github.com/realmazharhussain/nautilus-code.git
-cd nautilus-code
-meson setup build
-meson install -C build
-cd ..
-rm -R nautilus-code
-```
 
 ```sh
 sudo dnf install gnome-extensions-app openssl
@@ -375,7 +373,6 @@ sudo dnf install gnome-tweak-tool
 * **General:** enable Over-Amplification.
 * **Top Bar:** enable Date and Seconds.
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
-* **Windows:** enable window scaling with right mouse button.
 * **Fonts:** monospace to `Martians Mono Nr Lt` and size `10`.
 
 Move applications from folders.
@@ -526,8 +523,8 @@ Add `Start Syncthing` to Autorun applications
 Prepare [ngrams](https://languagetool.org/download/ngram-data/):
 
 ```sh
-mkdir -p .local/share/ngrams
-cd .local/share/ngrams
+mkdir -p ~/.local/share/ngrams
+cd ~/.local/share/ngrams
 wget https://languagetool.org/download/ngram-data/ngrams-en-20150817.zip
 wget https://languagetool.org/download/ngram-data/ngrams-es-20150915.zip
 wget https://languagetool.org/download/ngram-data/untested/ngram-ru-20150914.zip
@@ -541,8 +538,8 @@ Prepare `fasttext`:
 
 ```sh
 sudo dnf install fasttext
-mkdir -p .local/share/fasttext
-cd .local/share/fasttext
+mkdir -p ~/.local/share/fasttext
+cd ~/.local/share/fasttext
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
 ```
 
@@ -558,17 +555,21 @@ Install LanguageTool:
 wget https://languagetool.org/download/LanguageTool-stable.zip
 unzip LanguageTool-stable.zip
 rm LanguageTool-stable.zip
-mkdir -p .local/lib/languagetool
-mv LanguageTool-*/* .local/lib/languagetool
+mkdir -p ~/.local/lib/languagetool
+mv LanguageTool-*/* ~/.local/lib/languagetool
 rm -R LanguageTool-*
 ```
 
 Create config `.config/languagetool.properties`:
 
-```
+```ini
 languageModel=/home/ai/.local/share/ngrams
 fasttextModel=/home/ai/.local/share/fasttext/lid.176.bin
 fasttextBinary=/usr/bin/fasttext
+```
+
+```sh
+mkdir -p ~/.config/systemd/user/
 ```
 
 Create service unit `~/.config/systemd/user/languagetool.service`:
