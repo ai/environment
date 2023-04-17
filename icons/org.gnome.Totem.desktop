@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Totem
-Icon=org.gnome.Totem
-Exec=totem %U
-Categories=GTK;GNOME;AudioVideo;Player;Video;
-NoDisplay=true
