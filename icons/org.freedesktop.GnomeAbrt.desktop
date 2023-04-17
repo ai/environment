@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Problem Reporting
-Icon=gnome-abrt
-Exec=gnome-abrt
-Categories=System;
-NoDisplay=true

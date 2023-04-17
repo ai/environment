@@ -3,6 +3,7 @@
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Autohide Volume](https://extensions.gnome.org/extension/4539/autohide-volume/)
+* [App Hider](https://extensions.gnome.org/extension/5895/app-hider/)
 * [Battery Health Charging](https://extensions.gnome.org/extension/5724/battery-health-charging/)
 * [Battery Indicator Icon](https://extensions.gnome.org/extension/5718/battery-indicator-icon/)
 * [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
