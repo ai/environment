@@ -18,6 +18,7 @@ video/webm=mpv.desktop;
 video/quicktime=mpv.desktop;
 image/heif=org.gimp.GIMP.desktop;org.gnome.Loupe.desktop;
 text/vnd.trolltech.linguist=mpv.desktop;
+font/ttf=org.gnome.font-viewer.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
@@ -35,3 +36,4 @@ image/jpeg=org.gnome.Loupe.desktop
 image/avif=org.gnome.Loupe.desktop
 image/png=org.gnome.Loupe.desktop
 image/heif=org.gnome.Loupe.desktop
+font/ttf=org.gnome.font-viewer.desktop
