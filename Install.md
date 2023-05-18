@@ -466,7 +466,7 @@ sudo dnf install git tig ripgrep exa xkill bat
 Install tools for compile:
 
 ```sh
-sudo dnf install make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
+sudo dnf install make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel msgfmt
 ```
 
 Install Node.js:
