@@ -601,3 +601,14 @@ Enable service when needed.
 ```sh
 systemctl --user enable languagetool.service
 ```
+
+
+## Fractional Scaling
+
+When we need to use laptop screen, enable fractional scaling:
+
+```sh
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+```
+
+Restart. And set `250%` scale.
