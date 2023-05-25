@@ -49,7 +49,7 @@ export EDITOR=micro
 
 # VS Code
 export ELECTRON_TRASH=gio
-alias e='code .'
+alias e='code --enable-ozone --ozone-platform=wayland .'
 
 # Aliases
 alias g='git'
