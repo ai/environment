@@ -13,7 +13,6 @@
   "git.confirmSync": false,
   "projectManager.git.baseFolders": ["/home/ai/Dev/"],
   "projectManager.git.maxDepthRecursion": 1,
-  "window.menuBarVisibility": "visible",
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#151515"
   },
@@ -147,4 +146,6 @@
   "window.commandCenter": true,
   "git.mergeEditor": true,
   "window.zoomLevel": 1,
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.tabs.enabled": false
 }
