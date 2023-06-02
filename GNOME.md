@@ -18,6 +18,7 @@
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
+* [Quick Setting Tweaker](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 * [Project Manager for VSCode](https://extensions.gnome.org/extension/5289/project-manager-for-vscode/)
 * [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/)
 * [Tofu Menu](https://extensions.gnome.org/extension/4272/tofu-menu/)
