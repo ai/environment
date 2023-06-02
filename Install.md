@@ -428,8 +428,12 @@ sudo dnf install morewaita-icon-theme
 gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
 ```
 
-Set `/usr/share/icons/MoreWaita/places/scalables/folder-code.svg` icon
-for `~/Dev/`.
+Set icons:
+
+* `/usr/share/icons/MoreWaita/places/scalables/folder-code.svg`
+  for `~/Dev/`.
+* `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
+  for `~/Capturas de pantalla/`.
 
 
 ### Additional Software
