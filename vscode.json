@@ -146,6 +146,4 @@
   "window.commandCenter": true,
   "git.mergeEditor": true,
   "window.zoomLevel": 1,
-  "terminal.integrated.tabs.location": "left",
-  "terminal.integrated.tabs.enabled": false
 }
