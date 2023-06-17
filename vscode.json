@@ -45,21 +45,22 @@
   "eslint.packageManager": "yarn",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "[javascript]": {
-    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll": false
-    }
+      "source.fixAll": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
     "editor.formatOnSave": true,
@@ -70,7 +71,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[svelte]": {
-    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
@@ -121,6 +124,7 @@
     "nanoevents",
     "nanospy",
     "nanostores",
+    "oklab",
     "oklch",
     "pico",
     "pnpm",
@@ -131,6 +135,7 @@
     "slowreader",
     "stylelint",
     "subprotocol",
+    "unloadable",
     "vite",
     "Weblate"
   ],
@@ -146,4 +151,11 @@
   "window.commandCenter": true,
   "git.mergeEditor": true,
   "window.zoomLevel": 1,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
 }
