@@ -74,7 +74,7 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -154,8 +154,8 @@
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "plaintext": false,
-    "markdown": true,
+    "plaintext": true,
+    "markdown": false,
     "scminput": false
   },
 }
