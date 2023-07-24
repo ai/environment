@@ -34,8 +34,6 @@ borg create                                           \
     ~/.mozilla/firefox
 backup_exit=$?
 
-echo ""
-echo "Pruning repository"
 borg prune                         \
     --list                         \
     --glob-archives '{hostname}-*' \
@@ -43,8 +41,6 @@ borg prune                         \
     --keep-last 1
 prune_exit=$?
 
-echo ""
-echo "Compacting repository"
 borg compact
 compact_exit=$?
 
@@ -57,9 +53,7 @@ rsync -a --delete --progress \
 
 echo ""
 if [ ${global_exit} -gt 1 ]; then
-  echo "Backup, Prune, and/or Compact finished with errors"
-else
-  echo "Done"
+  echo "\x1b[31mBackup, Prune, and/or Compact finished with errors\x1b[39m"
 fi
 
 exit ${global_exit}

@@ -1,6 +1,8 @@
 #!/bin/zsh
 
-sudo echo "Actualización del sistema…"
+sudo echo "" > /dev/null
+
+echo "\x1b[32mActualización del sistema\x1b[39m"
 
 cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
