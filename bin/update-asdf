@@ -89,6 +89,10 @@ async function processFile (file) {
   for (let [tool, version] of versions) {
     let requirement = version.split('.')[0]
     if (tool === 'ruby') requirement = version.split('.').splice(0, 2).join('.')
+    if (tool === 'yarn') {
+      print(gray(`  yarn ${version} ignore dead project`))
+      continue
+    }
     let [stop, replaceTitle] = startProgress(gray(`${tool} ${version}`))
     let latest = await getLatest(tool, `${requirement}.`)
     if (version !== latest) {
