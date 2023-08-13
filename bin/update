@@ -21,6 +21,10 @@ antigen update
 flatpak update -y
 sudo dnf update --refresh -y
 
+gdbus call --session --dest org.gnome.Shell.Extensions \
+     --object-path /org/gnome/Shell/Extensions \
+     --method org.gnome.Shell.Extensions.CheckForUpdates
+
 echo "\n\x1b[32m\033[1mDone\033[0m"
 echo "\033[90mPress Enter to close the window\x1b[39m"
 read
