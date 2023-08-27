@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 # Private encrypted folder
 
 STORE=$HOME/.Private
