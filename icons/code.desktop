@@ -2,7 +2,7 @@
 Name=Visual Studio Code
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=/usr/share/code/code --enable-ozone --ozone-platform=wayland --disable-GPU --unity-launch %F
+Exec=/usr/share/code/code --enable-ozone --ozone-platform=wayland --unity-launch %F
 Icon=vscode
 Type=Application
 StartupNotify=false
