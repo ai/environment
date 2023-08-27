@@ -39,4 +39,5 @@ else
   rm ~/Dev/environment/icons/chrome-* -f
   rm ~/Dev/environment/icons/userapp-* -f
   rm ~/Dev/environment/icons/org.gnome.Shell.Extensions.* -f
+  ~/Dev/environment/bin/update-extension-lists
 fi
