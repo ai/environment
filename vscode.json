@@ -157,5 +157,6 @@
     "plaintext": true,
     "markdown": false,
     "scminput": false
-  }
+  },
+  "prettier.arrowParens": "avoid"
 }
