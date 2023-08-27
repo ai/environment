@@ -42,8 +42,8 @@
   "markdown.extension.toc.unorderedList.marker": "*",
   "editor.wordWrap": "on",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "eslint.packageManager": "yarn",
   "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll": true
@@ -94,7 +94,6 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "postcss.validate": false,
   "svelte.enable-ts-plugin": true,
   "eslint.probe": [
     "javascript",
@@ -146,7 +145,8 @@
   "editor.lineHeight": 16,
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.fontWeight": "300",
-  "window.titleBarStyle": "custom",
+  "window.titleBarStyle": "native",
+  "window.menuBarVisibility": "toggle",
   "breadcrumbs.enabled": false,
   "window.commandCenter": true,
   "git.mergeEditor": true,
@@ -157,5 +157,5 @@
     "plaintext": true,
     "markdown": false,
     "scminput": false
-  },
+  }
 }
