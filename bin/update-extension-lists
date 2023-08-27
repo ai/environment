@@ -1,0 +1,91 @@
+#!/usr/bin/env node
+
+let { readFile, writeFile } = require('fs/promises')
+let { join } = require('path')
+let { promisify } = require('util')
+let { exec } = require('child_process')
+
+exec = promisify(exec)
+
+function gray(str) {
+  return `\x1b[90m${str}\x1b[39m`
+}
+
+async function updateVsCode() {
+  let listFile = join(__dirname, '..', 'VSCode.md')
+  let [code, docs] = await Promise.all([
+    exec(`code --list-extensions`),
+    readFile(listFile)
+  ])
+  let extensions = code.stdout
+    .trim()
+    .split('\n')
+    .map(name => `"${name}"`)
+    .join(' ')
+  let updated = docs
+    .toString()
+    .replace(/EXTENSIONS=\(.*\)/m, `EXTENSIONS=(${extensions})`)
+  await writeFile(listFile, updated)
+}
+
+async function updateGnome() {
+  let listFile = join(__dirname, '..', 'GNOME.md')
+  let [gnome, docs] = await Promise.all([
+    exec(`gnome-extensions list`),
+    readFile(listFile)
+  ])
+  let meta = await Promise.all(
+    gnome.stdout
+      .trim()
+      .split('\n')
+      .map(async name => exec(`LANG=en gnome-extensions show ${name}`))
+  )
+  let details = await Promise.all(
+    meta
+      .map(result => {
+        let uuid = result.stdout.split('\n')[0]
+        let enabled = result.stdout.includes('State: ENABLED')
+        let name = result.stdout.match(/Name: (.*)/)[1]
+        let hasRepo = result.stdout.match(/URL: (.*)/)
+        return { uuid, name, enabled, hasRepo }
+      })
+      .filter(({ enabled, hasRepo, name }) => {
+        let ignored = !enabled || !hasRepo
+        if (ignored) {
+          console.log(gray(`Ignoring ${name}`))
+        }
+        return !ignored
+      })
+      .map(async ({ name, uuid }) => {
+        let response = await fetch(
+          `https://extensions.gnome.org/extension-query/?` +
+            `sort=relevance&` +
+            `page=1&` +
+            `shell_version=all&` +
+            `search=${encodeURIComponent(name)}`
+        )
+        let json = await response.json()
+        let extension = json.extensions.find(i => i.uuid === uuid)
+        if (!extension) {
+          throw new Error(`Extension not found: ${name} (${uuid})`)
+        }
+        return {
+          name: extension.name,
+          url: `https://extensions.gnome.org${extension.link}`
+        }
+      })
+  )
+  let extensions = details
+    .map(({ name, url }) => ({ url, name: name.replace(/\[.*\]\s*/, '') }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(({ name, url }) => `* [${name}](${url})`)
+    .join('\n')
+  let cleaned = docs
+    .toString()
+    .split('\n')
+    .filter(line => line && !line.startsWith('*'))
+    .join('\n')
+  await writeFile(listFile, cleaned + '\n\n' + extensions + '\n')
+}
+
+Promise.all([updateVsCode(), updateGnome()])
