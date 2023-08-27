@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 # Run movies from specific category
 
 if [[ "$1" == "--new" ]]; then

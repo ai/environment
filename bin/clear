@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 echo "Before $(df -h / | tail -1 | awk '{print $4}')"
 echo
