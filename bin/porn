@@ -4,7 +4,8 @@
 if [[ "$1" == "--new" ]]; then
   echo "$(
     ssh ai@susedko.local find /var/mnt/vault/ai/New/ \
-      -type f ! -name '*.part' ! -name '*.jpg' ! -name '*.jpeg' \
+      -type f ! -name '*.part' \
+      ! -name '*.png' ! -name '*.jpg' ! -name '*.jpeg' \
       -printf '\\nsftp:\/\/ai@susedko.local:%p' \
   )" > .new.m3u
   bash -c "mpv --shuffle --fullscreen --playlist=.new.m3u --load-unsafe-playlists"
