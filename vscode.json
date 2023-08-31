@@ -23,7 +23,8 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     },
-    "editor.defaultFormatter": "svelte.svelte-vscode"
+    "editor.defaultFormatter": "svelte.svelte-vscode",
+    "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
