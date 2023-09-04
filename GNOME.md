@@ -10,7 +10,7 @@
 * [Dim Completed Calendar Events](https://extensions.gnome.org/extension/5979/dim-completed-calendar-events/)
 * [Do Not Disturb While Screen Sharing Or Recording](https://extensions.gnome.org/extension/5985/do-not-disturb-while-screen-sharing-or-recording/)
 * [Draw On Your Screen 2](https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/)
-* [Emoji Selector](https://extensions.gnome.org/extension/1162/emoji-selector/)
+* [Emoji Copy](https://extensions.gnome.org/extension/6242/emoji-copy/)
 * [Expandable Notifications](https://extensions.gnome.org/extension/4463/expandable-notifications/)
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
