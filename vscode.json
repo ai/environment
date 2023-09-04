@@ -169,5 +169,6 @@
   "workbench.colorTheme": "GNOME dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": true
+  "workbench.statusBar.visible": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
