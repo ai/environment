@@ -159,9 +159,9 @@
   "terminal.integrated.fontSize": 10,
   "terminal.integrated.fontWeight": "300",
   "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "window.commandCenter": true,
-  "window.menuBarVisibility": "toggle",
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#151515"
@@ -169,6 +169,5 @@
   "workbench.colorTheme": "GNOME dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": true,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "workbench.statusBar.visible": true
 }
