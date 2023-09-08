@@ -30,6 +30,7 @@ borg create                                           \
     ~/.gnupg                                          \
     ~/.Private                                        \
     ~/.config/syncthing                               \
+    ~/.config/Code/User/globalStorage/                \
     ~/.local/share/notes                              \
     ~/.mozilla/firefox
 backup_exit=$?
