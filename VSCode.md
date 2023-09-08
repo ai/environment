@@ -14,15 +14,12 @@ EXTENSIONS=(
   formulahendry.auto-rename-tag
   GitHub.copilot
   kshetline.ligatures-limited
-  mariusschulz.yarn-lock-syntax
   mikestead.dotenv
   mrorz.language-gettext
   ms-azuretools.vscode-docker
-  MS-CEINTL.vscode-language-pack-ru
   ms-vscode.live-server
   PKief.material-icon-theme
   rafaelmardojai.vscode-gnome-theme
-  ryanluker.vscode-coverage-gutters
   sianglim.slim
   streetsidesoftware.code-spell-checker
   streetsidesoftware.code-spell-checker-russian
