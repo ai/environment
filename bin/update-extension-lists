@@ -20,11 +20,11 @@ async function updateVsCode() {
   let extensions = code.stdout
     .trim()
     .split('\n')
-    .map(name => `"${name}"`)
-    .join(' ')
+    .map(name => `  ${name}`)
+    .join('\n')
   let updated = docs
     .toString()
-    .replace(/EXTENSIONS=\(.*\)/m, `EXTENSIONS=(${extensions})`)
+    .replace(/EXTENSIONS=\([\n\s\w.-]+\)/m, `EXTENSIONS=(\n${extensions}\n)`)
   await writeFile(listFile, updated)
 }
 
