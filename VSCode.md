@@ -5,7 +5,7 @@ Copy-paste following to terminal:
 ```bash
 EXTENSIONS=(
   alefragnani.project-manager
-  bungcip.better-toml
+  tamasfe.even-better-toml
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
   csstools.postcss
