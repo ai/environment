@@ -13,6 +13,7 @@ EXTENSIONS=(
   esbenp.prettier-vscode
   formulahendry.auto-rename-tag
   GitHub.copilot
+  GitHub.copilot-chat
   kshetline.ligatures-limited
   mikestead.dotenv
   mrorz.language-gettext
