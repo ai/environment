@@ -1,4 +1,7 @@
 {
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -13,6 +16,12 @@
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "vscode.markdown-language-features"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "[svelte]": {
     "editor.codeActionsOnSave": {
@@ -67,10 +76,12 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": false
   },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "Martian Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
   "editor.fontWeight": "300",
+  "editor.formatOnSave": true,
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.inlineSuggest.enabled": true,
   "editor.lineHeight": 16,
@@ -93,6 +104,7 @@
   ],
   "eslint.run": "onSave",
   "eslint.validate": ["javascript", "javascriptreact", "svelte"],
+  "extensions.ignoreRecommendations": true,
   "files.associations": {
     "**/test/*.errors.ts": "rust",
     "*.bu": "yaml",
@@ -108,6 +120,8 @@
     "errors.ts": "rust",
     "errors.tsx": "rust"
   },
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
   "github.copilot.enable": {
     "*": true,
     "markdown": false,
@@ -141,8 +155,5 @@
   "workbench.colorTheme": "GNOME dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "extensions.ignoreRecommendations": true,
-  "editor.formatOnSave": true
+  "workbench.statusBar.visible": true
 }
