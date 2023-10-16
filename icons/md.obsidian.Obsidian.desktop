@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Obsidian
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian --enable-ozone --ozone-platform=wayland @@u %u @@
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %u @@
 Terminal=false
 Type=Application
 Icon=md.obsidian.Obsidian
