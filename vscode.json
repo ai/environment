@@ -149,7 +149,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
-  "window.menuBarVisibility": "toggle",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
   "workbench.colorCustomizations": {
@@ -159,7 +158,6 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
-  "workbench.productIconTheme": "adwaita",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": true,
   "workbench.tree.indent": 12
