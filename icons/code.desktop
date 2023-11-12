@@ -2,7 +2,7 @@
 Name=Visual Studio Code
 Comment=Code Editing. Redefined.
 GenericName=Text Editor
-Exec=/usr/share/code/code --enable-ozone --ozone-platform=wayland --unity-launch %F
+Exec=env GTK_THEME=Adwaita:dark /usr/share/code/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --unity-launch %F
 Icon=vscode
 Type=Application
 StartupNotify=false
@@ -14,5 +14,5 @@ Keywords=vscode;
 
 [Desktop Action new-empty-window]
 Name=New Empty Window
-Exec=/usr/share/code/code --enable-ozone --ozone-platform=wayland --new-window %F
+Exec=env GTK_THEME=Adwaita:dark /usr/share/code/code --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland --new-window %F
 Icon=vscode
