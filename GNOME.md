@@ -2,6 +2,7 @@
 
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [App Hider](https://extensions.gnome.org/extension/5895/app-hider/)
+* [Auto Activities](https://extensions.gnome.org/extension/5500/auto-activities/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Autohide Volume](https://extensions.gnome.org/extension/4539/autohide-volume/)
 * [Battery Health Charging](https://extensions.gnome.org/extension/5724/battery-health-charging/)
@@ -13,6 +14,7 @@
 * [Draw On Your Screen 2](https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/)
 * [Emoji Copy](https://extensions.gnome.org/extension/6242/emoji-copy/)
 * [Expandable Notifications](https://extensions.gnome.org/extension/4463/expandable-notifications/)
+* [Forge](https://extensions.gnome.org/extension/4481/forge/)
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
