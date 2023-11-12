@@ -86,6 +86,7 @@
   "editor.inlineSuggest.enabled": true,
   "editor.lineHeight": 16,
   "editor.minimap.enabled": false,
+  "editor.renderLineHighlight": "none",
   "editor.renderWhitespace": "selection",
   "editor.rulers": [80],
   "editor.suggestSelection": "first",
@@ -146,14 +147,20 @@
   "terminal.integrated.fontWeight": "300",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
+  "window.menuBarVisibility": "toggle",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#151515"
   },
-  "workbench.colorTheme": "GNOME dark",
+  "workbench.colorTheme": "Adwaita Dark",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredDarkColorTheme": "Adwaita Dark",
+  "workbench.preferredLightColorTheme": "Adwaita Light",
+  "workbench.productIconTheme": "adwaita",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": true
+  "workbench.statusBar.visible": true,
+  "workbench.tree.indent": 12
 }
