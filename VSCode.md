@@ -18,8 +18,8 @@ EXTENSIONS=(
   mikestead.dotenv
   mrorz.language-gettext
   ms-vscode.live-server
+  piousdeer.adwaita-theme
   PKief.material-icon-theme
-  rafaelmardojai.vscode-gnome-theme
   streetsidesoftware.code-spell-checker
   streetsidesoftware.code-spell-checker-russian
   stylelint.vscode-stylelint
