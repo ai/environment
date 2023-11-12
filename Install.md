@@ -191,6 +191,12 @@ sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
 sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 ```
 
+Enable GTK4 theme for GTK3 apps:
+
+```sh
+sudo dnf install adw-gtk3-theme
+```
+
 
 ### Personal Files
 
@@ -361,7 +367,7 @@ and restore extension settings:
 busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsSync read
 ```
 
-Add San Francisco, Moscow, Beijing, and Vladivostok in Clocks.
+Add San Francisco, Lisbon, Moscow, Beijing, and Vladivostok in Clocks.
 
 Install [Martians Mono](https://github.com/evilmartians/mono/releases) font.
 
