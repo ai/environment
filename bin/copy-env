@@ -11,6 +11,7 @@ if [ "$1" == "system" ]; then
   mkdir -p ~/.config/mpv/
   mkdir -p ~/.config/Code/User/
   mkdir -p ~/.config/git/
+  mkdir -p ~/.config/micro/
   cp ~/Dev/environment/zshrc          ~/.zshrc
   cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
   cp ~/Dev/environment/gitconfig      ~/.gitconfig
@@ -22,6 +23,7 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/tool-versions  ~/.tool-versions
   cp ~/Dev/environment/mimeapps.list  ~/.config/mimeapps.list
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
+  cp ~/Dev/environment/micro.json     ~/.config/micro/settings.json
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.zshrc                                    ~/Dev/environment/zshrc
@@ -36,6 +38,7 @@ else
   cp ~/.config/mimeapps.list                     ~/Dev/environment/mimeapps.list 
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
+  cp ~/.config/micro/settings.json               ~/Dev/environment/micro.json     
   rm ~/Dev/environment/icons/chrome-* -f
   rm ~/Dev/environment/icons/userapp-* -f
   rm ~/Dev/environment/icons/org.gnome.Shell.Extensions.* -f
