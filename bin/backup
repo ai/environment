@@ -20,6 +20,7 @@ borg create                                           \
     --exclude '**/.mozilla/**/datareporting/archived' \
     --exclude '**/.mozilla/**/weave/logs'             \
     --exclude '**/.mozilla/firefox/firefox-mpris'     \
+    --exclude '**/.var/app/**/cache'                  \
     --exclude '**/*.log'                              \
     --exclude '**/sitnik.ru/dist'                     \
     ::'{hostname}-{now}'                              \
@@ -30,8 +31,9 @@ borg create                                           \
     ~/.gnupg                                          \
     ~/.Private                                        \
     ~/.config/syncthing                               \
-    ~/.config/Code/User/globalStorage/                \
+    ~/.config/Code/User/globalStorage                 \
     ~/.local/share/notes                              \
+    ~/.var/app                                        \
     ~/.mozilla/firefox
 backup_exit=$?
 
