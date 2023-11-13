@@ -24,6 +24,6 @@
 [core]
   autocrlf = input
   editor = micro
-  pager = delta
+  pager = ~/Dev/environment/bin/auto-delta
 [init]
   defaultBranch = main
