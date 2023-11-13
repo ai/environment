@@ -108,7 +108,7 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox net.nokyan.Resources org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox net.nokyan.Resources 
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
@@ -189,12 +189,6 @@ Enable HiPDI on login screen:
 ```sh
 sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
 sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
-```
-
-Enable GTK4 theme for GTK3 apps:
-
-```sh
-sudo dnf install adw-gtk3-theme
 ```
 
 
