@@ -21,6 +21,9 @@ borg create                                           \
     --exclude '**/.mozilla/**/weave/logs'             \
     --exclude '**/.mozilla/firefox/firefox-mpris'     \
     --exclude '**/.var/app/**/cache'                  \
+    --exclude '**/.var/app/**/Cache'                  \
+    --exclude '**/.var/app/**/media_cache'            \
+    --exclude '**/.var/app/**/temp_data'              \
     --exclude '**/*.log'                              \
     --exclude '**/sitnik.ru/dist'                     \
     ::'{hostname}-{now}'                              \
