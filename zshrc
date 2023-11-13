@@ -58,6 +58,7 @@ alias ..='cd ..'
 alias l='exa --all'
 alias ll='exa --long --all --git'
 alias cat='bat'
+alias micro='~/Dev/environment/bin/auto-micro'
 
 # Node.js
 alias n='pnpm '
