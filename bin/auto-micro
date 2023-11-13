@@ -1,9 +1,0 @@
-#!/bin/bash
-
-color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
-
-if [[ $color_scheme == "'prefer-dark'" ]]; then
-  /usr/bin/micro --colorscheme=monokai $@
-else
-  /usr/bin/micro --colorscheme=bubblegum $@
-fi
