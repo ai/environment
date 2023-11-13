@@ -3,7 +3,7 @@
 color_scheme=$(gsettings get org.gnome.desktop.interface color-scheme)
 
 if [[ $color_scheme == "'prefer-dark'" ]]; then
-    delta --dark
+  delta --dark
 else
-    delta --light
+  delta --light
 fi
