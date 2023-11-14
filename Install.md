@@ -114,10 +114,11 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak install flathub-beta org.gimp.GIMP
 ```
 
-Fix Wayland in Firefox:
+Fix Wayland in Firefox and Obsidian:
 
 ```sh
 flatpak override --env=MOZ_ENABLE_WAYLAND=1 --socket=wayland org.mozilla.firefox --user
+flatpak override --user --socket=wayland md.obsidian.Obsidian
 ```
 
 Fix Wayland in Chrome:
