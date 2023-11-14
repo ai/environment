@@ -374,7 +374,7 @@ busctl --user call org.gnome.Shell /io/elhan/ExtensionsSync io.elhan.ExtensionsS
 
 Add San Francisco, Lisbon, Moscow, Beijing, and Vladivostok in Clocks.
 
-Install [Martians Mono](https://github.com/evilmartians/mono/releases) font.
+Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
 Install GNOME Tweaks:
 
@@ -385,7 +385,7 @@ sudo dnf install gnome-tweak-tool
 * **General:** enable Over-Amplification.
 * **Top Bar:** enable Date and Seconds.
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
-* **Fonts:** monospace to `Martians Mono Nr Lt` and size `10`.
+* **Fonts:** monospace to `JetBrains Mono` and size `13`.
 
 Move applications from folders.
 
