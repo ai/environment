@@ -20,6 +20,7 @@ borg create                                           \
     --exclude '**/.mozilla/**/datareporting/archived' \
     --exclude '**/.mozilla/**/weave/logs'             \
     --exclude '**/.mozilla/firefox/firefox-mpris'     \
+    --exclude '**/.var/app/com.google.Chrome'         \
     --exclude '**/.var/app/**/cache'                  \
     --exclude '**/.var/app/**/Cache'                  \
     --exclude '**/.var/app/**/media_cache'            \
@@ -36,8 +37,7 @@ borg create                                           \
     ~/.config/syncthing                               \
     ~/.config/Code/User/globalStorage                 \
     ~/.local/share/notes                              \
-    ~/.var/app                                        \
-    ~/.mozilla/firefox
+    ~/.var/app                                        
 backup_exit=$?
 
 borg prune                         \
