@@ -88,7 +88,7 @@ fastestmirror=true
 Enable `Rendimiento`, disable `Apagar la pantalla`,
 `Suspender automaticámente`, and `Dim Screen` in Energía settings.
 
-Enable `Flathub` and `google-chrome` in Software Center settings.
+Enable `Flathub` in Software Center settings.
 
 
 ### System Update
@@ -96,7 +96,7 @@ Enable `Flathub` and `google-chrome` in Software Center settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor firefox
 ```
 
 Add RPM Fusion:
@@ -108,10 +108,21 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox net.nokyan.Resources 
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox net.nokyan.Resources org.mozilla.firefox com.google.Chrome
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
+
+Fix Wayland in Firefox:
+
+```sh
+flatpak override --env=MOZ_ENABLE_WAYLAND=1 --socket=wayland org.mozilla.firefox --user
+```
+
+Fix Wayland in Chrome:
+1. Open Chrome.
+2. Open `chrome://flags/#ozone-platform-hint`.
+3. Set Wayland.
 
 Remove old GNOME Terminal:
 
@@ -442,12 +453,6 @@ Install tools:
 
 ```sh
 sudo dnf install unrar p7zip p7zip-plugins
-```
-
-Install Chrome:
-
-```sh
-sudo dnf install google-chrome-stable
 ```
 
 Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
