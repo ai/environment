@@ -6,7 +6,7 @@ Download [Fedora image](https://getfedora.org/ru/workstation/)
 and write it to the USB drive:
 
 ```sh
-sudo dnf install mediawriter
+flatpak install flathub io.gitlab.adhami3310.Impression
 ```
 
 Copy `.ssh` and `.gnupg` into `.Private`.
@@ -35,7 +35,8 @@ Start installer.
 
 1. Select Spanish language.
 2. Add the US and Russian keyboard layouts. Layout switching:
-   CapsLock to the first layout, Shift+CapsLock, to the last layout.
+   CapsLock to the first layout, <kbd>Shift</kbd>+<kbd>CapsLock</kbd>,
+   to the last layout.
 3. Use disk manual mode. Create partitions automatically.
 4. Rename volume to `fullback`.
 5. Set encryption in volume settings.
@@ -61,7 +62,7 @@ Set laptop name:
 sudo hostnamectl set-hostname fullback
 ```
 
-Clean Windows EFI record:
+Clean Windows EFI record if have any:
 
 ```sh
 sudo efibootmgr
