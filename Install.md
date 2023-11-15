@@ -117,8 +117,9 @@ flatpak install flathub-beta org.gimp.GIMP org.gnome.Evince
 Fix Wayland in Firefox and Obsidian:
 
 ```sh
-flatpak override --env=MOZ_ENABLE_WAYLAND=1 --socket=wayland org.mozilla.firefox --user
+flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 --socket=wayland org.mozilla.firefox
 flatpak override --user --socket=wayland md.obsidian.Obsidian
+flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 ```
 
 Fix Wayland in Chrome:
@@ -511,9 +512,6 @@ run_keybase
 ```
 
 Disable autostart in Keybase settings.
-
-Edit file `/var/lib/flatpak/app/us.zoom.Zoom/x86_64/stable/active/metadata`
-and change `~/Documents/Zoom` to `~/.Documents/Zoom`.
 
 Open Zoom and sign-in into corporate account.
 
