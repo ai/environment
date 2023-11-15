@@ -89,7 +89,7 @@ fastestmirror=true
 Enable `Rendimiento`, disable `Apagar la pantalla`,
 `Suspender automaticámente`, and `Dim Screen` in Energía settings.
 
-Enable `Flathub` in Software Center settings.
+Enable `Flathub` and `google-chrome` in Software Center settings.
 
 
 ### System Update
@@ -97,7 +97,7 @@ Enable `Flathub` in Software Center settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor firefox baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince
 ```
 
 Add RPM Fusion:
@@ -109,7 +109,7 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox net.nokyan.Resources org.mozilla.firefox com.google.Chrome org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar 
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox net.nokyan.Resources org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar 
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP org.gnome.Evince
 ```
@@ -117,7 +117,6 @@ flatpak install flathub-beta org.gimp.GIMP org.gnome.Evince
 Fix Wayland in Firefox and Obsidian:
 
 ```sh
-flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 --socket=wayland org.mozilla.firefox
 flatpak override --user --socket=wayland md.obsidian.Obsidian
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 ```
@@ -456,6 +455,12 @@ Install tools:
 
 ```sh
 sudo dnf install unrar p7zip p7zip-plugins
+```
+
+Install Chrome:
+
+```sh
+sudo dnf install google-chrome-stable
 ```
 
 Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
