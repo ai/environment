@@ -24,6 +24,7 @@ borg create                                           \
     --exclude '**/.var/app/**/Cache'                  \
     --exclude '**/.var/app/**/media_cache'            \
     --exclude '**/.var/app/**/temp_data'              \
+    --exclude '**/.var/app/**/cache_*'                \
     --exclude '**/*.log'                              \
     --exclude '**/sitnik.ru/dist'                     \
     ::'{hostname}-{now}'                              \
