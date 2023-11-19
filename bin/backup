@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
+export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
 
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
