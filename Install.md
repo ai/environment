@@ -263,7 +263,7 @@ eval "$(starship init zsh)"
 Reboot.
 
 ```sh
-rm ~/.bash_history ~/.bash_logout
+rm ~/.bash*
 ```
 
 Install backup tool:
