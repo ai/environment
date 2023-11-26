@@ -382,7 +382,7 @@ sudo dnf install gnome-tweak-tool
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
 * **Fonts:** monospace to `JetBrains Mono` and size `13`.
 
-Move applications from folders.
+Clean up applications list.
 
 
 ### Folders
