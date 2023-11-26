@@ -394,6 +394,12 @@ Move applications from folders.
 
 ### Folders
 
+Install tools for thumbnails:
+
+```sh
+sudo dnf install gstreamer1-plugins-good-gtk gstreamer1-plugin-openh264 totem-video-thumbnailer
+```
+
 Create empty file template:
 
 ```sh
