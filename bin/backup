@@ -26,6 +26,7 @@ borg create                                           \
     --exclude '**/.var/app/**/temp_data'              \
     --exclude '**/.var/app/**/cache_*'                \
     --exclude '**/.var/app/org.gnome.Epiphany'        \
+    --exclude '**/.var/app/org.inkscape.Inkscape'     \
     --exclude '**/*.log'                              \
     --exclude '**/sitnik.ru/dist'                     \
     ::'{hostname}-{now}'                              \
