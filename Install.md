@@ -114,7 +114,7 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak install flathub-beta org.gimp.GIMP org.gnome.Evince
 ```
 
-Fix Wayland in Firefox and Obsidian:
+Fix Wayland in Obsidian and unnecessary dir creation in Zoom:
 
 ```sh
 flatpak override --user --socket=wayland md.obsidian.Obsidian
