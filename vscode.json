@@ -1,6 +1,6 @@
 {
   "[css]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -76,7 +76,7 @@
   "css.validate": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": false
+    "source.fixAll": "never"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrains Mono",
@@ -157,5 +157,10 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": true
+  "[javascript][svelte][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
+  },
+  "workbench.statusBar.visible": false
 }
