@@ -19,6 +19,7 @@ borg create                                           \
     --exclude '**/.mozilla/**/bookmarkbackups'        \
     --exclude '**/.mozilla/**/datareporting/archived' \
     --exclude '**/.mozilla/**/weave/logs'             \
+    --exclude '**/.mozilla/**/cache'                  \
     --exclude '**/.mozilla/firefox/firefox-mpris'     \
     --exclude '**/.var/app/**/cache'                  \
     --exclude '**/.var/app/**/Cache'                  \
