@@ -21,6 +21,7 @@ borg create                                           \
     --exclude '**/.mozilla/**/weave/logs'             \
     --exclude '**/.mozilla/**/cache'                  \
     --exclude '**/.mozilla/firefox/firefox-mpris'     \
+    --exclude '**/.mozilla/firefox/Crash Reports'     \
     --exclude '**/.var/app/**/cache'                  \
     --exclude '**/.var/app/**/Cache'                  \
     --exclude '**/.var/app/**/media_cache'            \
