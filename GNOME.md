@@ -9,6 +9,7 @@
 * [Battery Indicator Icon](https://extensions.gnome.org/extension/5718/battery-indicator-icon/)
 * [Battery time](https://extensions.gnome.org/extension/5425/battery-time/)
 * [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
+* [Bluetooth Battery Meter](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/)
 * [Dim Completed Calendar Events](https://extensions.gnome.org/extension/5979/dim-completed-calendar-events/)
 * [Do Not Disturb While Screen Sharing Or Recording](https://extensions.gnome.org/extension/5985/do-not-disturb-while-screen-sharing-or-recording/)
 * [Draw On Your Screen 2](https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/)
