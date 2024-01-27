@@ -62,13 +62,6 @@ Set laptop name:
 sudo hostnamectl set-hostname savoia
 ```
 
-Clean Windows EFI record if have any:
-
-```sh
-sudo efibootmgr
-sudo efibootmgr -B 0
-```
-
 Reboot.
 
 Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
@@ -143,6 +136,13 @@ mkdir -pv ~/.config/autostart && cp /etc/xdg/autostart/org.gnome.Software.deskto
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/gnome-software-service.desktop
 dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.desktop']"
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
+```
+
+Enable mouse buttons presets:
+
+```sh
+sudo dnf install input-remapper
+sudo systemctl enable --now input-remapper
 ```
 
 
