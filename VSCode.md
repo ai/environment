@@ -27,7 +27,7 @@ EXTENSIONS=(
   tamasfe.even-better-toml
   VisualStudioExptTeam.vscodeintellicode
   webben.browserslist
-  yoavbls.pretty-ts-errors
+  YoavBls.pretty-ts-errors
 )
 for EXTENSION in ${EXTENSIONS[@]}; do
   code --install-extension $EXTENSION
