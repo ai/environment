@@ -38,7 +38,7 @@ Start installer.
    CapsLock to the first layout, <kbd>Shift</kbd>+<kbd>CapsLock</kbd>,
    to the last layout.
 3. Use disk manual mode. Create partitions automatically.
-4. Rename volume to `fullback`.
+4. Rename volume to `savoia`.
 5. Set encryption in volume settings.
 
 Reboot to USB drive again. Mount laptop SSD.
@@ -59,7 +59,7 @@ Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
 Set laptop name:
 
 ```sh
-sudo hostnamectl set-hostname fullback
+sudo hostnamectl set-hostname savoia
 ```
 
 Clean Windows EFI record if have any:
