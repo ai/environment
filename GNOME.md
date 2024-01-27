@@ -12,7 +12,6 @@
 * [Bluetooth Battery Meter](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/)
 * [Dim Completed Calendar Events](https://extensions.gnome.org/extension/5979/dim-completed-calendar-events/)
 * [Do Not Disturb While Screen Sharing Or Recording](https://extensions.gnome.org/extension/5985/do-not-disturb-while-screen-sharing-or-recording/)
-* [Draw On Your Screen 2](https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/)
 * [Emoji Copy](https://extensions.gnome.org/extension/6242/emoji-copy/)
 * [Expandable Notifications](https://extensions.gnome.org/extension/4463/expandable-notifications/)
 * [Forge](https://extensions.gnome.org/extension/4481/forge/)
