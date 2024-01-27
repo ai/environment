@@ -162,5 +162,6 @@
       "source.fixAll": "explicit"
     }
   },
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "prettier.requireConfig": true
 }
