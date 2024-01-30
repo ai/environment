@@ -163,5 +163,15 @@
     }
   },
   "workbench.statusBar.visible": false,
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
+  "nodejs-testing.extensions": [
+    {
+      "extensions": ["js"],
+      "parameters": []
+    },
+    {
+      "extensions": ["ts"],
+      "parameters": ["--loader", "tsx"]
+    }
+  ]
 }
