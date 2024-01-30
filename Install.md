@@ -33,6 +33,8 @@ Block boot from USB.
 
 Enable `UMA_Game_Optimized`.
 
+Set battery charge limit to 80%.
+
 
 ### Install
 
