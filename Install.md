@@ -16,6 +16,8 @@ Clean `node_modules`:
 ```sh
 rm -R ~/Dev/*/node_modules
 rm -R ~/Dev/*/*/node_modules
+rm ~/Dev/susedko/fedora-coreos.iso
+rm -R ~/Dev/*/coverage
 ```
 
 Copy these files to external SDD:
@@ -34,7 +36,7 @@ Block changing boot without password.
 Start installer.
 
 1. Select Spanish language.
-2. Add the US and Russian keyboard layouts. Layout switching:
+2. Set the US and Russian keyboard layouts. Layout switching:
    CapsLock to the first layout, <kbd>Shift</kbd>+<kbd>CapsLock</kbd>,
    to the last layout.
 3. Use disk manual mode. Create partitions automatically.
