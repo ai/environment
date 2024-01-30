@@ -36,7 +36,7 @@ Block changing boot without password.
 Start installer.
 
 1. Select Spanish language.
-2. Set the US and Russian keyboard layouts. Layout switching:
+2. Set the only US keyboard layouts. Layout switching:
    CapsLock to the first layout, <kbd>Shift</kbd>+<kbd>CapsLock</kbd>,
    to the last layout.
 3. Use disk manual mode. Create partitions automatically.
