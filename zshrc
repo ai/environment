@@ -55,8 +55,8 @@ alias e='code .'
 # Aliases
 alias g='git'
 alias ..='cd ..'
-alias l='exa --all'
-alias ll='exa --long --all --git'
+alias l='eza --all'
+alias ll='eza --long --all --git'
 alias cat='bat'
 
 # Node.js

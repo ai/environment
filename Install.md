@@ -64,6 +64,12 @@ Set laptop name:
 sudo hostnamectl set-hostname savoia
 ```
 
+Fix video issue:
+
+```sh
+sudo grubby --update-kernel=ALL --args="amdgpu.sg_display=0"
+```
+
 Reboot.
 
 Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
@@ -82,9 +88,8 @@ fastestmirror=true
 ```
 
 Enable `Rendimiento`, disable `Apagar la pantalla`,
-`Suspender automaticámente`, and `Dim Screen` in Energía settings.
-
-Enable `Flathub` and `google-chrome` in Software Center settings.
+`Suspender automaticámente`, and `Oscurecer la patalla`
+in Energía settings.
 
 
 ### System Update
@@ -92,7 +97,7 @@ Enable `Flathub` and `google-chrome` in Software Center settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free
 ```
 
 Add RPM Fusion:
@@ -104,9 +109,9 @@ sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusi
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape
+flatpak install flathub io.github.TransmissionRemoteGtk org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install flathub-beta org.gimp.GIMP org.gnome.Evince
+flatpak install flathub-beta org.gimp.GIMP
 ```
 
 Fix Wayland in Obsidian and unnecessary dir creation in Zoom:
@@ -115,11 +120,6 @@ Fix Wayland in Obsidian and unnecessary dir creation in Zoom:
 flatpak override --user --socket=wayland md.obsidian.Obsidian
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 ```
-
-Fix Wayland in Chrome:
-1. Open Chrome.
-2. Open `chrome://flags/#ozone-platform-hint`.
-3. Set Wayland.
 
 Remove old GNOME Terminal:
 
@@ -253,7 +253,6 @@ Install Antigen:
 ```sh
 curl -L git.io/antigen > ~/.antigen.zsh
 zsh
-source ~/.antigen.zsh
 ```
 
 Create `/root/.zshrc`:
@@ -278,8 +277,8 @@ Open backup and copy files from it.
 
 ```sh
 mkdir ~/backup
-export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/.backup
-borg mount $BORG_REPO::$(borg list --short --last 1 $BORG_REPO) ~/backup
+export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
+borg mount "$BORG_REPO:$(borg list --short --last 1 $BORG_REPO)" ~/backup
 ```
 
 Copy files.
@@ -289,7 +288,13 @@ borg umount ~/backup
 rmdir ~/backup
 ```
 
-Start copying `Vídeos/Erótica` from server in the background.
+Connect to server in Files by `sftp://ai@susedko.local/`
+and start copying `Vídeos/Erótica` from server in the background.
+
+Add `vault` to Favorites places.
+
+
+### Text Editors
 
 Install `micro` and its plugins:
 
@@ -298,9 +303,6 @@ sudo dnf install xclip micro
 micro -plugin install editorconfig
 sudo dnf remove nano
 ```
-
-
-### Text Editors
 
 Install VS Code:
 
@@ -321,6 +323,14 @@ Install [VS Code extensions](./VSCode.md).
 
 ### GNOME Settings
 
+Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
+
+```sh
+mkdir ~/.local/share/fonts
+# Copy variable fonts
+fc-cache -f -v
+```
+
 Open settings:
 
 * **Appearance:** use standard GNOME wallpaper.
@@ -332,7 +342,8 @@ Open settings:
 * **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
   enable Tap to Click.
 * **Users:** set fingerprint, avatar and Automatic Login.
-* **Keyboard:** add hot key for screenshot.
+* **Keyboard:**, add Russian layout, add hot key for screenshot.
+* **Date and time:** enable seconds and date on top panel.
 
 Set keyboard settings:
 
@@ -369,10 +380,6 @@ gsettings set org.gnome.shell disable-extension-version-validation true
 
 Install extensions from [`GNOME.md`](./GNOME.md).
 
-Add San Francisco, Lisbon, Moscow, Beijing, and Vladivostok in Clocks.
-
-Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
-
 Install GNOME Tweaks:
 
 ```sh
@@ -382,7 +389,7 @@ sudo dnf install gnome-tweak-tool
 * **General:** enable Over-Amplification.
 * **Top Bar:** enable Date and Seconds.
 * **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
-* **Fonts:** monospace to `JetBrains Mono` and size `13`.
+* **Fonts:** monospace to `JetBrains Mono` and size `12`.
 
 Clean up applications list.
 
@@ -450,14 +457,15 @@ Install codecs:
 
 ```sh
 sudo dnf config-manager --set-enabled fedora-cisco-openh264
-sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader avif-pixbuf-loader ffmpeg-libs libva libva-utils gstreamer1-vaapi
-sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld mozilla-openh264
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader avif-pixbuf-loader ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 ```
 
 Install tools:
 
 ```sh
-sudo dnf install unrar p7zip p7zip-plugins
+sudo dnf install unrar p7zip p7zip-plugins speech-dispatcher
 ```
 
 Install Chrome:
@@ -465,6 +473,11 @@ Install Chrome:
 ```sh
 sudo dnf install google-chrome-stable
 ```
+
+Fix Wayland in Chrome:
+1. Open Chrome.
+2. Open `chrome://flags/#ozone-platform-hint`.
+3. Set Wayland.
 
 Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
 
@@ -474,13 +487,13 @@ Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep exa xkill bat
+sudo dnf install git tig ripgrep eza xkill bat
 ```
 
 Install tools for compile:
 
 ```sh
-sudo dnf install make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel msgfmt
+sudo dnf install make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
 ```
 
 Install Node.js:
@@ -523,17 +536,13 @@ Disable autostart in Keybase settings.
 
 Open Zoom and sign-in into corporate account.
 
-Set `autoScale=false` and `useSystemTheme=true`
-in `~/.var/app/us.zoom.Zoom/config/zoomus.conf`.
-
 Install Syncthing.
 
 ```sh
 sudo dnf install syncthing
 ```
 
-Add `Start Syncthing` to Autorun applications
-(temporary remove `NoDisplay` from application icon).
+Add `Start Syncthing` to Autorun applications.
 
 
 ## LanguageTool Server
@@ -555,6 +564,7 @@ rm ngram*.zip
 Prepare `fasttext`:
 
 ```sh
+sudo Xdnf copr enable fcsm/fasttext
 sudo dnf install fasttext
 mkdir -p ~/.local/share/fasttext
 cd ~/.local/share/fasttext
@@ -578,7 +588,7 @@ mv LanguageTool-*/* ~/.local/lib/languagetool
 rm -R LanguageTool-*
 ```
 
-Create config `.config/languagetool.properties`:
+Create config `~/.config/languagetool.properties`:
 
 ```ini
 languageModel=/home/ai/.local/share/ngrams
@@ -607,10 +617,10 @@ ExecStart=java -Xms512m -Xmx2g \
 WantedBy=default.target
 ```
 
-Enable service when needed.
+Enable service.
 
 ```sh
-systemctl --user enable languagetool.service
+systemctl --user enable --now languagetool.service
 ```
 
 
