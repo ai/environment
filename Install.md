@@ -28,7 +28,10 @@ Copy these files to external SDD:
 ### BIOS
 
 Boot to BIOS and set supervisor password.
-Block changing boot without password.
+
+Block boot from USB.
+
+Enable `UMA_Game_Optimized`.
 
 
 ### Install
@@ -62,12 +65,6 @@ Set laptop name:
 
 ```sh
 sudo hostnamectl set-hostname savoia
-```
-
-Fix video issue:
-
-```sh
-sudo grubby --update-kernel=ALL --args="amdgpu.sg_display=0"
 ```
 
 Reboot.
