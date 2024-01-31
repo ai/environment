@@ -4,7 +4,6 @@
 * [App Hider](https://extensions.gnome.org/extension/5895/app-hider/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Autohide Volume](https://extensions.gnome.org/extension/4539/autohide-volume/)
-* [Battery Indicator Icon](https://extensions.gnome.org/extension/5718/battery-indicator-icon/)
 * [Battery time](https://extensions.gnome.org/extension/5425/battery-time/)
 * [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
 * [Bluetooth Battery Meter](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/)
