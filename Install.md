@@ -197,11 +197,6 @@ Disable file system scanning:
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
-Disable sleep on lid closing:
-
-1. `sudo nano /etc/systemd/logind.conf`
-2. Set `HandleLidSwitch=lock`
-
 Enable HiPDI on login screen:
 
 ```sh
