@@ -57,7 +57,7 @@ alias g='git'
 alias ..='cd ..'
 alias l='eza --all'
 alias ll='eza --long --all --git'
-alias cat='bat'
+alias cat='bat --theme=$(gsettings get org.gnome.desktop.interface color-scheme | grep -q "dark" && echo default || echo GitHub)'
 
 # Node.js
 alias n='pnpm '
