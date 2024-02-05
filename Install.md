@@ -150,6 +150,9 @@ sudo dnf install input-remapper
 sudo systemctl enable --now input-remapper
 ```
 
+Set [color profile](https://www.notebookcheck.net/uploads/tx_nbc2/BOE_CQ_______NE135FBM_N41_03.icm)
+in `Settings` → `Color`.
+
 
 ### Base Settings
 
