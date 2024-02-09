@@ -120,7 +120,6 @@ flatpak install flathub-beta org.gimp.GIMP
 Fix Wayland in Obsidian and unnecessary dir creation in Zoom:
 
 ```sh
-flatpak override --user --socket=wayland md.obsidian.Obsidian
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 ```
 
@@ -625,14 +624,3 @@ Enable service.
 ```sh
 systemctl --user enable --now languagetool.service
 ```
-
-
-## Fractional Scaling
-
-When we need to use laptop screen, enable fractional scaling:
-
-```sh
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-```
-
-Restart. And set `250%` scale.
