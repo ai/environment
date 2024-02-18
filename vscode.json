@@ -173,5 +173,6 @@
       "extensions": ["ts"],
       "parameters": ["--enable-source-maps", "--import", "tsx"]
     }
-  ]
+  ],
+  "git.enableCommitSigning": true
 }
