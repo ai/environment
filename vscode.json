@@ -11,6 +11,11 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascript][svelte][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    }
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -89,7 +94,9 @@
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "none",
   "editor.renderWhitespace": "selection",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -105,7 +112,11 @@
     "svelte"
   ],
   "eslint.run": "onSave",
-  "eslint.validate": ["javascript", "javascriptreact", "svelte"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "svelte"
+  ],
   "extensions.ignoreRecommendations": true,
   "files.associations": {
     "**/test/*.errors.ts": "rust",
@@ -120,6 +131,7 @@
     "errors.tsx": "rust"
   },
   "git.confirmSync": false,
+  "git.enableCommitSigning": true,
   "git.enableSmartCommit": true,
   "github.copilot.enable": {
     "*": true,
@@ -128,12 +140,33 @@
     "scminput": false
   },
   "less.validate": false,
+  "nodejs-testing.extensions": [
+    {
+      "extensions": [
+        "js"
+      ],
+      "parameters": []
+    },
+    {
+      "extensions": [
+        "ts"
+      ],
+      "parameters": [
+        "--enable-source-maps",
+        "--import",
+        "tsx"
+      ]
+    }
+  ],
   "prettier.arrowParens": "avoid",
   "prettier.quoteProps": "consistent",
+  "prettier.requireConfig": true,
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "projectManager.git.baseFolders": ["/home/ai/Dev/"],
+  "projectManager.git.baseFolders": [
+    "/home/ai/Dev/"
+  ],
   "projectManager.git.maxDepthRecursion": 1,
   "scss.validate": false,
   "security.workspace.trust.untrustedFiles": "newWindow",
@@ -157,22 +190,5 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "[javascript][svelte][typescript][typescriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll": "explicit"
-    }
-  },
-  "workbench.statusBar.visible": false,
-  "prettier.requireConfig": true,
-  "nodejs-testing.extensions": [
-    {
-      "extensions": ["js"],
-      "parameters": []
-    },
-    {
-      "extensions": ["ts"],
-      "parameters": ["--enable-source-maps", "--import", "tsx"]
-    }
-  ],
-  "git.enableCommitSigning": true
+  "workbench.statusBar.visible": false
 }
