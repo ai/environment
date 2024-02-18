@@ -10,25 +10,24 @@ EXTENSIONS=(
   connor4312.nodejs-testing
   csstools.postcss
   dbaeumer.vscode-eslint
-  EditorConfig.EditorConfig
+  editorconfig.editorconfig
   esbenp.prettier-vscode
   formulahendry.auto-rename-tag
-  GitHub.copilot
-  GitHub.copilot-chat
+  github.copilot
+  github.copilot-chat
   kshetline.ligatures-limited
   mikestead.dotenv
   mrorz.language-gettext
-  ms-vscode.live-server
   piousdeer.adwaita-theme
-  PKief.material-icon-theme
+  pkief.material-icon-theme
   streetsidesoftware.code-spell-checker
   streetsidesoftware.code-spell-checker-russian
   stylelint.vscode-stylelint
   svelte.svelte-vscode
   tamasfe.even-better-toml
-  VisualStudioExptTeam.vscodeintellicode
+  visualstudioexptteam.vscodeintellicode
   webben.browserslist
-  YoavBls.pretty-ts-errors
+  yoavbls.pretty-ts-errors
 )
 for EXTENSION in ${EXTENSIONS[@]}; do
   code --install-extension $EXTENSION
