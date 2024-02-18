@@ -15,6 +15,7 @@
   lh = "!git l && git h"
   r  = "!git rm $(git ls-files --deleted) && git status"
   lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit
+  hf = push --force-with-lease
 [color]
   diff   = auto
   status = auto
