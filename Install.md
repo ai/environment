@@ -22,7 +22,8 @@ rm -R ~/Dev/*/coverage
 
 Copy these files to external SDD:
 * `Dev/`
-* `.Private`
+* `Vídeos/Juntos/`
+* `.Private/`
 
 
 ### BIOS
