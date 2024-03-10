@@ -29,3 +29,12 @@
   defaultBranch = main
 [gpg]
   format = ssh
+[commit]
+  gpgsign = true
+[push]
+  default = current
+  followtags = true
+[rerere]
+  enabled = true
+[diff]
+  algorithm = histogram
