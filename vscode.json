@@ -7,7 +7,7 @@
   },
   "[javascript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
+      "source.fixAll": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -30,19 +30,19 @@
   },
   "[svelte]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
+      "source.fixAll": "explicit"
     },
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
+      "source.fixAll": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll": true
+      "source.fixAll": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -182,13 +182,11 @@
   "window.commandCenter": true,
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
-  "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#151515"
-  },
   "workbench.colorTheme": "Adwaita Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "eslint.experimental.useFlatConfig": true
 }
