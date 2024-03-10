@@ -85,7 +85,11 @@ async function processFile (file) {
   print(gray(file.replace(HOME, '~')))
   let changed = false
   let content = readFileSync(file).toString()
-  let versions = content.trim().split('\n').map(i => i.split(' '))
+  let versions = content
+    .split('\n')
+    .map(i => i.replace(/#.*/, '').trim())
+    .filter(i => i !== '')
+    .map(i => i.split(' '))
   for (let [tool, version] of versions) {
     let requirement = version.split('.')[0]
     if (tool === 'ruby') requirement = version.split('.').splice(0, 2).join('.')
