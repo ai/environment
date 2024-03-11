@@ -128,7 +128,8 @@
     "*.timer": "ini",
     ".stylelintrc": "json",
     "errors.ts": "rust",
-    "errors.tsx": "rust"
+    "errors.tsx": "rust",
+    ".tool-versions": "dotenv"
   },
   "git.confirmSync": false,
   "git.enableCommitSigning": true,
