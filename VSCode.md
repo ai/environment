@@ -9,6 +9,7 @@ EXTENSIONS=(
   christian-kohler.path-intellisense
   connor4312.nodejs-testing
   csstools.postcss
+  davidlday.languagetool-linter
   dbaeumer.vscode-eslint
   editorconfig.editorconfig
   esbenp.prettier-vscode
