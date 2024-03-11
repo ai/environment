@@ -28,6 +28,7 @@ EXTENSIONS=(
   visualstudioexptteam.vscodeintellicode
   webben.browserslist
   yoavbls.pretty-ts-errors
+  yzhang.markdown-all-in-one
 )
 for EXTENSION in ${EXTENSIONS[@]}; do
   code --install-extension $EXTENSION
