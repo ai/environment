@@ -189,5 +189,9 @@
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": false,
-  "eslint.experimental.useFlatConfig": true
+  "eslint.experimental.useFlatConfig": true,
+  "languageToolLinter.languageTool.language": "en",
+  "languageToolLinter.languageTool.motherTongue": "ru-RU",
+  "languageToolLinter.lintOnOpen": true,
+  "languageToolLinter.languageTool.disabledRules": "COMMA_PARENTHESIS_WHITESPACE,UPPERCASE_SENTENCE_START,CONSECUTIVE_SPACES,WHITESPACE_RULE"
 }
