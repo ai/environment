@@ -100,6 +100,7 @@
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
+  "eslint.experimental.useFlatConfig": true,
   "eslint.migration.2_x": "off",
   "eslint.probe": [
     "javascript",
@@ -127,9 +128,9 @@
     "*.service": "ini",
     "*.timer": "ini",
     ".stylelintrc": "json",
+    ".tool-versions": "dotenv",
     "errors.ts": "rust",
-    "errors.tsx": "rust",
-    ".tool-versions": "dotenv"
+    "errors.tsx": "rust"
   },
   "git.confirmSync": false,
   "git.enableCommitSigning": true,
@@ -140,7 +141,12 @@
     "plaintext": true,
     "scminput": false
   },
+  "languageToolLinter.languageTool.disabledRules": "COMMA_PARENTHESIS_WHITESPACE,UPPERCASE_SENTENCE_START,CONSECUTIVE_SPACES,WHITESPACE_RULE,UNLIKELY_OPENING_PUNCTUATION",
+  "languageToolLinter.languageTool.language": "en",
+  "languageToolLinter.languageTool.motherTongue": "ru-RU",
+  "languageToolLinter.lintOnOpen": true,
   "less.validate": false,
+  "markdown.extension.toc.levels": "2..3",
   "nodejs-testing.extensions": [
     {
       "extensions": [
@@ -188,10 +194,5 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false,
-  "eslint.experimental.useFlatConfig": true,
-  "languageToolLinter.languageTool.language": "en",
-  "languageToolLinter.languageTool.motherTongue": "ru-RU",
-  "languageToolLinter.lintOnOpen": true,
-  "languageToolLinter.languageTool.disabledRules": "COMMA_PARENTHESIS_WHITESPACE,UPPERCASE_SENTENCE_START,CONSECUTIVE_SPACES,WHITESPACE_RULE"
+  "workbench.statusBar.visible": false
 }
