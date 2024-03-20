@@ -537,14 +537,6 @@ Disable autostart in Keybase settings.
 
 Open Zoom and sign-in into corporate account.
 
-Install Syncthing.
-
-```sh
-sudo dnf install syncthing
-```
-
-Add `Start Syncthing` to Autorun applications.
-
 
 ## LanguageTool Server
 
