@@ -39,7 +39,6 @@ borg create                                           \
     ~/.ssh                                            \
     ~/.gnupg                                          \
     ~/.Private                                        \
-    ~/.config/syncthing                               \
     ~/.config/Code/User/globalStorage                 \
     ~/.config/input-remapper-2                        \
     ~/.local/share/notes                              \
