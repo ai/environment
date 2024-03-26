@@ -4,6 +4,10 @@ export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
 
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
+read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
+echo
+export BORG_PASSPHRASE
+
 borg create                                           \
     --verbose                                         \
     --filter AME                                      \
@@ -55,6 +59,8 @@ prune_exit=$?
 
 borg compact
 compact_exit=$?
+
+unset BORG_PASSPHRASE
 
 global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 global_exit=$(( compact_exit > global_exit ? compact_exit : global_exit ))
