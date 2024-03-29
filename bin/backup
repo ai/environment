@@ -45,7 +45,6 @@ borg create                                           \
     ~/.config/input-remapper-2                        \
     ~/.local/share/notes                              \
     ~/.mozilla                                        \
-    ~/.var/app                                        
     ~/.var/app
 
 borg prune                         \
