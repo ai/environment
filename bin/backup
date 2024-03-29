@@ -46,10 +46,7 @@ borg create                                           \
     ~/.local/share/notes                              \
     ~/.mozilla                                        \
     ~/.var/app                                        
-    ~/.var/app                                        
-backup_exit=$?
     ~/.var/app
-backup_exit=$?
 
 borg prune                         \
     --list                         \
