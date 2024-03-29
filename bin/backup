@@ -2,8 +2,6 @@
 
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
 
-trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
-
 read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
 echo
 export BORG_PASSPHRASE
@@ -48,6 +46,9 @@ borg create                                           \
     ~/.local/share/notes                              \
     ~/.mozilla                                        \
     ~/.var/app                                        
+    ~/.var/app                                        
+backup_exit=$?
+    ~/.var/app
 backup_exit=$?
 
 borg prune                         \
@@ -55,23 +56,13 @@ borg prune                         \
     --glob-archives '{hostname}-*' \
     --show-rc                      \
     --keep-last 1
-prune_exit=$?
 
 borg compact
-compact_exit=$?
 
 unset BORG_PASSPHRASE
-
-global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
-global_exit=$(( compact_exit > global_exit ? compact_exit : global_exit ))
 
 rsync -a --delete --progress \
   --no-perms --no-owner --no-group \
   /home/ai/Vídeos/Erótica/ ai@susedko.local:/var/mnt/vault/ai/Selected
-
-echo ""
-if [ ${global_exit} -gt 1 ]; then
-  echo "\x1b[31mBackup, Prune, and/or Compact finished with errors\x1b[39m"
-fi
 
 exit ${global_exit}
