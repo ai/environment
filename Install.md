@@ -352,16 +352,19 @@ Open settings:
 * **Keyboard:**, add Russian layout, add hot key for screenshot.
 * **Date and time:** enable seconds and date on top panel.
 
+Install custom universal keyboard layouts:
+
+```sh
+mkdir -p ~/.config/xkb/symbols/ ~/.config/xkb/rules/
+wget -O ~/.config/xkb/symbols/universal_en https://raw.githubusercontent.com/ai/universal-layout/main/universal_en.xkb
+wget -O ~/.config/xkb/symbols/universal_ru https://raw.githubusercontent.com/ai/universal-layout/main/universal_ru.xkb
+wget -O ~/.config/xkb/rules/evdev.xml https://raw.githubusercontent.com/ai/universal-layout/main/evdev.xml
+```
+
 Set keyboard settings:
 
 ```sh
-dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'misc:typo', 'nbsp:level3', 'lv3:lsgt_switch', 'grp:shift_caps_switch']"
-```
-
-Update typography keyboard layout:
-
-```sh
-sudo cp ~/Dev/environment/typo.txt /usr/share/X11/xkb/symbols/typo
+dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
 ```
 
 Nautilus:
