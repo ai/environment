@@ -49,7 +49,6 @@ borg create                                           \
 
 borg prune                         \
     --list                         \
-    --glob-archives '{hostname}-*' \
     --show-rc                      \
     --keep-last 1
 
