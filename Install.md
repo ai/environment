@@ -341,6 +341,7 @@ Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 mkdir ~/.local/share/fonts
 # Copy variable fonts
 fc-cache -f -v
+gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Regular 12"
 ```
 
 Open settings:
@@ -394,14 +395,6 @@ gsettings set org.gnome.shell disable-extension-version-validation true
 
 Install extensions from [`GNOME.md`](./GNOME.md).
 
-Install GNOME Tweaks:
-
-```sh
-sudo dnf install gnome-tweak-tool
-```
-
-Set `JetBrains Mono Regular` and size `12` in font settings of Tweak Tool.
-
 Clean up applications list.
 
 
@@ -410,7 +403,7 @@ Clean up applications list.
 Install tools for thumbnails:
 
 ```sh
-sudo dnf install gstreamer1-plugins-good-gtk gstreamer1-plugin-openh264 totem-video-thumbnailer
+sudo dnf install gstreamer1-plugins-good-gtk gstreamer1-plugin-openh264 totem-video-thumbnailer speech-dispatcher-utils
 ```
 
 Create empty file template:
