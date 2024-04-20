@@ -181,7 +181,7 @@
     "run": "onSave"
   },
   "svelte.enable-ts-plugin": true,
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontWeight": "300",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -189,7 +189,7 @@
   "window.commandCenter": true,
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Adwaita Light",
+  "workbench.colorTheme": "Adwaita Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
