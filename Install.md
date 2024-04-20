@@ -14,10 +14,7 @@ Copy `.ssh` and `.gnupg` into `.Private`.
 Clean `node_modules`:
 
 ```sh
-rm -R ~/Dev/*/node_modules
-rm -R ~/Dev/*/*/node_modules
-rm ~/Dev/susedko/fedora-coreos.iso
-rm -R ~/Dev/*/coverage
+rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/*/*/coverage ~/Dev/susedko/fedora-coreos.iso
 ```
 
 Copy these files to external SDD:
@@ -130,7 +127,7 @@ flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 
 Update system via Software Center.
 
-Add Autostart and fingers (``) to user settings.
+Add Autostart and fingers to user settings.
 
 Disable Software auto-start:
 
@@ -334,6 +331,11 @@ Install [VS Code extensions](./VSCode.md).
 
 
 ### GNOME Settings
+
+Open Clock and add `Vladivostok`, `Beijing`, `Moscow`, `Lisbon`,
+and `San Francisco`.
+
+Run Weather app and set current location.
 
 Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
