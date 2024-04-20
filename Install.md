@@ -403,7 +403,7 @@ Clean up applications list.
 Install tools for thumbnails:
 
 ```sh
-sudo dnf install gstreamer1-plugins-good-gtk gstreamer1-plugin-openh264 totem-video-thumbnailer speech-dispatcher-utils
+sudo dnf install gstreamer1-plugins-good-gtk gstreamer1-plugin-openh264 totem-video-thumbnailer
 ```
 
 Create empty file template:
@@ -469,7 +469,7 @@ sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=Pack
 Install tools:
 
 ```sh
-sudo dnf install unrar p7zip p7zip-plugins speech-dispatcher
+sudo dnf install unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils
 ```
 
 Install Chrome:
@@ -560,7 +560,7 @@ rm ngram*.zip
 Prepare `fasttext`:
 
 ```sh
-sudo Xdnf copr enable fcsm/fasttext
+sudo dnf copr enable fcsm/fasttext
 sudo dnf install fasttext
 mkdir -p ~/.local/share/fasttext
 cd ~/.local/share/fasttext
