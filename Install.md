@@ -35,7 +35,7 @@ Set battery charge limit to 80%.
 
 ### Install
 
-Start installer.
+Start installer in terminal by `anaconda --sdboot`:
 
 1. Select Spanish language.
 2. Set the only US keyboard layouts. Layout switching:
