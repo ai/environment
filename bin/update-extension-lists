@@ -44,7 +44,7 @@ async function updateGnome() {
     meta
       .map(result => {
         let uuid = result.stdout.split('\n')[0]
-        let enabled = result.stdout.includes('State: ENABLED')
+        let enabled = result.stdout.includes('State: ACTIVE')
         let name = result.stdout.match(/Name: (.*)/)[1]
         let hasRepo = result.stdout.match(/URL: (.*)/)
         return { uuid, name, enabled, hasRepo }
