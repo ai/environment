@@ -102,6 +102,7 @@ video/vnd.mpegurl=mpv.desktop;
 video/3gp=mpv.desktop;
 video/3gpp2=mpv.desktop;
 video/dv=mpv.desktop;
+application/xml=org.gnome.TextEditor.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
@@ -214,3 +215,4 @@ video/vnd.mpegurl=mpv.desktop
 video/3gp=mpv.desktop
 video/3gpp2=mpv.desktop
 video/dv=mpv.desktop
+application/xml=org.gnome.TextEditor.desktop
