@@ -189,10 +189,13 @@
   "window.commandCenter": true,
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Adwaita Dark",
+  "workbench.colorTheme": "Adwaita Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.location": "top",
+  "window.customTitleBarVisibility": "auto",
+  "git.autofetch": "all"
 }
