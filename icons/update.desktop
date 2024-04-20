@@ -3,4 +3,4 @@ Type=Application
 Name=Actualización
 Comment=Update RPM, Flatpak, and Mozilla Theme
 Icon=org.fedoraproject.AnacondaInstaller
-Exec=flatpak run com.raggesilver.BlackBox --command /home/ai/Dev/environment/bin/update
+Exec=kgx -e /home/ai/Dev/environment/bin/update
