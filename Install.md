@@ -35,15 +35,17 @@ Set battery charge limit to 80%.
 
 ### Install
 
-Start installer in terminal by `anaconda --sdboot`:
+Start installer:
 
 1. Select Spanish language.
-2. Set the only US keyboard layouts. Layout switching:
-   CapsLock to the first layout, <kbd>Shift</kbd>+<kbd>CapsLock</kbd>,
-   to the last layout.
-3. Use disk manual mode. Create partitions automatically.
-4. Rename volume to `savoia`.
-5. Set encryption in volume settings.
+2. Set the only US keyboard layouts.
+3. Use disk manual mode.
+   1. Create `btrfs` partitions automatically.
+   2. Remove `/home` partition.
+   3. Remove `/` partition.
+   4. Add new `/` partition.
+   5. Rename volume to `savoia`.
+   6. Set encryption in volume settings.
 
 Reboot to USB drive again. Mount laptop SSD.
 
@@ -101,19 +103,15 @@ in Energía settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free snapshot
 ```
+
+Run Software Center, disable `Fedora Flatpak` and enable Flathub and Chrome.
 
 Add RPM Fusion:
 
 ```sh
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
-
-Remove Fedora Flatpak:
-
-```sh
-flatpak remote-delete fedora
 ```
 
 Install applications from Flatpak:
@@ -124,20 +122,15 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak install flathub-beta org.gimp.GIMP
 ```
 
-Fix Wayland in Obsidian and unnecessary dir creation in Zoom:
+Fix unnecessary dir creation in Zoom:
 
 ```sh
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 ```
 
-Remove old GNOME Terminal:
-
-```sh
-sudo dnf install gnome-console
-sudo dnf remove gnome-terminal
-```
-
 Update system via Software Center.
+
+Add Autostart and fingers (``) to user settings.
 
 Disable Software auto-start:
 
@@ -150,6 +143,18 @@ dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.d
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
 ```
 
+Install new Terminal:
+
+```sh
+sudo dnf install gnome-console
+```
+
+Change terminal and uninstall old:
+
+```sh
+sudo dnf remove gnome-terminal
+```
+
 Enable mouse buttons presets:
 
 ```sh
@@ -159,6 +164,14 @@ sudo systemctl enable --now input-remapper
 
 Set [color profile](https://www.notebookcheck.net/uploads/tx_nbc2/BOE_CQ_______NE135FBM_N41_03.icm)
 in `Settings` → `Color`.
+
+Install `micro` and its plugins:
+
+```sh
+sudo dnf install xclip micro
+micro -plugin install editorconfig
+sudo dnf remove nano
+```
 
 
 ### Base Settings
@@ -284,9 +297,8 @@ sudo dnf install borgbackup
 Open backup and copy files from it.
 
 ```sh
-mkdir ~/backup
-export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
-borg mount "$BORG_REPO:$(borg list --short --last 1 $BORG_REPO)" ~/backup
+mkdir ~/backups
+borg mount "ai@susedko.local:/var/mnt/vault/ai/backup" ~/backup
 ```
 
 Copy files.
@@ -303,14 +315,6 @@ Add `vault` to Favorites places.
 
 
 ### Text Editors
-
-Install `micro` and its plugins:
-
-```sh
-sudo dnf install xclip micro
-micro -plugin install editorconfig
-sudo dnf remove nano
-```
 
 Install VS Code:
 
@@ -349,9 +353,8 @@ Open settings:
 * **Power:** Show Battery Percentage.
 * **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
   enable Tap to Click.
-* **Users:** set fingerprint, avatar and Automatic Login.
-* **Keyboard:**, add Russian layout, add hot key for screenshot.
-* **Date and time:** enable seconds and date on top panel.
+* **Users:** set photo.
+* **Date and time:** enable seconds and week day on top panel.
 
 Install custom universal keyboard layouts:
 
@@ -397,10 +400,7 @@ Install GNOME Tweaks:
 sudo dnf install gnome-tweak-tool
 ```
 
-* **General:** enable Over-Amplification.
-* **Top Bar:** enable Date and Seconds.
-* **Keyboard & Mouse:** enable Adaptive in Acceleration Profile.
-* **Fonts:** monospace to `JetBrains Mono` and size `12`.
+Set `JetBrains Mono Regular` and size `12` in font settings of Tweak Tool.
 
 Clean up applications list.
 
