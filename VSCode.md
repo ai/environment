@@ -7,6 +7,7 @@ EXTENSIONS=(
   alefragnani.project-manager
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
+  compilouit.xkb
   connor4312.nodejs-testing
   csstools.postcss
   davidlday.languagetool-linter
