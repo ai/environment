@@ -30,8 +30,6 @@ Copy these files to external SDD:
 
 Boot to BIOS and set supervisor password.
 
-Block boot from USB.
-
 Set battery charge limit to 80%.
 
 
@@ -59,6 +57,8 @@ Move `/tmp` and `/var/tmp` to RAM:
 vartmp /var/tmp tmpfs defaults,noatime,nodiratime 0 0
 vartmp /tmp     tmpfs defaults,noatime,nodiratime 0 0
 ```
+
+Reboot to BIOS. Block boot from USB.
 
 Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
 
@@ -119,7 +119,7 @@ flatpak remote-delete fedora
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter com.raggesilver.BlackBox io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince org.gnome.gitlab.YaLTeR.VideoTrimmer
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince org.gnome.gitlab.YaLTeR.VideoTrimmer
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
@@ -133,6 +133,7 @@ flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 Remove old GNOME Terminal:
 
 ```sh
+sudo dnf install gnome-console
 sudo dnf remove gnome-terminal
 ```
 
