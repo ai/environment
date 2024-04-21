@@ -26,4 +26,5 @@ gdbus call --session --dest org.gnome.Shell.Extensions \
      --method org.gnome.Shell.Extensions.CheckForUpdates
 
 echo "\n\x1b[32m\033[1mHecho\033[0m"
-echo "\033[90mPulse Entrar para cerrar la ventana\x1b[39m"s
+# echo "\033[90mPulse Entrar para cerrar la ventana\x1b[39m"s
+# read
