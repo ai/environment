@@ -2,8 +2,14 @@
 
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
 
-read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
-echo
+SERVICE_NAME="BorgBackup"
+USERNAME="backup"
+
+BORG_PASSPHRASE=$(secret-tool lookup service "BorgBackup" username "ai")
+if [ -z "$BORG_PASSPHRASE" ]; then
+  read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
+  echo "$BORG_PASSPHRASE" | secret-tool store --label="Password for backup" service "BorgBackup" username "ai"
+fi
 export BORG_PASSPHRASE
 
 borg create                                                \
