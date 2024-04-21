@@ -50,7 +50,7 @@ borg create                                           \
 borg prune                         \
     --list                         \
     --show-rc                      \
-    --keep-last 1
+    --keep-last 14
 
 borg compact
 
