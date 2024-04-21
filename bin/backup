@@ -6,45 +6,49 @@ read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
 echo
 export BORG_PASSPHRASE
 
-borg create                                           \
-    --verbose                                         \
-    --filter AME                                      \
-    --list                                            \
-    --stats                                           \
-    --show-rc                                         \
-    --compression lz4                                 \
-    --exclude-caches                                  \
-    --exclude '*.iso'                                 \
-    --exclude '**/node_modules'                       \
-    --exclude '**/.mozilla/**/lock'                   \
-    --exclude '**/.mozilla/**/crashes'                \
-    --exclude '**/.mozilla/**/bookmarkbackups'        \
-    --exclude '**/.mozilla/**/datareporting/archived' \
-    --exclude '**/.mozilla/**/weave/logs'             \
-    --exclude '**/.mozilla/**/cache'                  \
-    --exclude '**/.mozilla/firefox/firefox-mpris'     \
-    --exclude '**/.mozilla/firefox/Crash Reports'     \
-    --exclude '**/.var/app/**/cache'                  \
-    --exclude '**/.var/app/**/Cache'                  \
-    --exclude '**/.var/app/**/media_cache'            \
-    --exclude '**/.var/app/**/temp_data'              \
-    --exclude '**/.var/app/**/cache_*'                \
-    --exclude '**/.var/app/org.gnome.Epiphany'        \
-    --exclude '**/.var/app/org.inkscape.Inkscape'     \
-    --exclude '**/.ld.so'                             \
-    --exclude '**/*.log'                              \
-    --exclude '**/sitnik.ru/dist'                     \
-    ::'{hostname}-{now}'                              \
-    ~/Dev/susedko                                     \
-    ~/Dev/environment                                 \
-    ~/Dev/sitnik.ru                                   \
-    ~/.ssh                                            \
-    ~/.gnupg                                          \
-    ~/.Private                                        \
-    ~/.config/Code/User/globalStorage                 \
-    ~/.config/input-remapper-2                        \
-    ~/.local/share/notes                              \
-    ~/.mozilla                                        \
+borg create                                                \
+    --verbose                                              \
+    --filter AME                                           \
+    --list                                                 \
+    --stats                                                \
+    --show-rc                                              \
+    --compression lz4                                      \
+    --exclude-caches                                       \
+    --exclude '*.iso'                                      \
+    --exclude '**/node_modules'                            \
+    --exclude '**/.mozilla/**/lock'                        \
+    --exclude '**/.mozilla/**/crashes'                     \
+    --exclude '**/.mozilla/**/bookmarkbackups'             \
+    --exclude '**/.mozilla/**/datareporting/archived'      \
+    --exclude '**/.mozilla/**/weave/logs'                  \
+    --exclude '**/.mozilla/**/cache'                       \
+    --exclude '**/.mozilla/firefox/firefox-mpris'          \
+    --exclude '**/.mozilla/firefox/Crash Reports'          \
+    --exclude '**/.var/app/**/cache'                       \
+    --exclude '**/.var/app/**/Cache'                       \
+    --exclude '**/.var/app/**/media_cache'                 \
+    --exclude '**/.var/app/**/temp_data'                   \
+    --exclude '**/.var/app/**/cache_*'                     \
+    --exclude '**/.var/app/org.gnome.Epiphany'             \
+    --exclude '**/.var/app/org.inkscape.Inkscape'          \
+    --exclude '**/.var/app/org.gnome.*'                    \
+    --exclude '**/.var/app/io.missioncenter.MissionCenter' \
+    --exclude '**/.var/app/com.belmoussaoui.Decoder'       \
+    --exclude '**/.var/app/us.zoom.Zoom/.zoom/data/Emojis' \
+    --exclude '**/.ld.so'                                  \
+    --exclude '**/*.log'                                   \
+    --exclude '**/sitnik.ru/dist'                          \
+    ::'{hostname}-{now}'                                   \
+    ~/Dev/susedko                                          \
+    ~/Dev/environment                                      \
+    ~/Dev/sitnik.ru                                        \
+    ~/.ssh                                                 \
+    ~/.gnupg                                               \
+    ~/.Private                                             \
+    ~/.config/Code/User/globalStorage                      \
+    ~/.config/input-remapper-2                             \
+    ~/.local/share/notes                                   \
+    ~/.mozilla                                             \
     ~/.var/app
 
 borg prune                         \
