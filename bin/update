@@ -1,8 +1,9 @@
 #!/bin/zsh
 
-sudo echo "" > /dev/null
-
 echo "\x1b[32mActualización del sistema\x1b[39m"
+echo ""
+
+pkexec dnf update --refresh -y
 
 cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
@@ -19,12 +20,11 @@ source ~/.antigen.zsh
 antigen update
 
 flatpak update -y
-sudo dnf update --refresh -y
 
 gdbus call --session --dest org.gnome.Shell.Extensions \
      --object-path /org/gnome/Shell/Extensions \
      --method org.gnome.Shell.Extensions.CheckForUpdates
 
 echo "\n\x1b[32m\033[1mHecho\033[0m"
-# echo "\033[90mPulse Entrar para cerrar la ventana\x1b[39m"s
+# echo "\033[90mPulse Entrar para cerrar la ventana\x1b[39m"
 # read
