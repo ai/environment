@@ -293,7 +293,7 @@ sudo dnf install borgbackup
 Open backup and copy files from it.
 
 ```sh
-mkdir ~/backups
+mkdir ~/backup
 borg mount "ai@susedko.local:/var/mnt/vault/ai/backup" ~/backup
 ```
 
