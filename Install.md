@@ -628,4 +628,4 @@ Enable service.
 systemctl --user enable --now languagetool.service
 ```
 
-Log-in to Obsidian account.
+Open Obsidian app, trust the plugins, and log-in into Sync account.
