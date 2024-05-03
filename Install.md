@@ -538,6 +538,12 @@ Sign-in to npm:
 npm login
 ```
 
+And disable `postinstall` scripts for better security:
+
+```sh
+npm config set ignore-scripts true
+```
+
 Install Keybase:
 
 ```sh
