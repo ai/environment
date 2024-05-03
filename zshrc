@@ -66,6 +66,8 @@ alias ptr='pnpm test -r --include-workspace-root'
 alias p='n clean-publish'
 alias pui1='pnpm update --interactive --latest'
 alias pu1='pnpm update'
+alias r='node --run'
+alias t='node --run test'
 
 # pnpm
 export PNPM_HOME="/home/ai/.local/share/pnpm"
