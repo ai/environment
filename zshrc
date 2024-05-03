@@ -68,6 +68,7 @@ alias pui1='pnpm update --interactive --latest'
 alias pu1='pnpm update'
 alias r='node --run'
 alias t='node --run test'
+export NODE_COMPILE_CACHE=/home/ai/.cache/node
 
 # pnpm
 export PNPM_HOME="/home/ai/.local/share/pnpm"
