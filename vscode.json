@@ -132,6 +132,7 @@
     "errors.ts": "rust",
     "errors.tsx": "rust"
   },
+  "git.autofetch": "all",
   "git.confirmSync": false,
   "git.enableCommitSigning": true,
   "git.enableSmartCommit": true,
@@ -187,15 +188,14 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
+  "window.customTitleBarVisibility": "auto",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
-  "workbench.colorTheme": "Adwaita Dark",
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "Adwaita Light",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false,
-  "workbench.activityBar.location": "top",
-  "window.customTitleBarVisibility": "auto",
-  "git.autofetch": "all"
+  "workbench.statusBar.visible": false
 }
