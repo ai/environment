@@ -2,6 +2,7 @@
 
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [App Hider](https://extensions.gnome.org/extension/5895/app-hider/)
+* [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
 * [Autohide Volume](https://extensions.gnome.org/extension/4539/autohide-volume/)
 * [Battery time](https://extensions.gnome.org/extension/5425/battery-time/)

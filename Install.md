@@ -21,6 +21,7 @@ Copy these files to external SDD:
 * `Dev/`
 * `Vídeos/Juntos/`
 * `.Private/`
+* `/etc/opensnitchd/rules`
 
 
 ### BIOS
@@ -493,6 +494,8 @@ Fix Wayland in Chrome:
 3. Set Wayland.
 
 Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
+
+Download and install [OpenShitch](https://github.com/evilsocket/opensnitch/releases).
 
 
 ### Development Tools
