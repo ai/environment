@@ -36,9 +36,9 @@ fi
 
 # Dev tools
 if [ -d ~/.asdf/ ]; then
-  source $HOME/.asdf/asdf.sh
+  source ~/.asdf/asdf.sh
   autoload -U +X bashcompinit && bashcompinit
-  source $HOME/.asdf/completions/asdf.bash
+  source ~/.asdf/completions/asdf.bash
 fi
 
 # Rip Grep
@@ -68,7 +68,7 @@ alias pui1='pnpm update --interactive --latest'
 alias pu1='pnpm update'
 alias r='node --run'
 alias t='node --run test'
-export NODE_COMPILE_CACHE=/home/ai/.cache/node
+export NODE_COMPILE_CACHE=~/.cache/node
 
 # pnpm
 export PNPM_HOME="/home/ai/.local/share/pnpm"
@@ -76,3 +76,9 @@ export PATH="$PNPM_HOME:$PATH"
 
 # Python
 export PATH=~/.local/bin/:$PATH
+
+# Lua
+export PATH=~/.foreman/bin/:$PATH
+
+# Google Cloud
+alias gcloud='sudo --user gcloud gcloud'
