@@ -1,3 +1,4 @@
 {
-    "colorscheme": "simple"
+    "colorscheme": "simple",
+    "mkparents": true
 }
