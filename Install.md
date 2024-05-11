@@ -465,6 +465,18 @@ Set icons:
   for `~/Capturas de pantalla/`.
 
 
+## Home Server
+
+Add server’s sertificate to the system:
+
+```sh
+sudo dnf install nss-tools
+certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.crt
+sudo cp sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
+sudo update-ca-trust
+```
+
+
 ### Additional Software
 
 Install codecs:
