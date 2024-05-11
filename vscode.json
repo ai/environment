@@ -176,6 +176,7 @@
     "/home/ai/Dev/"
   ],
   "projectManager.git.maxDepthRecursion": 1,
+  "projectManager.projectsLocation": "/home/ai/Dev/",
   "scss.validate": false,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "stylelint.config": {
