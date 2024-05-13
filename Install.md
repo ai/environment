@@ -98,9 +98,9 @@ Speed-up DNF by running `sudo nano /etc/dnf/dnf.conf` and adding:
 fastestmirror=true
 ```
 
-Enable `Rendimiento`, disable `Apagar la pantalla`,
-`Suspender automaticámente`, and `Oscurecer la patalla`
-in Energía settings.
+Enable `Rendimiento`, set `Apagar la pantalla` at `10 minutos`,
+disable `Ahorro de energía automático`, `Suspender automaticámente`,
+and `Oscurecer la patalla` in Energía settings.
 
 
 ### System Update
