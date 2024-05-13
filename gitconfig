@@ -36,3 +36,5 @@
   enabled = true
 [diff]
   algorithm = histogram
+  colorMoved = true
+  indentHeuristic = true
