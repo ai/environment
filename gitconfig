@@ -23,7 +23,6 @@
 [core]
   autocrlf = input
   editor = micro
-  pager = delta
 [init]
   defaultBranch = main
 [gpg]
