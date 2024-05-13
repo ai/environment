@@ -11,20 +11,14 @@ bindkey -e
 bindkey ';5D' backward-word # ctrl+left
 bindkey ';5C' forward-word  # ctrl+right
 
-# Zsh plugins
-if [ -f ~/.antigen.zsh ]; then
-  ANTIGEN_MUTEX=false
-  source ~/.antigen.zsh
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle zsh-users/zsh-history-substring-search
-  antigen bundle zsh-users/zsh-completions
-  antigen apply
-fi
-
 # Completion
 zstyle :compinstall filename '/home/ai/.zshrc'
 autoload -Uz compinit
 compinit
+
+# Zsh plugins
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Prompt
 eval "$(starship init zsh)"
