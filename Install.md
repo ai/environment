@@ -263,6 +263,15 @@ chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
 ```
 
+Add to `~/.ssh/config`:
+
+```
+Host github.com
+   HostName github.com
+   IdentityFile ~/.ssh/id_ed25519_sk
+   IdentitiesOnly yes
+```
+
 
 ### Terminal
 
