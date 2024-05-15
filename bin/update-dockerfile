@@ -1,0 +1,38 @@
+#!/bin/zsh
+
+DOCKERFILE_PATH="/home/ai/Dev/environment/devcontainer/Dockerfile"
+
+latest_node=$(curl -s "https://nodejs.org/dist/index.json" | jq -r '.[0].version' | sed 's/v//')
+latest_pnpm=$(curl -s "https://api.github.com/repos/pnpm/pnpm/releases/latest" | jq -r '.tag_name' | sed 's/v//')
+
+current_node=$(grep -oP 'ARG NODE_VERSION=\K.*' "$DOCKERFILE_PATH")
+current_pnpm=$(grep -oP 'ARG PNPM_VERSION=\K.*' "$DOCKERFILE_PATH")
+
+update_needed=false
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+GRAY='\033[0;90m'
+NC='\033[0m'
+
+if [ "$current_node" != "$latest_node" ]; then
+  echo -e "Actualizar Node: ${RED}$current_node${NC} to ${GREEN}${latest_node}${NC}"
+  sed -i "s/ARG NODE_VERSION=$current_node/ARG NODE_VERSION=$latest_node/" "$DOCKERFILE_PATH"
+  update_needed=true
+fi
+
+if [ "$current_pnpm" != "$latest_pnpm" ]; then
+  echo -e "Actualizar pnpm: ${RED}$current_pnpm${NC} to ${GREEN}${latest_pnpm}${NC}"
+  sed -i "s/ARG PNPM_VERSION=$current_pnpm/ARG PNPM_VERSION=$latest_pnpm/" "$DOCKERFILE_PATH"
+  update_needed=true
+fi
+
+if [ "$update_needed" = true ]; then
+  echo -e "Limpieza de imágenes antiguas de devcontainer${GRAY}"
+  podman rmi --all --force
+  echo -e "${NC}Creación de una nueva imagen de devcontainer${GRAY}"
+  ~/Dev/environment/bin/build-devcontainer
+  echo -e "${NC}Devcontainer fue actualizado"
+else
+  echo -e "${GRAY}No es necesario actualizar devcontainer${NC}"
+fi

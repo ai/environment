@@ -79,6 +79,10 @@
     "Weblate"
   ],
   "css.validate": false,
+  "dev.containers.dockerCredentialHelper": false,
+  "dev.containers.dockerPath": "podman",
+  "dev.containers.gitCredentialHelperConfigLocation": "none",
+  "dev.containers.mountWaylandSocket": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "never"
@@ -132,7 +136,6 @@
     "errors.ts": "rust",
     "errors.tsx": "rust"
   },
-  "git.autofetch": "all",
   "git.confirmSync": false,
   "git.enableCommitSigning": true,
   "git.enableSmartCommit": true,
@@ -146,6 +149,7 @@
   "languageToolLinter.languageTool.language": "en",
   "languageToolLinter.languageTool.motherTongue": "ru-RU",
   "languageToolLinter.lintOnOpen": true,
+  "languageToolLinter.serviceType": "public",
   "less.validate": false,
   "markdown.extension.toc.levels": "2..3",
   "nodejs-testing.extensions": [
@@ -185,7 +189,7 @@
   "svelte.enable-ts-plugin": true,
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontWeight": "300",
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "/home/ai/.local/share/node/node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
@@ -198,5 +202,23 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "dev.containers.defaultExtensions": [
+    "editorconfig.editorconfig",
+    "connor4312.nodejs-testing",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "svelte.svelte-vscode",
+    "yoavbls.pretty-ts-errors",
+    "tamasfe.even-better-toml",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one",
+    "streetsidesoftware.code-spell-checker-russian",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "davidlday.languagetool-linter"
+  ]
 }

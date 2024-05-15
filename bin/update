@@ -1,30 +1,35 @@
 #!/bin/zsh
 
-echo "\x1b[32mActualización del sistema\x1b[39m"
-echo ""
+TITLE='\033[0;32m\033[1m'
+GRAY='\033[0;90m'
+NC='\033[0m'
 
+echo -e "${TITLE}Actualización del sistema${NC}"
 pkexec dnf update --refresh -y
 
-cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
-git pull origin master
-cd
-
-. ~/.asdf/asdf.sh
-asdf update
-asdf plugin update --all
-
-~/Dev/environment/bin/update-asdf
-echo ""
-
-source ~/.antigen.zsh
-antigen update
-
+echo -e "\n${TITLE}Actualizar de las aplicaciones de Flatpak${NC}"
 flatpak update -y
 
+echo -e "\n${TITLE}Actualización de devcontainer${NC}"
+~/Dev/environment/bin/update-dockerfile
+
+echo -e "\n${TITLE}Actualización de los módulos de npm${NC}"
+cd ~/.local/share/node
+npm update
+
+echo -e "\n${TITLE}Actualización de la tema de Firefox${GRAY}"
+cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
+git pull origin master
+
+echo -e "\n${TITLE}Actualización de los plugins de zsh${GRAY}"
+cd ~/.zsh/zsh-syntax-highlighting/
+git pull origin master
+cd ~/.zsh/zsh-history-substring-search
+git pull origin master
+
+echo -e "\n${TITLE}Actualizar de las extensiones de GNOME${GRAY}"
 gdbus call --session --dest org.gnome.Shell.Extensions \
      --object-path /org/gnome/Shell/Extensions \
      --method org.gnome.Shell.Extensions.CheckForUpdates
 
-echo "\n\x1b[32m\033[1mHecho\033[0m"
-# echo "\033[90mPulse Entrar para cerrar la ventana\x1b[39m"
-# read
+echo -e "\n${TITLE}Hecho${NC}"

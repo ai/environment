@@ -1,6 +1,8 @@
+
 format = """
 $username\
 $hostname\
+$container\
 $shlvl\
 $directory\
 $git_branch\
@@ -15,3 +17,6 @@ $jobs\
 $status\
 $shell\
 $character"""
+
+[container]
+format = '[$symbol]($style) '

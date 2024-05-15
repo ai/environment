@@ -108,7 +108,7 @@ and `Oscurecer la patalla` in Energía settings.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter podman eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free snapshot
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free snapshot
 ```
 
 Run Software Center, disable `Fedora Flatpak` and enable Flathub and Chrome.
@@ -529,45 +529,20 @@ Install tools:
 sudo dnf install git tig ripgrep eza xkill bat
 ```
 
-Install tools for compile:
+Install Node.js and Dev Containers.
 
 ```sh
-sudo dnf install make gcc-c++ gcc make bzip2 openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel
-```
-
-Install Node.js:
-
-```sh
-sudo dnf install nodejs
-```
-
-Install asdf:
-
-```sh
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-cd ~/.asdf
-git checkout "$(git describe --abbrev=0 --tags)"
-```
-
-Restart terminal:
-
-```sh
-asdf plugin-add yarn
-asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin-add pnpm https://github.com/jonathanmorley/asdf-pnpm.git
-asdf install
+sudo dnf install nodejs podman
+npm config set ignore-scripts true
+npm install --prefix ~/.local/share/node @devcontainers/cli typescript
+podman volume create pnpm-store
+podman volume create shell-history
 ```
 
 Sign-in to npm:
 
 ```sh
 npm login
-```
-
-And disable `postinstall` scripts for better security:
-
-```sh
-npm config set ignore-scripts true
 ```
 
 Install Keybase:

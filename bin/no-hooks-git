@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ORIGINAL_HOOKS_PATH=$(git config --local --get core.hooksPath)
+git config --local core.hooksPath /dev/null
+
+git "$@"
+
+if [ "$ORIGINAL_HOOKS_PATH" != "/dev/null" ]; then
+  git config --local core.hooksPath "$ORIGINAL_HOOKS_PATH"
+else
+  git config --local --unset core.hooksPath
+fi
