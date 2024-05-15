@@ -16,8 +16,6 @@ ENV PATH $PNPM_HOME:$PATH
 RUN mkdir -p $PNPM_HOME && \
   curl -fsSL https://github.com/pnpm/pnpm/releases/download/v$PNPM_VERSION/pnpm-linux-x64 > $PNPM_HOME/pnpm && \
   chmod a+x $PNPM_HOME/pnpm && \
-  echo 'export PNPM_HOME="'$PNPM_HOME'"' >> /home/ai/.zshrc && \
-  echo 'export PATH=$PNPM_HOME:$PATH' >> /home/ai/.zshrc && \
   pnpm config set ignore-scripts false && \
   pnpm config set store-dir /home/ai/.local/share/pnpm/store
 RUN pnpm env use --global $NODE_VERSION
