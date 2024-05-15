@@ -79,6 +79,20 @@
     "Weblate"
   ],
   "css.validate": false,
+  "dev.containers.defaultExtensions": [
+    "editorconfig.editorconfig",
+    "connor4312.nodejs-testing",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "streetsidesoftware.code-spell-checker",
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "davidlday.languagetool-linter"
+  ],
   "dev.containers.dockerCredentialHelper": false,
   "dev.containers.dockerPath": "podman",
   "dev.containers.gitCredentialHelperConfigLocation": "none",
@@ -203,22 +217,6 @@
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": false,
-  "dev.containers.defaultExtensions": [
-    "editorconfig.editorconfig",
-    "connor4312.nodejs-testing",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint",
-    "svelte.svelte-vscode",
-    "yoavbls.pretty-ts-errors",
-    "tamasfe.even-better-toml",
-    "streetsidesoftware.code-spell-checker",
-    "editorconfig.editorconfig",
-    "yzhang.markdown-all-in-one",
-    "streetsidesoftware.code-spell-checker-russian",
-    "christian-kohler.path-intellisense",
-    "christian-kohler.npm-intellisense",
-    "VisualStudioExptTeam.vscodeintellicode",
-    "davidlday.languagetool-linter"
-  ]
+  "dotfiles.repository": "ai/environment",
+  "dotfiles.installCommand": "devcontainer/install-dotfiles"
 }
