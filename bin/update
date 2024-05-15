@@ -10,7 +10,7 @@ pkexec dnf update --refresh -y
 echo -e "\n${TITLE}Actualizar de las aplicaciones de Flatpak${NC}"
 flatpak update -y
 
-echo -e "\n${TITLE}Actualización de devcontainer${NC}"
+echo -e "\n${TITLE}Actualización de Dev Container${NC}"
 ~/Dev/environment/bin/update-dockerfile
 
 echo -e "\n${TITLE}Actualización de los módulos de npm${NC}"

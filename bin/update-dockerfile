@@ -28,11 +28,11 @@ if [ "$current_pnpm" != "$latest_pnpm" ]; then
 fi
 
 if [ "$update_needed" = true ]; then
-  echo -e "Limpieza de imágenes antiguas de devcontainer${GRAY}"
+  echo -e "Limpieza de imágenes antiguas de Dev Container${GRAY}"
   podman rmi --all --force
-  echo -e "${NC}Creación de una nueva imagen de devcontainer${GRAY}"
+  echo -e "${NC}Creación de una nueva imagen de Dev Container${GRAY}"
   ~/Dev/environment/bin/build-devcontainer
-  echo -e "${NC}Devcontainer fue actualizado"
+  echo -e "${NC}Dev Container fue actualizado"
 else
-  echo -e "${GRAY}No es necesario actualizar devcontainer${NC}"
+  echo -e "${GRAY}No es necesario actualizar Dev Container${NC}"
 fi
