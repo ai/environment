@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cp gitconfig /home/ai/.gitconfig
-cp ripgreprc /home/ai/.ripgreprc
-cp micro.json /home/ai/.config/micro/settings.json
-cp batconfig /home/ai/.config/bat/config
-cp starship.toml /home/ai/.config/starship.toml
-cp zshrc /home/ai/.zshrc
-cp gitignore /home/ai/.config/git/ignore
+cp ../gitconfig ~/.gitconfig
+cp ../ripgreprc ~/.ripgreprc
+cp ../micro.~me/ai/.config/micro/settings.json
+cp ../batconfig ~/.config/bat/config
+cp ../starship.toml ~/.config/starship.toml
+cp ../zshrc ~/.zshrc
+cp ../gitignore ~/.config/git/ignore
 
 if command -v micro >/dev/null 2>&1; then
   micro -plugin install editorconfig
