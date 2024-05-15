@@ -1,5 +1,9 @@
 #!/bin/sh
 
+mkdir -p ~/.config/micro
+mkdir -p ~/.config/bat
+mkdir -p ~/.config/git
+
 cp -f ~/dotfiles/zshrc ~/.zshrc
 cp -f ~/dotfiles/gitconfig ~/.gitconfig
 cp -f ~/dotfiles/ripgreprc ~/.ripgreprc
@@ -7,7 +11,6 @@ cp -f ~/dotfiles/micro.json ~/.config/micro/settings.json
 cp -f ~/dotfiles/batconfig ~/.config/bat/config
 cp -f ~/dotfiles/starship.toml ~/.config/starship.toml
 cp -f ~/dotfiles/gitignore ~/.config/git/ignore
-cp -f ~/dotfiles/batconfig ~/.config/bat/config
 
 if command -v micro >/dev/null 2>&1; then
   micro -plugin install editorconfig
