@@ -25,7 +25,6 @@ COPY --chown=ai:ai zshrc /home/ai/.zshrc
 COPY --chown=ai:ai gitignore /home/ai/.config/git/ignore
 
 RUN micro -plugin install editorconfig
-RUN curl -fsSL https://git.io/antigen > /home/ai/.antigen.zsh
 
 ENV PNPM_HOME /home/ai/.local/share/pnpm
 ENV PATH $PNPM_HOME:$PATH
@@ -41,3 +40,4 @@ RUN mkdir -p /home/ai/.local/share/node && \
   pnpm install -s --dir /home/ai/.local/share/node typescript
 
 VOLUME /home/ai/.local/share/pnpm/store
+VOLUME /home/ai/.shell-history
