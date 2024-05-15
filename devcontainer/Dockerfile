@@ -1,6 +1,6 @@
 FROM registry.fedoraproject.org/fedora:40
 
-ARG NODE_VERSION=22.1.0
+ARG NODE_VERSION=22.2.0
 ARG PNPM_VERSION=9.1.1
 
 RUN dnf install -yq 'dnf-command(copr)' && \
