@@ -97,6 +97,8 @@
   "dev.containers.dockerPath": "podman",
   "dev.containers.gitCredentialHelperConfigLocation": "none",
   "dev.containers.mountWaylandSocket": false,
+  "dotfiles.installCommand": "devcontainer/install-dotfiles",
+  "dotfiles.repository": "ai/environment",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "never"
@@ -216,7 +218,5 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false,
-  "dotfiles.repository": "ai/environment",
-  "dotfiles.installCommand": "devcontainer/install-dotfiles"
+  "workbench.statusBar.visible": false
 }
