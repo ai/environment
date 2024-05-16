@@ -53,55 +53,73 @@ if [ -n "$container" ]; then
   alias dev='command'
 
   # Fix history in container
-  if [ ! -d ~/.shell-history ]; then
-    mkdir ~/.shell-history
-  fi
   HISTFILE=~/.shell-history/histfile
   setopt appendhistory
 else
   # Run commands in container
   export PATH="/home/ai/.local/share/node/node_modules/.bin/:$PATH"
 
-  function find_devcontainer_dir() {
+  function devcontainer_root() {
     local dir=$PWD
     while [ "$dir" != "/" ]; do
-      if [[ -f "$dir/.devcontainer.json" ]]; then
+      if [[ -f "$dir/.devcontainer.json" ]] || [[ -d "$dir/.devcontainer" ]]; then
         echo $dir
         return
       fi
       dir=$(dirname "$dir")
     done
-    echo "No .devcontainer.json found in any parent directories." >&2
+    echo "No .devcontainer.json or .devcontainer/ found" >&2
     return 1
   }
 
-  alias devup='devcontainer up --docker-path=podman --workspace-folder $(find_devcontainer_dir)'
-  alias devdown='podman kill --all'
+  function devcontainer_config() {
+    if [[ -f "$1/.devcontainer/podman/devcontainer.json" ]]; then
+      echo "$1/.devcontainer/podman/devcontainer.json"
+    else
+      echo "$1/.devcontainer.json"
+    fi
+  }
 
   function dev () {
-    local root=$(find_devcontainer_dir)
+    local root=$(devcontainer_root)
+    local config=$(devcontainer_config $root)
     if [ "$PWD" = "$root" ]; then
       if [ -z "$1" ]; then
-        devcontainer exec --docker-path=podman --workspace-folder $root zsh
+        devcontainer exec --docker-path=podman \
+          --workspace-folder $root --config $config \
+          zsh
       else
-        devcontainer exec --docker-path=podman --workspace-folder $root \
+        devcontainer exec --docker-path=podman \
+          --workspace-folder $root --config $config \
           zsh -ic "$*"
       fi
     else
       local reldir="${PWD#$root/}"
       if [ -z "$1" ]; then
-        devcontainer exec --docker-path=podman --workspace-folder $root \
+        devcontainer exec --docker-path=podman \
+          --workspace-folder $root --config $config \
           zsh -c "cd $reldir; exec zsh"
       else
-        devcontainer exec --docker-path=podman --workspace-folder $root \
+        devcontainer exec --docker-path=podman \
+          --workspace-folder $root --config $config \
           zsh -ic "cd $reldir && $*"
       fi
     fi
   }
 
+  function devup () {
+    local root=$(devcontainer_root)
+    devcontainer up --docker-path=podman \
+      --workspace-folder $root --config $(devcontainer_config $root)
+  }
+
+  alias devdown='podman kill --all'
+
   alias pnpm='dev pnpm'
 
-  alias isolate="cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json && echo '.devcontainer.json' >> .git/info/exclude"
+  alias isolate="\
+    cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json \
+    && echo '.devcontainer.json' >> .git/info/exclude"
 
   # Disable git hooks
   alias git='~/Dev/environment/bin/no-hooks-git'
@@ -116,7 +134,11 @@ else
   alias e='code .'
 
   # Development
-  alias p='dev pnpm clean-publish --temp-dir .npm-release --without-publish && cd .npm-release && npm publish && cd .. && rm -R  .npm-release'
+  alias p='dev pnpm clean-publish --temp-dir .npm-release --without-publish \
+    && cd .npm-release \
+    && npm publish \
+    && cd .. \
+    && rm -R  .npm-release'
 
   # Google Cloud
   alias gcloud='sudo --user gcloud gcloud'
