@@ -474,6 +474,8 @@ Set icons:
 
 * `/usr/share/icons/MoreWaita/places/scalables/folder-code.svg`
   for `~/Dev/`.
+* `/usr/share/icons/MoreWaita/places/scalables/folder-godot.svg`
+  for `~/Mi foto/`.
 * `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
   for `~/Capturas de pantalla/`.
 
