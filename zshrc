@@ -16,15 +16,19 @@ autoload -Uz compinit
 compinit
 
 # Zsh plugins
-if [[ -d "~/.zsh/zsh-syntax-highlighting/" ]]; then
+if [[ -d ~/.zsh/zsh-syntax-highlighting/ ]]; then
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-if [[ -d "~/.zsh/zsh-history-substring-search/" ]]; then
+if [[ -d ~/.zsh/zsh-history-substring-search/ ]]; then
   source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
 # Prompt
-eval "$(starship init zsh)"
+if command -v starship > /dev/null 2>&1; then
+  eval "$(starship init zsh)"
+elif [ -f ~/.local/bin/starship ]; then
+  eval "$(~/.local/bin/starship init zsh)"
+fi
 
 # Rip Grep
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
@@ -40,8 +44,13 @@ alias g='git'
 alias ..='cd ..'
 alias l='eza --all'
 alias ll='eza --long --all --git'
-alias cat='bat'
-alias ls='eza'
+
+if command -v bat > /dev/null 2>&1; then
+  alias cat='bat'
+fi
+if command -v eza > /dev/null 2>&1; then
+  alias ls='eza'
+fi
 
 alias r='dev node --run'
 alias t='dev node --run test'

@@ -16,7 +16,11 @@ if command -v micro >/dev/null 2>&1; then
   micro -plugin install editorconfig
 fi
 
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh > starship.sh
+chmod a+x starship.sh
+mkdir -p ~/.local/bin
+./starship.sh -y -b ~/.local/bin
+rm starship.sh
 
 if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
   git clone -q https://github.com/zsh-users/zsh-syntax-highlighting \
