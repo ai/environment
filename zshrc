@@ -16,8 +16,12 @@ autoload -Uz compinit
 compinit
 
 # Zsh plugins
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [[ -d "~/.zsh/zsh-syntax-highlighting/" ]]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+if [[ -d "~/.zsh/zsh-history-substring-search/" ]]; then
+  source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+fi
 
 # Prompt
 eval "$(starship init zsh)"
