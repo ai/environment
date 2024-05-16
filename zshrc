@@ -53,6 +53,9 @@ if [ -n "$container" ]; then
   alias dev='command'
 
   # Fix history in container
+  if [ ! -d ~/.shell-history ]; then
+    mkdir ~/.shell-history
+  fi
   HISTFILE=~/.shell-history/histfile
   setopt appendhistory
 else
