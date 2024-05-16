@@ -19,6 +19,7 @@ rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/*/*/cov
 
 Copy these files to external SDD:
 * `Dev/`
+* `Mi foto/`
 * `Vídeos/Juntos/`
 * `.Private/`
 * `/etc/opensnitchd/rules`
@@ -78,7 +79,8 @@ sudo dnf install kernel-uki-virt
 
 Reboot.
 
-Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
+Copy `Dev/`, `Mi foto`, and `.Private` from external SDD
+and open `Install.md` locally.
 
 Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 

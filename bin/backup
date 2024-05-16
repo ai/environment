@@ -48,6 +48,7 @@ borg create                                                \
     ~/Dev/susedko                                          \
     ~/Dev/environment                                      \
     ~/Dev/sitnik.ru                                        \
+    ~/Mi\ foto                                             \
     ~/.ssh                                                 \
     ~/.gnupg                                               \
     ~/.Private                                             \
