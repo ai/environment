@@ -16,6 +16,8 @@ if command -v micro >/dev/null 2>&1; then
   micro -plugin install editorconfig
 fi
 
+curl -sS https://starship.rs/install.sh | sh
+
 if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
   git clone -q https://github.com/zsh-users/zsh-syntax-highlighting \
     ~/.zsh/zsh-syntax-highlighting
