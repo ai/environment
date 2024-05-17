@@ -79,6 +79,7 @@
     "Weblate"
   ],
   "css.validate": false,
+  "dev.containers.copyGitConfig": false,
   "dev.containers.defaultExtensions": [
     "editorconfig.editorconfig",
     "connor4312.nodejs-testing",
@@ -95,6 +96,7 @@
   ],
   "dev.containers.dockerCredentialHelper": false,
   "dev.containers.dockerPath": "podman",
+  "dev.containers.forwardWSLServices": false,
   "dev.containers.gitCredentialHelperConfigLocation": "none",
   "dev.containers.mountWaylandSocket": false,
   "dotfiles.installCommand": "devcontainer/install-dotfiles",
@@ -205,7 +207,7 @@
   "svelte.enable-ts-plugin": true,
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontWeight": "300",
-  "typescript.tsdk": "/home/ai/.local/share/node/node_modules/typescript/lib",
+  "typescript.tsdk": "~/.local/share/node/node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
