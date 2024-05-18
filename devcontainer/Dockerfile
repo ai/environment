@@ -3,9 +3,7 @@ FROM registry.fedoraproject.org/fedora:40
 ARG NODE_VERSION=22.2.0
 ARG PNPM_VERSION=9.1.1
 
-RUN dnf install -yq 'dnf-command(copr)' \
-  && dnf copr enable -yq atim/starship \
-  && dnf update -qy \
+RUN dnf update -qy \
   && dnf install -yq starship zsh eza bat micro git tig ripgrep iputils
 
 RUN useradd -s /bin/zsh ai
