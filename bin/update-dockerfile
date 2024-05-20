@@ -17,13 +17,19 @@ NC='\033[0m'
 
 if [ "$current_node" != "$latest_node" ]; then
   echo -e "Actualizar Node: ${RED}$current_node${NC} to ${GREEN}${latest_node}${NC}"
+  node_sha_url="https://nodejs.org/dist/v$latest_node/SHASUMS256.txt"
+  node_checksum=$(curl -sL $node_sha_url | grep linux-x64.tar.gz  | awk '{ print $1 }')
   sed -i "s/ARG NODE_VERSION=$current_node/ARG NODE_VERSION=$latest_node/" "$DOCKERFILE_PATH"
+  sed -i "s/ARG NODE_CHECKSUM=.*/ARG NODE_CHECKSUM=sha256:$node_checksum/" "$DOCKERFILE_PATH"
   update_needed=true
 fi
 
 if [ "$current_pnpm" != "$latest_pnpm" ]; then
   echo -e "Actualizar pnpm: ${RED}$current_pnpm${NC} to ${GREEN}${latest_pnpm}${NC}"
+  pnpm_url="https://github.com/pnpm/pnpm/releases/download/v$latest_pnpm/pnpm-linux-x64"
+  pnpm_checksum=$(curl -sL $pnpm_url | sha256sum | awk '{ print $1 }')
   sed -i "s/ARG PNPM_VERSION=$current_pnpm/ARG PNPM_VERSION=$latest_pnpm/" "$DOCKERFILE_PATH"
+  sed -i "s/ARG PNPM_CHECKSUM=.*/ARG PNPM_CHECKSUM=sha256:$pnpm_checksum/" "$DOCKERFILE_PATH"
   update_needed=true
 fi
 
