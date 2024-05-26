@@ -15,13 +15,13 @@ GREEN='\033[0;32m'
 GRAY='\033[0;90m'
 NC='\033[0m'
 
-if [ "$current_node" != "$latest_node" ]; then
+if [[ "$current_node" != "$latest_node" ]] && [[ -n "$latest_node" ]]; then
   echo -e "Actualizar Node: ${RED}$current_node${NC} to ${GREEN}${latest_node}${NC}"
   sed -i "s/ARG NODE_VERSION=$current_node/ARG NODE_VERSION=$latest_node/" "$DOCKERFILE_PATH"
   update_needed=true
 fi
 
-if [ "$current_pnpm" != "$latest_pnpm" ]; then
+if [[ "$current_pnpm" != "$latest_pnpm" ]] && [[ -n "$latest_pnpm" ]]; then
   echo -e "Actualizar pnpm: ${RED}$current_pnpm${NC} to ${GREEN}${latest_pnpm}${NC}"
   sed -i "s/ARG PNPM_VERSION=$current_pnpm/ARG PNPM_VERSION=$latest_pnpm/" "$DOCKERFILE_PATH"
   update_needed=true
