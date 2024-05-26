@@ -520,7 +520,8 @@ Fix Wayland in Chrome:
 2. Open `chrome://flags/#ozone-platform-hint`.
 3. Set Wayland.
 
-Left only Telegram, Firefox, Nautilus, and Terminal in the dock.
+Left only Telegram, Firefox, Nautilus, Terminal, Obsidian, System Update, and
+Backup in the dock.
 
 Download and install [OpenShitch](https://github.com/evilsocket/opensnitch/releases).
 
