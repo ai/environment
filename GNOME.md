@@ -19,4 +19,5 @@
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Quick Setting Tweaker](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 * [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
+* [VSCode Search Provider](https://extensions.gnome.org/extension/6976/vscode-search-provider/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
