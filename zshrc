@@ -146,8 +146,8 @@ else
     fi
   }
   function chpwd() {
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-      local hooks_path=$(git config --local --get core.hooksPath)
+    if /usr/bin/git rev-parse --git-dir > /dev/null 2>&1; then
+      local hooks_path=$(/usr/bin/git config --local --get core.hooksPath)
       if [[ -n "$hooks_path" ]]; then
         alias git='no-hooks-git'
         echo "Git hooks was disabled"
