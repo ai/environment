@@ -88,6 +88,8 @@ else
   function devcontainer_config() {
     if [[ -f "$1/.devcontainer/podman/devcontainer.json" ]]; then
       echo "$1/.devcontainer/podman/devcontainer.json"
+    elif [[ -f "$1/.devcontainer/devcontainer.json" ]]; then
+      echo "$1/.devcontainer/devcontainer.json"
     else
       echo "$1/.devcontainer.json"
     fi
