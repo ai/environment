@@ -97,6 +97,9 @@ else
 
   function dev () {
     local root=$(devcontainer_root)
+    if [ "$root" = "" ]; then
+      return 1
+    fi
     local config=$(devcontainer_config $root)
     if [ "$PWD" = "$root" ]; then
       if [ -z "$1" ]; then
@@ -124,6 +127,9 @@ else
 
   function devup () {
     local root=$(devcontainer_root)
+    if [ "$root" = "" ]; then
+      return 1
+    fi
     devcontainer up --docker-path=podman \
       --workspace-folder $root --config $(devcontainer_config $root)
   }
