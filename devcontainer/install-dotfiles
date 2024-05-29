@@ -22,11 +22,12 @@ mkdir -p ~/.local/bin
 ./starship.sh -y -b ~/.local/bin
 rm starship.sh
 
+mkdir -p ~/.local/share/zsh
 if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
   git clone -q https://github.com/zsh-users/zsh-syntax-highlighting \
-    ~/.zsh/zsh-syntax-highlighting
+    ~/.local/share/zsh/zsh-syntax-highlighting
   git clone -q https://github.com/zsh-users/zsh-history-substring-search \
-    ~/.zsh/zsh-history-substring-search
+    ~/.local/share/zsh/zsh-history-substring-search
 fi
 
 mkdir -p ~/.local/share/node

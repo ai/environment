@@ -18,11 +18,11 @@ autoload -Uz compinit
 compinit
 
 # Zsh plugins
-if [[ -d ~/.zsh/zsh-syntax-highlighting/ ]]; then
-  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -d ~/.local/share/zsh/zsh-syntax-highlighting/ ]]; then
+  source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-if [[ -d ~/.zsh/zsh-history-substring-search/ ]]; then
-  source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+if [[ -d ~/.local/share/zsh/zsh-history-substring-search/ ]]; then
+  source ~/.local/share/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
 # Prompt

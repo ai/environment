@@ -290,8 +290,8 @@ Install zsh:
 ```sh
 sudo dnf copr enable atim/starship
 sudo dnf install zsh util-linux-user starship sqlite zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-history-substring-search ~/.zsh/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.local/share/zsh/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-history-substring-search ~/.local/share/zsh/zsh-history-substring-search
 chsh -s /bin/zsh
 ```
 

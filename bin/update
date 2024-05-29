@@ -22,9 +22,9 @@ cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
 
 echo -e "\n${TITLE}Actualización de los plugins de zsh${GRAY}"
-cd ~/.zsh/zsh-syntax-highlighting/
+cd ~/.local/share/zsh/zsh-syntax-highlighting/
 git pull origin master
-cd ~/.zsh/zsh-history-substring-search
+cd ~/.local/share/zsh/zsh-history-substring-search
 git pull origin master
 
 echo -e "\n${TITLE}Actualizar de las extensiones de GNOME${GRAY}"
