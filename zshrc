@@ -1,8 +1,10 @@
 # History
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.local/share/history/histfile
 setopt appendhistory
+setopt inc_append_history
+setopt hist_ignore_all_dups
 
 # Colors
 autoload -U colors && colors
