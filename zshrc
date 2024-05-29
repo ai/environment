@@ -1,6 +1,8 @@
 # History
 HISTSIZE=1000
 SAVEHIST=1000
+HISTFILE=~/.local/share/history/histfile
+setopt appendhistory
 
 # Colors
 autoload -U colors && colors
@@ -64,10 +66,6 @@ export NODE_COMPILE_CACHE=~/.cache/node
 
 if [ -n "$container" ]; then
   alias dev='command'
-
-  # Fix history in container
-  HISTFILE=~/.shell-history/histfile
-  setopt appendhistory
 else
   # Run commands in container
   export PATH="/home/ai/.local/share/node/node_modules/.bin/:$PATH"
@@ -185,7 +183,4 @@ else
 
   # Google Cloud
   alias gcloud='sudo --user gcloud gcloud'
-
-  # History
-  HISTFILE=~/.histfile
 fi
