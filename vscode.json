@@ -168,7 +168,6 @@
   "languageToolLinter.languageTool.language": "en",
   "languageToolLinter.languageTool.motherTongue": "ru-RU",
   "languageToolLinter.lintOnOpen": true,
-  "languageToolLinter.serviceType": "public",
   "less.validate": false,
   "markdown.extension.toc.levels": "2..3",
   "nodejs-testing.extensions": [
@@ -200,6 +199,7 @@
   ],
   "projectManager.git.maxDepthRecursion": 1,
   "projectManager.projectsLocation": "/home/ai/Dev/",
+  "remote.downloadExtensionsLocally": true,
   "scss.validate": false,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "stylelint.config": {
@@ -218,6 +218,7 @@
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "Adwaita Light",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.panel.opensMaximized": "never",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
