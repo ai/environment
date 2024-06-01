@@ -282,7 +282,7 @@ Prepare zsh and podman integration:
 ```sh
 mkdir ~/.local/share/history
 chmod 700 ~/.local/share/history
-podman volume create -o device=/home/ai/.local/share/history/histfile -o=o=bind shell-history
+podman volume create shell-history
 ```
 
 Install zsh:
