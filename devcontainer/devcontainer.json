@@ -9,7 +9,7 @@
     },
     {
       "source": "shell-history",
-      "target": "/home/ai/.shell-history/",
+      "target": "/home/ai/.local/share/history/",
       "type": "volume"
     }
   ],
