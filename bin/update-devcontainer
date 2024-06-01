@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for dir in ~/Dev/*/; do
+  target_file="${dir}.devcontainer.json"
+  if [[ -f "$target_file" ]]; then
+    if grep -q "localhost/ai-opensource" "$target_file"; then
+      cp ~/Dev/environment/devcontainer/devcontainer.json "$target_file"
+      echo "Replaced in $dir"
+    fi
+  fi
+done
