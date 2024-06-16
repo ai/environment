@@ -22,7 +22,6 @@ Copy these files to external SDD:
 * `Mi foto/`
 * `Vídeos/Juntos/`
 * `.Private/`
-* `/etc/opensnitchd/rules`
 
 
 ### BIOS
@@ -348,12 +347,7 @@ Install VS Code:
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 sudo dnf install code
-```
-
-Add to `/etc/sysctl.conf`:
-
-```
-fs.inotify.max_user_watches=524288
+sudo sysctl fs.inotify.max_user_instances=524288
 ```
 
 Install [VS Code extensions](./VSCode.md).
@@ -530,8 +524,6 @@ Fix Wayland in Chrome:
 
 Left only Telegram, Firefox, Nautilus, Terminal, Obsidian, System Update, and
 Backup in the dock.
-
-Download and install [OpenShitch](https://github.com/evilsocket/opensnitch/releases).
 
 
 ### Development Tools
