@@ -29,10 +29,10 @@ fi
 
 if [ "$update_needed" = true ]; then
   if [[ -d ~/Dev/slowreader ]]; then
-    devcontainer up --docker-path=podman \
+    ~/.local/share/node/node_modules/.bin/devcontainer up --docker-path=podman \
       --workspace-folder ~/Dev/slowreader \
       --config ~/Dev/slowreader/.devcontainer/podman/devcontainer.json
-    devcontainer exec --docker-path=podman \
+    ~/.local/share/node/node_modules/.bin/devcontainer exec --docker-path=podman \
       --workspace-folder ~/Dev/slowreader \
       --config ~/Dev/slowreader/.devcontainer/podman/devcontainer.json \
       pnpm update-env
