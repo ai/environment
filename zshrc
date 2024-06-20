@@ -166,6 +166,7 @@ else
       unalias git 2>/dev/null || true
     fi
   }
+  chpwd
 
   # Fast way to Dev projects
   if [ -d ~/Dev ]; then
