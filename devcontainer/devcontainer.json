@@ -17,6 +17,7 @@
   "runArgs": [
     "--userns=keep-id:uid=1000,gid=1000",
     "--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z",
-    "--network=host"
+    "--network=host",
+    "--ulimit=host"
   ]
 }
