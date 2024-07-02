@@ -1,6 +1,6 @@
 FROM registry.fedoraproject.org/fedora:40
 
-ARG NODE_VERSION=22.3.0
+ARG NODE_VERSION=22.4.0
 ARG PNPM_VERSION=9.4.0
 
 RUN dnf update -yq \
@@ -14,12 +14,16 @@ ADD https://github.com/pnpm/pnpm/releases/download/v$PNPM_VERSION/pnpm-linux-x64
 RUN chmod a+rx /usr/local/bin/pnpm
 RUN ls -l /usr/local/bin/
 
+RUN pnpm config set ignore-scripts false \
+  && npm install -g yarn \
+  && npm install -g bun
+
 RUN useradd -s /bin/zsh ai
 USER ai
 
 RUN pnpm config set ignore-scripts false \
-  && pnpm config set store-dir /home/ai/.local/share/pnpm/store
-RUN mkdir -p /home/ai/.local/share/node \
+  && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
+  && mkdir -p /home/ai/.local/share/node \
   && pnpm install -s --dir /home/ai/.local/share/node typescript
 
 VOLUME /home/ai/.local/share/pnpm/store
