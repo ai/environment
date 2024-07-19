@@ -114,6 +114,13 @@ Add RPM Fusion:
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
+Set Flatpak languages:
+
+```sh
+flatpak config languages --set "es;en;ru"
+sudo flatpak update
+```
+
 Install applications from Flatpak:
 
 ```sh
