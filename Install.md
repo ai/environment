@@ -124,7 +124,7 @@ sudo flatpak update
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder md.obsidian.Obsidian org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince org.gnome.gitlab.YaLTeR.VideoTrimmer
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.TextEditor org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.gitlab.cheywood.Iotas
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 flatpak install flathub-beta org.gimp.GIMP
 ```
@@ -523,7 +523,7 @@ Fix Wayland in Chrome:
 2. Open `chrome://flags/#ozone-platform-hint`.
 3. Set Wayland.
 
-Left only Telegram, Firefox, Nautilus, Terminal, Obsidian, System Update, and
+Left only Telegram, Firefox, Nautilus, Terminal, Iotas, System Update, and
 Backup in the dock.
 
 
@@ -641,7 +641,7 @@ Enable service.
 systemctl --user enable --now languagetool.service
 ```
 
-Open Obsidian app, trust the plugins, and log-in into Sync account.
+Open Iotas app, log-in into Nextcloud account.
 
 
 ## Google Cloud
