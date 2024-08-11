@@ -137,6 +137,7 @@ else
   alias devdown='podman kill --all'
 
   alias pnpm='dev pnpm'
+  alias node='dev node'
 
   alias isolate="\
     cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json \
