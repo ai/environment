@@ -17,6 +17,7 @@ EXTENSIONS=(
   ms-vscode-remote.remote-containers
   piousdeer.adwaita-theme
   pkief.material-icon-theme
+  sleistner.vscode-fileutils
   streetsidesoftware.code-spell-checker
   streetsidesoftware.code-spell-checker-russian
   visualstudioexptteam.vscodeintellicode
