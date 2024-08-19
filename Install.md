@@ -19,7 +19,6 @@ rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/*/*/cov
 
 Copy these files to external SDD:
 * `Dev/`
-* `Mi foto/`
 * `Vídeos/Juntos/`
 * `.Private/`
 
@@ -265,15 +264,6 @@ chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
 ```
 
-Add to `~/.ssh/config`:
-
-```
-Host github.com
-   HostName github.com
-   IdentityFile ~/.ssh/id_ed25519_sk
-   IdentitiesOnly yes
-```
-
 
 ### Terminal
 
@@ -380,7 +370,6 @@ Open settings:
 * **Power:** Show Battery Percentage.
 * **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
   enable Tap to Click.
-* **Users:** set photo.
 * **Date and time:** enable seconds and week day on top panel.
 
 Install custom universal keyboard layouts:
@@ -447,7 +436,7 @@ XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
 XDG_DOWNLOAD_DIR="$HOME/Descargas"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME"
-XDG_DOCUMENTS_DIR="$HOME"
+XDG_DOCUMENTS_DIR="$HOME/Documentos"
 XDG_MUSIC_DIR="$HOME"
 XDG_PICTURES_DIR="$HOME"
 XDG_VIDEOS_DIR="$HOME/Vídeos"
@@ -493,6 +482,16 @@ certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.
 sudo cp sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
 ```
+
+Install Nextcloud client:
+
+```sh
+sudo dnf install nextcloud-client gnome-shell-extension-appindicator
+```
+
+Add server account in Nextcloud client and sync `Documentos` folder.
+
+Set user photo from synced folder.
 
 
 ### Additional Software
