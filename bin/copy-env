@@ -13,35 +13,35 @@ if [ "$1" == "system" ]; then
   mkdir -p ~/.config/git/
   mkdir -p ~/.config/micro/
   mkdir -p ~/.config/zed/
-  cp ~/Dev/environment/zshrc          ~/.zshrc
-  cp ~/Dev/environment/zed.json       ~/.config/zed/settings.json
-  cp ~/Dev/environment/zed-keys.json  ~/.config/zed/keymap.json
-  cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
-  cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
-  cp ~/Dev/environment/batconfig      ~/.config/bat/config
-  cp ~/Dev/environment/gitconfig      ~/.config/git/config
-  cp ~/Dev/environment/gitignore      ~/.config/git/ignore
-  cp ~/Dev/environment/vscode.json    ~/.config/Code/User/settings.json
-  cp ~/Dev/environment/starship.toml  ~/.config/starship.toml
-  cp ~/Dev/environment/mimeapps.list  ~/.config/mimeapps.list
+  cp ~/Dev/environment/zshrc ~/.zshrc
+  cp ~/Dev/environment/zed.json ~/.config/zed/settings.json
+  cp ~/Dev/environment/zed-keys.json ~/.config/zed/keymap.json
+  cp ~/Dev/environment/mpv.conf ~/.config/mpv/mpv.conf
+  cp ~/Dev/environment/ripgreprc ~/.ripgreprc
+  cp ~/Dev/environment/batconfig ~/.config/bat/config
+  cp ~/Dev/environment/gitconfig ~/.config/git/config
+  cp ~/Dev/environment/gitignore ~/.config/git/ignore
+  cp ~/Dev/environment/vscode.json ~/.config/Code/User/settings.json
+  cp ~/Dev/environment/starship.toml ~/.config/starship.toml
+  cp ~/Dev/environment/mimeapps.list ~/.config/mimeapps.list
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
-  cp ~/Dev/environment/micro.json     ~/.config/micro/settings.json
+  cp ~/Dev/environment/micro.json ~/.config/micro/settings.json
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
-  cp ~/.zshrc                                    ~/Dev/environment/zshrc
-  cp ~/.ripgreprc                                ~/Dev/environment/ripgreprc
-  cp ~/.config/git/config                        ~/Dev/environment/gitconfig
-  cp ~/.config/git/ignore                        ~/Dev/environment/gitignore
-  cp ~/.config/bat/config                        ~/Dev/environment/batconfig
-  cp ~/.config/mpv/mpv.conf                      ~/Dev/environment/mpv.conf
-  cp ~/.config/starship.toml                     ~/Dev/environment/starship.toml
-  cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
-  cp ~/.config/mimeapps.list                     ~/Dev/environment/mimeapps.list
-  cp ~/.config/zed/settings.json                 ~/Dev/environment/zed.json
-  cp ~/.config/zed/keymap.json                   ~/Dev/environment/zed-keys.json
-  cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
+  cp ~/.zshrc ~/Dev/environment/zshrc
+  cp ~/.ripgreprc ~/Dev/environment/ripgreprc
+  cp ~/.config/git/config ~/Dev/environment/gitconfig
+  cp ~/.config/git/ignore ~/Dev/environment/gitignore
+  cp ~/.config/bat/config ~/Dev/environment/batconfig
+  cp ~/.config/mpv/mpv.conf ~/Dev/environment/mpv.conf
+  cp ~/.config/starship.toml ~/Dev/environment/starship.toml
+  cp ~/.config/mpv/input.conf ~/Dev/environment/mpv-input.conf
+  cp ~/.config/mimeapps.list ~/Dev/environment/mimeapps.list
+  cp ~/.config/zed/settings.json ~/Dev/environment/zed.json
+  cp ~/.config/zed/keymap.json ~/Dev/environment/zed-keys.json
+  cp ~/.config/Code/User/settings.json ~/Dev/environment/vscode.json
+  cp ~/.config/micro/settings.json ~/Dev/environment/micro.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
-  cp ~/.config/micro/settings.json               ~/Dev/environment/micro.json
   rm ~/Dev/environment/icons/chrome-* -f
   rm ~/Dev/environment/icons/userapp-* -f
   rm ~/Dev/environment/icons/org.gnome.Shell.Extensions.* -f
