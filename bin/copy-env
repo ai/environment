@@ -15,6 +15,7 @@ if [ "$1" == "system" ]; then
   mkdir -p ~/.config/zed/
   cp ~/Dev/environment/zshrc          ~/.zshrc
   cp ~/Dev/environment/zed.json       ~/.config/zed/settings.json
+  cp ~/Dev/environment/zed-keys.json  ~/.config/zed/keymap.json
   cp ~/Dev/environment/mpv.conf       ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/ripgreprc      ~/.ripgreprc
   cp ~/Dev/environment/batconfig      ~/.config/bat/config
@@ -37,6 +38,7 @@ else
   cp ~/.config/mpv/input.conf                    ~/Dev/environment/mpv-input.conf
   cp ~/.config/mimeapps.list                     ~/Dev/environment/mimeapps.list
   cp ~/.config/zed/settings.json                 ~/Dev/environment/zed.json
+  cp ~/.config/zed/keymap.json                   ~/Dev/environment/zed-keys.json
   cp ~/.config/Code/User/settings.json           ~/Dev/environment/vscode.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
   cp ~/.config/micro/settings.json               ~/Dev/environment/micro.json
