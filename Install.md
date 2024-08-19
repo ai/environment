@@ -562,6 +562,13 @@ Disable autostart in Keybase settings.
 
 Open Zoom and sign-in into corporate account.
 
+Install Zed:
+
+```sh
+sudo dnf install --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' --setopt='terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc' terra-release
+sudo dnf install zed
+```
+
 
 ## LanguageTool Server
 

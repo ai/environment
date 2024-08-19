@@ -1,0 +1,41 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4"
+    },
+    "version": "2",
+    "provider": {
+      "name": "openai",
+      "default_model": "gpt-4",
+      "available_models": []
+    }
+  },
+  "terminal": {
+    "dock": "right"
+  },
+  "soft_wrap": "preferred_line_length",
+  "preferred_line_length": 80,
+  "wrap_guides": [80],
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "buffer_font_family": "JetBrains Mono",
+  "theme": {
+    "mode": "system",
+    "light": "One Hunter Flexokit Light",
+    "dark": "Zedokai (Filter Spectrum)"
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  }
+}
