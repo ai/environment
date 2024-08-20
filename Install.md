@@ -486,7 +486,7 @@ sudo update-ca-trust
 Install Nextcloud client:
 
 ```sh
-sudo dnf install nextcloud-client gnome-shell-extension-appindicator
+sudo dnf install nextcloud-client
 ```
 
 Add server account in Nextcloud client and sync `Documentos` folder.
