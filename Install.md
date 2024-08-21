@@ -77,8 +77,7 @@ sudo dnf install kernel-uki-virt
 
 Reboot.
 
-Copy `Dev/`, `Mi foto`, and `.Private` from external SDD
-and open `Install.md` locally.
+Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
 
 Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 
@@ -466,8 +465,6 @@ Set icons:
 
 * `/usr/share/icons/MoreWaita/places/scalables/folder-code.svg`
   for `~/Dev/`.
-* `/usr/share/icons/MoreWaita/places/scalables/folder-godot.svg`
-  for `~/Mi foto/`.
 * `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
   for `~/Capturas de pantalla/`.
 
