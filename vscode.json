@@ -46,7 +46,6 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "breadcrumbs.enabled": false,
   "cSpell.language": "en,ru",
   "cSpell.userWords": [
     "andrey",
