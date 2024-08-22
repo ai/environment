@@ -13,15 +13,15 @@ function gray(str) {
 
 async function updateVsCode() {
   let listFile = join(__dirname, '..', 'VSCode.md')
-  let [code, docs] = await Promise.all([
+  let [code, docs, config] = await Promise.all([
     exec(`code --list-extensions`),
-    readFile(listFile)
+    readFile(listFile),
+    readFile(join(__dirname, '..', 'vscode.json'))
   ])
-  let extensions = code.stdout
-    .trim()
-    .split('\n')
-    .map(name => `  ${name}`)
-    .join('\n')
+  let devcontainer = JSON.parse(config)['dev.containers.defaultExtensions']
+  let global = code.stdout.trim().split('\n')
+  let all = [...new Set([...devcontainer, ...global])]
+  let extensions = all.sort().map(name => `  ${name}`).join('\n')
   let updated = docs
     .toString()
     .replace(/EXTENSIONS=\([\n\s\w.-]+\)/m, `EXTENSIONS=(\n${extensions}\n)`)

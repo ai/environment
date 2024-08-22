@@ -4,12 +4,16 @@ Copy-paste following to terminal:
 
 ```bash
 EXTENSIONS=(
+  VisualStudioExptTeam.vscodeintellicode
   alefragnani.project-manager
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
+  connor4312.nodejs-testing
   csstools.postcss
   davidlday.languagetool-linter
+  dbaeumer.vscode-eslint
   editorconfig.editorconfig
+  esbenp.prettier-vscode
   formulahendry.auto-rename-tag
   github.copilot
   github.copilot-chat
@@ -19,7 +23,6 @@ EXTENSIONS=(
   pkief.material-icon-theme
   sleistner.vscode-fileutils
   streetsidesoftware.code-spell-checker
-  streetsidesoftware.code-spell-checker-russian
   visualstudioexptteam.vscodeintellicode
   yoavbls.pretty-ts-errors
   yzhang.markdown-all-in-one
