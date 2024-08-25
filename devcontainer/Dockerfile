@@ -4,7 +4,8 @@ ARG NODE_VERSION=22.7.0
 ARG PNPM_VERSION=9.8.0
 
 RUN dnf update -yq \
-  && dnf install -yq zsh eza bat micro git tig ripgrep iputils make
+  && dnf install -yq zsh eza bat micro git tig ripgrep iputils make \
+  psmisc procps-ng
 
 ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.gz
 RUN tar -xz -f /node.tar.gz -C /usr/local --remove-files --strip-components=1 \
