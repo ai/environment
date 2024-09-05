@@ -180,6 +180,7 @@ else
   alias e='code .'
 
   # Development
+  alias release=~/Dev/environment/bin/release
   alias p='dev pnpm clean-publish --temp-dir .npm-release --without-publish \
     && cd .npm-release \
     && npm publish \
