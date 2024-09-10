@@ -10,4 +10,4 @@ fi
 git add .
 git commit -m "Release $VERSION version"
 git tag -s "$VERSION" -m "$VERSION"
-git push --tags
+git push
