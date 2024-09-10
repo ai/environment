@@ -33,6 +33,8 @@ export PATH="~/.local/bin/:$PATH"
 # Prompt
 if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
+elif [ -f ~/.local/bin/starship ]; then
+  eval "$(~/.local/bin/starship init zsh)"
 fi
 
 # Rip Grep
