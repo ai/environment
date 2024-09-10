@@ -1,0 +1,11 @@
+Host *
+    ForwardAgent no
+
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+GSSAPIAuthentication no
+TCPKeepAlive yes
+ServerAliveInterval 3

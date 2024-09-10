@@ -18,6 +18,7 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/zed-keys.json ~/.config/zed/keymap.json
   cp ~/Dev/environment/mpv.conf ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/ripgreprc ~/.ripgreprc
+  cp ~/Dev/environment/sshconfig ~/.ssh/config
   cp ~/Dev/environment/batconfig ~/.config/bat/config
   cp ~/Dev/environment/gitconfig ~/.config/git/config
   cp ~/Dev/environment/gitignore ~/.config/git/ignore
@@ -30,6 +31,7 @@ else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.zshrc ~/Dev/environment/zshrc
   cp ~/.ripgreprc ~/Dev/environment/ripgreprc
+  cp ~/.ssh/config ~/Dev/environment/sshconfig
   cp ~/.config/git/config ~/Dev/environment/gitconfig
   cp ~/.config/git/ignore ~/Dev/environment/gitignore
   cp ~/.config/bat/config ~/Dev/environment/batconfig
