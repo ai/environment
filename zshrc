@@ -28,7 +28,7 @@ if [[ -d ~/.local/share/zsh/zsh-history-substring-search/ ]]; then
 fi
 
 # Local binaries
-export PATH="/home/ai/.local/bin/:$PATH"
+export PATH="~/.local/bin/:$PATH"
 
 # Prompt
 if command -v starship > /dev/null 2>&1; then
