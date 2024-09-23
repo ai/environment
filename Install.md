@@ -67,14 +67,6 @@ Set laptop name:
 sudo hostnamectl set-hostname savoia
 ```
 
-Change boot method:
-
-```sh
-sudo dnf install virt-firmware uki-direct
-sudo sh /usr/share/doc/python3-virt-firmware/experimental/fixup-partitions-for-uki.sh
-sudo dnf install kernel-uki-virt
-```
-
 Reboot.
 
 Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
