@@ -362,6 +362,7 @@ Open settings:
 * **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
   enable Tap to Click.
 * **Date and time:** enable seconds and week day on top panel.
+* **Privacy & Security** → **File History & Trash**: disable File History.
 
 Install custom universal keyboard layouts:
 
