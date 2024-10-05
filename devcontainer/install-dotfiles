@@ -28,6 +28,8 @@ if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
     ~/.local/share/zsh/zsh-syntax-highlighting
   git clone -q https://github.com/zsh-users/zsh-history-substring-search \
     ~/.local/share/zsh/zsh-history-substring-search
+  git clone https://github.com/zsh-users/zsh-autosuggestions \
+    ~/.local/share/zsh/zsh-autosuggestions
 fi
 
 mkdir -p ~/.local/share/node

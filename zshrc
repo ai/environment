@@ -26,6 +26,9 @@ fi
 if [[ -d ~/.local/share/zsh/zsh-history-substring-search/ ]]; then
   source ~/.local/share/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
+if [[ -d ~/.local/share/zsh/zsh-autosuggestions/ ]]; then
+  source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 # Local binaries
 export PATH="~/.local/bin/:$PATH"
