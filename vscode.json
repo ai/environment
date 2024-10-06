@@ -112,7 +112,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.fontWeight": "300",
   "editor.formatOnSave": true,
   "editor.gotoLocation.multipleDefinitions": "goto",
@@ -210,7 +210,7 @@
     "run": "onSave"
   },
   "svelte.enable-ts-plugin": true,
-  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "300",
   "typescript.tsdk": "~/.local/share/node/node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -224,7 +224,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.opensMaximized": "never",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
-  "workbench.preferredLightColorTheme": "Adwaita Light",
+  "workbench.preferredLightColorTheme": "Adwaita Dark & default syntax highlighting & colorful status bar",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": false
 }
