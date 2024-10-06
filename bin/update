@@ -26,6 +26,8 @@ cd ~/.local/share/zsh/zsh-syntax-highlighting/
 git pull origin master
 cd ~/.local/share/zsh/zsh-history-substring-search
 git pull origin master
+cd ~/.local/share/zsh/zsh-autosuggestions
+git pull origin master
 
 echo -e "\n${TITLE}Actualizar de las extensiones de GNOME${GRAY}"
 gdbus call --session --dest org.gnome.Shell.Extensions \
