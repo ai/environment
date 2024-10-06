@@ -30,17 +30,17 @@ if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
     ~/.local/share/zsh/zsh-history-substring-search
   git clone https://github.com/zsh-users/zsh-autosuggestions \
     ~/.local/share/zsh/zsh-autosuggestions
-  git clone https://github.com/g-plane/pnpm-shell-completion \
-      ~/.local/share/zsh/pnpm-shell-completion
+  mkdir -p ~/.local/share/zsh/pnpm-shell-completion
   pnpm_url=$(curl -s \
     https://api.github.com/repos/g-plane/pnpm-shell-completion/releases/latest \
-    | grep "browser_download_url.*pnpm-shell-completion_pwsh_x86_64-unknown-linux-gnu.zip" \
+    | grep "browser_download_url.*pnpm-shell-completion_x86_64-unknown-linux-gnu.tar.gz" \
     | cut -d '"' -f 4)
-  curl -sSL $pnpm_url > ~/.local/share/zsh/pnpm-shell-completion.zip
-  unzip ~/.local/share/zsh/pnpm-shell-completion.zip pnpm-shell-completion \
-    -d ~/.local/share/zsh/pnpm-shell-completion/
+  curl -sSL $pnpm_url > ~/pnpm-completion.tar.gz
+  tar -xzf ~/pnpm-completion.tar.gz \
+    -C ~/.local/share/zsh/pnpm-shell-completion \
+    pnpm-shell-completion pnpm-shell-completion.plugin.zsh
   chmod a+x ~/.local/share/zsh/pnpm-shell-completion/pnpm-shell-completion
-  rm ~/.local/share/zsh/pnpm-shell-completion.zip
+  rm ~/pnpm-completion.tar.gz
 fi
 
 mkdir -p ~/.local/share/node
