@@ -152,30 +152,15 @@ else
     && echo '.devcontainer.json' >> .git/info/exclude"
 
   # Disable git hooks
-  function no-hooks-git() {
-    local original_hooks=$(/usr/bin/git config --local --get core.hooksPath)
-    if [ "$original_hooks" != "/dev/null" ]; then
-      /usr/bin/git config --local core.hooksPath /dev/null
-      /usr/bin/git "$@"
-      /usr/bin/git config --local core.hooksPath "$original_hooks"
-    else
-      /usr/bin/git "$@"
-    fi
-  }
   function chpwd() {
     if /usr/bin/git rev-parse --git-dir > /dev/null 2>&1; then
-      local hooks_path=$(/usr/bin/git config --local --get core.hooksPath)
-      if [[ -n "$hooks_path" ]]; then
-        alias git='no-hooks-git'
-        echo "Git hooks was disabled"
-      else
-        unalias git 2>/dev/null || true
+      if [[ -n "$(/usr/bin/git config --local --get core.hooksPath)" ]]; then
+        echo -e "\e[33mGit hooks was disabled\e[0m"
       fi
-    else
-      unalias git 2>/dev/null || true
     fi
   }
   chpwd
+  alias git='git -c core.hooksPath=/dev/null'
 
   # Fast way to Dev projects
   if [ -d ~/Dev ]; then
