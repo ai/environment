@@ -29,6 +29,9 @@ fi
 if [[ -d ~/.local/share/zsh/zsh-autosuggestions/ ]]; then
   source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+if [[ -d ~/.local/share/zsh/pnpm-shell-completion/ ]]; then
+  source ~/.local/share/zsh/pnpm-shell-completion/pnpm-shell-completion.plugin.zsh
+fi
 
 # Local binaries
 export PATH="~/.local/bin/:$PATH"
