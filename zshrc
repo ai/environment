@@ -163,7 +163,7 @@ else
     fi
   }
   chpwd
-  alias git='git -c core.hooksPath=/dev/null'
+  export GIT_CONFIG_PARAMETERS="'core.hooksPath=/dev/null'"
 
   # Fast way to Dev projects
   if [ -d ~/Dev ]; then
