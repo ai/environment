@@ -224,7 +224,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.panel.opensMaximized": "never",
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
-  "workbench.preferredLightColorTheme": "Adwaita Dark & default syntax highlighting & colorful status bar",
+  "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": false
 }
