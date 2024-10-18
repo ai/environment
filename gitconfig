@@ -5,7 +5,7 @@
 [alias]
   current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
   a  = "!git add . && git s"
-  ch = checkout
+  ch = "!echo 'Stop using git checkout' && false"
   c  = commit -S -m
   s  = status --short --branch
   d  = diff
@@ -14,6 +14,7 @@
   lh = "!git l && git h"
   r  = "!git rm $(git ls-files --deleted) && git status"
   hf = push --force-with-lease
+  sw = switch
 [color]
   diff   = auto
   status = auto
