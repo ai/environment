@@ -140,18 +140,6 @@ dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.d
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
 ```
 
-Install new Terminal:
-
-```sh
-sudo dnf install gnome-console
-```
-
-Change terminal and uninstall old:
-
-```sh
-sudo dnf remove gnome-terminal
-```
-
 Enable mouse buttons presets:
 
 ```sh
