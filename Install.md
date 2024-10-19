@@ -25,9 +25,9 @@ Copy these files to external SDD:
 
 ### BIOS
 
-Boot to BIOS and set supervisor password.
-
-Set battery charge limit to 80%.
+1. Boot to BIOS and set supervisor password.
+2. Set battery charge limit to 80%.
+3. Set Game Optimized iGPU.
 
 
 ### Install
