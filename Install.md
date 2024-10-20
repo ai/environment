@@ -529,7 +529,14 @@ Install Node.js and Dev Containers.
 ```sh
 sudo dnf install nodejs podman
 npm config set ignore-scripts true
-npm install --prefix ~/.local/share/node @devcontainers/cli typescript
+tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+{
+  "dependencies": {
+    "@devcontainers/cli": ">=0.71.0"
+  }
+}
+EOM
+cd ~/.local/share/node && npm install && cd
 podman volume create pnpm-store
 ```
 

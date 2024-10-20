@@ -24,8 +24,7 @@ USER ai
 
 RUN pnpm config set ignore-scripts false \
   && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
-  && mkdir -p /home/ai/.local/share/node \
-  && pnpm install -s --dir /home/ai/.local/share/node typescript
+  && mkdir -p /home/ai/.local/share/node
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history

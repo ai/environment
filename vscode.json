@@ -126,7 +126,7 @@
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "eslint.migration.2_x": "off",
   "eslint.probe": [
     "javascript",
@@ -212,7 +212,6 @@
   "svelte.enable-ts-plugin": true,
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "300",
-  "typescript.tsdk": "~/.local/share/node/node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "window.autoDetectColorScheme": true,
   "window.commandCenter": true,
