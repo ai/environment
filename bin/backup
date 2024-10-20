@@ -69,8 +69,6 @@ borg compact
 
 unset BORG_PASSPHRASE
 
-rm ~/.local/share/gnome-shell-extensions-settings
-
 rsync -a --delete --progress \
   --no-perms --no-owner --no-group \
   /home/ai/Vídeos/Erótica/ ai@susedko.local:/var/mnt/vault/ai/Selected
