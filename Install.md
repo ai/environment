@@ -19,7 +19,7 @@ rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/*/*/cov
 
 Copy these files to external SDD:
 * `Dev/`
-* `Vídeos/Juntos/`
+* `Vídeos/*`
 * `.Private/`
 
 
@@ -85,7 +85,7 @@ sudo grubby --update-kernel=ALL --args="amdgpu.sg_display=0"
 
 Enable `Rendimiento`, set `Apagar la pantalla` at `10 minutos`,
 disable `Ahorro de energía automático`, `Suspender automaticámente`,
-and `Oscurecer la patalla` in Energía settings.
+in Energía settings.
 
 
 ### System Update
@@ -104,6 +104,15 @@ Add RPM Fusion:
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
+Install Zed:
+
+```sh
+sudo dnf install --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' --setopt='terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc' terra-release
+sudo dnf install zed
+```
+
+Update system via Software Center.
+
 Set Flatpak languages:
 
 ```sh
@@ -114,9 +123,9 @@ sudo flatpak update
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder org.gnome.Loupe com.yubico.yubioath com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter net.nokyan.Resources org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.gitlab.cheywood.Iotas
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter com.belmoussaoui.Decoder org.gnome.Loupe com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter net.nokyan.Resources org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.Evince org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.gitlab.cheywood.Iotas app.devsuite.Ptyxis
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak install flathub-beta org.gimp.GIMP
+flatpak install flathub-beta org.gimp.GIMP com.yubico.yubioath
 ```
 
 Fix unnecessary dir creation in Zoom:
@@ -124,8 +133,6 @@ Fix unnecessary dir creation in Zoom:
 ```sh
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
 ```
-
-Update system via Software Center.
 
 Add Autostart and fingers to user settings.
 
@@ -140,15 +147,8 @@ dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.d
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
 ```
 
-Enable mouse buttons presets:
-
-```sh
-sudo dnf install input-remapper
-sudo systemctl enable --now input-remapper
-```
-
 Set [color profile](https://www.notebookcheck.net/uploads/tx_nbc2/BOE0CB4.icm)
-in `Settings` → `Color`.
+in `Color` settings.
 
 Install `micro` and its plugins:
 
@@ -158,45 +158,24 @@ micro -plugin install editorconfig
 sudo dnf remove nano
 ```
 
+Remove terminal from rpm:
+
+```sh
+```
+
 
 ### Base Settings
-
-Enable HiDPI in TTY:
-
-```sh
-sudo dnf install terminus-fonts-console terminus-fonts-grub2
-```
-
-Add to `/etc/vconsole.conf`:
-
-```
-KEYMAP="us"
-FONT="ter-v32n"
-```
-
-Copy font:
-
-```sh
-sudo mkdir -p /boot/efi/EFI/fedora/fonts/
-sudo cp /usr/share/grub/ter-u32n.pf2 /boot/efi/EFI/fedora/fonts/
-```
 
 Add to `/etc/default/grub`:
 
 ```
 GRUB_TIMEOUT=0
-GRUB_FONT="/boot/efi/EFI/fedora/fonts/ter-u32n.pf2"
-GRUB_TERMINAL_OUTPUT="gfxterm"
 ```
 
 Rebuild GRUB:
 
 ```sh
-sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-```
-
-```sh
-sudo systemctl start systemd-vconsole-setup.service
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 Disable file system scanning:
@@ -214,12 +193,6 @@ sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 
 
 ### Personal Files
-
-Copy configs:
-
-```sh
-~/Dev/environment/bin/copy-env system
-```
 
 Install encryption tools:
 
@@ -243,6 +216,12 @@ chmod 700 ~/.gnupg/private-keys-v1.d
 chmod 600 ~/.ssh/id_ed25519 ~/.gnupg/private-keys-v1.d/*
 ```
 
+Copy configs:
+
+```sh
+~/Dev/environment/bin/copy-env system
+```
+
 
 ### Terminal
 
@@ -258,18 +237,11 @@ Install zsh:
 
 ```sh
 sudo dnf copr enable atim/starship
-sudo dnf install zsh util-linux-user starship sqlite zsh-syntax-highlighting
+sudo dnf install zsh util-linux-user starship sqlite
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.local/share/zsh/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.local/share/zsh/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/share/zsh/zsh-autosuggestions
 chsh -s /bin/zsh
-```
-
-Install Antigen:
-
-```sh
-curl -L git.io/antigen > ~/.antigen.zsh
-zsh
 ```
 
 Create `/root/.zshrc`:
@@ -304,10 +276,14 @@ borg umount ~/backup
 rmdir ~/backup
 ```
 
-Connect to server in Files by `sftp://ai@susedko.local/`
-and start copying `Vídeos/Erótica` from server in the background.
+Enable mouse buttons presets:
 
-Add `vault` to Favorites places.
+```sh
+sudo dnf install input-remapper
+sudo systemctl enable --now input-remapper
+```
+
+Start copying `Vídeos/*` from SDD.
 
 
 ### Text Editors
@@ -322,6 +298,8 @@ sudo sysctl fs.inotify.max_user_instances=524288
 ```
 
 Install [VS Code extensions](./VSCode.md).
+
+Sign-in into accounts in Zed and VS Code.
 
 
 ### GNOME Settings
@@ -340,19 +318,6 @@ fc-cache -f -v
 gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Regular 12"
 ```
 
-Open settings:
-
-* **Appearance:** use standard GNOME wallpaper.
-* **Notifictions:** disable Lock Screen Notifications.
-* **Search:** keep only Calculator.
-* **Multitasking:** disable Active Screen Edges.
-* **Online Accounts:** add Google account.
-* **Power:** Show Battery Percentage.
-* **Mouse & Touchpad:** mouse speed to 75%, touchpad speed to 90%,
-  enable Tap to Click.
-* **Date and time:** enable seconds and week day on top panel.
-* **Privacy & Security** → **File History & Trash**: disable File History.
-
 Install custom universal keyboard layouts:
 
 ```sh
@@ -362,11 +327,25 @@ wget -O ~/.config/xkb/symbols/universal_ru https://raw.githubusercontent.com/ai/
 wget -O ~/.config/xkb/rules/evdev.xml https://raw.githubusercontent.com/ai/universal-layout/main/evdev.xml
 ```
 
+Restart system and select `Russian Universal` and `English/Spanish/Catalan Universal` layouts.
+
 Set keyboard settings:
 
 ```sh
 dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
 ```
+
+Open settings:
+
+* **Apariencia:** use standard GNOME wallpaper.
+* **Notificaciones:** disable Notificaciones de la pantalla de bloqueo.
+* **Buscar:** keep only Calculadora and Configuracion.
+* **Multitarea:** disable Activar bordes de la pantalla.
+* **Cuentas en línea:** add Google account.
+* **Energía:** enable Mostrar porcentaje de la bataría.
+* **Ratón y panel táctil:** mouse speed to 75%, touchpad speed to 90%.
+* **Sistema** → **Fecha y hora:** enable seconds and week day on top panel.
+* **Privacidad y seguridad** → **Historico de archivos y papelera**: disable File History.
 
 Nautilus:
 
@@ -383,9 +362,17 @@ Install Microsoft fonts:
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
+Install Noto:
+
+```sh
+sudo dnf install google-noto-sans-fonts
+gsettings set org.gnome.desktop.interface font-name 'Noto Sans 11'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 11'
+```
+
 Disable GNOME extension version check:
 
-```
+```sh
 gsettings set org.gnome.shell disable-extension-version-validation true
 ```
 
@@ -435,10 +422,13 @@ Clean bookmarks:
 echo "" > ~/.config/gtk-3.0/bookmarks
 ```
 
+Connect to server in Files by `sftp://ai@susedko.local/` and add `vault` to Favorites places. Add `Descargas` and `Capturas de pantalla` to Favorites places.
+
 Remove unnecessary folders:
 
 ```sh
-rm -R ~/Documentos ~/Imágenes ~/Música ~/Público ~/Plantillas ~/Escritorio
+rm -R ~/Imágenes ~/Música ~/Público ~/Plantillas ~/Escritorio
+mkdir "Capturas de pantalla"
 ```
 
 Add icon theme:
@@ -451,7 +441,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
 
 Set icons:
 
-* `/usr/share/icons/MoreWaita/places/scalables/folder-code.svg`
+* `/usr/share/icons/MoreWaita/places/scalable/folder-code.svg`
   for `~/Dev/`.
 * `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
   for `~/Capturas de pantalla/`.
@@ -464,7 +454,7 @@ Add server’s sertificate to the system:
 ```sh
 sudo dnf install nss-tools
 certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.crt
-sudo cp sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
+sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
 ```
 
@@ -478,13 +468,24 @@ Add server account in Nextcloud client and sync `Documentos` folder.
 
 Set user photo from synced folder.
 
+```sh
+cp ~/Dev/susedko/sitniks.crt $(flatpak run org.gnome.World.Iotas --display-ca-file-path)
+```
+
+Add `nextcloud.local` to `/etc/hosts`:
+
+```
+192.168.50.125 nextcloud.local
+```
+
+Open Iotas app, log-in into Nextcloud account.
+
 
 ### Additional Software
 
 Install codecs:
 
 ```sh
-sudo dnf config-manager --set-enabled fedora-cisco-openh264
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
@@ -528,7 +529,6 @@ sudo dnf install nodejs podman
 npm config set ignore-scripts true
 npm install --prefix ~/.local/share/node @devcontainers/cli typescript
 podman volume create pnpm-store
-podman volume create shell-history
 ```
 
 Sign-in to npm:
@@ -545,15 +545,6 @@ run_keybase
 ```
 
 Disable autostart in Keybase settings.
-
-Open Zoom and sign-in into corporate account.
-
-Install Zed:
-
-```sh
-sudo dnf install --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' --setopt='terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc' terra-release
-sudo dnf install zed
-```
 
 
 ## LanguageTool Server
@@ -634,8 +625,6 @@ Enable service.
 systemctl --user enable --now languagetool.service
 ```
 
-Open Iotas app, log-in into Nextcloud account.
-
 
 ## Google Cloud
 
@@ -663,5 +652,5 @@ sudo useradd gcloud
 Sign-in:
 
 ```sh
-gcloud login
+gcloud auth login
 ```

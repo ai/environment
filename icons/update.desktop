@@ -3,4 +3,4 @@ Type=Application
 Name=Actualización
 Comment=Update RPM, Flatpak, and Mozilla Theme
 Icon=org.fedoraproject.AnacondaInstaller
-Exec=kgx -e /home/ai/Dev/environment/bin/update
+Exec=flatpak run app.devsuite.Ptyxis -- /home/ai/Dev/environment/bin/update
