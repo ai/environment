@@ -1,0 +1,17 @@
+#!/bin/bash
+
+backup_dir="$HOME/.local/share/gnome-shell-extensions-settings"
+rm -r "$backup_dir"
+mkdir -p "$backup_dir"
+
+extensions=$(gsettings get org.gnome.shell enabled-extensions | tr -d "[],'")
+
+for extension in $extensions; do
+  base_name=$(echo "$extension" | sed 's/@.*//')
+  output_file="$backup_dir/${extension}.ini"
+  settings=$(dconf dump "/org/gnome/shell/extensions/$base_name/")
+  if [ -n "$settings" ]; then
+    echo "$settings" > "$output_file"
+    echo "Settings for $extension saved"
+  fi
+done

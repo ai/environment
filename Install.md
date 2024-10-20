@@ -69,7 +69,7 @@ sudo hostnamectl set-hostname savoia
 
 Reboot.
 
-Copy `Dev/` and `.Private` from external SDD and open `Install.md` locally.
+Copy `Dev/` and `.Private/` from external SDD and open `Install.md` locally.
 
 Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 
@@ -390,6 +390,12 @@ gsettings set org.gnome.shell disable-extension-version-validation true
 ```
 
 Install extensions from [`GNOME.md`](./GNOME.md).
+
+Restore settings file from backup:
+
+```sh
+~/Dev/environment/bin/restore-gnome-extensions
+```
 
 Clean up applications list.
 
