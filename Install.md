@@ -111,6 +111,8 @@ sudo dnf install --repofrompath 'terra,https://repos.fyralabs.com/terra$releasev
 sudo dnf install zed
 ```
 
+Install plugins: `ini`, `html`, `dockerfile`, `tomp`, `svelte`, `make`, `adwaita`.
+
 Update system via Software Center.
 
 Set Flatpak languages:

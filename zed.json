@@ -22,8 +22,8 @@
   "buffer_font_family": "JetBrains Mono",
   "theme": {
     "mode": "system",
-    "light": "Vitesse Light",
-    "dark": "Zedokai (Filter Spectrum)"
+    "light": "Adwaita Pastel Light",
+    "dark": "Adwaita Pastel Dark"
   },
   "git": {
     "inline_blame": {
