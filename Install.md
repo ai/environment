@@ -215,7 +215,7 @@ chmod 744 ~/.ssh
 chmod 700 ~/.gnupg/
 chmod 644 ~/.ssh/* ~/.gnupg/*
 chmod 700 ~/.gnupg/private-keys-v1.d
-chmod 600 ~/.ssh/id_ed25519 ~/.ssh/id_ed25519_sk ~/.gnupg/private-keys-v1.d/*
+chmod 600 ~/.ssh/id_* ~/.gnupg/private-keys-v1.d/*
 ```
 
 Copy configs:
