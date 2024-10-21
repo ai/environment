@@ -575,8 +575,9 @@ rm ngram*.zip
 Prepare `fasttext`:
 
 ```sh
-sudo dnf copr enable fcsm/fasttext
-sudo dnf install fasttext
+wget https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-39-x86_64/06624475-fasttext/fasttext-0.9.2-4.fc39.x86_64.rpm https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-39-x86_64/06624475-fasttext/fasttext-libs-0.9.2-4.fc39.x86_64.rpm
+sudo dnf install ./fasttext-*
+rm ./fasttext-*
 mkdir -p ~/.local/share/fasttext
 cd ~/.local/share/fasttext
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
