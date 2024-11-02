@@ -443,7 +443,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
 
 Set icons:
 
-* `/usr/share/icons/MoreWaita/places/scalable/folder-code.svg`
+* `/usr/share/icons/MoreWaita/scalable/places/folder-code.svg`
   for `~/Dev/`.
 * `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
   for `~/Capturas de pantalla/`.
