@@ -17,5 +17,6 @@
 * [Quick Setting Tweaker](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 * [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
+* [Volume Boost](https://extensions.gnome.org/extension/7450/volume-boost/)
 * [VSCode Search Provider](https://extensions.gnome.org/extension/6976/vscode-search-provider/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
