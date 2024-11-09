@@ -20,6 +20,7 @@ borg create                                                \
     --list                                                 \
     --stats                                                \
     --show-rc                                              \
+    --progress                                             \
     --compression lz4                                      \
     --exclude-caches                                       \
     --exclude '*.iso'                                      \
