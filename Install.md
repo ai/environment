@@ -521,7 +521,7 @@ Backup in the dock.
 Install tools:
 
 ```sh
-sudo dnf install git tig ripgrep eza xkill bat
+sudo dnf install git tig ripgrep eza xkill bat make
 ```
 
 Install Node.js and Dev Containers.
