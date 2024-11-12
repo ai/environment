@@ -303,6 +303,8 @@ Install [VS Code extensions](./VSCode.md).
 
 Sign-in into accounts in Zed and VS Code.
 
+Open Iotas app, log-in into Nextcloud account.
+
 
 ### GNOME Settings
 
@@ -343,7 +345,7 @@ Open settings:
 * **Notificaciones:** disable Notificaciones de la pantalla de bloqueo.
 * **Buscar:** keep only Calculadora and Configuracion.
 * **Multitarea:** disable Activar bordes de la pantalla.
-* **Cuentas en línea:** add Google account.
+* **Cuentas en línea:** add Google and Nextcloud accounts.
 * **Energía:** enable Mostrar porcentaje de la bataría.
 * **Ratón y panel táctil:** mouse speed to 75%, touchpad speed to 90%.
 * **Sistema** → **Fecha y hora:** enable seconds and week day on top panel.
@@ -412,7 +414,7 @@ XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
 XDG_DOWNLOAD_DIR="$HOME/Descargas"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME"
-XDG_DOCUMENTS_DIR="$HOME/Documentos"
+XDG_DOCUMENTS_DIR="$HOME"
 XDG_MUSIC_DIR="$HOME"
 XDG_PICTURES_DIR="$HOME"
 XDG_VIDEOS_DIR="$HOME/Vídeos"
@@ -459,28 +461,6 @@ certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.
 sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
 ```
-
-Install Nextcloud client:
-
-```sh
-sudo dnf install nextcloud-client
-```
-
-Add server account in Nextcloud client and sync `Documentos` folder.
-
-Set user photo from synced folder.
-
-```sh
-cp ~/Dev/susedko/sitniks.crt $(flatpak run org.gnome.World.Iotas --display-ca-file-path)
-```
-
-Add `nextcloud.local` to `/etc/hosts`:
-
-```
-192.168.50.125 nextcloud.local
-```
-
-Open Iotas app, log-in into Nextcloud account.
 
 
 ### Additional Software
