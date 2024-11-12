@@ -186,9 +186,7 @@
         "ts"
       ],
       "parameters": [
-        "--enable-source-maps",
-        "--import",
-        "tsx"
+        "--experimental-strip-types"
       ]
     }
   ],
