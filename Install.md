@@ -345,7 +345,7 @@ Open settings:
 * **Notificaciones:** disable Notificaciones de la pantalla de bloqueo.
 * **Buscar:** keep only Calculadora and Configuracion.
 * **Multitarea:** disable Activar bordes de la pantalla.
-* **Cuentas en línea:** add Google and Nextcloud accounts.
+* **Cuentas en línea:** add Google and Nextcloud accounts (creating app login in Nextcloud web).
 * **Energía:** enable Mostrar porcentaje de la bataría.
 * **Ratón y panel táctil:** mouse speed to 75%, touchpad speed to 90%.
 * **Sistema** → **Fecha y hora:** enable seconds and week day on top panel.
