@@ -64,6 +64,17 @@ async function updateGnome() {
             `shell_version=all&` +
             `search=${encodeURIComponent(name)}`
         )
+        if (!response.ok) {
+          process.stderr.write(`Response ${response.status} for ${name}`)
+          process.stderr.write(gray(`\n${await response.text()}\n`))
+          response = await fetch(
+            `https://extensions.gnome.org/extension-query/?` +
+              `sort=relevance&` +
+              `page=1&` +
+              `shell_version=all&` +
+              `search=${encodeURIComponent(name)}`)
+          if (!response.ok) process.exit(1)
+        }
         let json = await response.json()
         let extension = json.extensions.find(i => i.uuid === uuid)
         if (!extension) {
