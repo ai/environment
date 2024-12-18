@@ -2,6 +2,9 @@
 
 ~/Dev/environment/bin/backup-gnome-extensions
 
+scp ai@susedko.local:/var/mnt/vault/.config/homeassistant/configuration.yaml \
+  ~/Dev/susedko/units/home
+
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
 
 SERVICE_NAME="BorgBackup"
