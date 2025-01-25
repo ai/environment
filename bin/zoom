@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+source ~/Dev/environment/secrets.env
+
+call_scene() {
+  curl -s -S -f \
+    -H "Authorization: Bearer $HA_TOKEN" \
+    -H "Content-Type: application/json" \
+    -d "{\"entity_id\": \"$1\"}" \
+    "https://home.local/api/services/scene/turn_on" || true
+}
+
+call_scene "scene.andrey_calling"
+
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=zoom --file-forwarding us.zoom.Zoom "$@"
+
+call_scene "scene.andrey_working_night"

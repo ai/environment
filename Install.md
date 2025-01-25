@@ -134,7 +134,10 @@ Fix unnecessary dir creation in Zoom:
 
 ```sh
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
+cp /var/lib/flatpak/exports/share/applications/us.zoom.Zoom.desktop ~/.local/share/flatpak/exports/share/applications/
 ```
+
+Replace `Exec` to `/home/ai/Dev/environment/bin/zoom @@u %U @@` in `~/.local/share/flatpak/exports/share/applications/us.zoom.Zoom.desktop`.
 
 Add Autostart and fingers to user settings.
 
