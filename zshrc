@@ -145,6 +145,15 @@ else
       --workspace-folder $root --config $(devcontainer_config $root)
   }
 
+  function devrebuild () {
+    local root=$(devcontainer_root)
+      if [ "$root" = "" ]; then
+        return 1
+      fi
+      devcontainer rebuild --docker-path podman \
+        --workspace-folder $root --config $(devcontainer_config $root)
+  }
+
   alias devdown='podman kill --all'
 
   alias pnpm='dev pnpm'
