@@ -150,8 +150,11 @@ else
       if [ "$root" = "" ]; then
         return 1
       fi
-      devcontainer rebuild --docker-path podman \
-        --workspace-folder $root --config $(devcontainer_config $root)
+      podman kill --all
+      podman image ls --format "{{.Repository}}:{{.Tag}}" | \
+        grep "localhost/vsc-$(basename "$PWD")-" | \
+        xargs -r podman image rm --force
+      devup
   }
 
   alias devdown='podman kill --all'
