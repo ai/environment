@@ -316,13 +316,14 @@ and `San Francisco`.
 
 Run Weather app and set current location.
 
-Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
+Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) and [Adwaita Sans](https://gitlab.gnome.org/GNOME/adwaita-fonts/-/tree/main/sans?ref_type=heads) fonts.
 
 ```sh
 mkdir ~/.local/share/fonts
 # Copy variable fonts
 fc-cache -f -v
 gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Regular 12"
+gsettings set org.gnome.desktop.interface font-name 'AdwaitaSans Regular 11'
 ```
 
 Install custom universal keyboard layouts:
