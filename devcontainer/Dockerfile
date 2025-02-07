@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:41
 
-ARG NODE_VERSION=23.6.0
-ARG PNPM_VERSION=10.0.0
+ARG NODE_VERSION=23.7.0
+ARG PNPM_VERSION=10.2.1
 
 RUN dnf update -yq \
   && dnf install -yq zsh eza bat micro git tig ripgrep iputils make \
