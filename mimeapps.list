@@ -104,6 +104,7 @@ video/3gpp2=mpv.desktop;
 video/dv=mpv.desktop;
 application/xml=org.gnome.TextEditor.desktop;
 application/zip=org.gnome.Nautilus.desktop;
+application/pdf=org.gnome.Papers.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
@@ -217,3 +218,4 @@ video/3gp=mpv.desktop
 video/3gpp2=mpv.desktop
 video/dv=mpv.desktop
 application/xml=org.gnome.TextEditor.desktop
+application/pdf=org.gnome.Papers.desktop
