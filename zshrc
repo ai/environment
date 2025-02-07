@@ -150,7 +150,7 @@ else
       if [ "$root" = "" ]; then
         return 1
       fi
-      podman kill --all
+      devdown
       podman image ls --format "{{.Repository}}:{{.Tag}}" | \
         grep "localhost/vsc-$(basename "$PWD")-" | \
         xargs -r podman image rm --force
