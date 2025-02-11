@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:41
 
 ARG NODE_VERSION=23.7.0
-ARG PNPM_VERSION=10.2.1
+ARG PNPM_VERSION=10.3.0
 
 RUN dnf update -yq \
   && dnf install -yq zsh eza bat micro git tig ripgrep iputils make \
@@ -19,7 +19,9 @@ RUN pnpm config set ignore-scripts false \
   && npm install -g yarn \
   && npm install -g bun
 
-RUN useradd -s /bin/zsh ai
+RUN useradd -s /bin/zsh ai \
+  && mkdir -p /home/ai/.local/share/pnpm \
+  && chown -R ai:ai /home/ai/
 USER ai
 
 RUN pnpm config set ignore-scripts false \
