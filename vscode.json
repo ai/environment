@@ -223,5 +223,7 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false
+  "workbench.statusBar.visible": false,
+  "material-icon-theme.activeIconPack": "react",
+  "breadcrumbs.enabled": false
 }

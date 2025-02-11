@@ -1,4 +1,5 @@
 {
+  "icon_theme": "Material Icon Theme",
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
