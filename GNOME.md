@@ -11,7 +11,6 @@
 * [Forge](https://extensions.gnome.org/extension/4481/forge/)
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
-* [Gtk3 Auto Dark](https://extensions.gnome.org/extension/7547/gtk3-auto-dark/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Home Assistant Extension](https://extensions.gnome.org/extension/4170/home-assistant-extension/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
