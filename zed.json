@@ -1,4 +1,7 @@
 {
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "icon_theme": "Material Icon Theme",
   "assistant": {
     "default_model": {
