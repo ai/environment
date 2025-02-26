@@ -15,7 +15,7 @@
 * [Home Assistant Extension](https://extensions.gnome.org/extension/4170/home-assistant-extension/)
 * [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
-* [Quick Setting Tweaker](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
+* [Quick Settings Tweaks](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 * [Right Click Next](https://extensions.gnome.org/extension/7600/right-click-next/)
 * [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
