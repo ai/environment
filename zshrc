@@ -164,7 +164,7 @@ else
 
   alias isolate="\
     cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json \
-    && echo '.devcontainer.json' >> .git/info/exclude"
+    && [ -d .git ] && echo '.devcontainer.json' >> .git/info/exclude || true"
 
   # Disable git hooks
   function chpwd() {
