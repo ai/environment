@@ -46,6 +46,7 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "breadcrumbs.enabled": false,
   "cSpell.language": "en,ru",
   "cSpell.userWords": [
     "andrey",
@@ -126,7 +127,6 @@
   "editor.suggestSelection": "first",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "eslint.useFlatConfig": true,
   "eslint.migration.2_x": "off",
   "eslint.probe": [
     "javascript",
@@ -139,6 +139,7 @@
     "svelte"
   ],
   "eslint.run": "onSave",
+  "eslint.useFlatConfig": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -146,15 +147,14 @@
   ],
   "extensions.ignoreRecommendations": true,
   "files.associations": {
-    "**/test/*.errors.ts": "rust",
+    ".stylelintrc": "json",
     "*.bu": "yaml",
     "*.css": "postcss",
     "*.desktop": "ini",
     "*.ign": "json",
     "*.service": "ini",
     "*.timer": "ini",
-    ".stylelintrc": "json",
-    ".tool-versions": "dotenv",
+    "**/test/*.errors.ts": "rust",
     "errors.ts": "rust",
     "errors.tsx": "rust"
   },
@@ -168,12 +168,14 @@
     "plaintext": true,
     "scminput": false
   },
+  "github.copilot.nextEditSuggestions.enabled": true,
   "languageToolLinter.languageTool.disabledRules": "COMMA_PARENTHESIS_WHITESPACE,UPPERCASE_SENTENCE_START,CONSECUTIVE_SPACES,WHITESPACE_RULE,UNLIKELY_OPENING_PUNCTUATION",
   "languageToolLinter.languageTool.language": "en",
   "languageToolLinter.languageTool.motherTongue": "ru-RU",
   "languageToolLinter.lintOnOpen": true,
   "less.validate": false,
   "markdown.extension.toc.levels": "2..3",
+  "material-icon-theme.activeIconPack": "react",
   "nodejs-testing.extensions": [
     {
       "extensions": [
@@ -223,7 +225,5 @@
   "workbench.preferredDarkColorTheme": "Adwaita Dark",
   "workbench.preferredLightColorTheme": "Adwaita Light",
   "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": false,
-  "material-icon-theme.activeIconPack": "react",
-  "breadcrumbs.enabled": false
+  "workbench.statusBar.visible": false
 }
