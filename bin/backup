@@ -1,23 +1,38 @@
 #!/bin/sh
 
-~/Dev/environment/bin/backup-gnome-extensions
+TITLE='\033[0;32m\033[1m'
+GRAY='\033[0;90m'
+NC='\033[0m'
 
+echo -e "${TITLE}Prepare bed for sleep${GRAY}"
+source ~/Dev/environment/secrets.env
+curl -s \
+  -H "Authorization: Bearer $HA_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"entity_id\": \"script.heat_bedroom\"}" \
+  "https://home.local/api/services/script/turn_on" || true
+echo -e "${NC}\n"
+
+echo -e "${TITLE}Backup GNOME extensions${GRAY}"
+~/Dev/environment/bin/backup-gnome-extensions
+echo -e "${NC}\n"
+
+echo -e "${TITLE}Backup home server${GRAY}"
 cd ~/Dev/susedko
 make ha_backup
 cd
+echo -e "${NC}\n"
 
+echo -e "${TITLE}Copy files${GRAY}"
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
-
 SERVICE_NAME="BorgBackup"
 USERNAME="backup"
-
 BORG_PASSPHRASE=$(secret-tool lookup service "BorgBackup" username "ai")
 if [ -z "$BORG_PASSPHRASE" ]; then
   read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
   echo "$BORG_PASSPHRASE" | secret-tool store --label="Password for backup" service "BorgBackup" username "ai"
 fi
 export BORG_PASSPHRASE
-
 borg create                                                \
     --verbose                                              \
     --filter AME                                           \
@@ -63,16 +78,15 @@ borg create                                                \
     ~/.config/gsconnect                                    \
     ~/.local/share/gnome-shell-extensions-settings         \
     ~/.var/app
-
 borg prune                         \
     --list                         \
     --show-rc                      \
     --keep-last 14
-
 borg compact
-
 unset BORG_PASSPHRASE
+echo -e "${NC}\n"
 
+echo -e "${TITLE}Sync videos${GRAY}"
 rsync -a --delete --progress \
   --no-perms --no-owner --no-group \
   /home/ai/Vídeos/Erótica/ ai@susedko.local:/var/mnt/vault/ai/Selected
