@@ -4,15 +4,27 @@ source ~/Dev/susedko/secrets.env
 MQTT_BROKER=192.168.50.125
 USERNAME=home
 
+is_charging() {
+  status=$(upower -i $(upower -e | grep BAT) | grep "state" | awk '{print $2}')
+  if [ "$status" = "charging" ] || [ "$status" = "fully-charged" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 mosquitto_sub -h "$MQTT_BROKER" -t "ai_laptop" -u home -P "$HOME_PASSWORD" | while read -r payload
 do
   case "$payload" in
     "LOCK")
-      loginctl lock-session
+      if is_charging; then
+        loginctl lock-session
+      fi
       ;;
     "WAKE")
-      # Emulate pressing Enter to turn on screen
-      DISPLAY=:0 xdotool key Return
+      if is_charging; then
+        DISPLAY=:0 xdotool key Return
+      fi
       ;;
     *)
       echo "Unknown command: $payload"
