@@ -472,6 +472,32 @@ sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
 ```
 
+Install MQTT:
+
+```sh
+sudo dnf install mosquitto xdotool
+```
+
+Add service to `~/.config/systemd/user/susedko-listener.service`:
+
+```ini
+[Unit]
+Description=Susedko Listener
+
+[Service]
+ExecStart=/home/ai/Dev/environment/bin/susedko-listener
+Restart=always
+
+[Install]
+WantedBy=default.target
+```
+
+Enable that service:
+
+```sh
+systemctl --user enable susedko-listener.service
+systemctl --user start susedko-listener.service
+```
 
 ### Additional Software
 

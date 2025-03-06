@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source ~/Dev/susedko/secrets.env
+MQTT_BROKER=192.168.50.125
+USERNAME=home
+
+mosquitto_sub -h "$MQTT_BROKER" -t "ai_laptop" -u home -P "$HOME_PASSWORD" | while read -r payload
+do
+  case "$payload" in
+    "LOCK")
+      loginctl lock-session
+      ;;
+    "WAKE")
+      # Emulate pressing Enter to turn on screen
+      DISPLAY=:0 xdotool key Return
+      ;;
+    *)
+      echo "Unknown command: $payload"
+      ;;
+  esac
+done
