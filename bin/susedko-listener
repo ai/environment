@@ -7,9 +7,9 @@ USERNAME=home
 is_charging() {
   status=$(upower -i $(upower -e | grep BAT) | grep "state" | awk '{print $2}')
   if [ "$status" = "charging" ] || [ "$status" = "fully-charged" ]; then
-    return 0
-  else
     return 1
+  else
+    return 0
   fi
 }
 
