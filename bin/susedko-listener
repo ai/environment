@@ -13,21 +13,26 @@ is_charging() {
   fi
 }
 
+PREVIOUS_PAYLOAD=""
+
 mosquitto_sub -h "$MQTT_BROKER" -t "ai_laptop" -u home -P "$HOME_PASSWORD" | while read -r payload
 do
-  case "$payload" in
-    "LOCK")
-      if is_charging; then
-        loginctl lock-session
-      fi
-      ;;
-    "WAKE")
-      if is_charging; then
-        DISPLAY=:0 xdotool key Return
-      fi
-      ;;
-    *)
-      echo "Unknown command: $payload"
-      ;;
-  esac
+  if [ "$payload" != "$PREVIOUS_PAYLOAD" ]; then
+    case "$payload" in
+      "LOCK")
+        if is_charging; then
+          loginctl lock-session
+        fi
+        ;;
+      "WAKE")
+        if is_charging; then
+          DISPLAY=:0 xdotool key Return
+        fi
+        ;;
+      *)
+        echo "Unknown command: $payload"
+        ;;
+    esac
+    PREVIOUS_PAYLOAD="$payload"
+  fi
 done
