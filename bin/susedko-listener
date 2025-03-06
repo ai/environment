@@ -4,35 +4,25 @@ source ~/Dev/susedko/secrets.env
 MQTT_BROKER=192.168.50.125
 USERNAME=home
 
-is_charging() {
-  status=$(upower -i $(upower -e | grep BAT) | grep "state" | awk '{print $2}')
-  if [ "$status" = "charging" ] || [ "$status" = "fully-charged" ]; then
-    return 1
-  else
-    return 0
-  fi
-}
-
 PREVIOUS_PAYLOAD=""
 
 mosquitto_sub -h "$MQTT_BROKER" -t "ai_laptop" -u home -P "$HOME_PASSWORD" | while read -r payload
 do
-  if [ "$payload" != "$PREVIOUS_PAYLOAD" ]; then
-    case "$payload" in
-      "LOCK")
-        if is_charging; then
+  power=$(upower -i $(upower -e | grep BAT) | grep "state" | awk '{print $2}')
+  if [ "$power" = "charging" ] || [ "$power" = "fully-charged" ]; then
+    if [ "$payload" != "$PREVIOUS_PAYLOAD" ]; then
+      case "$payload" in
+        "LOCK")
           loginctl lock-session
-        fi
-        ;;
-      "WAKE")
-        if is_charging; then
-          DISPLAY=:0 xdotool key Return
-        fi
-        ;;
-      *)
-        echo "Unknown command: $payload"
-        ;;
-    esac
-    PREVIOUS_PAYLOAD="$payload"
+          ;;
+        "WAKE")
+          ydotool key 28:1 28:0
+          ;;
+        *)
+          echo "Unknown command: $payload"
+          ;;
+      esac
+      PREVIOUS_PAYLOAD="$payload"
+    fi
   fi
 done

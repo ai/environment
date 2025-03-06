@@ -475,7 +475,7 @@ sudo update-ca-trust
 Install MQTT:
 
 ```sh
-sudo dnf install mosquitto xdotool
+sudo dnf install mosquitto ydotool
 ```
 
 Add service to `~/.config/systemd/user/susedko-listener.service`:
@@ -492,9 +492,25 @@ Restart=always
 WantedBy=default.target
 ```
 
+Add service to `/etc/systemd/system/ydotoold.service`:
+
+```ini
+[Unit]
+Description=ydotool Daemon
+
+[Service]
+ExecStart=ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
+Restart=always
+
+[Install]
+WantedBy=default.target
+```
+
 Enable that service:
 
 ```sh
+systemctl enable ydotoold.service
+systemctl start ydotoold.service
 systemctl --user enable susedko-listener.service
 systemctl --user start susedko-listener.service
 ```
