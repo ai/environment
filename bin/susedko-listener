@@ -8,8 +8,7 @@ PREVIOUS_PAYLOAD=""
 
 mosquitto_sub -h "$MQTT_BROKER" -t "ai_laptop" -u home -P "$HOME_PASSWORD" | while read -r payload
 do
-  power=$(upower -i $(upower -e | grep BAT) | grep "state" | awk '{print $2}')
-  if [ "$power" = "charging" ] || [ "$power" = "fully-charged" ] || [ "$power" = "pending-charge" ]; then
+  if nmcli -t -f TYPE,STATE device | grep -q "^ethernet:connected"; then
     if [ "$payload" != "$PREVIOUS_PAYLOAD" ]; then
       case "$payload" in
         "LOCK")

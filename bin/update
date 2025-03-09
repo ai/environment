@@ -35,3 +35,4 @@ gdbus call --session --dest org.gnome.Shell.Extensions \
      --method org.gnome.Shell.Extensions.CheckForUpdates
 
 echo -e "\n${TITLE}Hecho${NC}"
+read

@@ -5,12 +5,7 @@ GRAY='\033[0;90m'
 NC='\033[0m'
 
 echo -e "${TITLE}Prepare bed for sleep${GRAY}"
-source ~/Dev/environment/secrets.env
-curl -s \
-  -H "Authorization: Bearer $HA_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d "{\"entity_id\": \"script.heat_bedroom\"}" \
-  "https://home.local/api/services/script/turn_on" || true
+~/Dev/environment/bin/susedko script/turn_on script.heat_bedroom
 echo -e "${NC}\n"
 
 echo -e "${TITLE}Backup GNOME extensions${GRAY}"

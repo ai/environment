@@ -1,0 +1,10 @@
+#!/bin/bash
+
+dbus-monitor --session "type='signal',interface='org.gnome.ScreenSaver'" | \
+while read line; do
+  if echo "$line" | grep "boolean true" &>/dev/null; then
+    ~/Dev/environment/bin/susedko switch/turn_off switch.plug_ikea_andrey_screen
+  elif echo "$line" | grep "boolean false" &>/dev/null; then
+    ~/Dev/environment/bin/susedko switch/turn_on switch.plug_ikea_andrey_screen
+  fi
+done

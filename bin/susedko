@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if nmcli -t -f TYPE,STATE device | grep -q "^ethernet:connected"; then
+  home_ip=$(timeout 1 getent hosts home.local | awk '{ print $1 }')
+  if [[ "$home_ip" == "192.168.50.125" ]]; then
+    source ~/Dev/environment/secrets.env
+    curl -s \
+      -H "Authorization: Bearer $HA_TOKEN" \
+      -H "Content-Type: application/json" \
+      -d "{\"entity_id\": \"$2\"}" \
+      "https://home.local/api/services/$1"
+    echo ""
+  fi
+fi
