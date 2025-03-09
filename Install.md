@@ -499,7 +499,7 @@ Add service to `/etc/systemd/system/ydotoold.service`:
 Description=ydotool Daemon
 
 [Service]
-ExecStart=ydotoold --socket-path="/run/user/1000/.ydotool_socket" --socket-own="1000:1000"
+ExecStart=ydotoold --socket-path="/run/.ydotool_socket" --socket-own="1000:1000"
 Restart=always
 
 [Install]

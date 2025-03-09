@@ -15,7 +15,7 @@ do
           loginctl lock-session
           ;;
         "WAKE")
-          ydotool key 28:1 28:0
+          YDOTOOL_SOCKET=/run/.ydotool_socket ydotool key 28:1 28:0
           ;;
         *)
           echo "Unknown command: $payload"
