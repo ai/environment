@@ -1,15 +1,14 @@
 #!/bin/bash
 
 source ~/Dev/susedko/secrets.env
-MQTT_BROKER=192.168.50.125
-USERNAME=home
+MQTT_BROKER="192.168.50.125"
 
 PREVIOUS_PAYLOAD=""
 
-mosquitto_sub -h "$MQTT_BROKER" -t "ai_laptop" -u home -P "$HOME_PASSWORD" | while read -r payload
+mosquitto_sub -h "$MQTT_BROKER" -t ai_laptop -u home -P "$HOME_PASSWORD" | while read -r payload
 do
   if nmcli -t -f TYPE,STATE device | grep -q "^ethernet:connected"; then
-    if [ "$payload" != "$PREVIOUS_PAYLOAD" ]; then
+    if [[ "$payload" != "$PREVIOUS_PAYLOAD" ]]; then
       case "$payload" in
         "LOCK")
           loginctl lock-session

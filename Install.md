@@ -483,10 +483,14 @@ Add service to `~/.config/systemd/user/susedko-listener.service`:
 ```ini
 [Unit]
 Description=Susedko Listener
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 ExecStart=/home/ai/Dev/environment/bin/susedko-listener
-Restart=always
+Restart=on-failure
+RestartSec=30s
+StartLimitBurst=5
 
 [Install]
 WantedBy=default.target
@@ -500,7 +504,8 @@ Description=ydotool Daemon
 
 [Service]
 ExecStart=ydotoold --socket-path="/run/.ydotool_socket" --socket-own="1000:1000"
-Restart=always
+Restart=on-failure
+RestartSec=30s
 
 [Install]
 WantedBy=default.target
