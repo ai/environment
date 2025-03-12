@@ -4,9 +4,12 @@ TITLE='\033[0;32m\033[1m'
 GRAY='\033[0;90m'
 NC='\033[0m'
 
-echo -e "${TITLE}Prepare bed for sleep${GRAY}"
-~/Dev/environment/bin/susedko script/turn_on script.heat_bedroom
-echo -e "${NC}\n"
+hour=$(date +"%H")
+if [[ hour -lt 9 || hour -ge 22 ]]; then
+  echo -e "${TITLE}Prepare bed for sleep${GRAY}"
+  ~/Dev/environment/bin/susedko script/turn_on script.heat_bedroom
+  echo -e "${NC}\n"
+fi
 
 echo -e "${TITLE}Backup GNOME extensions${GRAY}"
 ~/Dev/environment/bin/backup-gnome-extensions
