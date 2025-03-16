@@ -196,4 +196,5 @@ else
 
   # Google Cloud
   alias gcloud='sudo --user gcloud gcloud'
+  alias gsutil='sudo --user gcloud gsutil'
 fi
