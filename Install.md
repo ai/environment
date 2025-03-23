@@ -399,7 +399,7 @@ Clean up applications list.
 Install tools for thumbnails:
 
 ```sh
-sudo dnf install gstreamer1-plugins-good-gtk gstreamer1-plugin-openh264 totem-video-thumbnailer
+sudo dnf install ffmpegthumbnailer
 ```
 
 Create empty file template:
