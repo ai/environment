@@ -108,6 +108,15 @@ Install plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `mate
 
 Update system via Software Center.
 
+Install software:
+
+```sh
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader avif-pixbuf-loader ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep eza xkill bat make difftastic java-17-openjdk https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+```
+
 Set Flatpak languages:
 
 ```sh
@@ -151,14 +160,8 @@ in `Color` settings.
 Install `micro` and its plugins:
 
 ```sh
-sudo dnf install xclip micro
 micro -plugin install editorconfig
 sudo dnf remove nano
-```
-
-Remove terminal from rpm:
-
-```sh
 ```
 
 
@@ -191,12 +194,6 @@ sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 
 
 ### Personal Files
-
-Install encryption tools:
-
-```sh
-sudo dnf install fuse-encfs zenity
-```
 
 Copy `.ssh` and `.gnupg`:
 
@@ -252,12 +249,6 @@ Reboot.
 
 ```sh
 rm ~/.bash*
-```
-
-Install backup tool:
-
-```sh
-sudo dnf install borgbackup
 ```
 
 Open backup and copy files from it.
@@ -354,16 +345,6 @@ Nautilus:
 * Enable Sort folders before files.
 * Enable Single click to open items.
 
-```sh
-sudo dnf install openssl
-```
-
-Install Microsoft fonts:
-
-```sh
-sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-```
-
 Disable GNOME extension version check:
 
 ```sh
@@ -382,12 +363,6 @@ Clean up applications list.
 
 
 ### Folders
-
-Install tools for thumbnails:
-
-```sh
-sudo dnf install ffmpegthumbnailer
-```
 
 Create empty file template:
 
@@ -446,16 +421,9 @@ Set icons:
 Add server’s sertificate to the system:
 
 ```sh
-sudo dnf install nss-tools
 certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.crt
 sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
-```
-
-Install MQTT:
-
-```sh
-sudo dnf install mosquitto ydotool
 ```
 
 Add service to `~/.config/systemd/user/susedko-listener.service`:
@@ -518,28 +486,6 @@ systemctl --user start lock-listener.service
 
 ### Additional Software
 
-Install codecs:
-
-```sh
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
-sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
-sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader avif-pixbuf-loader ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools
-sudo dnf groupupdate multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-```
-
-Install tools:
-
-```sh
-sudo dnf install unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils
-```
-
-Install Chrome:
-
-```sh
-sudo dnf install google-chrome-stable
-```
-
 Fix Wayland in Chrome:
 1. Open Chrome.
 2. Open `chrome://flags/#ozone-platform-hint`.
@@ -551,16 +497,9 @@ Backup in the dock.
 
 ### Development Tools
 
-Install tools:
-
-```sh
-sudo dnf install git tig ripgrep eza xkill bat make difftastic
-```
-
 Install Node.js and Dev Containers.
 
 ```sh
-sudo dnf install nodejs podman
 npm config set ignore-scripts true
 tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 {
@@ -614,12 +553,6 @@ rm ./fasttext-*
 mkdir -p ~/.local/share/fasttext
 cd ~/.local/share/fasttext
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
-```
-
-Install Java:
-
-```sh
-sudo dnf install java-17-openjdk
 ```
 
 Install LanguageTool:
