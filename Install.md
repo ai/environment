@@ -309,14 +309,13 @@ and `San Francisco`.
 
 Run Weather app and set current location.
 
-Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/) and [Adwaita Sans](https://gitlab.gnome.org/GNOME/adwaita-fonts/-/tree/main/sans?ref_type=heads) fonts.
+Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/).
 
 ```sh
 mkdir ~/.local/share/fonts
 # Copy variable fonts
 fc-cache -f -v
 gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Regular 12"
-gsettings set org.gnome.desktop.interface font-name 'AdwaitaSans Regular 11'
 ```
 
 Install custom universal keyboard layouts:
@@ -367,14 +366,6 @@ Install Microsoft fonts:
 
 ```sh
 sudo dnf install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-```
-
-Install Noto:
-
-```sh
-sudo dnf install google-noto-sans-fonts
-gsettings set org.gnome.desktop.interface font-name 'Noto Sans 11'
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 11'
 ```
 
 Disable GNOME extension version check:
