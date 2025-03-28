@@ -192,6 +192,18 @@ sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
 sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 ```
 
+Change geolocation API:
+
+```sh
+sudo mkdir /etc/geoclue/conf.d
+sudo tee > /etc/geoclue/conf.d/99-beacondb.conf <<EOF
+[wifi]
+enable=true
+url=https://api.beacondb.net/v1/geolocate
+EOF
+sudo systemctl restart geoclue
+```
+
 
 ### Personal Files
 
