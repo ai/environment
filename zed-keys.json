@@ -3,5 +3,13 @@
     "bindings": {
       "ctrl-q": null
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {}
+  },
+  {
+    "context": "Editor",
+    "bindings": {}
   }
 ]
