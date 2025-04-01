@@ -570,9 +570,9 @@ wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
 Install LanguageTool:
 
 ```sh
-wget https://languagetool.org/download/LanguageTool-stable.zip
-unzip LanguageTool-stable.zip
-rm LanguageTool-stable.zip
+wget https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
+unzip LanguageTool-latest-snapshot.zip
+rm LanguageTool-latest-snapshot.zip
 mkdir -p ~/.local/lib/languagetool
 mv LanguageTool-*/* ~/.local/lib/languagetool
 rm -R LanguageTool-*
