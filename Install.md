@@ -567,17 +567,6 @@ cd ~/.local/share/fasttext
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
 ```
 
-Install LanguageTool:
-
-```sh
-wget https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
-unzip LanguageTool-latest-snapshot.zip
-rm LanguageTool-latest-snapshot.zip
-mkdir -p ~/.local/lib/languagetool
-mv LanguageTool-*/* ~/.local/lib/languagetool
-rm -R LanguageTool-*
-```
-
 Create config `~/.config/languagetool.properties`:
 
 ```ini
@@ -605,6 +594,12 @@ ExecStart=java -Xms512m -Xmx2g \
 
 [Install]
 WantedBy=default.target
+```
+
+Install LanguageTool:
+
+```sh
+~/Dev/environment/bin/update-languagetool
 ```
 
 Enable service.

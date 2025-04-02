@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+systemctl stop --user languagetool.service || true
+rm -Rf ~/.local/lib/languagetool
+wget https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
+unzip LanguageTool-latest-snapshot.zip
+rm LanguageTool-latest-snapshot.zip
+mkdir -p ~/.local/lib/languagetool
+mv LanguageTool-*/* ~/.local/lib/languagetool
+rm -R LanguageTool-*
+systemctl start --user languagetool.service
