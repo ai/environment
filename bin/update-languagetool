@@ -9,7 +9,7 @@ ETAG_FILE=~/.cache/languagetool/etag
 DOWNLOAD_URL=https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
 
 current_etag=$(curl -s -I -L "$DOWNLOAD_URL" | grep -i '^ETag:' | awk '{print $2}' | sed -e 's/^"//' -e 's/"\s*$//')
-echo -e "${TITLE}Server ETag: $current_etag${GRAY}"
+echo -e "${TITLE}Server ETag:     $current_etag${GRAY}"
 
 last_etag=""
 if [ -f "$ETAG_FILE" ]; then
