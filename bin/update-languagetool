@@ -1,11 +1,47 @@
 #!/bin/zsh
 
-systemctl stop --user languagetool.service || true
-wget https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
-unzip LanguageTool-latest-snapshot.zip
-rm LanguageTool-latest-snapshot.zip
-rm -Rf ~/.local/lib/languagetool
-mkdir -p ~/.local/lib/languagetool
-mv LanguageTool-*/* ~/.local/lib/languagetool
-rm -R LanguageTool-*
-systemctl start --user languagetool.service
+set -e
+
+TITLE='\033[0m\033[1m'
+GRAY='\033[0;90m'
+
+ETAG_FILE=~/.cache/languagetool/etag
+DOWNLOAD_URL=https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
+
+current_etag=$(curl -s -I -L "$DOWNLOAD_URL" | grep -i '^ETag:' | awk '{print $2}' | sed -e 's/^"//' -e 's/"\s*$//')
+echo -e "${TITLE}Server ETag: $current_etag${GRAY}"
+
+last_etag=""
+if [ -f "$ETAG_FILE" ]; then
+  last_etag=$(cat "$ETAG_FILE")
+  echo -e "${TITLE}Last known ETag: $last_etag${GRAY}"
+else
+  echo -e "${TITLE}No previous ETag found${GRAY}"
+fi
+
+if [ -z "$last_etag" ] || [ "$current_etag" != "$last_etag" ]; then
+  echo -e "${TITLE}Downloading latest snapshot${GRAY}"
+  wget "$DOWNLOAD_URL"
+
+  echo -e "${TITLE}Extracting archive${GRAY}"
+  unzip -q LanguageTool-latest-snapshot.zip
+  rm LanguageTool-latest-snapshot.zip
+
+  echo -e "${TITLE}Stopping and removing old installation${GRAY}"
+  systemctl stop --user languagetool.service || true
+  rm -Rf ~/.local/lib/languagetool
+
+  echo -e "${TITLE}Installing new version${GRAY}"
+  mkdir -p ~/.local/lib/languagetool
+  mv LanguageTool-*/* ~/.local/lib/languagetool
+  rm -R LanguageTool-*
+
+  echo -e "${TITLE}Starting LanguageTool service${GRAY}"
+  systemctl start --user languagetool.service
+
+  echo -e "${TITLE}Saving new ETag"
+  mkdir -p "$(dirname "$ETAG_FILE")"
+  echo "$current_etag" > "$ETAG_FILE"
+else
+  echo -e "${TITLE}No download needed${GRAY}"
+fi
