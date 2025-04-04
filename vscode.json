@@ -55,6 +55,7 @@
     "browserslist",
     "catched",
     "CRDT",
+    "distroless",
     "esbuild",
     "globby",
     "gzipped",
