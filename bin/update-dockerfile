@@ -28,15 +28,6 @@ if [[ "$current_pnpm" != "$latest_pnpm" ]] && [[ -n "$latest_pnpm" ]]; then
 fi
 
 if [ "$update_needed" = true ]; then
-  # if [[ -d ~/Dev/slowreader ]]; then
-  #   ~/.local/share/node/node_modules/.bin/devcontainer up --docker-path=podman \
-  #     --workspace-folder ~/Dev/slowreader \
-  #     --config ~/Dev/slowreader/.devcontainer/podman/devcontainer.json
-  #   ~/.local/share/node/node_modules/.bin/devcontainer exec --docker-path=podman \
-  #     --workspace-folder ~/Dev/slowreader \
-  #     --config ~/Dev/slowreader/.devcontainer/podman/devcontainer.json \
-  #     pnpm update-env
-  # fi
   echo -e "Limpieza de imágenes antiguas de Dev Container${GRAY}"
   podman rmi --all --force
   echo -e "${NC}Creación de una nueva imagen de Dev Container${GRAY}"
