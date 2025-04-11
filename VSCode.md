@@ -24,6 +24,7 @@ EXTENSIONS=(
   sleistner.vscode-fileutils
   streetsidesoftware.code-spell-checker
   visualstudioexptteam.vscodeintellicode
+  walnuts1018.oklch-vscode
   yoavbls.pretty-ts-errors
   yzhang.markdown-all-in-one
 )
