@@ -197,7 +197,7 @@
   "oklch-vscode.languages": [
     ".css",
     "css",
-    "postcss",
+    "postcss"
   ],
   "prettier.arrowParens": "avoid",
   "prettier.quoteProps": "consistent",
