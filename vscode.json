@@ -93,6 +93,7 @@
     "esbenp.prettier-vscode",
     "formulahendry.auto-rename-tag",
     "github.copilot",
+    "walnuts1018.oklch-vscode",
     "github.copilot-chat",
     "sleistner.vscode-fileutils",
     "streetsidesoftware.code-spell-checker",
@@ -192,6 +193,11 @@
         "--experimental-strip-types"
       ]
     }
+  ],
+  "oklch-vscode.languages": [
+    ".css",
+    "css",
+    "postcss",
   ],
   "prettier.arrowParens": "avoid",
   "prettier.quoteProps": "consistent",
