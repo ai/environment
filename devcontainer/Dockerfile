@@ -1,10 +1,10 @@
-FROM registry.fedoraproject.org/fedora:41
+FROM registry.fedoraproject.org/fedora:42
 
 ARG NODE_VERSION=23.11.0
 ARG PNPM_VERSION=10.8.0
 
 RUN dnf update -yq \
-  && dnf install -yq zsh eza bat micro git tig ripgrep iputils make \
+  && dnf install -yq zsh bat micro git tig ripgrep iputils make awk \
   psmisc procps-ng difftastic \
   && dnf clean all \
   && rm -rf /var/cache/dnf
@@ -20,6 +20,11 @@ ADD https://github.com/suzuki-shunsuke/pinact/releases/download/v3.0.1/pinact_li
 RUN tar -xz -f /pinact.tar.gz -C /usr/local/bin --remove-files \
   --exclude='LICENSE' --exclude='*.md' \
   && rm /pinact.tar.gz
+
+RUN curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz \
+  && sudo chmod +x eza \
+  && sudo chown root:root eza \
+  && sudo mv eza /usr/local/bin/eza
 
 RUN npm install -g yarn && npm install -g bun
 
