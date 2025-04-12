@@ -19,7 +19,7 @@ fi
 mkdir -p ~/.local/bin
 curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x eza
-mv eza ~/.local/eza
+mv eza ~/.local/bin
 
 curl -sS https://starship.rs/install.sh > starship.sh
 chmod a+x starship.sh
