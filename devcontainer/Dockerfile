@@ -3,8 +3,7 @@ FROM registry.fedoraproject.org/fedora:42
 ARG NODE_VERSION=23.11.0
 ARG PNPM_VERSION=10.8.0
 
-RUN dnf update -yq \
-  && dnf install -yq zsh bat micro git tig ripgrep iputils make awk \
+RUN dnf install -yq zsh bat micro git tig ripgrep iputils make awk \
   psmisc procps-ng difftastic \
   && dnf clean all \
   && rm -rf /var/cache/dnf
