@@ -22,15 +22,15 @@ curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_6
 chmod +x eza
 mv eza ~/.local/bin
 
-curl -sL https://github.com/Wilfred/difftastic/releases/download/0.63.0/difft-aarch64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/Wilfred/difftastic/releases/download/0.63.0/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x difft
 mv difft ~/.local/bin
 
-curl -sL https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-aarch64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 bat-v0.25.0-x86_64-unknown-linux-gnu/bat
 chmod +x bat
 mv bat ~/.local/bin
 
-curl -sL https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-aarch64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-i686-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 ripgrep-14.1.1-i686-unknown-linux-gnu/rg
 chmod +x ripgrep
 mv ripgrep ~/.local/bin
 
