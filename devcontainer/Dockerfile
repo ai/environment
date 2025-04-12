@@ -21,11 +21,6 @@ RUN tar -xz -f /pinact.tar.gz -C /usr/local/bin --remove-files \
   --exclude='LICENSE' --exclude='*.md' \
   && rm /pinact.tar.gz
 
-RUN curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz \
-  && sudo chmod +x eza \
-  && sudo chown root:root eza \
-  && sudo mv eza /usr/local/bin/eza
-
 RUN npm install -g yarn && npm install -g bun
 
 RUN useradd -s /bin/zsh ai \
