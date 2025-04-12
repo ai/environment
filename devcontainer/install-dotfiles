@@ -22,7 +22,7 @@ curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_6
 chmod +x eza
 mv eza ~/.local/bin
 
-curl -sL https://github.com/Wilfred/difftastic/releases/download/latest/difft-aarch64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/Wilfred/difftastic/releases/download/0.63.0/difft-aarch64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x difft
 mv difft ~/.local/bin
 
