@@ -31,8 +31,8 @@ chmod +x bat
 mv bat ~/.local/bin
 
 curl -sL https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-i686-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 ripgrep-14.1.1-i686-unknown-linux-gnu/rg
-chmod +x ripgrep
-mv ripgrep ~/.local/bin
+chmod +x rg
+mv rg ~/.local/bin
 
 curl -sS https://starship.rs/install.sh > starship.sh
 chmod a+x starship.sh
