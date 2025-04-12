@@ -17,9 +17,22 @@ if command -v micro >/dev/null 2>&1; then
 fi
 
 mkdir -p ~/.local/bin
+
 curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x eza
 mv eza ~/.local/bin
+
+curl -sL https://github.com/Wilfred/difftastic/releases/download/latest/difft-aarch64-unknown-linux-gnu.tar.gz | tar xz
+chmod +x difft
+mv difft ~/.local/bin
+
+curl -sL https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-aarch64-unknown-linux-gnu.tar.gz | tar xz
+chmod +x bat
+mv bat ~/.local/bin
+
+curl -sL https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-aarch64-unknown-linux-gnu.tar.gz | tar xz
+chmod +x ripgrep
+mv ripgrep ~/.local/bin
 
 curl -sS https://starship.rs/install.sh > starship.sh
 chmod a+x starship.sh
