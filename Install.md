@@ -28,6 +28,7 @@ Copy these files to external SDD:
 1. Boot to BIOS and set supervisor password.
 2. Set battery charge limit to 80%.
 3. Set Game Optimized iGPU.
+4. Temporary enable USB boot.
 
 
 ### Install
@@ -68,6 +69,8 @@ sudo hostnamectl set-hostname savoia
 ```
 
 Reboot.
+
+Go to BIOS. Disable USB boot.
 
 Copy `Dev/` and `.Private/` from external SDD and open `Install.md` locally.
 
