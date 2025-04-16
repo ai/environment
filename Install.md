@@ -35,9 +35,8 @@ Copy these files to external SDD:
 
 Start installer:
 
-1. Select Spanish language.
-2. Set the only US keyboard layouts.
-3. Use disk manual mode.
+1. Select English language.
+2. Use disk manual mode.
    1. Create `btrfs` partitions automatically.
    2. Remove `/home` partition.
    3. Remove `/` partition.
@@ -60,7 +59,7 @@ vartmp /tmp     tmpfs defaults,noatime,nodiratime 0 0
 
 Reboot to BIOS. Block boot from USB.
 
-Reboot to system. Set name to `Andrey Sitnik` and login `ai`.
+Reboot to system. Set Spanish language, name to `Andrey Sitnik` and login `ai`.
 
 Set laptop name:
 
@@ -69,8 +68,6 @@ sudo hostnamectl set-hostname savoia
 ```
 
 Reboot.
-
-Go to BIOS. Disable USB boot.
 
 Copy `Dev/` and `.Private/` from external SDD and open `Install.md` locally.
 
@@ -86,9 +83,8 @@ Fix video driver:
 sudo grubby --update-kernel=ALL --args="amdgpu.sg_display=0"
 ```
 
-Enable `Rendimiento`, set `Apagar la pantalla` at `10 minutos`,
-disable `Ahorro de energía automático`, `Suspender automaticámente`,
-in Energía settings.
+Enable `Rendimiento`, disable `Ahorro de energía automático`,
+`Suspender automaticámente` in Energía settings.
 
 
 ### System Update
@@ -107,8 +103,6 @@ Add RPM Fusion:
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 ```
 
-Install plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`.
-
 Update system via Software Center.
 
 Install software:
@@ -117,7 +111,9 @@ Install software:
 sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
-sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader avif-pixbuf-loader ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep eza xkill bat make difftastic java-17-openjdk nextcloud-client https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+sudo dnf copr enable atim/starship
+sudo dnf copr enable dusansimic/themes
+sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader avif-pixbuf-loader ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic java-21-openjdk nextcloud-client zsh util-linux-user starship sqlite input-remapper morewaita-icon-theme https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
 Set Flatpak languages:
@@ -135,10 +131,13 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 flatpak install flathub-beta com.yubico.yubioath
 ```
 
+Remove default GNOME console.
+
 Fix unnecessary dir creation in Zoom:
 
 ```sh
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
+mkdir -p ~/.local/share/flatpak/exports/share/applications/
 cp /var/lib/flatpak/exports/share/applications/us.zoom.Zoom.desktop ~/.local/share/flatpak/exports/share/applications/
 ```
 
@@ -151,7 +150,7 @@ Disable Software auto-start:
 ```sh
 dconf write /org/gnome/software/allow-updates false
 dconf write /org/gnome/software/download-updates false
-mkdir -pv ~/.config/autostart && cp /etc/xdg/autostart/org.gnome.Software.desktop ~/.config/autostart/
+mkdir -p ~/.config/autostart && cp /etc/xdg/autostart/org.gnome.Software.desktop ~/.config/autostart/
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/gnome-software-service.desktop
 dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.desktop']"
 echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
@@ -169,18 +168,6 @@ sudo dnf remove nano
 
 
 ### Base Settings
-
-Add to `/etc/default/grub`:
-
-```
-GRUB_TIMEOUT=0
-```
-
-Rebuild GRUB:
-
-```sh
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-```
 
 Disable file system scanning:
 
@@ -235,6 +222,15 @@ Copy configs:
 
 ### Terminal
 
+Install eza:
+
+```sh
+curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
+chmod +x eza
+mkdir -p ~/.local/bin/
+mv eza ~/.local/bin/eza
+```
+
 Prepare zsh and podman integration:
 
 ```sh
@@ -246,8 +242,6 @@ podman volume create shell-history
 Install zsh:
 
 ```sh
-sudo dnf copr enable atim/starship
-sudo dnf install zsh util-linux-user starship sqlite
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.local/share/zsh/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-history-substring-search ~/.local/share/zsh/zsh-history-substring-search
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/share/zsh/zsh-autosuggestions
@@ -283,7 +277,6 @@ rmdir ~/backup
 Enable mouse buttons presets:
 
 ```sh
-sudo dnf install input-remapper
 sudo systemctl enable --now input-remapper
 ```
 
@@ -304,6 +297,8 @@ sudo sysctl fs.inotify.max_user_instances=524288
 Install [VS Code extensions](./VSCode.md).
 
 Sign-in into accounts in Zed and VS Code.
+
+Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`.
 
 Open Iotas app, log-in into Nextcloud account.
 
@@ -351,7 +346,7 @@ Open settings:
 * **Energía:** enable Mostrar porcentaje de la bataría.
 * **Ratón y panel táctil:** mouse speed to 75%, touchpad speed to 90%.
 * **Sistema** → **Fecha y hora:** enable seconds and week day on top panel.
-* **Privacidad y seguridad** → **Historico de archivos y papelera**: disable File History.
+* **Privacidad y seguridad** → **Historico de archivos y papelera**: disable File History.
 
 Login to NextCloud client to `sync.sitnik.ru`.
 
@@ -406,8 +401,6 @@ Clean bookmarks:
 echo "" > ~/.config/gtk-3.0/bookmarks
 ```
 
-Connect to server in Files by `sftp://ai@susedko.local/` and add `vault` to Favorites places. Add `Descargas` and `Capturas de pantalla` to Favorites places.
-
 Remove unnecessary folders:
 
 ```sh
@@ -415,11 +408,11 @@ rm -R ~/Imágenes ~/Música ~/Público ~/Plantillas ~/Escritorio
 mkdir "Capturas de pantalla"
 ```
 
+Connect to server in Files by `sftp://ai@susedko.local/` and add `vault` to Favorites places. Add `Descargas` and `Capturas de pantalla` to Favorites places.
+
 Add icon theme:
 
 ```sh
-sudo dnf copr enable dusansimic/themes
-sudo dnf install morewaita-icon-theme
 gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
 ```
 
@@ -516,7 +509,8 @@ Install Node.js and Dev Containers.
 
 ```sh
 npm config set ignore-scripts true
-tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+mkdir -p ~/.local/share/node/
+tee -a ~/.local/share/node/package.json << EOM
 {
   "dependencies": {
     "@devcontainers/cli": ">=0.71.0"
@@ -540,7 +534,7 @@ sudo dnf install https://prerelease.keybase.io/keybase_amd64.rpm
 run_keybase
 ```
 
-Disable autostart in Keybase settings.
+Disable autostart in Keybase settings and revoke old laptop.
 
 
 ## LanguageTool Server

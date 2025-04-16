@@ -34,7 +34,7 @@ if [[ -d ~/.local/share/zsh/pnpm-shell-completion/ ]]; then
 fi
 
 # Local binaries
-export PATH="~/.local/bin/:$PATH"
+export PATH="/home/$USER/.local/bin/:$PATH"
 
 # Prompt
 if command -v starship > /dev/null 2>&1; then
