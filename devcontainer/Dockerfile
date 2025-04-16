@@ -21,13 +21,14 @@ RUN tar -xz -f /pinact.tar.gz -C /usr/local/bin --remove-files \
 
 RUN npm install -g yarn && npm install -g bun
 
-RUN useradd -s /bin/zsh ai \
-  && mkdir -p /home/ai/.local/share/pnpm \
-  && chown -R ai:ai /home/ai/
+RUN useradd -s /bin/zsh ai
+# On first run comment all commands below, run zsh and call:
+# chown ai:ai /home/ai/.local/share/pnpm/store
 USER ai
 
-RUN  pnpm config set store-dir /home/ai/.local/share/pnpm/store \
-  && mkdir -p /home/ai/.local/share/node
+RUN  mkdir -p /home/ai/.local/share/node \
+  && mkdir -p /home/ai/.local/share/pnpm \
+  && pnpm config set store-dir /home/ai/.local/share/pnpm/store
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
