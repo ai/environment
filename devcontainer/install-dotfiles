@@ -16,6 +16,8 @@ if command -v micro >/dev/null 2>&1; then
   micro -plugin install editorconfig
 fi
 
+mkdir -p ~/.local/share/history/
+touch ~/.local/share/history/histfile
 mkdir -p ~/.local/bin
 
 curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
