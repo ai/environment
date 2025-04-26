@@ -67,6 +67,13 @@ Set laptop name:
 sudo hostnamectl set-hostname savoia
 ```
 
+Disable ambient light sensor:
+
+```sh
+echo "blacklist hid_sensor_hub" | sudo tee /etc/modprobe.d/blacklist-hid-sensor-hub.conf
+sudo dracut --force
+```
+
 Reboot.
 
 Copy `Dev/` and `.Private/` from external SDD and open `Install.md` locally.
@@ -77,10 +84,10 @@ Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 vm.swappiness = 10
 ```
 
-Fix video driver:
+Fix booting video glitch:
 
 ```sh
-sudo grubby --update-kernel=ALL --args="amdgpu.sg_display=0"
+sudo grubby --update-kernel=ALL --args="plymouth.use-simpledrm=0"
 ```
 
 Enable `Rendimiento`, disable `Ahorro de energía automático`,
