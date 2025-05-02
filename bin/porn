@@ -11,5 +11,5 @@ if [[ "$1" == "--new" ]]; then
   bash -c "mpv --shuffle --fullscreen --playlist=.new.m3u --load-unsafe-playlists"
   rm .new.m3u
 else
-  find /home/ai/Vídeos/Erótica/ -type f -exec mpv --shuffle --fullscreen {} +
+  find /home/ai/Vídeos/Erótica/ -type f -print0 | tr '\0' '\n' | mpv --shuffle --fullscreen --playlist=-
 fi
