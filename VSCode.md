@@ -5,7 +5,6 @@ Copy-paste following to terminal:
 ```bash
 EXTENSIONS=(
   VisualStudioExptTeam.vscodeintellicode
-  alefragnani.project-manager
   christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
   connor4312.nodejs-testing
