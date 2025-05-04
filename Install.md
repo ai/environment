@@ -67,13 +67,6 @@ Set laptop name:
 sudo hostnamectl set-hostname savoia
 ```
 
-Disable ambient light sensor:
-
-```sh
-echo "blacklist hid_sensor_hub" | sudo tee /etc/modprobe.d/blacklist-hid-sensor-hub.conf
-sudo dracut --force
-```
-
 Reboot.
 
 Copy `Dev/` and `.Private/` from external SDD and open `Install.md` locally.
@@ -82,6 +75,13 @@ Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 
 ```
 vm.swappiness = 10
+```
+
+Disable ambient light sensor:
+
+```sh
+echo "blacklist hid_sensor_hub" | sudo tee /etc/modprobe.d/blacklist.conf
+sudo dracut --force
 ```
 
 Fix booting video glitch:
