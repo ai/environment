@@ -368,6 +368,12 @@ Disable GNOME extension version check:
 gsettings set org.gnome.shell disable-extension-version-validation true
 ```
 
+Download the latest [`framework_tool`](https://github.com/FrameworkComputer/framework-system/actions?query=branch%3Amain), extract and copy to the system:
+
+```sh
+sudo cp ~/Descargas/framework_tool /usr/local/bin
+```
+
 Install extensions from [`GNOME.md`](./GNOME.md).
 
 Restore settings file from backup:

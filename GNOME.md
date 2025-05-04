@@ -3,6 +3,7 @@
 * [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 * [App Hider](https://extensions.gnome.org/extension/5895/app-hider/)
 * [Autohide Battery](https://extensions.gnome.org/extension/595/autohide-battery/)
+* [Battery Health Charging](https://extensions.gnome.org/extension/5724/battery-health-charging/)
 * [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
 * [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
 * [Dim Completed Calendar Events](https://extensions.gnome.org/extension/5979/dim-completed-calendar-events/)
