@@ -10,6 +10,14 @@
   },
   {
     "context": "Editor",
-    "bindings": {}
+    "bindings": {
+      "ctrl-cyrillic_es":"editor::Copy",
+      "ctrl-cyrillic_em":"editor::Paste",
+      "ctrl-cyrillic_che": "editor::Cut",
+      "ctrl-cyrillic_ef":"editor::SelectAll",
+      "ctrl-cyrillic_ya": "editor::Undo",
+      "ctrl-cyrillic_en": "editor::Redo",
+      "ctrl-cyrillic_a": "buffer_search::Deploy"
+    }
   }
 ]
