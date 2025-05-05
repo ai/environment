@@ -1,0 +1,67 @@
+#!/bin/bash
+
+function devcontainer_root() {
+  local dir=$PWD
+  while [ "$dir" != "/" ]; do
+    if [[ -f "$dir/.devcontainer.json" ]] || [[ -d "$dir/.devcontainer" ]]; then
+      echo $dir
+      return
+    fi
+    dir=$(dirname "$dir")
+  done
+  echo "No .devcontainer.json or .devcontainer/ found" >&2
+  return 1
+}
+
+function devcontainer_config() {
+  if [[ -f "$1/.devcontainer/podman/devcontainer.json" ]]; then
+    echo "$1/.devcontainer/podman/devcontainer.json"
+  elif [[ -f "$1/.devcontainer/devcontainer.json" ]]; then
+    echo "$1/.devcontainer/devcontainer.json"
+  else
+    echo "$1/.devcontainer.json"
+  fi
+}
+
+root=$(devcontainer_root)
+if [ "$root" = "" ]; then
+  echo "No .devcontainer.json or .devcontainer/ found" >&2
+  return 1
+fi
+
+if [ "$1" = "--up" ]; then
+  devcontainer up --docker-path podman \
+    --dotfiles-repository https://github.com/ai/environment.git \
+    --dotfiles-install-command devcontainer/install-dotfiles \
+    --workspace-folder $root --config $(devcontainer_config $root)
+elif [ "$1" = "--down" ]; then
+  podman kill --all
+elif [ "$1" = "--rebuild" ]; then
+  podman image ls --format "{{.Repository}}:{{.Tag}}" | \
+    grep "localhost/vsc-$(basename "$PWD")-" | \
+    xargs -r podman image rm --force
+else
+  config=$(devcontainer_config $root)
+  if [ "$PWD" = "$root" ]; then
+    if [ -z "$1" ]; then
+      devcontainer exec --docker-path podman \
+        --workspace-folder $root --config $config \
+        zsh
+    else
+      devcontainer exec --docker-path podman \
+        --workspace-folder $root --config $config \
+        zsh -ic "$*"
+    fi
+  else
+    reldir="${PWD#$root/}"
+    if [ -z "$1" ]; then
+      devcontainer exec --docker-path podman \
+        --workspace-folder $root --config $config \
+        zsh -c "cd $reldir; exec zsh"
+    else
+      devcontainer exec --docker-path podman \
+        --workspace-folder $root --config $config \
+        zsh -ic "cd $reldir && $*"
+    fi
+  fi
+fi

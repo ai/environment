@@ -81,84 +81,9 @@ else
   # Run commands in container
   export PATH="/home/ai/.local/share/node/node_modules/.bin/:$PATH"
 
-  function devcontainer_root() {
-    local dir=$PWD
-    while [ "$dir" != "/" ]; do
-      if [[ -f "$dir/.devcontainer.json" ]] || [[ -d "$dir/.devcontainer" ]]; then
-        echo $dir
-        return
-      fi
-      dir=$(dirname "$dir")
-    done
-    echo "No .devcontainer.json or .devcontainer/ found" >&2
-    return 1
-  }
-
-  function devcontainer_config() {
-    if [[ -f "$1/.devcontainer/podman/devcontainer.json" ]]; then
-      echo "$1/.devcontainer/podman/devcontainer.json"
-    elif [[ -f "$1/.devcontainer/devcontainer.json" ]]; then
-      echo "$1/.devcontainer/devcontainer.json"
-    else
-      echo "$1/.devcontainer.json"
-    fi
-  }
-
-  function dev () {
-    local root=$(devcontainer_root)
-    if [ "$root" = "" ]; then
-      return 1
-    fi
-    local config=$(devcontainer_config $root)
-    if [ "$PWD" = "$root" ]; then
-      if [ -z "$1" ]; then
-        devcontainer exec --docker-path podman \
-          --workspace-folder $root --config $config \
-          zsh
-      else
-        devcontainer exec --docker-path podman \
-          --workspace-folder $root --config $config \
-          zsh -ic "$*"
-      fi
-    else
-      local reldir="${PWD#$root/}"
-      if [ -z "$1" ]; then
-        devcontainer exec --docker-path podman \
-          --workspace-folder $root --config $config \
-          zsh -c "cd $reldir; exec zsh"
-      else
-        devcontainer exec --docker-path podman \
-          --workspace-folder $root --config $config \
-          zsh -ic "cd $reldir && $*"
-      fi
-    fi
-  }
-
-  function devup () {
-    local root=$(devcontainer_root)
-    if [ "$root" = "" ]; then
-      return 1
-    fi
-    devcontainer up --docker-path podman \
-      --dotfiles-repository https://github.com/ai/environment.git \
-      --dotfiles-install-command devcontainer/install-dotfiles \
-      --workspace-folder $root --config $(devcontainer_config $root)
-  }
-
-  function devrebuild () {
-    local root=$(devcontainer_root)
-      if [ "$root" = "" ]; then
-        return 1
-      fi
-      devdown
-      podman image ls --format "{{.Repository}}:{{.Tag}}" | \
-        grep "localhost/vsc-$(basename "$PWD")-" | \
-        xargs -r podman image rm --force
-      devup
-  }
-
-  alias devdown='podman kill --all'
-
+  alias dev='/home/ai/Dev/environment/bin/dev'
+  alias devup='dev --up'
+  alias devdown='dev --down'
   alias pnpm='dev pnpm'
   alias node='dev node'
 
