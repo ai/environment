@@ -146,7 +146,7 @@ sudo setcap "cap_net_admin,cap_net_raw,cap_dac_read_search,cap_sys_ptrace+pe" "$
 
 Remove default GNOME console.
 
-Fix unnecessary dir creation in Zoom:
+Fix unnecessary folder creation in Zoom:
 
 ```sh
 flatpak override --user us.zoom.Zoom --nofilesystem=~/Documents/Zoom
@@ -177,6 +177,12 @@ Install `micro` and its plugins:
 ```sh
 micro -plugin install editorconfig
 sudo dnf remove nano
+```
+
+Disable waking up by mouse by creating `/etc/udev/rules.d/logitech-bolt.rules`:
+
+```sh
+ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c548", ATTR{power/wakeup}="disabled"
 ```
 
 
