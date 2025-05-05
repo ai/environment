@@ -311,7 +311,7 @@ Install [VS Code extensions](./VSCode.md).
 
 Sign-in into accounts in Zed and VS Code.
 
-Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`.
+Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`.
 
 Open Iotas app, log-in into Nextcloud account.
 
@@ -527,7 +527,6 @@ Backup in the dock.
 Install Node.js and Dev Containers.
 
 ```sh
-npm config set ignore-scripts true
 mkdir -p ~/.local/share/node/
 tee -a ~/.local/share/node/package.json << EOM
 {
