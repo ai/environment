@@ -91,16 +91,8 @@ else
     cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json \
     && [ -d .git ] && echo '.devcontainer.json' >> .git/info/exclude || true"
 
-  # Disable git hooks
-  function chpwd() {
-    if /usr/bin/git rev-parse --git-dir > /dev/null 2>&1; then
-      if [[ -n "$(/usr/bin/git config --local --get core.hooksPath)" ]]; then
-        echo -e "\e[33mGit hooks was disabled\e[0m"
-      fi
-    fi
-  }
-  chpwd
-  export GIT_CONFIG_PARAMETERS="'core.hooksPath=/dev/null'"
+  # Run git hooks inside Dev Container
+  export GIT_CONFIG_PARAMETERS="'core.hooksPath=/home/ai/Dev/environment/hooks-trap'"
 
   # Fast way to Dev projects
   if [ -d ~/Dev ]; then

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+project_hooks=$(git config get --local core.hooksPath)
+if [ -n "$project_hooks" ] && [ -d "$project_hooks" ]; then
+  if [ -x "$project_hooks/applypatch-msg" ]; then
+    /home/ai/Dev/environment/bin/dev $project_hooks/applypatch-msg
+  fi
+fi
