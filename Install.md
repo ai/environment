@@ -530,14 +530,15 @@ Backup in the dock.
 
 ### Development Tools
 
-Install Node.js and Dev Containers.
+Install Node.js, TypeScript, and Dev Containers.
 
 ```sh
 mkdir -p ~/.local/share/node/
 tee -a ~/.local/share/node/package.json << EOM
 {
   "dependencies": {
-    "@devcontainers/cli": ">=0.71.0"
+    "@devcontainers/cli": ">=0.71.0",
+    "typescript": ">=5.8.3"
   }
 }
 EOM
