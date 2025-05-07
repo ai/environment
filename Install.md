@@ -187,6 +187,8 @@ Disable waking up by mouse by creating `/etc/udev/rules.d/logitech-bolt.rules`:
 ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c548", ATTR{power/wakeup}="disabled"
 ```
 
+[Disable](https://discussion.fedoraproject.org/t/please-enter-passphrase-for-disk-has-returned/150626/5) disk name in password prompt.
+
 
 ### Base Settings
 
