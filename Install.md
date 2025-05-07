@@ -96,6 +96,8 @@ Enable `Rendimiento`, disable `Ahorro de energía automático`,
 
 ### System Update
 
+Set `KEYMAP=us` and `XKBLAYOUT=us` in `/etc/vconsole.conf`.
+
 Remove unnecessary packages:
 
 ```sh
