@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 function devcontainer_root() {
   local dir=$PWD
   while [ "$dir" != "/" ]; do
@@ -42,6 +44,7 @@ elif [ "$1" = "--rebuild" ]; then
   podman image ls --format "{{.Repository}}:{{.Tag}}" | \
     grep "localhost/vsc-$(basename "$PWD")-" | \
     xargs -r podman image rm --force
+  ~/Dev/environment/bin/dev --up
 else
   config=$(devcontainer_config $root)
   if [ "$PWD" = "$root" ]; then
