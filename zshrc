@@ -86,6 +86,7 @@ else
   alias devdown='dev --down'
   alias pnpm='dev pnpm'
   alias node='dev node'
+  alias pinact='dev pinact'
 
   alias isolate="\
     cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json \
