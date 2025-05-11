@@ -42,15 +42,5 @@
       }
     }
   },
-  "lsp": {
-    "vtsls": {
-      "settings": {
-        "autoUseWorkspaceTsdk": false,
-        "typescript": {
-          "tsdk": "~/.local/share/node/node_modules/typescript/bin",
-          "globalTsdk": true
-        }
-      }
-    }
-  }
+  "lsp": {}
 }
