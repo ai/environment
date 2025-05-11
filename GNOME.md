@@ -6,6 +6,7 @@
 * [Battery Health Charging](https://extensions.gnome.org/extension/5724/battery-health-charging/)
 * [Battery Time](https://extensions.gnome.org/extension/5425/battery-time/)
 * [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
+* [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
 * [Dim Completed Calendar Events](https://extensions.gnome.org/extension/5979/dim-completed-calendar-events/)
 * [Do Not Disturb While Screen Sharing Or Recording](https://extensions.gnome.org/extension/5985/do-not-disturb-while-screen-sharing-or-recording/)
 * [Emoji Copy](https://extensions.gnome.org/extension/6242/emoji-copy/)
