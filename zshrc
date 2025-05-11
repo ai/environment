@@ -15,7 +15,7 @@ bindkey ';5D' backward-word # ctrl+left
 bindkey ';5C' forward-word  # ctrl+right
 
 # Completion
-zstyle :compinstall filename '/home/ai/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
 
@@ -34,7 +34,7 @@ if [[ -d ~/.local/share/zsh/pnpm-shell-completion/ ]]; then
 fi
 
 # Local binaries
-export PATH="/home/$USER/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 
 # Prompt
 if command -v starship > /dev/null 2>&1; then
