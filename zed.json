@@ -1,20 +1,16 @@
 {
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
   "features": {
     "edit_prediction_provider": "zed"
   },
   "icon_theme": "Material Icon Theme",
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4"
-    },
-    "version": "2",
-    "provider": {
-      "name": "openai",
-      "default_model": "gpt-4",
-      "available_models": []
-    }
-  },
   "terminal": {
     "dock": "right"
   },
