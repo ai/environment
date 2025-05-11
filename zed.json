@@ -41,6 +41,5 @@
         "source.fixAll.eslint": true
       }
     }
-  },
-  "lsp": {}
+  }
 }
