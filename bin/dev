@@ -31,42 +31,30 @@ if [ "$root" = "" ]; then
   return 1
 fi
 
+search_pattern="vsc-$(basename "$(devcontainer_root)")-[0-9a-f]\+-uid"
+
 if [ "$1" = "--up" ]; then
   devcontainer up --docker-path podman \
     --dotfiles-repository https://github.com/ai/environment.git \
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)
 elif [ "$1" = "--down" ]; then
-  search_pattern="vsc-$(basename "$(pwd)")-[0-9a-f]\+-uid"
   container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
   podman kill $container_id
 elif [ "$1" = "--rebuild" ]; then
-  podman image ls --format "{{.Repository}}:{{.Tag}}" | \
-    grep "localhost/vsc-$(basename "$PWD")-" | \
-    xargs -r podman image rm --force
+  image_id=$(podman image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
+  podman image rm --force $image_id
   ~/Dev/environment/bin/dev --up
 else
-  config=$(devcontainer_config $root)
-  if [ "$PWD" = "$root" ]; then
-    if [ -z "$1" ]; then
-      devcontainer exec --docker-path podman \
-        --workspace-folder $root --config $config \
-        zsh
-    else
-      devcontainer exec --docker-path podman \
-        --workspace-folder $root --config $config \
-        zsh -ic "$*"
-    fi
+  container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
+  subdir=""
+  if [ "$PWD" != "$root" ]; then
+    subdir="${PWD#$root/}"
+  fi
+  workdir="/workspaces/$(basename $root)/$subdir"
+  if [ -z "$1" ]; then
+    podman exec -w $workdir -it $container_id zsh
   else
-    reldir="${PWD#$root/}"
-    if [ -z "$1" ]; then
-      devcontainer exec --docker-path podman \
-        --workspace-folder $root --config $config \
-        zsh -c "cd $reldir; exec zsh"
-    else
-      devcontainer exec --docker-path podman \
-        --workspace-folder $root --config $config \
-        zsh -ic "cd $reldir && $*"
-    fi
+    podman exec -w $workdir -it $container_id zsh -ic "$*"
   fi
 fi
