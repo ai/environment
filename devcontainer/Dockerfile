@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:42
 
-ARG NODE_VERSION=24.0.1
-ARG PNPM_VERSION=10.10.0
+ARG NODE_VERSION=24.0.2
+ARG PNPM_VERSION=10.11.0
 
 RUN dnf install -yq zsh micro git tig iputils make awk psmisc procps-ng \
   && dnf clean all \
