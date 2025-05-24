@@ -6,6 +6,10 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_ed25519
 
+Host localhost
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+
 GSSAPIAuthentication no
 TCPKeepAlive yes
 ServerAliveInterval 3

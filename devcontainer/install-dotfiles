@@ -15,7 +15,7 @@ cp -f ~/dotfiles/gitignore ~/.config/git/ignore
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwZrgt8W9uGndgD2aoMOjN0lhvFYsYzfietr5gu5lUV andrey@sitnik.ru" > ~/.ssh/authorized_keys
-chmod 600 /home/ai/.ssh/authorized_keys
+chmod 644 /home/ai/.ssh/authorized_keys
 
 if command -v micro >/dev/null 2>&1; then
   micro -plugin install editorconfig
