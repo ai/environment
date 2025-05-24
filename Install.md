@@ -328,8 +328,7 @@ Open Iotas app, log-in into Nextcloud account.
 
 ### GNOME Settings
 
-Open Clock and add `Vladivostok`, `Beijing`, `Moscow`, `Lisbon`,
-and `San Francisco`.
+Open Clock and add `Vladivostok`, `Moscow`, `Lisbon`, and `San Francisco`.
 
 Run Weather app and set current location.
 
