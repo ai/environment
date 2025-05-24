@@ -43,7 +43,9 @@ elif [ "$1" = "--down" ]; then
   podman kill $container_id
 elif [ "$1" = "--rebuild" ]; then
   image_id=$(podman image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
-  podman image rm --force $image_id
+  if [ "$image_id" != "" ]; then
+    podman image rm --force $image_id
+  fi
   ~/Dev/environment/bin/dev --up
 else
   container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
