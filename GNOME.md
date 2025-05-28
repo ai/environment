@@ -15,7 +15,7 @@
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 * [Hide Keyboard Layout](https://extensions.gnome.org/extension/2848/hide-keyboard-layout/)
 * [Home Assistant Extension](https://extensions.gnome.org/extension/4170/home-assistant-extension/)
-* [Launch New Instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
+* [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Quick Settings Tweaks](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 * [Right Click Next](https://extensions.gnome.org/extension/7600/right-click-next/)

@@ -50,11 +50,10 @@ async function updateGnome() {
         return { uuid, name, enabled, hasRepo }
       })
       .filter(({ enabled, hasRepo, name }) => {
-        let ignored = !enabled || !hasRepo
-        if (ignored) {
+        if (!hasRepo) {
           console.log(gray(`Ignoring ${name}`))
         }
-        return !ignored
+        return hasRepo
       })
       .map(async ({ name, uuid }) => {
         let response = await fetch(
