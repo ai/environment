@@ -11,23 +11,6 @@ function gray(str) {
   return `\x1b[90m${str}\x1b[39m`
 }
 
-async function updateVsCode() {
-  let listFile = join(__dirname, '..', 'VSCode.md')
-  let [code, docs, config] = await Promise.all([
-    exec(`code --list-extensions`),
-    readFile(listFile),
-    readFile(join(__dirname, '..', 'vscode.json'))
-  ])
-  let devcontainer = JSON.parse(config)['dev.containers.defaultExtensions']
-  let global = code.stdout.trim().split('\n')
-  let all = [...new Set([...devcontainer, ...global])]
-  let extensions = all.sort().map(name => `  ${name}`).join('\n')
-  let updated = docs
-    .toString()
-    .replace(/EXTENSIONS=\([\n\s\w.-]+\)/m, `EXTENSIONS=(\n${extensions}\n)`)
-  await writeFile(listFile, updated)
-}
-
 async function updateGnome() {
   let listFile = join(__dirname, '..', 'GNOME.md')
   let [gnome, docs] = await Promise.all([
@@ -98,4 +81,4 @@ async function updateGnome() {
   await writeFile(listFile, cleaned + '\n\n' + extensions + '\n')
 }
 
-Promise.all([updateVsCode(), updateGnome()])
+updateGnome()

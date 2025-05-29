@@ -22,7 +22,6 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/batconfig ~/.config/bat/config
   cp ~/Dev/environment/gitconfig ~/.config/git/config
   cp ~/Dev/environment/gitignore ~/.config/git/ignore
-  cp ~/Dev/environment/vscode.json ~/.config/Code/User/settings.json
   cp ~/Dev/environment/starship.toml ~/.config/starship.toml
   cp ~/Dev/environment/mimeapps.list ~/.config/mimeapps.list
   cp ~/Dev/environment/mpv-input.conf ~/.config/mpv/input.conf
@@ -39,7 +38,6 @@ else
   cp ~/.config/starship.toml ~/Dev/environment/starship.toml
   cp ~/.config/mpv/input.conf ~/Dev/environment/mpv-input.conf
   cp ~/.config/mimeapps.list ~/Dev/environment/mimeapps.list
-  cp ~/.config/Code/User/settings.json ~/Dev/environment/vscode.json
   cp ~/.config/micro/settings.json ~/Dev/environment/micro.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
   cp ~/.var/app/dev.zed.Zed/config/zed/settings.json ~/Dev/environment/zed.json

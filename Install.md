@@ -308,17 +308,6 @@ Start copying `Vídeos/*` from SDD.
 
 ### Text Editors
 
-Install VS Code:
-
-```sh
-sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-sudo dnf install code
-sudo sysctl fs.inotify.max_user_instances=524288
-```
-
-Install [VS Code extensions](./VSCode.md).
-
 Sign-in into accounts in Zed and VS Code.
 
 Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`.

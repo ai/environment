@@ -1,4 +1,13 @@
 {
+  "agent": {
+    "always_allow_tool_actions": true,
+    "model_parameters": [],
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-latest"
+    },
+    "version": "2"
+  },
   "edit_predictions": {
     "mode": "subtle",
     "copilot": {
