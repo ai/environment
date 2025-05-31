@@ -67,10 +67,3 @@ if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
   chmod a+x ~/.local/share/zsh/pnpm-shell-completion/pnpm-shell-completion
   rm ~/pnpm-completion.tar.gz
 fi
-
-mkdir -p ~/.local/share/node
-if command -v pnpm >/dev/null 2>&1; then
-  pnpm install --ignore-scripts --prefix ~/.local/share/node typescript
-elif command -v npm >/dev/null 2>&1; then
-  npm install --ignore-scripts --prefix ~/.local/share/node typescript
-fi
