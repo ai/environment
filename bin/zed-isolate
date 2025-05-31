@@ -29,7 +29,9 @@ search_pattern="vsc-$project-[0-9a-f]\+-uid"
 container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
 
 if [ "$container_id" == "" ]; then
-  zenity --error --title="Dev Container Error" --text="Running container was not found"
+  zenity --error --title="Dev Container Error" \
+    --text="Running container was not found"
+  exit 1
 fi
 
 while true; do
