@@ -41,7 +41,7 @@ if [ "$1" = "--up" ]; then
     --workspace-folder $root --config $(devcontainer_config $root)
 elif [ "$1" = "--down" ]; then
   container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
-  if [ "$image_id" == "" ]; then
+  if [ "$container_id" == "" ]; then
     echo "Container is not running"
   else
     podman kill $container_id
