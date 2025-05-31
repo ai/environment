@@ -1,9 +1,16 @@
 #!/bin/bash
 
 set -e
+exec > "/var/run/user/1000/zed-isolate.log" 2>&1
 
 if [ "$1" != "" ]; then
   cd "$1"
+fi
+
+if [[ ! -f package.json ]]; then
+  echo "No npm project to use Dev Container"
+  flatpak run dev.zed.Zed ./
+  exit 0
 fi
 
 if [[ ! -f .devcontainer.json && ! -d .devcontainer ]]; then
@@ -17,15 +24,13 @@ fi
 ~/Dev/environment/bin/dev --up | \
   zenity --progress --text="Starting" --title="Dev Container" --pulsate --auto-close --no-cancel
 
-echo "$?"
-if [ "$?" = -1 ]; then
-  zenity --error --title="Dev Container Error" --text="devup command failed"
-  exit 1
-fi
-
 project=$(basename $(pwd))
 search_pattern="vsc-$project-[0-9a-f]\+-uid"
 container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
+
+if [ "$container_id" == "" ]; then
+  zenity --error --title="Dev Container Error" --text="Running container was not found"
+fi
 
 while true; do
   port=$(shuf -i 1024-9999 -n 1)
@@ -34,7 +39,7 @@ while true; do
   fi
 done
 
-podman exec --user root $container_id /usr/sbin/sshd -p $port -D &
+setsid podman exec -d --user root $container_id /usr/sbin/sshd -p $port -D
 
 flatpak run dev.zed.Zed ssh://ai@localhost:$port/workspaces/$project
 

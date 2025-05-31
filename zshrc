@@ -88,10 +88,6 @@ else
   alias node='dev node'
   alias pinact='dev pinact'
 
-  alias isolate="\
-    cp ~/Dev/environment/devcontainer/devcontainer.json ./.devcontainer.json \
-    && [ -d .git ] && echo '.devcontainer.json' >> .git/info/exclude || true"
-
   # Run git hooks inside Dev Container
   export GIT_CONFIG_PARAMETERS="'core.hooksPath=/home/ai/Dev/environment/hooks-trap'"
 
@@ -101,8 +97,7 @@ else
   fi
 
   # VS Code
-  export ELECTRON_TRASH=gio
-  alias e='code .'
+  alias e='~/Dev/environment/bin/zed-isolate .'
 
   # Development
   alias release=~/Dev/environment/bin/release

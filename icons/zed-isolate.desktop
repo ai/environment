@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Zed Dev Container
+Icon=dev.zed.Zed
+Exec=/home/ai/Dev/environment/bin/zed-isolate %U
+MimeType=inode/directory;
+Categories=Utility;TextEditor;Development;IDE;
