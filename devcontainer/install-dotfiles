@@ -9,8 +9,9 @@ cp -f ~/dotfiles/gitconfig ~/.gitconfig
 cp -f ~/dotfiles/ripgreprc ~/.ripgreprc
 cp -f ~/dotfiles/micro.json ~/.config/micro/settings.json
 cp -f ~/dotfiles/batconfig ~/.config/bat/config
-cp -f ~/dotfiles/starship.toml ~/.config/starship.toml
 cp -f ~/dotfiles/gitignore ~/.config/git/ignore
+cp -f ~/dotfiles/starship.toml ~/.config/starship.toml
+sed -i '/^\s*\$username\\/d;/^\s*\$hostname\\/d' ~/.config/starship.toml
 
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
