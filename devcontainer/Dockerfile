@@ -6,14 +6,9 @@ ARG PNPM_VERSION=10.11.0
 RUN dnf install -yq zsh micro git tig iputils make awk psmisc procps-ng \
   openssh-server \
   && dnf clean all \
-  && rm -rf /var/cache/dnf
-
-RUN mkdir -p /var/run/sshd \
-  && ssh-keygen -A \
-  && sed -i 's/^#?PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config \
-  && sed -i 's/^#?PermitRootLogin .*/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config \
-  && sed -i 's/^#?PubkeyAuthentication .*/PubkeyAuthentication yes/' /etc/ssh/sshd_config \
-  && sed -i 's/^#?ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no/' /etc/ssh/sshd_config
+  && rm -rf /var/cache/dnf \
+  && mkdir -p /var/run/sshd \
+  && ssh-keygen -A
 
 ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.xz
 RUN tar -xz -f /node.tar.xz -C /usr/local --remove-files --strip-components=1 \
