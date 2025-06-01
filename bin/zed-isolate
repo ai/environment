@@ -41,9 +41,17 @@ while true; do
   fi
 done
 
+username=""
+if [ -f ".devcontainer/Dockerfile" ]; then
+  username=$(grep -iE '^\s*USER\s+' ".devcontainer/Dockerfile" | \
+    tail -n 1 | \
+    sed -E 's/^\s*USER\s+([^ \t#]+).*/\1/')
+fi
+username="${username:-ai}"
+
 setsid podman exec -d --user root $container_id /usr/sbin/sshd -p $port -D
 
-flatpak run dev.zed.Zed ssh://ai@localhost:$port/workspaces/$project
+flatpak run dev.zed.Zed ssh://$username@localhost:$port/workspaces/$project
 
 sleep 5
 while netstat -tnp 2>/dev/null | grep ":$port" | grep -q 'ESTABLISHED'; do
