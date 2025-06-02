@@ -1,6 +1,5 @@
 {
   "image": "localhost/ai-opensource:latest",
-  "forwardPorts": [],
   "mounts": [
     {
       "source": "pnpm-store",
@@ -13,11 +12,5 @@
       "type": "volume"
     }
   ],
-  "workspaceMount": "",
-  "runArgs": [
-    "--userns=keep-id:uid=1000,gid=1000",
-    "--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z",
-    "--network=host",
-    "--ulimit=host"
-  ]
+  "runArgs": ["--network=host", "--ulimit=host"]
 }
