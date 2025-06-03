@@ -23,9 +23,6 @@ compinit
 if [[ -d ~/.local/share/zsh/zsh-syntax-highlighting/ ]]; then
   source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-if [[ -d ~/.local/share/zsh/zsh-history-substring-search/ ]]; then
-  source ~/.local/share/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-fi
 if [[ -d ~/.local/share/zsh/zsh-autosuggestions/ ]]; then
   source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
@@ -41,6 +38,11 @@ if command -v starship > /dev/null 2>&1; then
   eval "$(starship init zsh)"
 elif [ -f ~/.local/bin/starship ]; then
   eval "$(~/.local/bin/starship init zsh)"
+fi
+
+# History
+if [ -f ~/.local/bin/atuin ]; then
+  eval "$(~/.local/bin/atuin init zsh)"
 fi
 
 # Rip Grep

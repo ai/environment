@@ -26,8 +26,6 @@ git pull origin master
 echo -e "\n${TITLE}Actualización de los plugins de zsh${GRAY}"
 cd ~/.local/share/zsh/zsh-syntax-highlighting/
 git pull origin master
-cd ~/.local/share/zsh/zsh-history-substring-search
-git pull origin master
 cd ~/.local/share/zsh/zsh-autosuggestions
 git pull origin master
 

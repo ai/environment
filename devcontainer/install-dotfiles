@@ -42,6 +42,10 @@ curl -sL https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-
 chmod +x rg
 mv rg ~/.local/bin
 
+curl -sL https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 atuin-x86_64-unknown-linux-gnu/atuin
+chmod +x atuin
+mv atuin ~/.local/bin
+
 curl -sS https://starship.rs/install.sh > starship.sh
 chmod a+x starship.sh
 ./starship.sh -y -b ~/.local/bin

@@ -251,7 +251,14 @@ Install eza:
 curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x eza
 mkdir -p ~/.local/bin/
-mv eza ~/.local/bin/eza
+mv eza ~/.local/bin
+```
+
+Install atuin:
+
+```sh
+curl -sL https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 atuin-x86_64-unknown-linux-gnu/atuin
+mv atuin ~/.local/bin
 ```
 
 Prepare zsh and podman integration:
