@@ -77,6 +77,10 @@ export NODE_COMPILE_CACHE=~/.cache/node
 
 if [ -n "$container" ]; then
   alias dev='command'
+
+  if [ -z "$SSH_AUTH_SOCK" ] && [ -S "/run/user/1000/keyring/ssh" ]; then
+    export SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
+  fi
 else
   # Run commands in container
   export PATH="/home/ai/.local/lib/node/node_modules/.bin/:$PATH"

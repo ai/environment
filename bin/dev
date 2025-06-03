@@ -36,6 +36,8 @@ search_pattern="vsc-$(basename "$(devcontainer_root)")-[0-9a-f]\+-uid"
 if [ "$1" = "--up" ]; then
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
+    --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
+    --mount "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}" \
     --dotfiles-repository https://github.com/ai/environment.git \
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)
