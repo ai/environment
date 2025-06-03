@@ -20,14 +20,14 @@ autoload -Uz compinit
 compinit
 
 # Zsh plugins
-if [[ -d ~/.local/share/zsh/zsh-syntax-highlighting/ ]]; then
-  source ~/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -d ~/.local/lib/zsh/zsh-syntax-highlighting/ ]]; then
+  source ~/.local/lib/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-if [[ -d ~/.local/share/zsh/zsh-autosuggestions/ ]]; then
-  source ~/.local/share/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -d ~/.local/lib/zsh/zsh-autosuggestions/ ]]; then
+  source ~/.local/lib/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
-if [[ -d ~/.local/share/zsh/pnpm-shell-completion/ ]]; then
-  source ~/.local/share/zsh/pnpm-shell-completion/pnpm-shell-completion.plugin.zsh
+if [[ -d ~/.local/lib/zsh/pnpm-shell-completion/ ]]; then
+  source ~/.local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion.plugin.zsh
 fi
 
 # Local binaries

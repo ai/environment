@@ -24,9 +24,9 @@ cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
 
 echo -e "\n${TITLE}Actualización de los plugins de zsh${GRAY}"
-cd ~/.local/share/zsh/zsh-syntax-highlighting/
+cd ~/.local/lib/zsh/zsh-syntax-highlighting/
 git pull origin master
-cd ~/.local/share/zsh/zsh-autosuggestions
+cd ~/.local/lib/zsh/zsh-autosuggestions
 git pull origin master
 
 echo -e "\n${TITLE}Actualizar de las extensiones de GNOME${GRAY}"
