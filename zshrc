@@ -79,7 +79,7 @@ if [ -n "$container" ]; then
   alias dev='command'
 else
   # Run commands in container
-  export PATH="/home/ai/.local/share/node/node_modules/.bin/:$PATH"
+  export PATH="/home/ai/.local/lib/node/node_modules/.bin/:$PATH"
 
   alias dev='/home/ai/Dev/environment/bin/dev'
   alias devup='dev --up'

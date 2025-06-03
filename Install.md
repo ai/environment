@@ -525,16 +525,15 @@ Backup in the dock.
 Install Node.js, TypeScript, and Dev Containers.
 
 ```sh
-mkdir -p ~/.local/share/node/
-tee -a ~/.local/share/node/package.json << EOM
+mkdir -p ~/.local/lib/node/
+tee -a ~/.local/lib/node/package.json << EOM
 {
   "dependencies": {
-    "@devcontainers/cli": ">=0.71.0",
-    "typescript": ">=5.8.3"
+    "@devcontainers/cli": ">=0.76.0"
   }
 }
 EOM
-cd ~/.local/share/node && npm install && cd
+cd ~/.local/lib/node && npm install && cd
 podman volume create pnpm-store
 ```
 

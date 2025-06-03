@@ -16,7 +16,7 @@ echo -e "\n${TITLE}Actualización de Dev Container${NC}"
 ~/Dev/environment/bin/update-dockerfile
 
 echo -e "\n${TITLE}Actualización de los módulos de npm${NC}"
-cd ~/.local/share/node
+cd ~/.local/lib/node
 npm update
 
 echo -e "\n${TITLE}Actualización de la tema de Firefox${GRAY}"

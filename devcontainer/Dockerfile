@@ -29,8 +29,7 @@ RUN useradd -s /bin/zsh ai
 # chown ai:ai /home/ai/.local/share/pnpm/store
 USER ai
 
-RUN  mkdir -p /home/ai/.local/share/node \
-  && mkdir -p /home/ai/.local/share/pnpm \
+RUN mkdir -p /home/ai/.local/share/pnpm \
   && pnpm config set store-dir /home/ai/.local/share/pnpm/store
 
 VOLUME /home/ai/.local/share/pnpm/store

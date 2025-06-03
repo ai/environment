@@ -34,7 +34,7 @@ fi
 search_pattern="vsc-$(basename "$(devcontainer_root)")-[0-9a-f]\+-uid"
 
 if [ "$1" = "--up" ]; then
-  ~/.local/share/node/node_modules/.bin/devcontainer up \
+  ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
     --dotfiles-repository https://github.com/ai/environment.git \
     --dotfiles-install-command devcontainer/install-dotfiles \
