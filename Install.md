@@ -274,6 +274,7 @@ Install zsh:
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.local/lib/zsh/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/lib/zsh/zsh-autosuggestions
+git clone https://github.com/jimhester/per-directory-history ~/.local/lib/zsh/per-directory-history
 chsh -s /bin/zsh
 ```
 
