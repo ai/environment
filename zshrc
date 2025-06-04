@@ -42,7 +42,7 @@ fi
 
 # History
 if [ -f ~/.local/bin/atuin ]; then
-  eval "$(~/.local/bin/atuin init zsh)"
+  eval "$(~/.local/bin/atuin init zsh --disable-up-arrow)"
 fi
 
 # Rip Grep
