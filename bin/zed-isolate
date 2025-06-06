@@ -21,6 +21,20 @@ if [[ ! -f .devcontainer.json && ! -d .devcontainer ]]; then
   fi
 fi
 
+if [ -f .devcontainer/devcontainer.json ]; then
+  port=$(grep -oP '(?<=")\d+(?=:22")' .devcontainer/devcontainer.json)
+else
+  while true; do
+    port=$(shuf -i 1024-9999 -n 1)
+    if ! ss -tuln | grep -q ":${port}\s"; then
+      break
+    fi
+  done
+  sed -i "s|\"[0-9]\+:22\"|\"$port:22\"|g" .devcontainer.json
+fi
+
+echo $port
+
 ~/Dev/environment/bin/dev --up | \
   zenity --progress --text="Starting" --title="Dev Container" --pulsate --auto-close --no-cancel
 
@@ -34,22 +48,15 @@ if [ "$container_id" == "" ]; then
   exit 1
 fi
 
-while true; do
-  port=$(shuf -i 1024-9999 -n 1)
-  if ! ss -tuln | grep -q ":${port}\s"; then
-    break
-  fi
-done
-
 username=""
 if [ -f ".devcontainer/Dockerfile" ]; then
-  username=$(grep -iE '^\s*USER\s+' ".devcontainer/Dockerfile" | \
-    tail -n 1 | \
-    sed -E 's/^\s*USER\s+([^ \t#]+).*/\1/')
+  username=$(
+    awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' ".devcontainer/Dockerfile"
+  )
 fi
 username="${username:-ai}"
 
-setsid podman exec -d --user root $container_id /usr/sbin/sshd -p $port -D
+setsid podman exec -d --user root $container_id /usr/sbin/sshd -D
 
 flatpak run dev.zed.Zed ssh://$username@localhost:$port/workspaces/$project
 
