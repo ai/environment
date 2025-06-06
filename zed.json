@@ -4,7 +4,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-latest"
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },
