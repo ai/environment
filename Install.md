@@ -217,6 +217,8 @@ EOF
 sudo systemctl restart geoclue
 ```
 
+Add Iceland NordVPN.
+
 
 ### Personal Files
 
