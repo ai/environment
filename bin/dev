@@ -31,8 +31,6 @@ if [ "$root" = "" ]; then
   return 1
 fi
 
-search_pattern="vsc-$(basename "$(devcontainer_root)")-[0-9a-f]\+-uid"
-
 if [ "$1" = "--up" ]; then
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
@@ -42,20 +40,21 @@ if [ "$1" = "--up" ]; then
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)
 elif [ "$1" = "--down" ]; then
-  container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
+  container_id=$(podman ps -q -a --filter label=devcontainer.local_folder=$root)
   if [ "$container_id" == "" ]; then
     echo "Container is not running"
   else
     podman kill $container_id
   fi
 elif [ "$1" = "--rebuild" ]; then
+  search_pattern="vsc-$(basename "$root")-[0-9a-f]\+-uid"
   image_id=$(podman image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
   if [ "$image_id" != "" ]; then
     podman image rm --force $image_id
   fi
   ~/Dev/environment/bin/dev --up
 else
-  container_id=$(podman ps --no-trunc --format '{{.ID}} {{.Image}}' | grep "$search_pattern" | awk '{print $1}')
+  container_id=$(podman ps -q -a --filter label=devcontainer.local_folder=$root)
   subdir=""
   if [ "$PWD" != "$root" ]; then
     subdir="${PWD#$root/}"
