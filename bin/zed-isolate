@@ -1,7 +1,24 @@
 #!/bin/bash
 
 set -e
-exec > "/var/run/user/1000/zed-isolate.log" 2>&1
+
+LOG_FILE="/var/run/user/1000/zed-isolate.log"
+
+show_error_log() {
+  if [ -f "$LOG_FILE" ]; then
+    zenity --text-info \
+        --title="Dev Container Error" \
+        --font="JetBrains Mono Regular 12" \
+        --width=800 \
+        --height=600 \
+        --filename="$LOG_FILE" 2>/dev/null
+  fi
+  exit 1
+}
+
+trap show_error_log ERR
+
+exec > "$LOG_FILE" 2>&1
 
 if [ "$1" != "" ]; then
   cd "$1"
@@ -47,8 +64,8 @@ project=$(basename $(pwd))
 container_id=$(podman ps -q --filter label=devcontainer.local_folder=$(pwd))
 
 if [ "$container_id" == "" ]; then
-  zenity --error --title="Dev Container Error" \
-    --text="Running container was not found"
+  echo "ERROR: Running container was not found"
+  show_error_log
   exit 1
 fi
 
