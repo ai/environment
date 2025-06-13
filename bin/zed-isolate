@@ -45,7 +45,10 @@ if [ "$config" == "" ]; then
   config="$(pwd)/.devcontainer.json"
 fi
 
+echo "Config found: $config"
+
 port=$(grep -oP '(?<=")\d+(?=:22")' $config)
+echo "Port taken from config: $port"
 used=$(grep "\"$port:22\"" ~/Dev/*/{.,.devcontainer/}devcontainer.json -l)
 if [ "$used" != "$config" ]; then
   while true; do
@@ -55,8 +58,10 @@ if [ "$used" != "$config" ]; then
     fi
   done
   sed -i "s|\"[0-9]\+:22\"|\"$port:22\"|g" $config
+  echo "Port was already used by other projects. Switched to $port."
 fi
 
+echo "Starting Dev Container"
 ~/Dev/environment/bin/dev --up | \
   zenity --progress --text="Starting" --title="Dev Container" --pulsate --auto-close --no-cancel
 
@@ -77,9 +82,12 @@ if [ -f ".devcontainer/Dockerfile" ]; then
 fi
 username="${username:-ai}"
 
+url=ssh://$username@localhost:$port/workspaces/$project
+echo "Start SSH for $url"
+
 setsid podman exec -d --user root $container_id /usr/sbin/sshd -D
 
-flatpak run dev.zed.Zed ssh://$username@localhost:$port/workspaces/$project
+flatpak run dev.zed.Zed $url
 
 sleep 5
 while netstat -tnp 2>/dev/null | grep ":$port" | grep -q 'ESTABLISHED'; do
