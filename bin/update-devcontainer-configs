@@ -9,3 +9,4 @@ for dir in ~/Dev/*/; do
     fi
   fi
 done
+podman image rm --all --force
