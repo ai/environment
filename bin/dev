@@ -25,6 +25,10 @@ function devcontainer_config() {
   fi
 }
 
+function get_container_id() {
+  podman ps -q --filter label=devcontainer.local_folder=$root
+}
+
 root=$(devcontainer_root)
 if [ "$root" = "" ]; then
   echo "No .devcontainer.json or .devcontainer/ found" >&2
@@ -40,7 +44,7 @@ if [ "$1" = "--up" ]; then
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)
 elif [ "$1" = "--down" ]; then
-  container_id=$(podman ps -q -a --filter label=devcontainer.local_folder=$root)
+  container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then
     echo "Container is not running"
   else
@@ -54,10 +58,9 @@ elif [ "$1" = "--rebuild" ]; then
   fi
   ~/Dev/environment/bin/dev --up
 else
-  container_id=$(podman ps -q -a --filter label=devcontainer.local_folder=$root)
   if [ "$container_id" == "" ]; then
     ~/Dev/environment/bin/dev --up
-    container_id=$(podman ps -q -a --filter label=devcontainer.local_folder=$root)
+    container_id=$(get_container_id)
   fi
   subdir=""
   if [ "$PWD" != "$root" ]; then
