@@ -12,5 +12,5 @@
       "type": "volume"
     }
   ],
-  "runArgs": ["--ulimit=host", "-p", "2222:22"]
+  "runArgs": ["--ulimit=host", "-p", "2200:22"]
 }
