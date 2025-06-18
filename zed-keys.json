@@ -13,6 +13,7 @@
   {
     "context": "Editor",
     "bindings": {
+      "ctrl-cyrillic_yeru": "workspace::Save",
       "ctrl-cyrillic_es": "editor::Copy",
       "ctrl-cyrillic_em": "editor::Paste",
       "ctrl-cyrillic_che": "editor::Cut",
