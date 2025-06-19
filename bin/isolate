@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer.json
+if [ -d .git ]; then
+  echo '.devcontainer.json' >> .git/info/exclude
+fi
+config="$(pwd)/.devcontainer.json"
