@@ -12,5 +12,5 @@
       "type": "volume"
     }
   ],
-  "runArgs": ["--ulimit=host", "-p", "2200:22"]
+  "runArgs": ["--cap-add=NET_RAW", "--ulimit=host", "-p", "2200:22"]
 }
