@@ -50,5 +50,8 @@
         "source.fixAll.eslint": true
       }
     }
+  },
+  "file_types": {
+    "XML": ["svg"]
   }
 }
