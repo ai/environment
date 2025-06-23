@@ -3,24 +3,22 @@
 source ~/Dev/susedko/secrets.env
 MQTT_BROKER="192.168.50.125"
 
-PREVIOUS_PAYLOAD=""
-
 mosquitto_sub -h "$MQTT_BROKER" -t ai_laptop -u home -P "$HOME_PASSWORD" | while read -r payload
 do
   if nmcli -t -f TYPE,STATE device | grep -q "^ethernet:connected"; then
-    if [[ "$payload" != "$PREVIOUS_PAYLOAD" ]]; then
-      case "$payload" in
-        "LOCK")
-          loginctl lock-session
-          ;;
-        "WAKE")
+    case "$payload" in
+      "LOCK")
+        loginctl lock-session
+        ;;
+      "WAKE")
+        was_locked=$(dbus-send --session --dest=org.gnome.Shell --print-reply /org/gnome/Shell org.gnome.Shell.GetScreenShieldLock)
+        if echo "$lock_status" | grep -q "boolean true"; then
           YDOTOOL_SOCKET=/run/.ydotool_socket ydotool key 28:1 28:0
-          ;;
-        *)
-          echo "Unknown command: $payload"
-          ;;
-      esac
-      PREVIOUS_PAYLOAD="$payload"
-    fi
+        fi
+        ;;
+      *)
+        echo "Unknown command: $payload"
+        ;;
+    esac
   fi
 done

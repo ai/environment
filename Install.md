@@ -493,20 +493,6 @@ RestartSec=30s
 WantedBy=default.target
 ```
 
-Create script on screen lock at `~/.config/systemd/user/lock-listener.service`:
-
-```ini
-[Unit]
-Description=Run script on screen lock
-
-[Service]
-Type=simple
-ExecStart=/home/ai/Dev/environment/bin/lock-listener
-
-[Install]
-WantedBy=default.target
-```
-
 Enable services:
 
 ```sh
@@ -514,8 +500,6 @@ sudo systemctl enable ydotoold.service
 sudo systemctl start ydotoold.service
 systemctl --user enable susedko-listener.service
 systemctl --user start susedko-listener.service
-systemctl --user enable lock-listener.service
-systemctl --user start lock-listener.service
 ```
 
 ### Additional Software
