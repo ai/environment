@@ -34,6 +34,19 @@ if [ "$1" = "--isolate" ]; then
   if [ -d .git ]; then
     echo '.devcontainer.json' >> .git/info/exclude
   fi
+
+  while true; do
+    port=$(shuf -i 1024-9999 -n 1)
+    if ! ss -tuln | grep -q ":${port}\s"; then
+      used=$(grep "\"$port:22\"" ~/Dev/*/{.,.devcontainer/}devcontainer.json -l || true)
+      if [ "$used" = "" ]; then
+        break
+      fi
+    fi
+  done
+  sed -i "s|\"[0-9]\+:22\"|\"$port:22\"|g" .devcontainer.json
+  echo "Project port will be $port"
+  exit
 fi
 
 root=$(devcontainer_root)
@@ -42,7 +55,7 @@ if [ "$root" = "" ]; then
   return 1
 fi
 
-if [ "$1" = "--up" ] || [ "$1" = "--isolate" ]; then
+if [ "$1" = "--up" ]; then
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
