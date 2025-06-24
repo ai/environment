@@ -29,13 +29,20 @@ function get_container_id() {
   podman ps -q --filter label=devcontainer.local_folder=$root
 }
 
+if [ "$1" = "--isolate" ]; then
+  cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer.json
+  if [ -d .git ]; then
+    echo '.devcontainer.json' >> .git/info/exclude
+  fi
+fi
+
 root=$(devcontainer_root)
 if [ "$root" = "" ]; then
   echo "No .devcontainer.json or .devcontainer/ found" >&2
   return 1
 fi
 
-if [ "$1" = "--up" ]; then
+if [ "$1" = "--up" ] || [ "$1" = "--isolate" ]; then
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \

@@ -30,12 +30,6 @@ if [[ ! -f package.json ]]; then
   exit 0
 fi
 
-if [[ -f .no-devcontainer && ! -f .devcontainer.json ]]; then
-  echo "Dev Container is disabled because of .no-devcontainer file"
-  flatpak run dev.zed.Zed ./
-  exit 0
-fi
-
 if [ -f .devcontainer.json ]; then
   config="$(pwd)/.devcontainer.json"
 fi
