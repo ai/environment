@@ -58,6 +58,7 @@ elif [ "$1" = "--rebuild" ]; then
   fi
   ~/Dev/environment/bin/dev --up
 else
+  container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then
     ~/Dev/environment/bin/dev --up
     container_id=$(get_container_id)
