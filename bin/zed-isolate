@@ -79,7 +79,7 @@ if [ -f ".devcontainer/Dockerfile" ]; then
 fi
 username="${username:-ai}"
 
-url=ssh://$username@localhost:$port/workspaces/$project
+url=ssh://$username@127.0.0.1:$port/workspaces/$project
 echo "Start SSH for $url"
 
 setsid podman exec -d --user root $container_id /usr/sbin/sshd -D
