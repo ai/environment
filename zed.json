@@ -39,6 +39,9 @@
       "enabled": false
     }
   },
+  "file_types": {
+    "XML": ["svg"]
+  },
   "languages": {
     "JavaScript": {
       "code_actions_on_format": {
@@ -50,8 +53,5 @@
         "source.fixAll.eslint": true
       }
     }
-  },
-  "file_types": {
-    "XML": ["svg"]
   }
 }
