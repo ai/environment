@@ -319,7 +319,7 @@ Start copying `Vídeos/*` from SDD.
 
 Sign-in into accounts in Zed and VS Code.
 
-Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`.
+Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `stylelint`.
 
 Open Iotas app, log-in into Nextcloud account.
 
