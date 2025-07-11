@@ -3,6 +3,6 @@
 project_hooks=$(git config get --local core.hooksPath)
 if [ -n "$project_hooks" ] && [ -d "$project_hooks" ]; then
   if [ -x "$project_hooks/pre-rebase" ]; then
-    /home/ai/Dev/environment/bin/dev $project_hooks/pre-rebase
+    /home/ai/Dev/environment/bin/dev CI=1 $project_hooks/pre-rebase
   fi
 fi
