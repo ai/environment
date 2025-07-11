@@ -5,8 +5,7 @@
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
   "edit_predictions": {
     "mode": "subtle",
@@ -51,6 +50,11 @@
     "TypeScript": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true
+      }
+    },
+    "CSS": {
+      "code_actions_on_format": {
+        "source.fixAll.stylelint": true
       }
     }
   }
