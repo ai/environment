@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:42
 
-ARG NODE_VERSION=24.3.0
-ARG PNPM_VERSION=10.12.4
+ARG NODE_VERSION=24.4.1
+ARG PNPM_VERSION=10.13.1
 
 RUN dnf install -yq zsh micro git tig iputils make awk psmisc procps-ng \
   openssh-server \
