@@ -57,6 +57,15 @@ export EDITOR=micro
 # Fix Bat in light console
 export BAT_THEME=ansi
 
+# Auto-fix changed files
+f() {
+  local files=$(git ls-files --modified --deleted --others --exclude-standard \
+    -- '*.ts' '*.js' '*.cts' '*.mts' '*.cjs' '*.mjs' '*.svelte')
+  if [[ -n "$files" ]]; then
+    echo "$files" | xargs pnpm eslint --cache --fix
+  fi
+}
+
 # Aliases
 alias g='git'
 alias ..='cd ..'
