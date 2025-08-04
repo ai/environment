@@ -2,14 +2,17 @@
 # Run movies from specific category
 
 if [[ "$1" == "--new" ]]; then
-  echo "$(
-    ssh ai@susedko.local find /var/mnt/vault/ai/New/ \
-      -type f ! -name '*.part' \
-      ! -name '*.png' ! -name '*.jpg' ! -name '*.jpeg' \
-      -printf '\\nsftp:\/\/ai@susedko.local:%p' \
-  )" > .new.m3u
-  bash -c "mpv --shuffle --fullscreen --playlist=.new.m3u --load-unsafe-playlists"
-  rm .new.m3u
+  mkdir -p ~/.susedko_new
+  sshfs ai@susedko.local:/var/mnt/vault/ai/New/ ~/.susedko_new
+  mpv --shuffle --fullscreen --playlist=<(
+      find ~/.susedko_new -type f \
+          ! -name '*.part' \
+          ! -name '*.png' \
+          ! -name '*.jpg' \
+          ! -name '*.jpeg'
+  )
+  fusermount -u ~/.susedko_new
+  rmdir ~/.susedko_new
 else
   find /home/ai/Vídeos/Erótica/ -type f -print0 | tr '\0' '\n' | mpv --shuffle --fullscreen --playlist=-
 fi
