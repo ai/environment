@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+version=$(echo "$(flatpak run dev.zed.Zed --version)" | awk '{print $2}')
+
+cd ~
+curl -LO https://github.com/zed-industries/zed/releases/download/v$version/zed-remote-server-linux-x86_64.gz
+gzip -d ~/zed-remote-server-linux-x86_64.gz
+chmod a+x ~/zed-remote-server-linux-x86_64
+
+projects=$(find ~/Dev -maxdepth 1 -type d)
+for dir in $projects; do
+  if [[ -f "$dir/.devcontainer.json" ]] || [[ -d "$dir/.devcontainer" ]]; then
+    cd "$dir"
+    echo $dir
+    ~/Dev/environment/bin/dev --up
+    ~/Dev/environment/bin/dev mkdir -p ~/.zed_server
+    cp ~/zed-remote-server-linux-x86_64.gz zed-remote-server-stable-$version
+    ~/Dev/environment/bin/dev mv zed-remote-server-stable-$version ~/.zed_server
+    ~/Dev/environment/bin/dev --down
+  fi
+done
+
+rm ~/zed-remote-server-linux-x86_64
