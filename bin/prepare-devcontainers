@@ -2,23 +2,43 @@
 
 set -e
 
+TITLE='\033[1m'
+NC='\033[0m'
+
 version=$(echo "$(flatpak run dev.zed.Zed --version)" | awk '{print $2}')
 
-cd ~
-curl -LO https://github.com/zed-industries/zed/releases/download/v$version/zed-remote-server-linux-x86_64.gz
-gzip -d ~/zed-remote-server-linux-x86_64.gz
+curl -L -o ~/zed-remote-server-linux-x86_64.gz https://github.com/zed-industries/zed/releases/download/v$version/zed-remote-server-linux-x86_64.gz
+gzip -fd ~/zed-remote-server-linux-x86_64.gz
 chmod a+x ~/zed-remote-server-linux-x86_64
 
+podman stop -a
+
 projects=$(find ~/Dev -maxdepth 1 -type d)
+total_projects=$(echo "$projects" | wc -l)
+current=0
 for dir in $projects; do
+  current=$((current + 1))
+  echo -e "$TITLE\n\n$dir $current/$total_projects$NC"
   if [[ -f "$dir/.devcontainer.json" ]] || [[ -d "$dir/.devcontainer" ]]; then
     cd "$dir"
-    echo $dir
+
+    username=""
+    if [ -f ".devcontainer/Dockerfile" ]; then
+      username=$(
+        awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' ".devcontainer/Dockerfile"
+      )
+    fi
+    username="${username:-ai}"
+
     ~/Dev/environment/bin/dev --up
-    ~/Dev/environment/bin/dev mkdir -p ~/.zed_server
-    cp ~/zed-remote-server-linux-x86_64.gz zed-remote-server-stable-$version
-    ~/Dev/environment/bin/dev mv zed-remote-server-stable-$version ~/.zed_server
+
+    ~/Dev/environment/bin/dev mkdir -p /home/$username/.zed_server
+    cp ~/zed-remote-server-linux-x86_64 zed-remote-server-stable-$version
+    ~/Dev/environment/bin/dev mv zed-remote-server-stable-$version /home/$username/.zed_server
+
     ~/Dev/environment/bin/dev --down
+  else
+    echo "No Dev Container found"
   fi
 done
 
