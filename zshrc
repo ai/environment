@@ -26,7 +26,7 @@ fi
 if [[ -d ~/.local/lib/zsh/zsh-autosuggestions/ ]]; then
   source ~/.local/lib/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
-if [[ -d ~/.local/lib/zsh/zsh-autosuggestions/ ]]; then
+if [[ -d ~/.local/lib/zsh/per-directory-history/ ]]; then
   source ~/.local/lib/zsh/per-directory-history/per-directory-history.zsh
 fi
 if [[ -d ~/.local/lib/zsh/pnpm-shell-completion/ ]]; then
