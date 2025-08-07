@@ -36,6 +36,10 @@ for dir in $projects; do
     cp ~/zed-remote-server-linux-x86_64 zed-remote-server-stable-$version
     ~/Dev/environment/bin/dev mv zed-remote-server-stable-$version /home/$username/.zed_server
 
+    if [[ -f "$dir/pnpm-lock.yaml" ]]; then
+      ~/Dev/environment/bin/dev pnpm i
+    fi
+
     ~/Dev/environment/bin/dev --down
   else
     echo "No Dev Container found"
