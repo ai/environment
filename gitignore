@@ -1,3 +1,4 @@
 .pnpm-*.log
 .npm-release/
 .zed
+.eslintcache
