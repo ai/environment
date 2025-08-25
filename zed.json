@@ -1,6 +1,8 @@
 {
   "agent": {
     "always_allow_tool_actions": true,
+    "notify_when_agent_waiting": "primary_screen",
+    "play_sound_when_agent_done": true,
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
