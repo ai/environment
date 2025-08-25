@@ -6,6 +6,11 @@ Host github.com
     User git
     IdentityFile ~/.ssh/id_ed25519
 
+Host susedko.local
+    HostName susedko.local
+    User ai
+    IdentityFile ~/.ssh/id_ed25519
+
 Host 127.0.0.1
     StrictHostKeyChecking no
     UserKnownHostsFile=/dev/null
