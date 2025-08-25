@@ -66,6 +66,21 @@ f() {
   fi
 }
 
+# Release function
+release() {
+  local VERSION=$(grep -oP '(?<="version": ")[^"]*' package.json)
+
+  if [ -z "$VERSION" ]; then
+    echo "Version not found in package.json"
+    return 1
+  fi
+
+  git add .
+  git commit -m "Release $VERSION version"
+  git tag -s "$VERSION" -m "$VERSION"
+  git push
+}
+
 # Aliases
 alias g='git'
 alias ..='cd ..'
@@ -118,7 +133,6 @@ else
   alias e='~/Dev/environment/bin/zed-isolate .'
 
   # Development
-  alias release=~/Dev/environment/bin/release
   alias p='dev pnpm clean-publish --temp-dir .npm-release --without-publish \
     && cd .npm-release \
     && npm publish \
