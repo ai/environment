@@ -41,7 +41,8 @@
     }
   },
   "file_types": {
-    "XML": ["svg"]
+    "XML": ["svg"],
+    "YAML": ["**/*.bu"]
   },
   "languages": {
     "JavaScript": {
