@@ -17,10 +17,6 @@ RUN tar -xz -f /node.tar.xz -C /usr/local --remove-files --strip-components=1 \
   && rm /node.tar.xz
 ADD https://github.com/pnpm/pnpm/releases/download/v$PNPM_VERSION/pnpm-linux-x64 /usr/local/bin/pnpm
 RUN chmod a+rx /usr/local/bin/pnpm
-ADD https://github.com/suzuki-shunsuke/pinact/releases/download/v3.0.1/pinact_linux_amd64.tar.gz /pinact.tar.gz
-RUN tar -xz -f /pinact.tar.gz -C /usr/local/bin --remove-files \
-  --exclude='LICENSE' --exclude='*.md' \
-  && rm /pinact.tar.gz
 
 RUN npm install -g yarn && npm install -g bun
 
