@@ -4,7 +4,7 @@ ARG NODE_VERSION=24.6.0
 ARG PNPM_VERSION=10.15.0
 
 RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng \
-  openssh-server \
+  openssh-server bind-utils iputils iproute \
   && dnf clean all \
   && rm -rf /var/cache/dnf \
   && mkdir -p /var/run/sshd \
