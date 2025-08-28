@@ -21,8 +21,6 @@ RUN chmod a+rx /usr/local/bin/pnpm
 RUN npm install -g yarn && npm install -g bun
 
 RUN useradd -s /bin/zsh ai
-# On first run comment all commands below, run zsh and call:
-# chown ai:ai /home/ai/.local/share/pnpm/store
 USER ai
 
 RUN mkdir -p /home/ai/.local/share/pnpm \

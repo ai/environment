@@ -263,14 +263,6 @@ curl -sL https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64
 mv atuin ~/.local/bin
 ```
 
-Prepare zsh and podman integration:
-
-```sh
-mkdir ~/.local/share/history
-chmod 700 ~/.local/share/history
-podman volume create shell-history
-```
-
 Install zsh:
 
 ```sh
@@ -527,7 +519,18 @@ tee -a ~/.local/lib/node/package.json << EOM
 }
 EOM
 cd ~/.local/lib/node && npm install && cd
+
+mkdir ~/.local/share/history
+chmod 700 ~/.local/share/history
+podman volume create shell-history
+
 podman volume create pnpm-store
+
+~/Dev/environment/bin/build-devcontainer
+podman run -u root --rm -it -v pnpm-store:/home/ai/.local/share/pnpm/store -v shell-history:/home/ai/.local/share/history/ localhost/ai-opensource zsh
+mkdir /home/ai/.local/share/pnpm/store/v10
+chmod a+wrx /home/ai/.local/share/pnpm/store/v10
+chown a+wr /home/ai/.local/share/history/histfile
 ```
 
 Sign-in to npm:
