@@ -527,10 +527,13 @@ podman volume create shell-history
 podman volume create pnpm-store
 
 ~/Dev/environment/bin/build-devcontainer
-podman run -u root --rm -it -v pnpm-store:/home/ai/.local/share/pnpm/store -v shell-history:/home/ai/.local/share/history/ localhost/ai-opensource zsh
+cd ~/Dev/nanostores
+devup
+# Find container ID
+podman podman exec -it --user root $container_id zsh
 mkdir /home/ai/.local/share/pnpm/store/v10
-chmod a+wrx /home/ai/.local/share/pnpm/store/v10
-chown a+wr /home/ai/.local/share/history/histfile
+chown ai:ai /home/ai/.local/share/pnpm/store/v10
+chown ai:ai /home/ai/.local/share/history/histfile
 ```
 
 Sign-in to npm:
