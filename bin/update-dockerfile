@@ -21,7 +21,7 @@ if [[ "$current_node" != "$latest_node" ]] && [[ -n "$latest_node" ]]; then
   update_needed=true
 fi
 
-if [[ "$current_pnpm" != "$latest_pnpm" ]] && [[ -n "$latest_pnpm" ]]; then
+if [[ "$current_pnpm" != "$latest_pnpm" ]] && [[ -n "$latest_pnpm" ]] && [[ "$latest_pnpm" != "null" ]]; then
   echo -e "Actualizar pnpm: ${RED}$current_pnpm${NC} to ${GREEN}${latest_pnpm}${NC}"
   sed -i "s/ARG PNPM_VERSION=$current_pnpm/ARG PNPM_VERSION=$latest_pnpm/" "$DOCKERFILE_PATH"
   update_needed=true
