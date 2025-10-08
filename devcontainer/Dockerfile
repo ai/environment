@@ -23,7 +23,8 @@ RUN tar -xz -f /node.tar.xz -C /usr/local --remove-files --strip-components=1 \
 USER ai
 
 RUN mkdir -p /home/ai/.local/share/pnpm/ \
-  && pnpm config set store-dir /home/ai/.local/share/pnpm/store
+  && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
+  && pnpm config --global set minimum-release-age 1440
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
