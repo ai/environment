@@ -56,10 +56,19 @@ if [ "$root" = "" ]; then
 fi
 
 if [ "$1" = "--up" ]; then
+  username=""
+  if [ -f ".devcontainer/Dockerfile" ]; then
+    username=$(
+      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' ".devcontainer/Dockerfile"
+    )
+  fi
+  username="${username:-ai}"
+
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
     --mount "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}" \
+    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${username}/.local/share/multiocular" \
     --dotfiles-repository https://github.com/ai/environment.git \
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)

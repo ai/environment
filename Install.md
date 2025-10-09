@@ -520,7 +520,8 @@ tee -a ~/.local/lib/node/package.json << EOM
 EOM
 cd ~/.local/lib/node && npm install && cd
 
-mkdir ~/.local/share/history
+mkdir -p ~/.local/share/multiocular
+mkdir -p ~/.local/share/history
 chmod 700 ~/.local/share/history
 podman volume create shell-history
 
