@@ -119,7 +119,6 @@ else
   alias devdown='dev --down'
   alias pnpm='dev pnpm'
   alias node='dev node'
-  alias pinact='dev pinact'
 
   # Run git hooks inside Dev Container
   export GIT_CONFIG_PARAMETERS="'core.hooksPath=/home/ai/Dev/environment/hooks-trap'"
