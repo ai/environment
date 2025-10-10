@@ -55,17 +55,6 @@ if [ "$root" = "" ]; then
   return 1
 fi
 
-function devcontainer_username() {
-  local username=""
-  if [ -f "$root/.devcontainer/Dockerfile" ]; then
-    username=$(
-      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' "$root/.devcontainer/Dockerfile"
-    )
-  fi
-  username="${username:-ai}"
-  echo $username
-}
-
 if [ "$1" = "--up" ]; then
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
@@ -109,13 +98,29 @@ elif [ "$1" = "--port" ]; then
     shift 1
     args="$* --port $port"
   fi
+
+  username=""
+  if [ -f "$root/.devcontainer/Dockerfile" ]; then
+    username=$(
+      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' "$root/.devcontainer/Dockerfile"
+    )
+  fi
+  username="${username:-ai}"
+
+  # Check if args start with "pnpm multiocular" and load .env file if so
+  env_args=""
+  if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Dev/multiocular/.env ]; then
+    env_args="--env-file /home/ai/Dev/multiocular/.env"
+  fi
+
   podman run --rm \
     -w "/workspaces/$(basename $root)" \
     -p "${port}:${port}" \
     --mount "type=bind,source=$root,target=/workspaces/$(basename $root)" \
-    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${devcontainer_username}/.local/share/multiocular" \
+    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${username}/.local/share/multiocular" \
     --security-opt label=disable --userns=keep-id --ulimit=host \
     --cap-add=NET_RAW \
+    $env_args \
     -it localhost/ai-opensource \
     $args
 
