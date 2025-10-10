@@ -55,23 +55,27 @@ if [ "$root" = "" ]; then
   return 1
 fi
 
-if [ "$1" = "--up" ]; then
-  username=""
-  if [ -f ".devcontainer/Dockerfile" ]; then
+function devcontainer_username() {
+  local username=""
+  if [ -f "$root/.devcontainer/Dockerfile" ]; then
     username=$(
-      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' ".devcontainer/Dockerfile"
+      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' "$root/.devcontainer/Dockerfile"
     )
   fi
   username="${username:-ai}"
+  echo $username
+}
 
+if [ "$1" = "--up" ]; then
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
     --docker-path podman \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
     --mount "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}" \
-    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${username}/.local/share/multiocular" \
+    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${devcontainer_username}/.local/share/multiocular" \
     --dotfiles-repository https://github.com/ai/environment.git \
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)
+
 elif [ "$1" = "--down" ]; then
   container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then
@@ -79,6 +83,7 @@ elif [ "$1" = "--down" ]; then
   else
     podman kill $container_id
   fi
+
 elif [ "$1" = "--rebuild" ]; then
   search_pattern="vsc-$(basename "$root")-[0-9a-f]\+-uid"
   image_id=$(podman image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
@@ -86,6 +91,34 @@ elif [ "$1" = "--rebuild" ]; then
     podman image rm --force $image_id
   fi
   ~/Dev/environment/bin/dev --up
+
+elif [ "$1" = "--port" ]; then
+  if [[ "$2" =~ ^[0-9]+$ ]]; then
+    # $2 is a number, use it as port
+    port="$2"
+    shift 2
+    args="$*"
+  else
+    # No port specified or $2 is not a number, generate random port
+    while true; do
+      port=$(shuf -i 1024-9999 -n 1)
+      if ! ss -tuln | grep -q ":${port}\s"; then
+        break
+      fi
+    done
+    shift 1
+    args="$* --port $port"
+  fi
+  podman run --rm \
+    -w "/workspaces/$(basename $root)" \
+    -p "${port}:${port}" \
+    --mount "type=bind,source=$root,target=/workspaces/$(basename $root)" \
+    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${devcontainer_username}/.local/share/multiocular" \
+    --security-opt label=disable --userns=keep-id --ulimit=host \
+    --cap-add=NET_RAW \
+    -it localhost/ai-opensource \
+    $args
+
 else
   container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then

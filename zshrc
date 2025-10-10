@@ -119,6 +119,7 @@ else
   alias devdown='dev --down'
   alias pnpm='dev pnpm'
   alias node='dev node'
+  alias multiocular='dev --port pnpm multiocular'
 
   # Run git hooks inside Dev Container
   export GIT_CONFIG_PARAMETERS="'core.hooksPath=/home/ai/Dev/environment/hooks-trap'"
