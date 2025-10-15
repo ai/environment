@@ -29,6 +29,16 @@ function get_container_id() {
   podman ps -q --filter label=devcontainer.local_folder=$root
 }
 
+function get_username() {
+  local username=""
+  if [ -f "$root/.devcontainer/Dockerfile" ]; then
+    username=$(
+      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' "$root/.devcontainer/Dockerfile"
+    )
+  fi
+  echo "${username:-ai}"
+}
+
 if [ "$1" = "--isolate" ]; then
   cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer.json
   if [ -d .git ]; then
@@ -60,7 +70,7 @@ if [ "$1" = "--up" ]; then
     --docker-path podman \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
     --mount "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}" \
-    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${devcontainer_username}/.local/share/multiocular" \
+    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular" \
     --dotfiles-repository https://github.com/ai/environment.git \
     --dotfiles-install-command devcontainer/install-dotfiles \
     --workspace-folder $root --config $(devcontainer_config $root)
@@ -99,14 +109,6 @@ elif [ "$1" = "--port" ]; then
     args="$* --port $port"
   fi
 
-  username=""
-  if [ -f "$root/.devcontainer/Dockerfile" ]; then
-    username=$(
-      awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' "$root/.devcontainer/Dockerfile"
-    )
-  fi
-  username="${username:-ai}"
-
   # Check if args start with "pnpm multiocular" and load .env file if so
   env_args=""
   if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Dev/multiocular/.env ]; then
@@ -117,7 +119,7 @@ elif [ "$1" = "--port" ]; then
     -w "/workspaces/$(basename $root)" \
     -p "${port}:${port}" \
     --mount "type=bind,source=$root,target=/workspaces/$(basename $root)" \
-    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/${username}/.local/share/multiocular" \
+    --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular" \
     --security-opt label=disable --userns=keep-id --ulimit=host \
     --cap-add=NET_RAW \
     $env_args \
