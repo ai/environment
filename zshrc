@@ -135,7 +135,7 @@ else
   # Development
   alias p='dev pnpm clean-publish --temp-dir .npm-release --without-publish \
     && cd .npm-release \
-    && npm publish \
+    && npm publish --access public \
     && cd .. \
     && rm -R  .npm-release'
 
