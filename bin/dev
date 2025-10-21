@@ -115,8 +115,6 @@ elif [ "$1" = "--port" ]; then
     env_args="--env-file /home/ai/Dev/multiocular/.env"
   fi
 
-  echo $args
-
   podman run --rm \
     -w "/workspaces/$(basename $root)" \
     -p "${port}:${port}" \
