@@ -50,6 +50,11 @@
         "source.fixAll.eslint": true
       }
     },
+    "Svelte": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
     "TypeScript": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true
