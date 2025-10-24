@@ -7,7 +7,15 @@ NC='\033[0m'
 
 version=$(echo "$(flatpak run dev.zed.Zed --version)" | awk '{print $2}')
 
-curl -L -o ~/zed-remote-server-linux-x86_64.gz https://github.com/zed-industries/zed/releases/download/v$version/zed-remote-server-linux-x86_64.gz
+ZED_REMOTE_SERVER_DIR="$HOME/.var/app/dev.zed.Zed/data/zed/remote_servers/stable/linux-x86_64"
+ZED_REMOTE_SERVER_GZ="$ZED_REMOTE_SERVER_DIR/$version.gz"
+
+if [ -f "$ZED_REMOTE_SERVER_GZ" ]; then
+  cp "$ZED_REMOTE_SERVER_GZ" ~/zed-remote-server-linux-x86_64.gz
+else
+  curl -L -o ~/zed-remote-server-linux-x86_64.gz https://github.com/zed-industries/zed/releases/download/v$version/zed-remote-server-linux-x86_64.gz
+fi
+
 gzip -fd ~/zed-remote-server-linux-x86_64.gz
 chmod a+x ~/zed-remote-server-linux-x86_64
 
