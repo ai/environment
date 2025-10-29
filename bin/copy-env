@@ -9,7 +9,6 @@ if [ "$1" == "system" ]; then
   mkdir -p ~/.prompt
   mkdir -p ~/.config/bat/
   mkdir -p ~/.config/mpv/
-  mkdir -p ~/.config/Code/User/
   mkdir -p ~/.config/git/
   mkdir -p ~/.config/micro/
   mkdir -p ~/.config/zed/

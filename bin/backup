@@ -70,7 +70,6 @@ borg create                                                \
     ~/.ssh                                                 \
     ~/.gnupg                                               \
     ~/.Private                                             \
-    ~/.config/Code/User/globalStorage                      \
     ~/.config/input-remapper-2                             \
     ~/.mozilla                                             \
     ~/.config/gsconnect                                    \
