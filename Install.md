@@ -14,7 +14,7 @@ Copy `.ssh` and `.gnupg` into `.Private`.
 Clean `node_modules`:
 
 ```sh
-rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/*/*/coverage ~/Dev/susedko/fedora-coreos.iso
+rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/susedko/fedora-coreos.iso
 ```
 
 Copy these files to external SDD:
@@ -26,7 +26,6 @@ Copy these files to external SDD:
 ### BIOS
 
 1. Boot to BIOS and set supervisor password.
-2. Set battery charge limit to 80%.
 3. Set Game Optimized iGPU.
 4. Temporary enable USB boot.
 
@@ -36,19 +35,13 @@ Copy these files to external SDD:
 Start installer:
 
 1. Select English language.
-2. Use disk manual mode.
-   1. Create `btrfs` partitions automatically.
-   2. Remove `/home` partition.
-   3. Remove `/` partition.
-   4. Add new `/` partition.
-   5. Rename volume to `savoia`.
-   6. Set encryption in volume settings.
+2. Use entire disk mode with encryption.
 
 Reboot to USB drive again. Mount laptop SSD.
 
 Open `etc/fstab`.
 
-Add `noatime,nodiratime` to root partitions.
+Add `noatime,nodiratime` to root & home partitions.
 
 Move `/tmp` and `/var/tmp` to RAM:
 
@@ -59,7 +52,7 @@ vartmp /tmp     tmpfs defaults,noatime,nodiratime 0 0
 
 Reboot to BIOS. Block boot from USB.
 
-Reboot to system. Set Spanish language, name to `Andrey Sitnik` and login `ai`.
+Reboot to system. Set Russian language, name to `Andrey Sitnik` and login `ai`.
 
 Set laptop name:
 
@@ -101,7 +94,7 @@ Set `KEYMAP=us` and `XKBLAYOUT=us` in `/etc/vconsole.conf`.
 Remove unnecessary packages:
 
 ```sh
-sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free snapshot intel-media-driver cups-browsed anaconda
+sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-started-docs nautilus-sendto gnome-shell-extension-* libreoffice-* gnome-characters gnome-maps gnome-photos simple-scan virtualbox-guest-additions gedit gnome-boxes gnome-tour gnome-connections mediawriter eog gnome-system-monitor baobab gnome-log gnome-calculator gnome-weather gnome-text-editor gnome-font-viewer gnome-clocks gnome-calendar evince totem ffmpeg-free snapshot intel-media-driver cups-browsed anaconda malcontent-control
 ```
 
 Run Software Center, disable `Fedora Flatpak` and enable Flathub and Chrome.
@@ -122,7 +115,10 @@ sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 sudo dnf copr enable atim/starship
 sudo dnf copr enable dusansimic/themes
-sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic java-21-openjdk nextcloud-client zsh util-linux-user starship sqlite input-remapper morewaita-icon-theme nethogs fuse-sshfs https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+sudo dnf copr enable hyperreal/better_fonts
+sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic java-21-openjdk nextcloud-client zsh util-linux-user starship sqlite input-remapper morewaita-icon-theme nethogs fuse-sshfs
+sudo dnf install cabextract xorg-x11-font-utils
+sudo rpm -ivh --nodigest --nofiledigest https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
 Set Flatpak languages:
@@ -135,13 +131,7 @@ sudo flatpak update
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter org.gnome.Loupe com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.gitlab.cheywood.Iotas app.devsuite.Ptyxis hu.irl.cameractrls org.gnome.Snapshot org.gnome.Papers org.gimp.GIMP dev.zed.Zed be.alexandervanhee.gradia com.github.PintaProject.Pinta com.yubico.yubioath
-```
-
-Add network usage tracking for apps in Mission Center.
-
-```sh
-sudo setcap "cap_net_admin,cap_net_raw,cap_dac_read_search,cap_sys_ptrace+pe" "$(which nethogs)"
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Zoom org.nickvision.tubeconverter org.gnome.Loupe com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter io.missioncenter.MissionCenter org.gnome.baobab org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.World.Iotas app.devsuite.Ptyxis hu.irl.cameractrls org.gnome.Snapshot org.gnome.Papers org.gimp.GIMP dev.zed.Zed be.alexandervanhee.gradia com.github.PintaProject.Pinta com.yubico.yubioath
 ```
 
 Remove default GNOME console.
@@ -158,16 +148,7 @@ Replace `Exec` to `/home/ai/Dev/environment/bin/zoom @@u %U @@` in `~/.local/sha
 
 Add Autostart and fingers to user settings.
 
-Disable Software auto-start:
-
-```sh
-dconf write /org/gnome/software/allow-updates false
-dconf write /org/gnome/software/download-updates false
-mkdir -p ~/.config/autostart && cp /etc/xdg/autostart/org.gnome.Software.desktop ~/.config/autostart/
-echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/gnome-software-service.desktop
-dconf write /org/gnome/desktop/search-providers/disabled "['org.gnome.Software.desktop']"
-echo "X-GNOME-Autostart-enabled=false" >> ~/.config/autostart/org.gnome.Software.desktop
-```
+Disable Software auto-update and notifications.
 
 Set [color profile](https://www.notebookcheck.net/uploads/tx_nbc2/BOE0CB4.icm)
 in `Color` settings.
@@ -185,37 +166,11 @@ Disable waking up by mouse by creating `/etc/udev/rules.d/logitech-bolt.rules`:
 ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c548", ATTR{power/wakeup}="disabled"
 ```
 
-[Disable](https://discussion.fedoraproject.org/t/please-enter-passphrase-for-disk-has-returned/150626/5) disk name in password prompt.
-
-
-### Base Settings
-
 Disable file system scanning:
 
 ```sh
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
-
-Enable HiPDI on login screen:
-
-```sh
-sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
-sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
-```
-
-Change geolocation API:
-
-```sh
-sudo mkdir /etc/geoclue/conf.d
-sudo tee > /etc/geoclue/conf.d/99-beacondb.conf <<EOF
-[wifi]
-enable=true
-url=https://api.beacondb.net/v1/geolocate
-EOF
-sudo systemctl restart geoclue
-```
-
-Add Iceland NordVPN.
 
 
 ### Personal Files
@@ -264,6 +219,8 @@ mv atuin ~/.local/bin
 Install zsh:
 
 ```sh
+mkdir -p ~/.local/share/history
+chmod 700 ~/.local/share/history
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.local/lib/zsh/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.local/lib/zsh/zsh-autosuggestions
 git clone https://github.com/jimhester/per-directory-history ~/.local/lib/zsh/per-directory-history
@@ -276,7 +233,24 @@ Create `/root/.zshrc`:
 eval "$(starship init zsh)"
 ```
 
+Install custom universal keyboard layouts:
+
+```sh
+mkdir -p ~/.config/xkb/symbols/ ~/.config/xkb/rules/
+wget -O ~/.config/xkb/symbols/universal_en https://raw.githubusercontent.com/ai/universal-layout/main/universal_en.xkb
+wget -O ~/.config/xkb/symbols/universal_ru https://raw.githubusercontent.com/ai/universal-layout/main/universal_ru.xkb
+wget -O ~/.config/xkb/rules/evdev.xml https://raw.githubusercontent.com/ai/universal-layout/main/evdev.xml
+```
+
 Reboot.
+
+Select `Russian Universal` and `English/Spanish/Catalan Universal` layouts.
+
+Set keyboard settings:
+
+```sh
+dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
+```
 
 ```sh
 rm ~/.bash*
@@ -307,7 +281,7 @@ Start copying `Vídeos/*` from SDD.
 
 ### Text Editors
 
-Sign-in into accounts in Zed and VS Code.
+Sign-in into accounts in Zed.
 
 Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `stylelint`.
 
@@ -323,27 +297,10 @@ Run Weather app and set current location.
 Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/).
 
 ```sh
-mkdir ~/.local/share/fonts
+mkdir -p ~/.local/share/fonts
 # Copy variable fonts
 fc-cache -f -v
 gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Regular 12"
-```
-
-Install custom universal keyboard layouts:
-
-```sh
-mkdir -p ~/.config/xkb/symbols/ ~/.config/xkb/rules/
-wget -O ~/.config/xkb/symbols/universal_en https://raw.githubusercontent.com/ai/universal-layout/main/universal_en.xkb
-wget -O ~/.config/xkb/symbols/universal_ru https://raw.githubusercontent.com/ai/universal-layout/main/universal_ru.xkb
-wget -O ~/.config/xkb/rules/evdev.xml https://raw.githubusercontent.com/ai/universal-layout/main/evdev.xml
-```
-
-Restart system and select `Russian Universal` and `English/Spanish/Catalan Universal` layouts.
-
-Set keyboard settings:
-
-```sh
-dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
 ```
 
 Open settings:
@@ -364,6 +321,7 @@ Nautilus:
 
 * Enable Sort folders before files.
 * Enable Single click to open items.
+* Enable preview, search, file numbers for remote folders.
 
 Disable GNOME extension version check:
 
@@ -387,6 +345,10 @@ Restore settings file from backup:
 
 Clean up applications list.
 
+Add Iceland NordVPN.
+
+[Disable](https://discussion.fedoraproject.org/t/please-enter-passphrase-for-disk-has-returned/150626/5) disk name in password prompt.
+
 
 ### Folders
 
@@ -404,7 +366,7 @@ Fix folders at `~/.config/user-dirs.dirs`:
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
 XDG_DOWNLOAD_DIR="$HOME/Descargas"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
-XDG_PUBLICSHARE_DIR="$HOME"
+XDG_PUBLICSHARE_DIR="$HOME/.local/share/desktop"
 XDG_DOCUMENTS_DIR="$HOME/Documentos"
 XDG_MUSIC_DIR="$HOME"
 XDG_PICTURES_DIR="$HOME"
@@ -426,6 +388,9 @@ mkdir "Capturas de pantalla"
 
 Connect to server in Files by `sftp://ai@susedko.local/` and add `vault` to Favorites places. Add `Descargas` and `Capturas de pantalla` to Favorites places.
 
+Left only Telegram, Firefox, Nautilus, Terminal, Iotas, System Update, and
+Backup in the dock.
+
 Add icon theme:
 
 ```sh
@@ -442,9 +407,11 @@ Set icons:
 
 ## Home Server
 
-Add server’s sertificate to the system:
+Add server’s certificate to the system:
 
 ```sh
+mkdir -p ~/.pki/nssdb
+certutil -N -d sql:$HOME/.pki/nssdb --empty-password
 certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.crt
 sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
@@ -492,16 +459,6 @@ systemctl --user enable susedko-listener.service
 systemctl --user start susedko-listener.service
 ```
 
-### Additional Software
-
-Fix Wayland in Chrome:
-1. Open Chrome.
-2. Open `chrome://flags/#ozone-platform-hint`.
-3. Set Wayland.
-
-Left only Telegram, Firefox, Nautilus, Terminal, Iotas, System Update, and
-Backup in the dock.
-
 
 ### Development Tools
 
@@ -522,14 +479,13 @@ mkdir -p ~/.local/share/multiocular
 mkdir -p ~/.local/share/history
 chmod 700 ~/.local/share/history
 podman volume create shell-history
-
 podman volume create pnpm-store
 
 ~/Dev/environment/bin/build-devcontainer
 cd ~/Dev/nanostores
 devup
 # Find container ID
-podman podman exec -it --user root $container_id zsh
+podman exec -it --user root $container_id zsh
 mkdir /home/ai/.local/share/pnpm/store/v10
 chown ai:ai /home/ai/.local/share/pnpm/store/v10
 chown ai:ai /home/ai/.local/share/history/histfile
@@ -570,7 +526,7 @@ rm ngram*.zip
 Prepare `fasttext`:
 
 ```sh
-wget https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-39-x86_64/06624475-fasttext/fasttext-0.9.2-4.fc39.x86_64.rpm https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-39-x86_64/06624475-fasttext/fasttext-libs-0.9.2-4.fc39.x86_64.rpm
+wget https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-42-x86_64/08912218-fasttext/fasttext-0.9.2-5.fc42.x86_64.rpm https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-42-x86_64/08912218-fasttext/fasttext-libs-0.9.2-5.fc42.x86_64.rpm
 sudo dnf install ./fasttext-*
 rm ./fasttext-*
 mkdir -p ~/.local/share/fasttext
@@ -617,6 +573,7 @@ Enable service.
 
 ```sh
 systemctl --user enable --now languagetool.service
+systemctl --user start --now languagetool.service
 ```
 
 
