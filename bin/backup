@@ -70,7 +70,6 @@ borg create                                                \
     ~/.ssh                                                 \
     ~/.gnupg                                               \
     ~/.Private                                             \
-    ~/.config/input-remapper-2                             \
     ~/.mozilla                                             \
     ~/.config/gsconnect                                    \
     ~/.local/share/gnome-shell-extensions-settings         \
