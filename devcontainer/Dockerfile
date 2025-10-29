@@ -1,9 +1,9 @@
-FROM registry.fedoraproject.org/fedora:42
+FROM registry.fedoraproject.org/fedora:43
 
-ARG NODE_VERSION=25.0.0
-ARG PNPM_VERSION=10.19.0
-ARG NODE_24=24.10.0
-ARG NODE_22=22.21.0
+ARG NODE_VERSION=25.1.0
+ARG PNPM_VERSION=10.20.0
+ARG NODE_24=24.11.0
+ARG NODE_22=22.21.1
 ARG NODE_20=20.19.5
 
 RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng \
