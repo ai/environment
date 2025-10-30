@@ -105,6 +105,9 @@ video/dv=mpv.desktop;
 application/xml=org.gnome.TextEditor.desktop;
 application/zip=org.gnome.Nautilus.desktop;
 application/pdf=org.gnome.Papers.desktop;
+x-scheme-handler/gnome-extensions=com.mattjakeman.ExtensionManager.desktop;
+application/vnd.nextcloud=com.nextcloud.desktopclient.nextcloud.desktop;
+x-scheme-handler/nc=com.nextcloud.desktopclient.nextcloud.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
