@@ -197,6 +197,9 @@ Copy configs:
 ~/Dev/environment/bin/copy-env system
 ```
 
+
+## Input
+
 Set mouse buttons config at `/etc/logid.cfg`:
 
 ```
@@ -232,6 +235,21 @@ Enable mouse extensions:
 
 ```sh
 sudo systemctl enable --now logid
+```
+
+Install custom universal keyboard layouts:
+
+```sh
+mkdir -p ~/.config/xkb/symbols/ ~/.config/xkb/rules/
+wget -O ~/.config/xkb/symbols/universal_en https://raw.githubusercontent.com/ai/universal-layout/main/universal_en.xkb
+wget -O ~/.config/xkb/symbols/universal_ru https://raw.githubusercontent.com/ai/universal-layout/main/universal_ru.xkb
+wget -O ~/.config/xkb/rules/evdev.xml https://raw.githubusercontent.com/ai/universal-layout/main/evdev.xml
+```
+
+Set keyboard settings:
+
+```sh
+dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
 ```
 
 
@@ -270,24 +288,9 @@ Create `/root/.zshrc`:
 eval "$(starship init zsh)"
 ```
 
-Install custom universal keyboard layouts:
-
-```sh
-mkdir -p ~/.config/xkb/symbols/ ~/.config/xkb/rules/
-wget -O ~/.config/xkb/symbols/universal_en https://raw.githubusercontent.com/ai/universal-layout/main/universal_en.xkb
-wget -O ~/.config/xkb/symbols/universal_ru https://raw.githubusercontent.com/ai/universal-layout/main/universal_ru.xkb
-wget -O ~/.config/xkb/rules/evdev.xml https://raw.githubusercontent.com/ai/universal-layout/main/evdev.xml
-```
-
 Reboot.
 
 Select `Russian Universal` and `English/Spanish/Catalan Universal` layouts.
-
-Set keyboard settings:
-
-```sh
-dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
-```
 
 ```sh
 rm ~/.bash*
