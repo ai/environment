@@ -34,7 +34,7 @@ async function updateGnome() {
       })
       .filter(({ enabled, hasRepo, name }) => {
         if (!hasRepo) {
-          console.log(gray(`Ignoring ${name}`))
+          console.log(gray(`Игнорируем ${name}`))
         }
         return hasRepo
       })
@@ -60,7 +60,7 @@ async function updateGnome() {
         let json = await response.json()
         let extension = json.extensions.find(i => i.uuid === uuid)
         if (!extension) {
-          throw new Error(`Extension not found: ${name} (${uuid})`)
+          throw new Error(`Расширение не найдено: ${name} (${uuid})`)
         }
         return {
           name: extension.name,

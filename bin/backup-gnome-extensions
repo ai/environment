@@ -12,6 +12,6 @@ for extension in $extensions; do
   settings=$(dconf dump "/org/gnome/shell/extensions/$base_name/")
   if [ -n "$settings" ]; then
     echo "$settings" > "$output_file"
-    echo "Settings for $extension saved"
+    echo "Настройки $extension сохранены"
   fi
 done

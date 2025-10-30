@@ -16,23 +16,23 @@ GRAY='\033[0;90m'
 NC='\033[0m'
 
 if [[ "$current_node" != "$latest_node" ]] && [[ -n "$latest_node" ]]; then
-  echo -e "Actualizar Node: ${RED}$current_node${NC} to ${GREEN}${latest_node}${NC}"
+  echo -e "Обновление Node.js: ${RED}$current_node${NC} → ${GREEN}${latest_node}${NC}"
   sed -i "s/ARG NODE_VERSION=$current_node/ARG NODE_VERSION=$latest_node/" "$DOCKERFILE_PATH"
   update_needed=true
 fi
 
 if [[ "$current_pnpm" != "$latest_pnpm" ]] && [[ -n "$latest_pnpm" ]] && [[ "$latest_pnpm" != "null" ]]; then
-  echo -e "Actualizar pnpm: ${RED}$current_pnpm${NC} to ${GREEN}${latest_pnpm}${NC}"
+  echo -e "Обновление pnpm: ${RED}$current_pnpm${NC} to ${GREEN}${latest_pnpm}${NC}"
   sed -i "s/ARG PNPM_VERSION=$current_pnpm/ARG PNPM_VERSION=$latest_pnpm/" "$DOCKERFILE_PATH"
   update_needed=true
 fi
 
 if [ "$update_needed" = true ]; then
-  echo -e "Limpieza de imágenes antiguas de Dev Container${GRAY}"
+  echo -e "Удаляем старые образы Dev Container${GRAY}"
   podman rmi --all --force
-  echo -e "${NC}Creación de una nueva imagen de Dev Container${GRAY}"
+  echo -e "${NC}Создаём новый базовый образ Dev Container${GRAY}"
   ~/Dev/environment/bin/build-devcontainer
-  echo -e "${NC}Dev Container fue actualizado"
+  echo -e "${NC}Dev Container создан"
 else
-  echo -e "${GRAY}No es necesario actualizar Dev Container${NC}"
+  echo -e "${GRAY}Нет обновлений для Dev Container${NC}"
 fi

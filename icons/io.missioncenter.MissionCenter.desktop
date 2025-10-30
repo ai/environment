@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Системный монитор
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=missioncenter io.missioncenter.MissionCenter
+Icon=io.missioncenter.MissionCenter
+Terminal=false
+Type=Application
+Categories=GTK;System;Monitor;
+StartupNotify=true
+Keywords=Task manager;Resource monitor;System monitor;Processor;Processes;Performance monitor;CPU;GPU;Disc;Disk;Memory;Network;Utilisation;Utilization;Диспетчер задач;Мониторинг ресорсов;Системный монитор;Процессор;Процессы;Мониторинг производительности;Диск;Память;Сеть;Использование;ЦП;ГП
+X-Flatpak=io.missioncenter.MissionCenter
+PrefersNonDefaultGPU=false
+Hidden=false
+NoDisplay=false

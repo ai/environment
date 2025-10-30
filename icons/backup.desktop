@@ -1,6 +1,11 @@
 [Desktop Entry]
 Type=Application
-Name=Copia de seguridad
+Name=Копирование
 Comment=Backup
 Icon=/home/ai/.local/share/applications/backup.svg
 Exec=flatpak run app.devsuite.Ptyxis -- /home/ai/Dev/environment/bin/backup
+PrefersNonDefaultGPU=false
+Hidden=false
+NoDisplay=false
+StartupNotify=false
+Terminal=false

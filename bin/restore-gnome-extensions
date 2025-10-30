@@ -14,8 +14,8 @@ for settings in "$backup_dir"/*.ini; do
   base_name=$(echo "$extension" | sed 's/@.*//')
   if [[ $extensions == *"$extension"* ]]; then
     dconf load "/org/gnome/shell/extensions/$base_name/" < "$settings"
-    echo "Settings for $extension restored"
+    echo "Настройки $extension востановлены"
   else
-    echo "Extension $extension is not installed or enabled, skipping"
+    echo "Расширение $extension не установлено или не включено, пропускаем"
   fi
 done

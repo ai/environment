@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Before $(df -h / | tail -1 | awk '{print $4}')"
+echo "Было $(df -h / | tail -1 | awk '{print $4}')"
 echo
 
 podman rmi --all --force
@@ -10,4 +10,4 @@ npm cache clean -f
 rm -Rf ~/.local/share/Trash/
 
 echo
-echo "After $(df -h / | tail -1 | awk '{print $4}')"
+echo "Стало $(df -h / | tail -1 | awk '{print $4}')"

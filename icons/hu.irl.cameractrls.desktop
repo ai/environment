@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Настройки камеры
+Comment=Camera controls for Linux
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=cameractrlsgtk.py hu.irl.cameractrls
+Icon=hu.irl.cameractrls
+Terminal=false
+Categories=Settings;AudioVideo;Video;Office;Utility;GNOME;GTK;
+Keywords=picture;photos;camera;webcam;
+X-Flatpak=hu.irl.cameractrls
+PrefersNonDefaultGPU=false
+Hidden=false
+NoDisplay=false
+StartupNotify=false

@@ -1,11 +1,26 @@
 [Desktop Entry]
 Type=Application
-Name=Erótica
+Name=Эротика
 Comment=Play porn movies
 Icon=org.gnome.Showtime
 Exec=/home/ai/Dev/environment/bin/porn
 Actions=New;
+Name[ru]=Эротика
+Name[ru_RU]=Эротика
+Name[ru_RU.UTF-8]=Эротика
+Comment[ru]=Play porn movies
+Comment[ru_RU]=Play porn movies
+Comment[ru_RU.UTF-8]=Play porn movies
+PrefersNonDefaultGPU=false
+Hidden=false
+NoDisplay=false
+StartupNotify=false
+Terminal=false
 
 [Desktop Action New]
 Name=Nuevos
 Exec=/home/ai/Dev/environment/bin/porn --new
+Name[ru]=Nuevos
+Name[ru_RU]=Nuevos
+Name[ru_RU.UTF-8]=Nuevos
+

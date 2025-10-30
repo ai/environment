@@ -6,28 +6,28 @@ TITLE='\033[0;32m\033[1m'
 GRAY='\033[0;90m'
 NC='\033[0m'
 
-echo -e "${TITLE}Actualización del sistema${NC}"
+echo -e "${TITLE}Обновление системы${NC}"
 pkexec dnf update --refresh -y
 
-echo -e "\n${TITLE}Actualizar de las aplicaciones de Flatpak${NC}"
+echo -e "\n${TITLE}Обновление приложений из Flatpak${NC}"
 flatpak update -y
 
-echo -e "\n${TITLE}Actualización de Dev Container${NC}"
+echo -e "\n${TITLE}Обновление Dev Container${NC}"
 cd ~/.local/lib/node
 npm update
 ~/Dev/environment/bin/update-dockerfile
 
-echo -e "\n${TITLE}Actualización de la tema de Firefox${GRAY}"
+echo -e "\n${TITLE}Обновление темы Firefox${GRAY}"
 cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
 
-echo -e "\n${TITLE}Actualizar de las extensiones de GNOME${GRAY}"
+echo -e "\n${TITLE}Обновление расширений GNOME${GRAY}"
 gdbus call --session --dest org.gnome.Shell.Extensions \
      --object-path /org/gnome/Shell/Extensions \
      --method org.gnome.Shell.Extensions.CheckForUpdates
 
-echo -e "\n${TITLE}Actualización del corrector ortográfico${GRAY}"
+echo -e "\n${TITLE}Обновление проверки орфографии${GRAY}"
 ~/Dev/environment/bin/update-languagetool
 
-echo -e "\n${TITLE}Hecho${NC}"
+echo -e "\n${TITLE}Готово${NC}"
 read

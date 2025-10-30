@@ -6,28 +6,28 @@ NC='\033[0m'
 
 hour=$(date +"%H")
 if [[ hour -lt 9 || hour -ge 22 ]]; then
-  echo -e "${TITLE}Prepare bed for sleep${GRAY}"
+  echo -e "${TITLE}Подготовка кровати ко сну${GRAY}"
   ~/Dev/environment/bin/susedko script/turn_on script.heat_bedroom
   echo -e "${NC}\n"
 fi
 
-echo -e "${TITLE}Backup GNOME extensions${GRAY}"
+echo -e "${TITLE}Сохранение расширений GNOME${GRAY}"
 ~/Dev/environment/bin/backup-gnome-extensions
 echo -e "${NC}\n"
 
-echo -e "${TITLE}Backup home server${GRAY}"
+echo -e "${TITLE}Сохранение домашнего сервера${GRAY}"
 cd ~/Dev/susedko
 make ha_backup
 cd
 echo -e "${NC}\n"
 
-echo -e "${TITLE}Copy files${GRAY}"
+echo -e "${TITLE}Сохранение файлов${GRAY}"
 export BORG_REPO=ai@susedko.local:/var/mnt/vault/ai/backup
 SERVICE_NAME="BorgBackup"
 USERNAME="backup"
 BORG_PASSPHRASE=$(secret-tool lookup service "BorgBackup" username "ai")
 if [ -z "$BORG_PASSPHRASE" ]; then
-  read -sp "Enter Backup Passphrase: " BORG_PASSPHRASE
+  read -sp "Пароль от бэкапа: " BORG_PASSPHRASE
   echo "$BORG_PASSPHRASE" | secret-tool store --label="Password for backup" service "BorgBackup" username "ai"
 fi
 export BORG_PASSPHRASE
@@ -82,9 +82,9 @@ borg compact
 unset BORG_PASSPHRASE
 echo -e "${NC}\n"
 
-echo -e "${TITLE}Sync videos${GRAY}"
+echo -e "${TITLE}Синхронизация видео${GRAY}"
 rsync -a --delete --progress \
   --no-perms --no-owner --no-group \
-  /home/ai/Vídeos/Erótica/ ai@susedko.local:/var/mnt/vault/ai/Selected
+  /home/ai/Видео/Эротика/ ai@susedko.local:/var/mnt/vault/ai/Selected
 
 exit ${global_exit}

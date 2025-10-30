@@ -339,15 +339,21 @@ gsettings set org.gnome.desktop.interface monospace-font-name "Zed Mono Extended
 
 Open settings:
 
-* **Apariencia:** use standard GNOME wallpaper.
-* **Notificaciones:** disable Notificaciones de la pantalla de bloqueo.
-* **Buscar:** keep only Calculadora and Configuracion.
-* **Multitarea:** disable Activar bordes de la pantalla.
-* **Cuentas en línea:** add Google.
-* **Energía:** enable Mostrar porcentaje de la bataría.
-* **Ratón y panel táctil:** mouse speed to 75%, touchpad speed to 90%.
-* **Sistema** → **Fecha y hora:** enable seconds and week day on top panel.
-* **Privacidad y seguridad** → **Historico de archivos y papelera**: disable File History.
+* **Appearance:** use standard GNOME wallpaper.
+* **Notifications:** disable Notifications on lock screen.
+* **Search:** keep only Calculator and Settings.
+* **Multitask:** disable Active corners.
+* **Online accounts:** add Google.
+* **Power:** enable Show percentage.
+* **Mouse:** mouse speed to 75%, touchpad speed to 90%.
+* **Date and time:** enable seconds and week day on top panel.
+* **Privacy** → disable File History.
+
+Boost volume over 100%:
+
+```sh
+gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
+```
 
 Login to NextCloud client to `sync.sitnik.ru`.
 
@@ -391,20 +397,20 @@ Create empty file template:
 ```sh
 mkdir ~/.local/share/desktop
 mkdir ~/.local/share/templates
-touch ~/.local/share/templates/Archivo\ vacío
+touch ~/.local/share/templates/Пустой\ файл
 ```
 
 Fix folders at `~/.config/user-dirs.dirs`:
 
 ```sh
 XDG_DESKTOP_DIR="$HOME/.local/share/desktop"
-XDG_DOWNLOAD_DIR="$HOME/Descargas"
+XDG_DOWNLOAD_DIR="$HOME/Загрузки"
 XDG_TEMPLATES_DIR="$HOME/.local/share/templates"
 XDG_PUBLICSHARE_DIR="$HOME/.local/share/desktop"
-XDG_DOCUMENTS_DIR="$HOME/Documentos"
+XDG_DOCUMENTS_DIR="$HOME/Документы"
 XDG_MUSIC_DIR="$HOME"
 XDG_PICTURES_DIR="$HOME"
-XDG_VIDEOS_DIR="$HOME/Vídeos"
+XDG_VIDEOS_DIR="$HOME/Видео"
 ```
 
 Clean bookmarks:
@@ -416,11 +422,10 @@ echo "" > ~/.config/gtk-3.0/bookmarks
 Remove unnecessary folders:
 
 ```sh
-rm -R ~/Imágenes ~/Música ~/Público ~/Plantillas ~/Escritorio
-mkdir "Capturas de pantalla"
+mkdir "Снимки экрана"
 ```
 
-Connect to server in Files by `sftp://ai@susedko.local/` and add `vault` to Favorites places. Add `Descargas` and `Capturas de pantalla` to Favorites places.
+Connect to server in Files by `sftp://ai@susedko.local/` and add `vault` to Favorites places. Add `Загрузки` and `Снимки экрана` to Favorites places.
 
 Left only Telegram, Firefox, Nautilus, Terminal, Iotas, System Update, and
 Backup in the dock.

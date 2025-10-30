@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Расширения
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=extension-manager --file-forwarding com.mattjakeman.ExtensionManager @@u %U @@
+Icon=com.mattjakeman.ExtensionManager
+Terminal=false
+Type=Application
+Categories=GTK;Utility
+OnlyShowIn=GNOME;
+StartupNotify=true
+MimeType=x-scheme-handler/gnome-extensions;
+Comment=Управление расширениями GNOME Shell
+Keywords=extension;manager;shell;менеджер;расширение;
+X-Flatpak=com.mattjakeman.ExtensionManager
+PrefersNonDefaultGPU=false
+Hidden=false
+NoDisplay=false
