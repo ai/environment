@@ -2,7 +2,7 @@
 Type=Application
 Name=Erótica
 Comment=Play porn movies
-Icon=/home/ai/.local/share/applications/video.svg
+Icon=org.gnome.Showtime
 Exec=/home/ai/Dev/environment/bin/porn
 Actions=New;
 
