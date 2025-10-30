@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Копирование
+Name=Резервное копирование
 Comment=Backup
 Icon=/home/ai/.local/share/applications/backup.svg
 Exec=flatpak run app.devsuite.Ptyxis -- /home/ai/Dev/environment/bin/backup
