@@ -328,13 +328,13 @@ Open Clock and add `Vladivostok`, `Moscow`, `Lisbon`, and `San Francisco`.
 
 Run Weather app and set current location.
 
-Install [JetBrains Mono](https://www.jetbrains.com/lp/mono/).
+Install [Zed Mono](https://github.com/zed-industries/zed-fonts/releases).
 
 ```sh
 mkdir -p ~/.local/share/fonts
 # Copy variable fonts
 fc-cache -f -v
-gsettings set org.gnome.desktop.interface monospace-font-name "JetBrains Mono Regular 12"
+gsettings set org.gnome.desktop.interface monospace-font-name "Zed Mono Extended 12"
 ```
 
 Open settings:
