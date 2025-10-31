@@ -4,9 +4,6 @@
 if [ "$1" == "system" ]; then
   rm ~/.local/share/applications/*.{desktop,svg} -f
   cp ~/Dev/environment/icons/* ~/.local/share/applications/
-  mkdir -p ~/.atom
-  mkdir -p ~/.node
-  mkdir -p ~/.prompt
   mkdir -p ~/.config/bat/
   mkdir -p ~/.config/mpv/
   mkdir -p ~/.config/git/
@@ -16,7 +13,7 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/zed.json ~/.var/app/dev.zed.Zed/config/zed/settings.json
   cp ~/Dev/environment/zed-keys.json ~/.var/app/dev.zed.Zed/config/zed/keymap.json
   cp ~/Dev/environment/mpv.conf ~/.config/mpv/mpv.conf
-  cp ~/Dev/environment/ripgreprc ~/.ripgreprc
+  cp ~/Dev/environment/ripgreprc ~/.config/ripgreprc
   cp ~/Dev/environment/sshconfig ~/.ssh/config
   cp ~/Dev/environment/batconfig ~/.config/bat/config
   cp ~/Dev/environment/gitconfig ~/.config/git/config
@@ -28,8 +25,8 @@ if [ "$1" == "system" ]; then
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
   cp ~/.zshrc ~/Dev/environment/zshrc
-  cp ~/.ripgreprc ~/Dev/environment/ripgreprc
   cp ~/.ssh/config ~/Dev/environment/sshconfig
+  cp ~/.config/ripgreprc ~/Dev/environment/ripgreprc
   cp ~/.config/git/config ~/Dev/environment/gitconfig
   cp ~/.config/git/ignore ~/Dev/environment/gitignore
   cp ~/.config/bat/config ~/Dev/environment/batconfig

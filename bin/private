@@ -1,7 +1,7 @@
 #!/bin/sh
 # Private encrypted folder
 
-STORE=$HOME/.Private
+STORE=$HOME/Документы/.Private
 LINK=$HOME/Private
 
 if [ -e "$LINK" ]; then

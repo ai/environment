@@ -68,8 +68,8 @@ borg create                                                \
     ~/Dev/environment                                      \
     ~/Dev/sitnik.ru                                        \
     ~/.ssh                                                 \
-    ~/.gnupg                                               \
-    ~/.Private                                             \
+    ~/.local/share/gnupg                                   \
+    ~/Документы/.Private                                   \
     ~/.mozilla                                             \
     ~/.config/gsconnect                                    \
     ~/.local/share/gnome-shell-extensions-settings         \

@@ -9,7 +9,7 @@ and write it to the USB drive:
 flatpak install flathub io.gitlab.adhami3310.Impression
 ```
 
-Copy `.ssh` and `.gnupg` into `.Private`.
+Copy `.ssh` and `.local/share/gnupg` into `Документы/.Private`.
 
 Clean `node_modules`:
 
@@ -20,7 +20,7 @@ rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/susedko
 Copy these files to external SDD:
 * `Dev/`
 * `Vídeos/*`
-* `.Private/`
+* `Документы/.Private/`
 
 
 ### BIOS
@@ -62,7 +62,7 @@ sudo hostnamectl set-hostname savoia
 
 Reboot.
 
-Copy `Dev/` and `.Private/` from external SDD and open `Install.md` locally.
+Copy `Dev/` and `Документы/.Private/` from external SDD and open `Install.md` locally.
 
 Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 
@@ -175,7 +175,7 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 ### Personal Files
 
-Copy `.ssh` and `.gnupg`:
+Copy `.ssh` and `.local/share/gnupg`:
 
 ```sh
 ~/Dev/environment/bin/private
@@ -185,10 +185,10 @@ Change permissions:
 
 ```sh
 chmod 744 ~/.ssh
-chmod 700 ~/.gnupg/
-chmod 644 ~/.ssh/* ~/.gnupg/*
-chmod 700 ~/.gnupg/private-keys-v1.d
-chmod 600 ~/.ssh/id_* ~/.gnupg/private-keys-v1.d/*
+chmod 700 ~/.local/share/gnupg/
+chmod 644 ~/.ssh/* ~/.local/share/gnupg/*
+chmod 700 ~/.local/share/gnupg/private-keys-v1.d
+chmod 600 ~/.ssh/id_* ~/.local/share/gnupg/private-keys-v1.d/*
 ```
 
 Copy configs:
@@ -504,6 +504,7 @@ systemctl --user start susedko-listener.service
 Install Node.js, TypeScript, and Dev Containers.
 
 ```sh
+npm config set cache "$HOME/.cache/npm"
 mkdir -p ~/.local/lib/node/
 tee -a ~/.local/lib/node/package.json << EOM
 {

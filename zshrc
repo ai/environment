@@ -17,9 +17,16 @@ bindkey ';5C' forward-word  # ctrl+right
 # Completion
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
-compinit
+compinit -i -d "$HOME/.cache/zcompcache"
+
+# Force keeping home folder clean
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 
 # Zsh plugins
+export HISTORY_BASE="$HOME/.cache/zsh_directory_history"
 if [[ -d ~/.local/lib/zsh/zsh-syntax-highlighting/ ]]; then
   source ~/.local/lib/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
@@ -49,13 +56,17 @@ if [ -f ~/.local/bin/atuin ]; then
 fi
 
 # Rip Grep
-export RIPGREP_CONFIG_PATH=~/.ripgreprc
+export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
 
 # Console editor
 export EDITOR=micro
 
 # Fix Bat in light console
 export BAT_THEME=ansi
+
+# Node.js
+export NODE_COMPILE_CACHE=~/.cache/node
+export NPM_CONFIG_USERCONFIG=~/.config/npmrc
 
 # Auto-fix changed files
 f() {
@@ -101,8 +112,6 @@ alias pui='pnpm update --interactive --latest -r --include-workspace-root'
 alias pu='pnpm update -r --include-workspace-root'
 alias pui1='pnpm update --interactive --latest'
 alias pu1='pnpm update'
-
-export NODE_COMPILE_CACHE=~/.cache/node
 
 if [ -n "$container" ]; then
   alias dev='command'
