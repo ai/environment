@@ -509,7 +509,7 @@ mkdir -p ~/.local/lib/node/
 tee -a ~/.local/lib/node/package.json << EOM
 {
   "dependencies": {
-    "@devcontainers/cli": ">=0.76.0"
+    "@devcontainers/cli": ">=0.80.1"
   }
 }
 EOM

@@ -1,4 +1,5 @@
 {
+  "show_completions_on_input": true,
   "buffer_font_family": "Lilex",
   "agent": {
     "default_profile": "write",
