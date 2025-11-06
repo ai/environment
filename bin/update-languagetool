@@ -2,48 +2,8 @@
 
 set -e
 
-TITLE='\033[0m\033[1m'
-GRAY='\033[0;90m'
-
-ETAG_FILE=~/.cache/languagetool/etag
-DOWNLOAD_URL=https://internal1.languagetool.org/snapshots/LanguageTool-latest-snapshot.zip
-
-rm -f LanguageTool-latest-snapshot.zip
-
-current_etag=$(curl -s -I -L "$DOWNLOAD_URL" | grep -i '^ETag:' | awk '{print $2}' | sed -e 's/^"//' -e 's/"\s*$//')
-echo -e "${TITLE}ETag на сервере: $current_etag${GRAY}"
-
-last_etag=""
-if [ -f "$ETAG_FILE" ]; then
-  last_etag=$(cat "$ETAG_FILE")
-  echo -e "${TITLE}Прошлый ETag:    $last_etag${GRAY}"
-else
-  echo -e "${TITLE}Прошлых ETag нет${GRAY}"
-fi
-
-if [ -z "$last_etag" ] || [ "$current_etag" != "$last_etag" ]; then
-  echo -e "${TITLE}Загружаем новую версию${GRAY}"
-  wget "$DOWNLOAD_URL"
-
-  echo -e "${TITLE}Распаковываем архив${GRAY}"
-  unzip -q LanguageTool-latest-snapshot.zip
-  rm LanguageTool-latest-snapshot.zip
-
-  echo -e "${TITLE}Останавливаем и удаляем старую версию${GRAY}"
-  systemctl stop --user languagetool.service || true
-  rm -Rf ~/.local/lib/languagetool
-
-  echo -e "${TITLE}Устанавливаем новую версию${GRAY}"
-  mkdir -p ~/.local/lib/languagetool
-  mv LanguageTool-*/* ~/.local/lib/languagetool
-  rm -R LanguageTool-*
-
-  echo -e "${TITLE}Запускаем сервис LanguageTool${GRAY}"
-  systemctl start --user languagetool.service
-
-  echo -e "${TITLE}Сохраняем новый ETag${GRAY}" # Kept GRAY suffix in case it was intended
-  mkdir -p "$(dirname "$ETAG_FILE")"
-  echo "$current_etag" > "$ETAG_FILE"
-else
-  echo -e "${TITLE}Нет обновлений${GRAY}"
-fi
+systemctl --user stop languagetool.service
+podman build -t localhost/languagetool \
+  -f ~/Dev/environment/languagetool/Dockerfile \
+  ~/Dev/environment/languagetool
+systemctl --user start languagetool.service

@@ -116,7 +116,7 @@ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 sudo dnf copr enable atim/starship
 sudo dnf copr enable dusansimic/themes
 sudo dnf copr enable hyperreal/better_fonts
-sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic java-21-openjdk nextcloud-client zsh util-linux-user starship sqlite  morewaita-icon-theme nethogs fuse-sshfs logiops
+sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic nextcloud-client zsh util-linux-user starship sqlite  morewaita-icon-theme nethogs fuse-sshfs logiops
 sudo dnf install cabextract xorg-x11-font-utils
 sudo rpm -ivh --nodigest --nofiledigest https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
@@ -566,20 +566,9 @@ rm ngram*.zip
 Prepare `fasttext`:
 
 ```sh
-wget https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-42-x86_64/08912218-fasttext/fasttext-0.9.2-5.fc42.x86_64.rpm https://download.copr.fedorainfracloud.org/results/fcsm/fasttext/fedora-42-x86_64/08912218-fasttext/fasttext-libs-0.9.2-5.fc42.x86_64.rpm
-sudo dnf install ./fasttext-*
-rm ./fasttext-*
 mkdir -p ~/.local/share/fasttext
 cd ~/.local/share/fasttext
 wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
-```
-
-Create config `~/.config/languagetool.properties`:
-
-```ini
-languageModel=/home/ai/.local/share/ngrams
-fasttextModel=/home/ai/.local/share/fasttext/lid.176.bin
-fasttextBinary=/usr/bin/fasttext
 ```
 
 ```sh
@@ -593,11 +582,14 @@ Create service unit `~/.config/systemd/user/languagetool.service`:
 Description=LanguageTool Server
 
 [Service]
-ExecStart=java -Xms512m -Xmx2g \
-          -cp .local/lib/languagetool/languagetool-server.jar \
-          org.languagetool.server.HTTPServer \
-          --config .config/languagetool.properties \
-          --port 8081 --allow-origin
+ExecStart=podman run --rm --replace --name languagetool \
+  -p 8081:8010 \
+  -e langtool_languageModel=/ngrams \
+  -e langtool_fasttextBinary=/usr/bin/fasttext \
+  -e langtool_fasttextModel=/fasttext/lid.176.bin \
+  -v /home/ai/.local/share/fasttext:/fasttext:Z \
+  -v /home/ai/.local/share/ngrams:/ngrams:Z \
+  localhost/languagetool:latest
 
 [Install]
 WantedBy=default.target
