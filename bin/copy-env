@@ -9,7 +9,8 @@ if [ "$1" == "system" ]; then
   mkdir -p ~/.config/git/
   mkdir -p ~/.config/micro/
   mkdir -p ~/.config/zed/
-  cp ~/Dev/environment/zshrc ~/.zshrc
+  rm -f ~/.zshrc
+  ln ~/Dev/environment/zshrc ~/.zshrc
   cp ~/Dev/environment/zed.json ~/.var/app/dev.zed.Zed/config/zed/settings.json
   cp ~/Dev/environment/zed-keys.json ~/.var/app/dev.zed.Zed/config/zed/keymap.json
   cp ~/Dev/environment/mpv.conf ~/.config/mpv/mpv.conf
@@ -24,7 +25,6 @@ if [ "$1" == "system" ]; then
   cp ~/Dev/environment/micro.json ~/.config/micro/settings.json
 else
   rm ~/Dev/environment/icons/*.{svg,desktop} -f
-  cp ~/.zshrc ~/Dev/environment/zshrc
   cp ~/.ssh/config ~/Dev/environment/sshconfig
   cp ~/.config/ripgreprc ~/Dev/environment/ripgreprc
   cp ~/.config/git/config ~/Dev/environment/gitconfig
