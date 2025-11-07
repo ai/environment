@@ -23,5 +23,4 @@
 * [Right Click Next](https://extensions.gnome.org/extension/7600/right-click-next/)
 * [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
-* [Volume Boost](https://extensions.gnome.org/extension/7450/volume-boost/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
