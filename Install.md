@@ -70,13 +70,6 @@ Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 vm.swappiness = 10
 ```
 
-Disable ambient light sensor:
-
-```sh
-echo "blacklist hid_sensor_hub" | sudo tee /etc/modprobe.d/blacklist.conf
-sudo dracut --force
-```
-
 Fix booting video glitch:
 
 ```sh
