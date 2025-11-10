@@ -108,6 +108,9 @@ application/pdf=org.gnome.Papers.desktop;
 x-scheme-handler/gnome-extensions=com.mattjakeman.ExtensionManager.desktop;
 application/vnd.nextcloud=com.nextcloud.desktopclient.nextcloud.desktop;
 x-scheme-handler/nc=com.nextcloud.desktopclient.nextcloud.desktop;
+text/x-opml+xml=dev.zed.Zed.desktop;
+application/atom+xml=dev.zed.Zed.desktop;
+application/rss+xml=dev.zed.Zed.desktop;
 
 [Default Applications]
 video/x-matroska=mpv.desktop
@@ -222,3 +225,6 @@ video/3gpp2=mpv.desktop
 video/dv=mpv.desktop
 application/xml=org.gnome.TextEditor.desktop
 application/pdf=org.gnome.Papers.desktop
+text/x-opml+xml=dev.zed.Zed.desktop
+application/atom+xml=dev.zed.Zed.desktop
+application/rss+xml=dev.zed.Zed.desktop
