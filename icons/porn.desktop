@@ -18,9 +18,5 @@ StartupNotify=false
 Terminal=false
 
 [Desktop Action New]
-Name=Nuevos
+Name=Новое
 Exec=/home/ai/Dev/environment/bin/porn --new
-Name[ru]=Nuevos
-Name[ru_RU]=Nuevos
-Name[ru_RU.UTF-8]=Nuevos
-
