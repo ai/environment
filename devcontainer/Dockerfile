@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:43
 
 ARG NODE_VERSION=25.1.0
-ARG PNPM_VERSION=10.20.0
+ARG PNPM_VERSION=10.21.0
 ARG NODE_24=24.11.0
 ARG NODE_22=22.21.1
 ARG NODE_20=20.19.5
@@ -36,7 +36,8 @@ USER ai
 
 RUN mkdir -p /home/ai/.local/share/pnpm/ \
   && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
-  && pnpm config --global set minimum-release-age 1440
+  && pnpm config --global set minimumReleaseAge 1440 \
+  && pnpm config --global set trustPolicy no-downgrade
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
