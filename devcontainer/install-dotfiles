@@ -5,8 +5,8 @@ mkdir -p ~/.config/bat
 mkdir -p ~/.config/git
 
 cp -f ~/dotfiles/zshrc ~/.zshrc
-cp -f ~/dotfiles/gitconfig ~/.gitconfig
-cp -f ~/dotfiles/ripgreprc ~/.ripgreprc
+cp -f ~/dotfiles/gitconfig ~/.config/git/config
+cp -f ~/dotfiles/ripgreprc ~/.config/ripgreprc
 cp -f ~/dotfiles/micro.json ~/.config/micro/settings.json
 cp -f ~/dotfiles/batconfig ~/.config/bat/config
 cp -f ~/dotfiles/gitignore ~/.config/git/ignore
