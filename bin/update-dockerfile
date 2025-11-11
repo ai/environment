@@ -28,11 +28,12 @@ if [[ "$current_pnpm" != "$latest_pnpm" ]] && [[ -n "$latest_pnpm" ]] && [[ "$la
 fi
 
 if [ "$update_needed" = true ]; then
-  echo -e "Удаляем старые образы Dev Container${GRAY}"
+  echo -e "Удаляем все старые образы"
   podman rmi --all --force
+  echo -e "${NC}Создаём образ дл LanguageTool${GRAY}"
+  ~/Dev/environment/bin/update-languagetool
   echo -e "${NC}Создаём новый базовый образ Dev Container${GRAY}"
   ~/Dev/environment/bin/build-devcontainer
-  echo -e "${NC}Dev Container создан"
 else
   echo -e "${GRAY}Нет обновлений для Dev Container${NC}"
 fi
