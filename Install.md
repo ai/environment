@@ -578,6 +578,7 @@ Description=LanguageTool Server
 ExecStart=podman run --rm --replace --name languagetool \
   -p 8081:8010 \
   -e langtool_languageModel=/ngrams \
+  -e Java_Xms=512m -e Java_Xmx=2g \
   -e langtool_fasttextBinary=/usr/bin/fasttext \
   -e langtool_fasttextModel=/fasttext/lid.176.bin \
   -v /home/ai/.local/share/fasttext:/fasttext:Z \
@@ -597,6 +598,7 @@ Install LanguageTool:
 Enable service.
 
 ```sh
+systemctl --user daemon-reload
 systemctl --user enable --now languagetool.service
 systemctl --user start --now languagetool.service
 ```
