@@ -34,19 +34,19 @@ curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_6
 chmod +x eza
 mv eza ~/.local/bin
 
-curl -sL https://github.com/Wilfred/difftastic/releases/download/0.63.0/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/Wilfred/difftastic/releases/download/0.65.0/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x difft
 mv difft ~/.local/bin
 
-curl -sL https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 bat-v0.25.0-x86_64-unknown-linux-gnu/bat
+curl -sL https://github.com/sharkdp/bat/releases/download/v0.26.0/bat-v0.26.0-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 bat-v0.26.0-x86_64-unknown-linux-gnu/bat
 chmod +x bat
 mv bat ~/.local/bin
 
-curl -sL https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz | tar xz --strip-components=1 ripgrep-14.1.1-x86_64-unknown-linux-musl/rg
+curl -sL https://github.com/BurntSushi/ripgrep/releases/download/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz | tar xz --strip-components=1 ripgrep-15.1.0-x86_64-unknown-linux-musl/rg
 chmod +x rg
 mv rg ~/.local/bin
 
-curl -sL https://github.com/atuinsh/atuin/releases/download/v18.6.1/atuin-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 atuin-x86_64-unknown-linux-gnu/atuin
+curl -sL https://github.com/atuinsh/atuin/releases/download/v18.10./atuin-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 atuin-x86_64-unknown-linux-gnu/atuin
 chmod +x atuin
 mv atuin ~/.local/bin
 
