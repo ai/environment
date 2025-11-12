@@ -86,8 +86,8 @@ release() {
 # Aliases
 alias g='git'
 alias ..='cd ..'
-alias l='eza --all'
-alias ll='eza --long --all --git'
+alias l='ls --all'
+alias ll='ls --long --all --git'
 
 if command -v bat > /dev/null 2>&1; then
   alias cat='bat'
