@@ -79,19 +79,21 @@ mkdir -p ~/.local/lib/zsh
 if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
   git clone -q https://github.com/zsh-users/zsh-syntax-highlighting \
     ~/.local/lib/zsh/zsh-syntax-highlighting
+
   git clone https://github.com/zsh-users/zsh-autosuggestions \
     ~/.local/lib/zsh/zsh-autosuggestions
+
   git clone https://github.com/jimhester/per-directory-history \
     ~/.local/lib/zsh/per-directory-history
-  mkdir -p ~/.local/lib/zsh/pnpm-shell-completion
-  pnpm_url=$(curl -s \
-    https://api.github.com/repos/g-plane/pnpm-shell-completion/releases/latest \
-    | grep "browser_download_url.*pnpm-shell-completion_x86_64-unknown-linux-gnu.tar.gz" \
-    | cut -d '"' -f 4)
-  curl -sSL $pnpm_url > ~/pnpm-completion.tar.gz
-  tar -xzf ~/pnpm-completion.tar.gz \
-    -C ~/.local/lib/zsh/pnpm-shell-completion \
-    pnpm-shell-completion pnpm-shell-completion.plugin.zsh
-  chmod a+x ~/.local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion
-  rm ~/pnpm-completion.tar.gz
+
+  if [ "$ARCH" == "x86_64" ]; then
+    PNPM_COMPETITION_VERSION=0.5.4
+    mkdir -p ~/.local/lib/zsh/pnpm-shell-completion
+    curl -sSL https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_$ARCH_SUFFIX.gz > ~/pnpm-completion.tar.gz
+    tar -xzf ~/pnpm-completion.tar.gz \
+      -C ~/.local/lib/zsh/pnpm-shell-completion \
+      pnpm-shell-completion pnpm-shell-completion.plugin.zsh
+    chmod a+x ~/.local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion
+    rm ~/pnpm-completion.tar.gz
+  fi
 fi
