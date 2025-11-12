@@ -2,6 +2,17 @@
 
 set -e
 
+function get_container_runtime() {
+  if command -v podman &> /dev/null; then
+    echo "podman"
+  elif command -v docker &> /dev/null; then
+    echo "docker"
+  else
+    echo "Error: Neither podman nor docker found" >&2
+    return 1
+  fi
+}
+
 function devcontainer_root() {
   local dir=$PWD
   while [ "$dir" != "/" ]; do
@@ -26,7 +37,8 @@ function devcontainer_config() {
 }
 
 function get_container_id() {
-  podman ps -q --filter label=devcontainer.local_folder=$root
+  local runtime=$(get_container_runtime)
+  $runtime ps -q --filter label=devcontainer.local_folder=$root
 }
 
 function get_username() {
@@ -66,8 +78,9 @@ if [ "$root" = "" ]; then
 fi
 
 if [ "$1" = "--up" ]; then
+  runtime=$(get_container_runtime)
   ~/.local/lib/node/node_modules/.bin/devcontainer up \
-    --docker-path podman \
+    --docker-path $runtime \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
     --mount "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}" \
     --mount "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular" \
@@ -76,18 +89,20 @@ if [ "$1" = "--up" ]; then
     --workspace-folder $root --config $(devcontainer_config $root)
 
 elif [ "$1" = "--down" ]; then
+  runtime=$(get_container_runtime)
   container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then
     echo "Container is not running"
   else
-    podman kill $container_id
+    $runtime kill $container_id
   fi
 
 elif [ "$1" = "--rebuild" ]; then
+  runtime=$(get_container_runtime)
   search_pattern="vsc-$(basename "$root")-[0-9a-f]\+-uid"
-  image_id=$(podman image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
+  image_id=$($runtime image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
   if [ "$image_id" != "" ]; then
-    podman image rm --force $image_id
+    $runtime image rm --force $image_id
   fi
   ~/Dev/environment/bin/dev --up
 
@@ -115,7 +130,8 @@ elif [ "$1" = "--port" ]; then
     env_args="--env-file /home/ai/Dev/multiocular/.env"
   fi
 
-  podman run --rm \
+  runtime=$(get_container_runtime)
+  $runtime run --rm \
     -w "/workspaces/$(basename $root)" \
     -p "${port}:${port}" \
     --mount "type=bind,source=$root,target=/workspaces/$(basename $root)" \
@@ -127,6 +143,7 @@ elif [ "$1" = "--port" ]; then
     $args
 
 else
+  runtime=$(get_container_runtime)
   container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then
     ~/Dev/environment/bin/dev --up
@@ -138,8 +155,8 @@ else
   fi
   workdir="/workspaces/$(basename $root)/$subdir"
   if [ -z "$1" ]; then
-    podman exec -w $workdir -it $container_id zsh
+    $runtime exec -w $workdir -it $container_id zsh
   else
-    podman exec -w $workdir -it $container_id zsh -ic "$*"
+    $runtime exec -w $workdir -it $container_id zsh -ic "$*"
   fi
 fi
