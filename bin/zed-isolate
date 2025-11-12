@@ -46,17 +46,6 @@ echo "Config found: $config"
 
 port=$(grep -oP '(?<=")\d+(?=:22")' $config)
 echo "Port taken from config: $port"
-used=$(grep "\"$port:22\"" ~/Dev/*/{.,.devcontainer/}devcontainer.json -l)
-if [ "$used" != "$config" ]; then
-  while true; do
-    port=$(shuf -i 1024-9999 -n 1)
-    if ! ss -tuln | grep -q ":${port}\s"; then
-      break
-    fi
-  done
-  sed -i "s|\"[0-9]\+:22\"|\"$port:22\"|g" $config
-  echo "Port was already used by other projects. Switched to $port."
-fi
 
 echo "Starting Dev Container"
 ~/Dev/environment/bin/dev --up | \
