@@ -1,5 +1,21 @@
 #!/bin/sh
 
+# Detect system architecture
+ARCH=$(uname -m)
+echo "Detected architecture: $ARCH"
+case "$ARCH" in
+  x86_64)
+    ARCH_SUFFIX="x86_64-unknown-linux-musl"
+    ;;
+  aarch64)
+    ARCH_SUFFIX="aarch64-apple-darwin"
+    ;;
+  *)
+    echo "Unsupported architecture: $ARCH"
+    exit 1
+    ;;
+esac
+
 mkdir -p ~/.config/micro
 mkdir -p ~/.config/bat
 mkdir -p ~/.config/git
@@ -35,22 +51,22 @@ chmod +x eza
 mv eza ~/.local/bin
 
 DIFFT_VERSION="0.65.0"
-curl -sL https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft-$ARCH_SUFFIX.tar.gz | tar xz
 chmod +x difft
 mv difft ~/.local/bin
 
 BAT_VERSION="0.26.0"
-curl -sL https://github.com/sharkdp/bat/releases/download/$BAT_VERSION/bat-$BAT_VERSION-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 bat-$BAT_VERSION-x86_64-unknown-linux-gnu/bat
+curl -sL https://github.com/sharkdp/bat/releases/download/$BAT_VERSION/bat-$BAT_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 bat-$BAT_VERSION-$ARCH_SUFFIX/bat
 chmod +x bat
 mv bat ~/.local/bin
 
 RG_VERSION="15.1.0"
-curl -sL https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-x86_64-unknown-linux-musl.tar.gz | tar xz --strip-components=1 ripgrep-$RG_VERSION-x86_64-unknown-linux-musl/rg
+curl -sL https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 ripgrep-$RG_VERSION-$ARCH_SUFFIX/rg
 chmod +x rg
 mv rg ~/.local/bin
 
 ATUN_VERSION="18.10"
-curl -sL https://github.com/atuinsh/atuin/releases/download/$ATUN_VERSION/atuin-$ATUN_VERSION-x86_64-unknown-linux-gnu.tar.gz | tar xz --strip-components=1 atuin-$ATUN_VERSION-x86_64-unknown-linux-gnu/atuin
+curl -sL https://github.com/atuinsh/atuin/releases/download/$ATUN_VERSION/atuin-$ATUN_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ATUN_VERSION-$ARCH_SUFFIX/atuin
 chmod +x atuin
 mv atuin ~/.local/bin
 
