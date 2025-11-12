@@ -129,7 +129,7 @@ else
     cdpath=(. ~/Dev)
   fi
 
-  # VS Code
+  # Zed
   alias e='~/Dev/environment/bin/zed-isolate .'
 
   # Development
