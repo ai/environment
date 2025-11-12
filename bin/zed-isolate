@@ -8,7 +8,7 @@ show_error_log() {
   if [ -f "$LOG_FILE" ]; then
     zenity --text-info \
         --title="Dev Container Error" \
-        --font="JetBrains Mono Regular 12" \
+        --font="Lilex Regular 12" \
         --width=800 \
         --height=600 \
         --filename="$LOG_FILE" 2>/dev/null
