@@ -83,18 +83,16 @@ if [ "$1" = "--up" ]; then
     "--docker-path" "$runtime"
     "--remote-env" "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}"
     "--mount" "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}"
+    "--dotfiles-repository" "https://github.com/ai/environment.git"
+    "--dotfiles-install-command" "devcontainer/install-dotfiles"
+    "--workspace-folder" "$root"
+    "--config" "$(devcontainer_config $root)"
   )
   if [ -d /home/ai/.local/share/multiocular ]; then
     devcontainer_args+=(
       "--mount" "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular"
     )
   fi
-  devcontainer_args+=(
-    "--dotfiles-repository" "https://github.com/ai/environment.git"
-    "--dotfiles-install-command" "devcontainer/install-dotfiles"
-    "--workspace-folder" "$root"
-    "--config" "$(devcontainer_config $root)"
-  )
   devcontainer up "${devcontainer_args[@]}"
 
 elif [ "$1" = "--down" ]; then
@@ -133,43 +131,28 @@ elif [ "$1" = "--port" ]; then
     args="$* --port $port"
   fi
 
-  # Check if args start with "pnpm multiocular" and load .env file if so
-  env_args=""
-  if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Dev/multiocular/.env ]; then
-    env_args="--env-file /home/ai/Dev/multiocular/.env"
-  fi
-
   runtime=$(get_container_runtime)
   container_args=(
     "--rm"
     "-w" "/workspaces/$(basename $root)"
     "-p" "${port}:${port}"
     "--mount" "type=bind,source=$root,target=/workspaces/$(basename $root)"
-  )
-
-  # Only mount multiocular directory if it exists
-  if [ -d "/home/ai/.local/share/multiocular" ]; then
-    container_args+=(
-      "--mount" "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular"
-    )
-  fi
-
-  container_args+=(
     "--security-opt" "label=disable"
     "--userns=keep-id"
     "--ulimit=host"
     "--cap-add=NET_RAW"
   )
 
-  if [ -n "$env_args" ]; then
-    container_args+=($env_args)
+  if [ -d "/home/ai/.local/share/multiocular" ]; then
+    container_args+=(
+      "--mount" "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular"
+    )
+  fi
+  if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Dev/multiocular/.env ]; then
+    container_args+=("--env-file /home/ai/Dev/multiocular/.env")
   fi
 
-  container_args+=(
-    "-it" "localhost/ai-opensource"
-  )
-
-  $runtime run "${container_args[@]}" $args
+  $runtime run "${container_args[@]}" -it localhost/ai-opensource $args
 
 else
   runtime=$(get_container_runtime)
