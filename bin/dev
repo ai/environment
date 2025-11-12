@@ -81,8 +81,7 @@ if [ "$1" = "--up" ]; then
   runtime=$(get_container_runtime)
   devcontainer_args=(
     "--docker-path" "$runtime"
-    "--remote-env" "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}"
-    "--mount" "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}"
+    "--mount" "type=bind,source=${SSH_AUTH_SOCK},target=/run/user/1000/gcr/ssh"
     "--dotfiles-repository" "https://github.com/ai/environment.git"
     "--dotfiles-install-command" "devcontainer/install-dotfiles"
     "--workspace-folder" "$root"
