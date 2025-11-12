@@ -65,7 +65,7 @@ curl -sL https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/rip
 chmod +x rg
 mv rg ~/.local/bin
 
-ATUN_VERSION="18.10"
+ATUN_VERSION="18.10.0"
 curl -sL https://github.com/atuinsh/atuin/releases/download/v$ATUN_VERSION/atuin-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ARCH_SUFFIX/atuin
 chmod +x atuin
 mv atuin ~/.local/bin
