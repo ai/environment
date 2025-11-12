@@ -46,7 +46,7 @@ mkdir -p ~/.local/share/history/
 touch ~/.local/share/history/histfile
 mkdir -p ~/.local/bin
 
-curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
+curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH_SUFFIX.tar.gz | tar xz
 chmod +x eza
 mv eza ~/.local/bin
 
@@ -56,7 +56,7 @@ chmod +x difft
 mv difft ~/.local/bin
 
 BAT_VERSION="0.26.0"
-curl -sL https://github.com/sharkdp/bat/releases/download/$BAT_VERSION/bat-$BAT_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 bat-$BAT_VERSION-$ARCH_SUFFIX/bat
+curl -sL https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 bat-v$BAT_VERSION-$ARCH_SUFFIX/bat
 chmod +x bat
 mv bat ~/.local/bin
 
@@ -66,7 +66,7 @@ chmod +x rg
 mv rg ~/.local/bin
 
 ATUN_VERSION="18.10"
-curl -sL https://github.com/atuinsh/atuin/releases/download/$ATUN_VERSION/atuin-$ATUN_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ATUN_VERSION-$ARCH_SUFFIX/atuin
+curl -sL https://github.com/atuinsh/atuin/releases/download/v$ATUN_VERSION/atuin-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ARCH_SUFFIX/atuin
 chmod +x atuin
 mv atuin ~/.local/bin
 
