@@ -68,15 +68,6 @@ export BAT_THEME=ansi
 export NODE_COMPILE_CACHE=~/.cache/node
 export NPM_CONFIG_USERCONFIG=~/.config/npmrc
 
-# Auto-fix changed files
-f() {
-  local files=$(git ls-files --modified --deleted --others --exclude-standard \
-    -- '*.ts' '*.js' '*.cts' '*.mts' '*.cjs' '*.mjs' '*.svelte')
-  if [[ -n "$files" ]]; then
-    echo "$files" | xargs pnpm eslint --cache --fix
-  fi
-}
-
 # Release function
 release() {
   local VERSION=$(grep -oP '(?<="version": ")[^"]*' package.json)
