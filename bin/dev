@@ -79,7 +79,7 @@ fi
 
 if [ "$1" = "--up" ]; then
   runtime=$(get_container_runtime)
-  ~/.local/lib/node/node_modules/.bin/devcontainer up \
+  devcontainer up \
     --docker-path $runtime \
     --remote-env "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}" \
     --mount "type=bind,source=${SSH_AUTH_SOCK},target=${SSH_AUTH_SOCK}" \
