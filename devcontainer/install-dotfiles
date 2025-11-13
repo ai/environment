@@ -87,9 +87,9 @@ if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
     ~/.local/lib/zsh/per-directory-history
 
   if [ "$ARCH" == "x86_64" ]; then
-    PNPM_COMPETITION_VERSION=0.5.4
+    PNPM_COMPETITION_VERSION="0.5.4"
     mkdir -p ~/.local/lib/zsh/pnpm-shell-completion
-    curl -sSL https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_$ARCH_SUFFIX.gz > ~/pnpm-completion.tar.gz
+    curl -sSL https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_$ARCH_SUFFIX.tar.gz > ~/pnpm-completion.tar.gz
     tar -xzf ~/pnpm-completion.tar.gz \
       -C ~/.local/lib/zsh/pnpm-shell-completion \
       pnpm-shell-completion pnpm-shell-completion.plugin.zsh
