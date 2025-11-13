@@ -96,8 +96,8 @@ if command -v eza > /dev/null 2>&1; then
   alias ls='eza'
 fi
 
-alias r='dev node --disable-warning=ExperimentalWarning --run'
-alias t='dev node --disable-warning=ExperimentalWarning --run test'
+alias r='dev node --run'
+alias t='dev node --run test'
 alias n='pnpm '
 alias pui='pnpm update --interactive --latest -r --include-workspace-root'
 alias pu='pnpm update -r --include-workspace-root'
