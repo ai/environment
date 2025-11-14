@@ -47,6 +47,8 @@ echo "Config found: $config"
 port=$(grep -oP '(?<=")\d+(?=:22")' $config)
 echo "Port taken from config: $port"
 
+export PATH="/home/ai/.local/lib/node/node_modules/.bin/:$PATH"
+
 echo "Starting Dev Container"
 ~/Dev/environment/bin/dev --up | \
   zenity --progress --text="Starting" --title="Dev Container" --pulsate --auto-close --no-cancel
