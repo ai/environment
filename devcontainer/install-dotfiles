@@ -38,13 +38,28 @@ echo "github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHA
 echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aGCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=" > ~/.ssh/known_hosts
 chmod 600 ~/.ssh/known_hosts
 
-if command -v micro >/dev/null 2>&1; then
-  micro -plugin install editorconfig
-fi
-
 mkdir -p ~/.local/share/history/
 touch ~/.local/share/history/histfile
 mkdir -p ~/.local/bin
+
+if ! command -v micro >/dev/null 2>&1; then
+  MICRO_VERSION="2.0.14"
+  if [ "$ARCH" = "x86_64" ]; then
+    MICRO_ARCH="linux64-static"
+  else
+    MICRO_ARCH="linux-arm64"
+  fi
+  curl -sL https://github.com/zyedidia/micro/releases/download/v$MICRO_VERSION/micro-$MICRO_VERSION-$MICRO_ARCH.tar.gz | tar xz
+  mv micro-$MICRO_VERSION/micro ~/.local/bin
+  chmod +x ~/.local/bin/micro
+  rm -rf micro-$MICRO_VERSION
+fi
+
+if command -v micro >/dev/null 2>&1; then
+  micro -plugin install editorconfig
+elif [ -f ~/.local/bin/micro ]; then
+  ~/.local/bin/micro -plugin install editorconfig
+fi
 
 curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH_SUFFIX.tar.gz | tar xz
 chmod +x eza
