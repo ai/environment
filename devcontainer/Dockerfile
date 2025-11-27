@@ -89,7 +89,8 @@ RUN chmod a+rx /usr/local/bin/pnpm \
 
 USER ai
 
-RUN mkdir -p /home/ai/.local/share/pnpm/ \
+RUN micro -plugin install editorconfig \
+  && mkdir -p /home/ai/.local/share/pnpm/ \
   && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
   && pnpm config --global set minimumReleaseAge 1440 \
   && pnpm config --global set trustPolicy no-downgrade
