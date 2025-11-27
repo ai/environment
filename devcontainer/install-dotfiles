@@ -106,10 +106,10 @@ if ! cmd_exists atuin; then
 fi
 
 if [ ! -f ~/.local/bin/starship ] && [ ! -f /usr/local/bin/starship ]; then
-  curl -sS https://starship.rs/install.sh > starship.sh
-  chmod a+x starship.sh
-  ./starship.sh -y -b ~/.local/bin
-  rm starship.sh
+  curl -sS https://starship.rs/install.sh > install-starship.sh
+  chmod a+x install-starship.sh
+  ./install-starship.sh -y -b ~/.local/bin
+  rm install-starship.sh
 fi
 
 mkdir -p ~/.local/lib/zsh
