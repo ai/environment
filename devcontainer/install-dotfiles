@@ -42,7 +42,15 @@ mkdir -p ~/.local/share/history/
 touch ~/.local/share/history/histfile
 mkdir -p ~/.local/bin
 
-if ! command -v micro >/dev/null 2>&1; then
+cmd_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+miss_lib() {
+  [ ! -d ~/.local/lib/$1 ] && [ ! -d /usr/local/lib/$1 ]
+}
+
+if ! cmd_exists micro; then
   MICRO_VERSION="2.0.14"
   if [ "$ARCH" = "x86_64" ]; then
     MICRO_ARCH="linux64-static"
@@ -55,58 +63,80 @@ if ! command -v micro >/dev/null 2>&1; then
   rm -rf micro-$MICRO_VERSION
 fi
 
-if command -v micro >/dev/null 2>&1; then
-  micro -plugin install editorconfig
-elif [ -f ~/.local/bin/micro ]; then
-  ~/.local/bin/micro -plugin install editorconfig
+if [ ! -d ~/.config/micro/plug/editorconfig ]; then
+  if cmd_exists micro; then
+    micro -plugin install editorconfig
+  elif [ -f ~/.local/bin/micro ]; then
+    ~/.local/bin/micro -plugin install editorconfig
+  fi
 fi
 
-curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH_SUFFIX.tar.gz | tar xz
-chmod +x eza
-mv eza ~/.local/bin
+if ! cmd_exists eza; then
+  curl -sL https://github.com/eza-community/eza/releases/latest/download/eza_$ARCH_SUFFIX.tar.gz | tar xz
+  chmod +x eza
+  mv eza ~/.local/bin
+fi
 
-DIFFT_VERSION="0.65.0"
-curl -sL https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft-$ARCH_SUFFIX.tar.gz | tar xz
-chmod +x difft
-mv difft ~/.local/bin
+if ! cmd_exists difft; then
+  DIFFT_VERSION="0.65.0"
+  curl -sL https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft-$ARCH_SUFFIX.tar.gz | tar xz
+  chmod +x difft
+  mv difft ~/.local/bin
+fi
 
-BAT_VERSION="0.26.0"
-curl -sL https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 bat-v$BAT_VERSION-$ARCH_SUFFIX/bat
-chmod +x bat
-mv bat ~/.local/bin
+if ! cmd_exists bat; then
+  BAT_VERSION="0.26.0"
+  curl -sL https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 bat-v$BAT_VERSION-$ARCH_SUFFIX/bat
+  chmod +x bat
+  mv bat ~/.local/bin
+fi
 
-RG_VERSION="15.1.0"
-curl -sL https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 ripgrep-$RG_VERSION-$ARCH_SUFFIX/rg
-chmod +x rg
-mv rg ~/.local/bin
+if ! cmd_exists rg; then
+  RG_VERSION="15.1.0"
+  curl -sL https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 ripgrep-$RG_VERSION-$ARCH_SUFFIX/rg
+  chmod +x rg
+  mv rg ~/.local/bin
+fi
 
-ATUN_VERSION="18.10.0"
-curl -sL https://github.com/atuinsh/atuin/releases/download/v$ATUN_VERSION/atuin-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ARCH_SUFFIX/atuin
-chmod +x atuin
-mv atuin ~/.local/bin
+if ! cmd_exists atuin; then
+  ATUN_VERSION="18.10.0"
+  curl -sL https://github.com/atuinsh/atuin/releases/download/v$ATUN_VERSION/atuin-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ARCH_SUFFIX/atuin
+  chmod +x atuin
+  mv atuin ~/.local/bin
+fi
 
-curl -sS https://starship.rs/install.sh > starship.sh
-chmod a+x starship.sh
-./starship.sh -y -b ~/.local/bin
-rm starship.sh
+if [ ! -f ~/.local/bin/starship ] && [ ! -f /usr/local/bin/starship ]; then
+  curl -sS https://starship.rs/install.sh > starship.sh
+  chmod a+x starship.sh
+  ./starship.sh -y -b ~/.local/bin
+  rm starship.sh
+fi
 
 mkdir -p ~/.local/lib/zsh
-if command -v git >/dev/null 2>&1 && command -v zsh >/dev/null 2>&1; then
-  git clone -q https://github.com/zsh-users/zsh-syntax-highlighting \
-    ~/.local/lib/zsh/zsh-syntax-highlighting
+if cmd_exists git && cmd_exists zsh; then
+  if miss_lib zsh/zsh-syntax-highlighting; then
+    git clone -q https://github.com/zsh-users/zsh-syntax-highlighting \
+      ~/.local/lib/zsh/zsh-syntax-highlighting
+  fi
 
-  git clone https://github.com/zsh-users/zsh-autosuggestions \
-    ~/.local/lib/zsh/zsh-autosuggestions
+  if miss_lib zsh/zsh-autosuggestions; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+      ~/.local/lib/zsh/zsh-autosuggestions
+  fi
 
-  git clone https://github.com/jimhester/per-directory-history \
-    ~/.local/lib/zsh/per-directory-history
+  if miss_lib zsh/per-directory-history; then
+    git clone https://github.com/jimhester/per-directory-history \
+      ~/.local/lib/zsh/per-directory-history
+  fi
 
-  PNPM_COMPETITION_VERSION="0.5.5"
-  mkdir -p ~/.local/lib/zsh/pnpm-shell-completion
-  curl -sSL https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_$ARCH_SUFFIX.tar.gz > ~/pnpm-completion.tar.gz
-  tar -xzf ~/pnpm-completion.tar.gz \
-    -C ~/.local/lib/zsh/pnpm-shell-completion \
-    pnpm-shell-completion pnpm-shell-completion.plugin.zsh
-  chmod a+x ~/.local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion
-  rm ~/pnpm-completion.tar.gz
+  if miss_lib zsh/pnpm-shell-completion; then
+    PNPM_COMPETITION_VERSION="0.5.5"
+    mkdir -p ~/.local/lib/zsh/pnpm-shell-completion
+    curl -sSL https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_$ARCH_SUFFIX.tar.gz > ~/pnpm-completion.tar.gz
+    tar -xzf ~/pnpm-completion.tar.gz \
+      -C ~/.local/lib/zsh/pnpm-shell-completion \
+      pnpm-shell-completion pnpm-shell-completion.plugin.zsh
+    chmod a+x ~/.local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion
+    rm ~/pnpm-completion.tar.gz
+  fi
 fi
