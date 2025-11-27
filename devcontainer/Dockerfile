@@ -93,8 +93,7 @@ USER ai
 RUN micro -plugin install editorconfig \
   && mkdir -p /home/ai/.local/share/pnpm/ \
   && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
-  && pnpm config --global set minimumReleaseAge 1440 \
-  && pnpm config --global set trustPolicy no-downgrade
+  && pnpm config --global set minimumReleaseAge 1440
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
