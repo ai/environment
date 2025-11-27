@@ -14,6 +14,7 @@ ENV NODE_VERSION=25.2.1 \
 RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
   openssh-server bind-utils iputils iproute libatomic nss dbus-libs atk \
   at-spi2-atk cups-libs libdrm libXcomposite libXdamage libXrandr mesa-libgbm \
+  pango alsa-lib \
   && dnf clean all \
   && rm -rf /var/cache/dnf \
   && mkdir -p /var/run/sshd \
