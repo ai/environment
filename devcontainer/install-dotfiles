@@ -108,7 +108,12 @@ if ! cmd_exists atuin; then
 fi
 
 if [ ! -f ~/.local/bin/starship ] && [ ! -f /usr/local/bin/starship ]; then
-  curl -sL https://github.com/starship/starship/releases/download/v$STARSHIP_VERSION/starship-$ARCH_SUFFIX.tar.gz | tar xz
+  if [ "$ARCH" = "x86_64" ]; then
+    MICRO_ARCH="$ARCH_SUFFIX"
+  else
+    MICRO_ARCH="aarch64-unknown-linux-musl"
+  fi
+  curl -sL https://github.com/starship/starship/releases/download/v$STARSHIP_VERSION/starship-$MICRO_ARCH.tar.gz | tar xz
   chmod +x starship
   mv starship ~/.local/bin
 fi
