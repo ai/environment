@@ -9,6 +9,7 @@ ENV NODE_VERSION=25.2.1 \
   BAT_VERSION=0.26.0 \
   RG_VERSION=15.1.0 \
   ATUIN_VERSION=18.10.0 \
+  STARSHIP_VERSION=1.24.1 \
   PNPM_COMPETITION_VERSION=0.5.5
 
 RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
@@ -30,7 +31,7 @@ ADD https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft
 ADD https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-x86_64-unknown-linux-musl.tar.gz /bat.tar.gz
 ADD https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-x86_64-unknown-linux-musl.tar.gz /rg.tar.gz
 ADD https://github.com/atuinsh/atuin/releases/download/v$ATUIN_VERSION/atuin-x86_64-unknown-linux-musl.tar.gz /atuin.tar.gz
-ADD https://starship.rs/install.sh /install-starship.sh
+ADD https://github.com/starship/starship/releases/download/v$STARSHIP_VERSION/starship-x86_64-unknown-linux-musl.tar.gz /starship.tar.gz
 ADD https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_x86_64-unknown-linux-musl.tar.gz /pnpm-completion.tar.gz
 
 RUN chmod a+rx /usr/local/bin/pnpm \
@@ -74,8 +75,10 @@ RUN chmod a+rx /usr/local/bin/pnpm \
   && chmod +x /usr/local/bin/atuin \
   && rm /atuin.tar.gz \
   \
-  && sh /install-starship.sh -y -b /usr/local/bin \
-  && rm /install-starship.sh \
+  && tar -xz -f /starship.tar.gz \
+  && mv starship /usr/local/bin/starship \
+  && chmod +x /usr/local/bin/starship \
+  && rm /starship.tar.gz \
   \
   && mkdir -p /usr/local/lib/zsh \
   && git clone -q https://github.com/zsh-users/zsh-syntax-highlighting /usr/local/lib/zsh/zsh-syntax-highlighting \

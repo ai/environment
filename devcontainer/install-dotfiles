@@ -1,6 +1,13 @@
 #!/bin/sh
 
-# Detect system architecture
+MICRO_VERSION="2.0.14"
+DIFFT_VERSION="0.65.0"
+BAT_VERSION="0.26.0"
+RG_VERSION="15.1.0"
+ATUIN_VERSION="18.10.0"
+STARSHIP_VERSION="1.24.1"
+PNPM_COMPETITION_VERSION="0.5.5"
+
 ARCH=$(uname -m)
 echo "Detected architecture: $ARCH"
 case "$ARCH" in
@@ -51,7 +58,6 @@ miss_lib() {
 }
 
 if ! cmd_exists micro; then
-  MICRO_VERSION="2.0.14"
   if [ "$ARCH" = "x86_64" ]; then
     MICRO_ARCH="linux64-static"
   else
@@ -78,38 +84,33 @@ if ! cmd_exists eza; then
 fi
 
 if ! cmd_exists difft; then
-  DIFFT_VERSION="0.65.0"
   curl -sL https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft-$ARCH_SUFFIX.tar.gz | tar xz
   chmod +x difft
   mv difft ~/.local/bin
 fi
 
 if ! cmd_exists bat; then
-  BAT_VERSION="0.26.0"
   curl -sL https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 bat-v$BAT_VERSION-$ARCH_SUFFIX/bat
   chmod +x bat
   mv bat ~/.local/bin
 fi
 
 if ! cmd_exists rg; then
-  RG_VERSION="15.1.0"
   curl -sL https://github.com/BurntSushi/ripgrep/releases/download/$RG_VERSION/ripgrep-$RG_VERSION-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 ripgrep-$RG_VERSION-$ARCH_SUFFIX/rg
   chmod +x rg
   mv rg ~/.local/bin
 fi
 
 if ! cmd_exists atuin; then
-  ATUN_VERSION="18.10.0"
-  curl -sL https://github.com/atuinsh/atuin/releases/download/v$ATUN_VERSION/atuin-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ARCH_SUFFIX/atuin
+  curl -sL https://github.com/atuinsh/atuin/releases/download/v$ATUIN_VERSION/atuin-$ARCH_SUFFIX.tar.gz | tar xz --strip-components=1 atuin-$ARCH_SUFFIX/atuin
   chmod +x atuin
   mv atuin ~/.local/bin
 fi
 
 if [ ! -f ~/.local/bin/starship ] && [ ! -f /usr/local/bin/starship ]; then
-  curl -sS https://starship.rs/install.sh > install-starship.sh
-  chmod a+x install-starship.sh
-  ./install-starship.sh -y -b ~/.local/bin
-  rm install-starship.sh
+  curl -sL https://github.com/starship/starship/releases/download/v$STARSHIP_VERSION/starship-$ARCH_SUFFIX.tar.gz | tar xz
+  chmod +x starship
+  mv starship ~/.local/bin
 fi
 
 mkdir -p ~/.local/lib/zsh
@@ -130,7 +131,6 @@ if cmd_exists git && cmd_exists zsh; then
   fi
 
   if miss_lib zsh/pnpm-shell-completion; then
-    PNPM_COMPETITION_VERSION="0.5.5"
     mkdir -p ~/.local/lib/zsh/pnpm-shell-completion
     curl -sSL https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_$ARCH_SUFFIX.tar.gz > ~/pnpm-completion.tar.gz
     tar -xzf ~/pnpm-completion.tar.gz \
