@@ -5,8 +5,8 @@ DOCKERFILE_PATH="/home/ai/Dev/environment/devcontainer/Dockerfile"
 latest_node=$(curl -s "https://nodejs.org/dist/index.json" | jq -r '.[0].version' | sed 's/v//')
 latest_pnpm=$(curl -s "https://api.github.com/repos/pnpm/pnpm/releases/latest" | jq -r '.tag_name' | sed 's/v//')
 
-current_node=$(grep -oP 'NODE_VERSION=\K.*' "$DOCKERFILE_PATH")
-current_pnpm=$(grep -oP 'PNPM_VERSION=\K.*' "$DOCKERFILE_PATH")
+current_node=$(grep -oP 'NODE_VERSION=\K[^ \\]+' "$DOCKERFILE_PATH")
+current_pnpm=$(grep -oP 'PNPM_VERSION=\K[^ \\]+' "$DOCKERFILE_PATH")
 
 update_needed=false
 
