@@ -13,6 +13,7 @@
 * [Dynamic Calendar, Clocks and Weather Icons ](https://extensions.gnome.org/extension/8640/dynamic-calendar-clocks-and-weather-icons-reborn/)
 * [Emoji Copy](https://extensions.gnome.org/extension/6242/emoji-copy/)
 * [Folder Search Provider](https://extensions.gnome.org/extension/8227/folder-search-provider/)
+* [Foresight](https://extensions.gnome.org/extension/7901/foresight/)
 * [Forge](https://extensions.gnome.org/extension/4481/forge/)
 * [Gnome 4x UI Improvements](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
 * [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
