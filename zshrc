@@ -11,8 +11,10 @@ autoload -U colors && colors
 
 # Key bindings
 bindkey -e
-bindkey ';5D' backward-word # ctrl+left
-bindkey ';5C' forward-word  # ctrl+right
+bindkey ';5D' backward-word # Ctrl+Left
+bindkey ';5C' forward-word  # Ctrl+Right
+stty intr ^X                # Replace Ctrl+C to Ctrl+X
+stty susp undef             # Disable Ctrl + Z
 
 # Completion
 zstyle :compinstall filename "$HOME/.zshrc"

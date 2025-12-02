@@ -7,7 +7,9 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-s": ["terminal::SendKeystroke", "ctrl-s"]
+      "ctrl-s": ["terminal::SendKeystroke", "ctrl-s"],
+      "ctrl-c": "terminal::Copy",
+      "ctrl-v": "terminal::Paste"
     }
   }
 ]

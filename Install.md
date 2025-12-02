@@ -129,6 +129,8 @@ flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop us.zoom.Z
 
 Remove default GNOME console.
 
+Set `Ctrl + C` and `Ctrl + V` for copy/paste in new terminal settings.
+
 Fix unnecessary folder creation in Zoom:
 
 ```sh
