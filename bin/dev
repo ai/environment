@@ -148,7 +148,8 @@ elif [ "$1" = "--port" ]; then
     )
   fi
   if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Dev/multiocular/.env ]; then
-    container_args+=("--env-file /home/ai/Dev/multiocular/.env")
+    container_args+=("--env-file")
+    container_args+=("/home/ai/Dev/multiocular/.env")
   fi
 
   $runtime run "${container_args[@]}" -it localhost/ai-opensource $args
