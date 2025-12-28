@@ -1,4 +1,9 @@
 {
+  "colorize_brackets": true,
+  "indent_guides": {
+    "coloring": "indent_aware",
+    "background_coloring": "disabled"
+  },
   "show_completions_on_input": true,
   "buffer_font_family": "Lilex",
   "agent": {
@@ -9,7 +14,7 @@
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-haiku-4-5"
+      "model": "claude-sonnet-4-5"
     }
   },
   "edit_predictions": {
