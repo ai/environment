@@ -2,7 +2,7 @@
 Type=Application
 Name=Эротика
 Comment=Play porn movies
-Icon=org.gnome.Showtime
+Icon=strawberry
 Exec=/home/ai/Dev/environment/bin/porn
 Actions=New;
 Name[ru]=Эротика
