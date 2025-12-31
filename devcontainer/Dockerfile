@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:43
 
 ENV NODE_VERSION=25.2.1 \
-  PNPM_VERSION=10.26.1 \
+  PNPM_VERSION=10.27.0 \
   NODE_24=24.11.1 \
   NODE_22=22.21.1 \
   NODE_20=20.19.5 \
@@ -97,7 +97,9 @@ RUN micro -plugin install editorconfig \
   && mkdir -p /home/ai/.local/share/pnpm/ \
   && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
   && pnpm config --global set minimumReleaseAge 1440 \
-  && pnpm config --global set blockExoticSubdeps true
+  && pnpm config --global set blockExoticSubdeps true \
+  && pnpm config --global set trustPolicy "no-downgrade" \
+  && pnpm config --global set trustPolicyIgnoreAfter 43200
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
