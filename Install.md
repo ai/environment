@@ -565,14 +565,6 @@ unzip ngram-ru-20150914.zip
 rm ngram*.zip
 ```
 
-Prepare `fasttext`:
-
-```sh
-mkdir -p ~/.local/share/fasttext
-cd ~/.local/share/fasttext
-wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
-```
-
 ```sh
 mkdir -p ~/.config/systemd/user/
 ```
@@ -584,18 +576,16 @@ Create service unit `~/.config/systemd/user/languagetool.service`:
 Description=LanguageTool Server
 
 [Service]
-ExecStartPre=podman build -t localhost/languagetool \
+ExecStartPre=podman build -t erikvl87/languagetool \
   -f /home/ai/Dev/environment/languagetool/Dockerfile \
   /home/ai/Dev/environment/languagetool
 ExecStart=podman run --rm --replace --name languagetool \
   -p 8081:8010 \
   -e langtool_languageModel=/ngrams \
   -e Java_Xms=512m -e Java_Xmx=2g \
-  -e langtool_fasttextBinary=/usr/bin/fasttext \
-  -e langtool_fasttextModel=/fasttext/lid.176.bin \
   -v /home/ai/.local/share/fasttext:/fasttext:Z \
   -v /home/ai/.local/share/ngrams:/ngrams:Z \
-  localhost/languagetool:latest
+  erikvl87/languagetool:latest
 
 [Install]
 WantedBy=default.target

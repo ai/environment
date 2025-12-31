@@ -1,9 +1,0 @@
-#!/bin/zsh
-
-set -e
-
-systemctl --user stop languagetool.service
-podman build -t localhost/languagetool \
-  -f ~/Dev/environment/languagetool/Dockerfile \
-  ~/Dev/environment/languagetool
-systemctl --user start languagetool.service

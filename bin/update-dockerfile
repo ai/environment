@@ -30,8 +30,6 @@ fi
 if [ "$update_needed" = true ]; then
   echo -e "Удаляем все старые образы"
   podman rmi --all --force
-  echo -e "${NC}Создаём образ для LanguageTool${GRAY}"
-  ~/Dev/environment/bin/update-languagetool
   echo -e "${NC}Создаём новый базовый образ Dev Container${GRAY}"
   ~/Dev/environment/bin/build-devcontainer
 else
