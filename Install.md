@@ -576,9 +576,6 @@ Create service unit `~/.config/systemd/user/languagetool.service`:
 Description=LanguageTool Server
 
 [Service]
-ExecStartPre=podman build -t erikvl87/languagetool \
-  -f /home/ai/Dev/environment/languagetool/Dockerfile \
-  /home/ai/Dev/environment/languagetool
 ExecStart=podman run --rm --replace --name languagetool \
   -p 8081:8010 \
   -e langtool_languageModel=/ngrams \
