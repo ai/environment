@@ -18,7 +18,7 @@ npm update
 ~/Dev/environment/bin/update-dockerfile
 
 echo -e "\n${TITLE}Обновление темы Firefox${GRAY}"
-cd ~/.mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
+cd ~/.config/mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme
 git pull origin master
 
 echo -e "\n${TITLE}Обновление расширений GNOME${GRAY}"
