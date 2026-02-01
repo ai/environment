@@ -582,7 +582,7 @@ ExecStart=podman run --rm --replace --name languagetool \
   -e Java_Xms=512m -e Java_Xmx=2g \
   -v /home/ai/.local/share/fasttext:/fasttext:Z \
   -v /home/ai/.local/share/ngrams:/ngrams:Z \
-  erikvl87/languagetool:latest
+  docker.io/erikvl87/languagetool:latest
 
 [Install]
 WantedBy=default.target
