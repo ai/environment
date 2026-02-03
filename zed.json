@@ -4,6 +4,9 @@
     "coloring": "indent_aware",
     "background_coloring": "disabled"
   },
+  "prettier": {
+    "allowed": true
+  },
   "show_completions_on_input": true,
   "buffer_font_family": "Lilex",
   "agent": {
@@ -14,7 +17,14 @@
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4-5"
+      "model": "claude-haiku-4-5"
+    }
+  },
+  "agent_servers": {
+    "claude": {
+      "env": {
+        "CLAUDE_CONFIG_DIR": "/home/ai/.local/share/claude"
+      }
     }
   },
   "edit_predictions": {

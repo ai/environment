@@ -82,6 +82,9 @@ export BAT_THEME=ansi
 export NODE_COMPILE_CACHE=~/.cache/node
 export NPM_CONFIG_USERCONFIG=~/.config/npmrc
 
+# Claude Code
+export CLAUDE_CONFIG_DIR="$HOME/.local/share/claude"
+
 # Release function
 release() {
   local VERSION=$(grep -oP '(?<="version": ")[^"]*' package.json)
