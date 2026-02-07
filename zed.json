@@ -20,13 +20,6 @@
       "model": "claude-haiku-4-5"
     }
   },
-  "agent_servers": {
-    "claude": {
-      "env": {
-        "CLAUDE_CONFIG_DIR": "/home/ai/.local/share/claude"
-      }
-    }
-  },
   "edit_predictions": {
     "mode": "subtle",
     "copilot": {
