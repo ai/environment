@@ -4,13 +4,13 @@
     {
       "source": "pnpm-store",
       "target": "/home/ai/.local/share/pnpm/store",
-      "type": "volume"
+      "type": "volume",
     },
     {
       "source": "shell-history",
       "target": "/home/ai/.local/share/history/",
-      "type": "volume"
-    }
+      "type": "volume",
+    },
   ],
-  "runArgs": ["--cap-add=NET_RAW", "--ulimit=host", "-p", "2200:22"]
+  "runArgs": ["--net=bridge"],
 }

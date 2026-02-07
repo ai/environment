@@ -38,14 +38,9 @@ if [ -f .devcontainer/devcontainer.json ]; then
 fi
 if [ "$config" == "" ]; then
   echo "Dev Container is disabled because of lack of Dev Container config"
-  flatpak run dev.zed.Zed ./
+  flatpak run dev.zed.Zed --new ./
   exit 0
 fi
-
-echo "Config found: $config"
-
-port=$(grep -oP '(?<=")\d+(?=:22")' $config)
-echo "Port taken from config: $port"
 
 export PATH="/home/ai/.local/lib/node/node_modules/.bin/:$PATH"
 
@@ -63,9 +58,9 @@ fi
 
 flatpak run dev.zed.Zed --new . --wait
 
-sleep 5
-while netstat -tnp 2>/dev/null | grep ":$port" | grep -q 'ESTABLISHED'; do
-  sleep 5
+sleep 60
+while podman top $container_id | grep zed_server; do
+  sleep 30
 done
 
 ~/Dev/environment/bin/dev --down

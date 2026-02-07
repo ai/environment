@@ -52,22 +52,12 @@ function get_username() {
 }
 
 if [ "$1" = "--isolate" ]; then
-  cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer.json
+  mkdir -p .devcontainer/
+  cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer/
   if [ -d .git ]; then
-    echo '.devcontainer.json' >> .git/info/exclude
+    sed -i '/devcontainer/d' .git/info/exclude
+    echo '.devcontainer/devcontainer.json' >> .git/info/exclude
   fi
-
-  while true; do
-    port=$(shuf -i 1024-9999 -n 1)
-    if ! ss -tuln | grep -q ":${port}\s"; then
-      used=$(grep "\"$port:22\"" ~/Dev/*/{.,.devcontainer/}devcontainer.json -l || true)
-      if [ "$used" = "" ]; then
-        break
-      fi
-    fi
-  done
-  sed -i "s|\"[0-9]\+:22\"|\"$port:22\"|g" .devcontainer.json
-  echo "Project port will be $port"
   exit
 fi
 
