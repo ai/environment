@@ -13,13 +13,10 @@ ENV NODE_VERSION=25.6.0 \
   PNPM_COMPETITION_VERSION=0.5.5
 
 RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
-  openssh-server bind-utils iputils iproute libatomic nss dbus-libs atk \
-  at-spi2-atk cups-libs libdrm libXcomposite libXdamage libXrandr mesa-libgbm \
-  pango alsa-lib \
+  bind-utils iputils iproute libatomic nss dbus-libs atk at-spi2-atk cups-libs \
+  libdrm libXcomposite libXdamage libXrandr mesa-libgbm pango alsa-lib \
   && dnf clean all \
-  && rm -rf /var/cache/dnf \
-  && mkdir -p /var/run/sshd \
-  && ssh-keygen -A
+  && rm -rf /var/cache/dnf
 
 ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.xz
 ADD https://nodejs.org/dist/v${NODE_24}/node-v${NODE_24}-linux-x64.tar.gz /node24.tar.xz

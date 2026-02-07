@@ -533,10 +533,10 @@ chown ai:ai /home/ai/.local/share/pnpm/store/v10
 chown ai:ai /home/ai/.local/share/history/histfile
 ```
 
-Sign-in to npm:
+Fix Dev Container with Podman in Zed:
 
 ```sh
-npm login
+sudo ln -s $(which podman) /usr/local/bin/docker
 ```
 
 Install Keybase:

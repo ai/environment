@@ -7,6 +7,7 @@
   "prettier": {
     "allowed": true
   },
+  "use_podman": true,
   "show_completions_on_input": true,
   "buffer_font_family": "Lilex",
   "agent": {

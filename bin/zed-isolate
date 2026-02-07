@@ -53,7 +53,6 @@ echo "Starting Dev Container"
 ~/Dev/environment/bin/dev --up | \
   zenity --progress --text="Starting" --title="Dev Container" --pulsate --auto-close --no-cancel
 
-project=$(basename $(pwd))
 container_id=$(podman ps -q --filter label=devcontainer.local_folder=$(pwd))
 
 if [ "$container_id" == "" ]; then
@@ -62,20 +61,7 @@ if [ "$container_id" == "" ]; then
   exit 1
 fi
 
-username=""
-if [ -f ".devcontainer/Dockerfile" ]; then
-  username=$(
-    awk -v IGNORECASE=1 '/^\s*USER\s+/{u=$2} END{print u}' ".devcontainer/Dockerfile"
-  )
-fi
-username="${username:-ai}"
-
-url=ssh://$username@127.0.0.1:$port/workspaces/$project
-echo "Start SSH for $url"
-
-setsid podman exec -d --user root $container_id /usr/sbin/sshd -D
-
-flatpak run dev.zed.Zed $url
+flatpak run dev.zed.Zed --new . --wait
 
 sleep 5
 while netstat -tnp 2>/dev/null | grep ":$port" | grep -q 'ESTABLISHED'; do
