@@ -104,6 +104,7 @@ elif [ "$1" = "--down" ]; then
   fi
 
 elif [ "$1" = "--rebuild" ]; then
+  ~/Dev/environment/bin/dev --down
   runtime=$(get_container_runtime)
   search_pattern="vsc-$(basename "$root")-[0-9a-f]\+-uid"
   image_id=$($runtime image ls --format "{{.Repository}}:{{.Tag}}" | grep "$search_pattern" | awk '{print $1}')
