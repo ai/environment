@@ -82,6 +82,11 @@ if [ "$1" = "--up" ]; then
       "--mount" "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular"
     )
   fi
+  if [ -d /home/ai/.local/share/claude ]; then
+    devcontainer_args+=(
+      "--mount" "type=bind,source=/home/ai/.local/share/claude,target=/home/$(get_username)/.local/share/claude"
+    )
+  fi
   devcontainer up "${devcontainer_args[@]}"
 
 elif [ "$1" = "--down" ]; then
