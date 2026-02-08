@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora:43
 
 ENV NODE_VERSION=25.6.0 \
-  PNPM_VERSION=10.28.2 \
+  PNPM_VERSION=10.29.1 \
   NODE_24=24.13.0 \
   NODE_22=22.22.0 \
   NODE_20=20.20.0 \
