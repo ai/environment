@@ -315,7 +315,10 @@ Move Claude Code:
 ```bash
 mkdir -p ~/.config/environment.d/
 mkdir -p ~/.local/share/claude
-echo "CLAUDE_CONFIG_DIR=$HOME/.local/share/claude" >> ~/.config/environment.d/90-claude.conf
+echo "GNUPGHOME=$HOME/.local/share/gnupg" >> ~/.config/environment.d/90-clean-home.conf
+echo "NODE_COMPILE_CACHE=$HOME/.cache/node" >> ~/.config/environment.d/90-clean-home.conf
+echo "NPM_CONFIG_USERCONFIG=$HOME/.config/npmrc" >> ~/.config/environment.d/90-clean-home.conf
+echo "CLAUDE_CONFIG_DIR=$HOME/.local/share/claude" >> ~/.config/environment.d/90-clean-home.conf
 ```
 
 Sign-in into accounts in Zed.
