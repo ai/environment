@@ -52,11 +52,10 @@ function get_username() {
 }
 
 if [ "$1" = "--isolate" ]; then
-  mkdir -p .devcontainer/
-  cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer/
+  cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer.json
   if [ -d .git ]; then
     sed -i '/devcontainer/d' .git/info/exclude
-    echo '.devcontainer/devcontainer.json' >> .git/info/exclude
+    echo '.devcontainer.json' >> .git/info/exclude
   fi
   exit
 fi
