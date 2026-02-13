@@ -310,6 +310,14 @@ Start copying `Vídeos/*` from SDD.
 
 ### Text Editors
 
+Move Claude Code:
+
+```bash
+mkdir -p ~/.config/environment.d/
+mkdir -p ~/.local/share/claude
+echo "CLAUDE_CONFIG_DIR=$HOME/.local/share/claude" >> ~/.config/environment.d/90-claude.conf
+```
+
 Sign-in into accounts in Zed.
 
 Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `stylelint`.
