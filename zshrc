@@ -16,43 +16,36 @@ bindkey ';5C' forward-word  # Ctrl+Right
 stty intr ^X                # Replace Ctrl+C to Ctrl+X
 stty susp undef             # Disable Ctrl + Z
 
-# Completion
-zstyle :compinstall filename "$HOME/.zshrc"
-autoload -Uz compinit
-compinit -i -d "$HOME/.cache/zcompcache"
-
 # Force keeping home folder clean
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export NODE_COMPILE_CACHE="$XDG_CACHE_HOME/node"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npmrc"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgreprc"
+export CLAUDE_CONFIG_DIR="$XDG_DATA_HOME/claude"
+
+# Completion
+zstyle :compinstall filename "$HOME/.zshrc"
+autoload -Uz compinit
+compinit -i -d "$XDG_CACHE_HOME/zcompcache"
 
 # Zsh plugins
-export HISTORY_BASE="$HOME/.cache/zsh_directory_history"
-
-if [[ -d ~/.local/lib/zsh/zsh-syntax-highlighting/ ]]; then
-  source ~/.local/lib/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-elif [[ -d /usr/local/lib/zsh/zsh-syntax-highlighting/ ]]; then
-  source /usr/local/lib/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-if [[ -d ~/.local/lib/zsh/zsh-autosuggestions/ ]]; then
-  source ~/.local/lib/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [[ -d /usr/local/lib/zsh/zsh-autosuggestions/ ]]; then
-  source /usr/local/lib/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
-if [[ -d ~/.local/lib/zsh/per-directory-history/ ]]; then
-  source ~/.local/lib/zsh/per-directory-history/per-directory-history.zsh
-elif [[ -d /usr/local/lib/zsh/per-directory-history/ ]]; then
-  source /usr/local/lib/zsh/per-directory-history/per-directory-history.zsh
-fi
-
-if [[ -d ~/.local/lib/zsh/pnpm-shell-completion/ ]]; then
-  source ~/.local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion.plugin.zsh
-elif [[ -d /usr/local/lib/zsh/pnpm-shell-completion/ ]]; then
-  source /usr/local/lib/zsh/pnpm-shell-completion/pnpm-shell-completion.plugin.zsh
-fi
+export HISTORY_BASE="$XDG_CACHE_HOME/zsh_directory_history"
+for plugin in \
+  zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  zsh-autosuggestions/zsh-autosuggestions.zsh \
+  per-directory-history/per-directory-history.zsh \
+  pnpm-shell-completion/pnpm-shell-completion.plugin.zsh
+do
+  for dir in ~/.local/lib/zsh /usr/local/lib/zsh; do
+    if [[ -f $dir/$plugin ]]; then
+      source $dir/$plugin
+      break
+    fi
+  done
+done
 
 # Local binaries
 export PATH="$HOME/.local/bin:$PATH"
@@ -70,20 +63,12 @@ if [ -f ~/.local/bin/atuin ]; then
 fi
 
 # Rip Grep
-export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
 
 # Console editor
 export EDITOR=micro
 
 # Fix Bat in light console
 export BAT_THEME=ansi
-
-# Node.js
-export NODE_COMPILE_CACHE=~/.cache/node
-export NPM_CONFIG_USERCONFIG=~/.config/npmrc
-
-# Claude Code
-export CLAUDE_CONFIG_DIR="$HOME/.local/share/claude"
 
 # Release function
 release() {
