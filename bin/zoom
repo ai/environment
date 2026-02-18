@@ -12,6 +12,6 @@ call_scene() {
 
 call_scene "scene.andrey_calling"
 
-/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=zoom --file-forwarding us.zoom.Zoom "$@"
+zoom "$@"
 
 call_scene "scene.andrey_working_night"
