@@ -109,8 +109,7 @@ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 sudo dnf copr enable atim/starship
 sudo dnf copr enable dusansimic/themes
 sudo dnf copr enable hyperreal/better_fonts
-sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic nextcloud-client zsh util-linux-user starship sqlite  morewaita-icon-theme nethogs fuse-sshfs logiops libgda libgda-sqlite
-sudo dnf install cabextract xorg-x11-font-utils
+sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic nextcloud-client zsh util-linux-user starship sqlite  morewaita-icon-theme nethogs fuse-sshfs logiops libgda libgda-sqlite playerctl cabextract xorg-x11-font-utils
 sudo rpm -ivh --nodigest --nofiledigest https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
@@ -350,7 +349,7 @@ Open settings:
 * **Search:** keep only Calculator and Settings.
 * **Multitask:** disable Active corners.
 * **Online accounts:** add Google.
-* **Power:** enable Show percentage.
+* **Power:** enable Show percentage and disable screen lock.
 * **Mouse:** mouse speed to 75%, touchpad speed to 90%.
 * **Date and time:** enable seconds and week day on top panel.
 * **Privacy** → disable File History.
@@ -469,6 +468,21 @@ sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
 ```
 
+Add service to `~/.config/systemd/user/force-lock.service`:
+
+```ini
+[Unit]
+Description=Force Lock
+
+[Service]
+ExecStart=/home/ai/Dev/environment/bin/force-lock
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=default.target
+```
+
 Add service to `~/.config/systemd/user/susedko-listener.service`:
 
 ```ini
@@ -507,8 +521,8 @@ Enable services:
 ```sh
 sudo systemctl enable ydotoold.service
 sudo systemctl start ydotoold.service
-systemctl --user enable susedko-listener.service
-systemctl --user start susedko-listener.service
+systemctl --user enable susedko-listener.service force-lock.service
+systemctl --user start susedko-listener.service force-lock.service
 ```
 
 

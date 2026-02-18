@@ -1,0 +1,51 @@
+#!/bin/bash
+IDLE_TIME=240000
+LANG=en
+
+log() { echo "$(date '+%H:%M:%S') $*"; }
+
+while true; do
+  CURRENT_IDLE=$(gdbus call --session \
+    --dest org.gnome.Mutter.IdleMonitor \
+    --object-path /org/gnome/Mutter/IdleMonitor/Core \
+    --method org.gnome.Mutter.IdleMonitor.GetIdletime \
+    | awk '{print $2}' | tr -d ',)')
+
+  if [ "$CURRENT_IDLE" -ge "$IDLE_TIME" ]; then
+    IS_ACTIVE=$(gdbus call --session \
+      --dest org.gnome.ScreenSaver \
+      --object-path /org/gnome/ScreenSaver \
+      --method org.gnome.ScreenSaver.GetActive)
+
+    if echo "$IS_ACTIVE" | grep -qPo "false"; then
+      LOCK_DISABLED=""
+
+      for player in $(playerctl --list-all); do
+        URL=$(playerctl --player="$player" metadata xesam:url 2>/dev/null)
+        IS_YOUTUBE=$(echo "$URL" | grep -q "youtube.com/watch" && echo true)
+        STATUS=$(playerctl --player="$player" status 2>/dev/null)
+        if [ "$IS_YOUTUBE" = "true" ] && [ "$STATUS" = "Playing" ]; then
+          log "YouTube playing, skipping lock"
+          LOCK_DISABLED="true"
+          break
+        fi
+      done
+
+      if pactl list sink-inputs | grep -qi "application\.name = \"mpv\""; then
+        log "mpv playing, skipping lock"
+        LOCK_DISABLED="true"
+      fi
+
+      if pactl list source-outputs | grep -q "Source Output #"; then
+        log "Ongoing call, skipping lock"
+        LOCK_DISABLED="true"
+      fi
+
+      if [ -z "$LOCK_DISABLED" ]; then
+        log "Locking session"
+        loginctl lock-session
+      fi
+    fi
+  fi
+  sleep 60
+done
