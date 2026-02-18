@@ -140,8 +140,4 @@ else
     && npm publish --access public \
     && cd .. \
     && rm -R  .npm-release'
-
-  # Google Cloud
-  alias gcloud='sudo --user gcloud gcloud'
-  alias gsutil='sudo --user gcloud gsutil'
 fi
