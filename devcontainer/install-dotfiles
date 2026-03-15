@@ -49,9 +49,6 @@ mkdir -p ~/.local/share/history/
 touch ~/.local/share/history/histfile
 mkdir -p ~/.local/bin
 
-mkdir -p ~/.zed
-printf '{"session":{"trust_all_worktrees":true}}\n' > ~/.zed/settings.json
-
 cmd_exists() {
   command -v "$1" >/dev/null 2>&1
 }
