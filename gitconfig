@@ -24,7 +24,6 @@
 [core]
   autocrlf = input
   editor = micro
-  hooksPath = /home/ai/Dev/environment/hooks-trap
 [init]
   defaultBranch = main
 [gpg]
