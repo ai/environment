@@ -36,6 +36,8 @@ cp -f ~/dotfiles/gitignore ~/.config/git/ignore
 cp -f ~/dotfiles/starship.toml ~/.config/starship.toml
 sed -i '/^\s*\$username\\/d;/^\s*\$hostname\\/d' ~/.config/starship.toml
 
+git config set core.hooksPath ".git/hooks"
+
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" > ~/.ssh/known_hosts
