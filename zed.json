@@ -1,4 +1,9 @@
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
   "colorize_brackets": true,
   "indent_guides": {
     "coloring": "indent_aware",
@@ -11,6 +16,9 @@
   "show_completions_on_input": true,
   "buffer_font_family": "Lilex",
   "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
     "default_profile": "write",
     "always_allow_tool_actions": true,
     "notify_when_agent_waiting": "primary_screen",
