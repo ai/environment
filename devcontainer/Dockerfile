@@ -2,14 +2,14 @@ FROM registry.fedoraproject.org/fedora:43
 
 ENV NODE_VERSION=25.8.1 \
   PNPM_VERSION=10.32.1 \
-  NODE_24=24.13.0 \
-  NODE_22=22.22.0 \
-  NODE_20=20.20.0 \
-  DIFFT_VERSION=0.65.0 \
-  BAT_VERSION=0.26.0 \
+  NODE_24=24.14.0 \
+  NODE_22=22.22.1 \
+  NODE_20=20.20.1 \
+  DIFFT_VERSION=0.68.0 \
+  BAT_VERSION=0.26.1 \
   RG_VERSION=15.1.0 \
-  ATUIN_VERSION=18.10.0 \
-  STARSHIP_VERSION=1.24.1 \
+  ATUIN_VERSION=18.13.3 \
+  STARSHIP_VERSION=1.24.2 \
   PNPM_COMPETITION_VERSION=0.5.5
 
 RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
