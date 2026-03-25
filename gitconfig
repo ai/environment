@@ -1,7 +1,7 @@
 [user]
   name  = Andrey Sitnik
-  email = andrey@sitnik.ru
-  signingKey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDwZrgt8W9uGndgD2aoMOjN0lhvFYsYzfietr5gu5lUV andrey@sitnik.ru
+  email = andrey@sitnik.es
+  signingKey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHfKri8pwCoINL3A88gGpZDjt3jyfxrIoYfQ8gaY3AoQ andrey@sitnik.es
 [alias]
   current-branch = "!git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/'"
   a  = "!git add . && git s"

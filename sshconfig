@@ -15,6 +15,11 @@ Host 127.0.0.1
     StrictHostKeyChecking no
     UserKnownHostsFile=/dev/null
 
+Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_ed25519_ru
+
 GSSAPIAuthentication no
 TCPKeepAlive yes
 ServerAliveInterval 3
