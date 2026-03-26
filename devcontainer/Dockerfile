@@ -96,8 +96,7 @@ RUN micro -plugin install editorconfig \
   && pnpm config --global set minimumReleaseAge 1440 \
   && pnpm config --global set blockExoticSubdeps true \
   && pnpm config --global set trustPolicy "no-downgrade" \
-  && pnpm config --global set trustPolicyIgnoreAfter 43200 \
-  && pnpm config --global set dedupePeers true
+  && pnpm config --global set trustPolicyIgnoreAfter 43200
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
