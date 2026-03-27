@@ -62,11 +62,11 @@ borg create                                                \
     --exclude '**/.var/app/us.zoom.Zoom/.zoom/data/Emojis' \
     --exclude '**/.ld.so'                                  \
     --exclude '**/*.log'                                   \
-    --exclude '**/sitnik.ru/dist'                          \
+    --exclude '**/sitnik.es/dist'                          \
     ::'{hostname}-{now}'                                   \
     ~/Dev/susedko                                          \
     ~/Dev/environment                                      \
-    ~/Dev/sitnik.ru                                        \
+    ~/Dev/sitnik.es                                        \
     ~/.ssh                                                 \
     ~/.local/share/gnupg                                   \
     ~/Документы/.Private                                   \

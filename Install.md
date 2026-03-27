@@ -362,7 +362,7 @@ Boost volume over 100%:
 gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 ```
 
-Login to NextCloud client to `sync.sitnik.ru`.
+Login to NextCloud client to `sync.sitnik.es`.
 
 Nautilus:
 
