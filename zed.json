@@ -20,7 +20,6 @@
       "default": "allow"
     },
     "default_profile": "write",
-    "always_allow_tool_actions": true,
     "notify_when_agent_waiting": "primary_screen",
     "play_sound_when_agent_done": true,
     "model_parameters": [],
@@ -61,6 +60,15 @@
     "XML": ["svg"],
     "YAML": ["**/*.bu"],
     "JSON": ["**/*.webmanifest"]
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "experimental": {
+          "useFlatConfig": false
+        }
+      }
+    }
   },
   "languages": {
     "JavaScript": {
