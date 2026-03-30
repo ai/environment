@@ -24,12 +24,6 @@ if [ "$1" != "" ]; then
   cd "$1"
 fi
 
-if [[ ! -f package.json ]]; then
-  echo "No npm project to use Dev Container"
-  flatpak run dev.zed.Zed ./
-  exit 0
-fi
-
 if [ -f .devcontainer.json ]; then
   config="$(pwd)/.devcontainer.json"
 fi
