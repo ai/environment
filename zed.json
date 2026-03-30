@@ -1,4 +1,5 @@
 {
+  "diff_view_style": "unified",
   "agent_servers": {
     "claude-acp": {
       "type": "registry"
