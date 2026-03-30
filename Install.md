@@ -324,7 +324,7 @@ echo "CLAUDE_CONFIG_DIR=$HOME/.local/share/claude" >> ~/.config/environment.d/90
 
 Sign-in into accounts in Zed.
 
-Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `stylelint`.
+Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `stylelint`, `oxc`.
 
 Open Iotas app, log-in into Nextcloud account.
 
