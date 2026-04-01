@@ -26,6 +26,7 @@
 * [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 * [Quick Settings Tweaks](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 * [Right Click Next](https://extensions.gnome.org/extension/7600/right-click-next/)
+* [Screenshot OCR](https://extensions.gnome.org/extension/9338/screenshot-ocr/)
 * [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 * [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
 * [Weather O'Clock](https://extensions.gnome.org/extension/5470/weather-oclock/)
