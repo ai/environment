@@ -30,9 +30,10 @@ fi
 if [ "$update_needed" = true ]; then
   echo -e "Удаляем все старые образы"
   podman rmi --all --force
+  echo -e "Перезапускаем LanguageTool"
+  systemctl restart --user languagetool.service
   echo -e "${NC}Создаём новый базовый образ Dev Container${GRAY}"
   ~/Dev/environment/bin/build-devcontainer
-  systemctl restart --user languagetool.service
 else
   echo -e "${GRAY}Нет обновлений для Dev Container${NC}"
 fi
