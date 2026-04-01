@@ -18,17 +18,16 @@ rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/susedko
 ```
 
 Copy these files to external SDD:
-* `Dev/`
-* `Vídeos/*`
-* `Документы/.Private/`
 
+- `Dev/`
+- `Vídeos/*`
+- `Документы/.Private/`
 
 ### BIOS
 
 1. Boot to BIOS and set supervisor password.
-3. Set Game Optimized iGPU.
-4. Temporary enable USB boot.
-
+2. Set Game Optimized iGPU.
+3. Temporary enable USB boot.
 
 ### Install
 
@@ -78,7 +77,6 @@ sudo grubby --update-kernel=ALL --args="plymouth.use-simpledrm=0"
 
 Enable `Rendimiento`, disable `Ahorro de energía automático`,
 `Suspender automaticámente` in Energía settings.
-
 
 ### System Update
 
@@ -168,7 +166,6 @@ Disable file system scanning:
 dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 ```
 
-
 ### Personal Files
 
 Copy `.ssh` and `.local/share/gnupg`:
@@ -192,7 +189,6 @@ Copy configs:
 ```sh
 ~/Dev/environment/bin/copy-env system
 ```
-
 
 ## Input
 
@@ -247,7 +243,6 @@ Set keyboard settings:
 ```sh
 dconf write /org/gnome/desktop/input-sources/xkb-options "['grp_led:caps', 'lv3:ralt_switch', 'grp:shift_caps_switch']"
 ```
-
 
 ### Terminal
 
@@ -308,7 +303,6 @@ rmdir ~/backup
 
 Start copying `Vídeos/*` from SDD.
 
-
 ### Text Editors
 
 Move Claude Code:
@@ -328,7 +322,6 @@ Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `
 
 Open Iotas app, log-in into Nextcloud account.
 
-
 ### GNOME Settings
 
 Open Clock and add `Vladivostok`, `Moscow`, `Lisbon`, and `San Francisco`.
@@ -346,15 +339,15 @@ gsettings set org.gnome.desktop.interface monospace-font-name "Lilex 12"
 
 Open settings:
 
-* **Appearance:** use standard GNOME wallpaper.
-* **Notifications:** disable Notifications on lock screen.
-* **Search:** keep only Calculator and Settings.
-* **Multitask:** disable Active corners.
-* **Online accounts:** add Google.
-* **Power:** enable Show percentage and disable screen lock.
-* **Mouse:** mouse speed to 75%, touchpad speed to 90%.
-* **Date and time:** enable seconds and week day on top panel.
-* **Privacy** → disable File History.
+- **Appearance:** use standard GNOME wallpaper.
+- **Notifications:** disable Notifications on lock screen.
+- **Search:** keep only Calculator and Settings.
+- **Multitask:** disable Active corners.
+- **Online accounts:** add Google.
+- **Power:** enable Show percentage and disable screen lock.
+- **Mouse:** mouse speed to 75%, touchpad speed to 90%.
+- **Date and time:** enable seconds and week day on top panel.
+- **Privacy** → disable File History.
 
 Boost volume over 100%:
 
@@ -366,9 +359,9 @@ Login to NextCloud client to `sync.sitnik.es`.
 
 Nautilus:
 
-* Enable Sort folders before files.
-* Enable Single click to open items.
-* Enable preview, search, file numbers for remote folders.
+- Enable Sort folders before files.
+- Enable Single click to open items.
+- Enable preview, search, file numbers for remote folders.
 
 Disable GNOME extension version check:
 
@@ -402,7 +395,6 @@ Clean up applications list.
 Add Iceland NordVPN.
 
 [Disable](https://discussion.fedoraproject.org/t/please-enter-passphrase-for-disk-has-returned/150626/5) disk name in password prompt.
-
 
 ### Folders
 
@@ -452,11 +444,10 @@ gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
 
 Set icons:
 
-* `/usr/share/icons/MoreWaita/scalable/places/folder-code.svg`
+- `/usr/share/icons/MoreWaita/scalable/places/folder-code.svg`
   for `~/Dev/`.
-* `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
+- `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
   for `~/Capturas de pantalla/`.
-
 
 ## Home Server
 
@@ -527,7 +518,6 @@ systemctl --user enable susedko-listener.service force-lock.service
 systemctl --user start susedko-listener.service force-lock.service
 ```
 
-
 ### Development Tools
 
 Install Node.js, TypeScript, and Dev Containers.
@@ -574,7 +564,6 @@ run_keybase
 ```
 
 Disable autostart in Keybase settings and revoke old laptop.
-
 
 ## LanguageTool Server
 

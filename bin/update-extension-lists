@@ -71,12 +71,12 @@ async function updateGnome() {
   let extensions = details
     .map(({ name, url }) => ({ url, name: name.replace(/\[.*\]\s*/, '') }))
     .sort((a, b) => a.name.localeCompare(b.name))
-    .map(({ name, url }) => `* [${name}](${url})`)
+    .map(({ name, url }) => `- [${name}](${url})`)
     .join('\n')
   let cleaned = docs
     .toString()
     .split('\n')
-    .filter(line => line && !line.startsWith('*'))
+    .filter(line => line && !line.startsWith('-'))
     .join('\n')
   await writeFile(listFile, cleaned + '\n\n' + extensions + '\n')
 }
