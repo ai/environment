@@ -28,6 +28,7 @@ mkdir -p ~/.config/bat
 mkdir -p ~/.config/git
 
 cp -f ~/dotfiles/zshrc ~/.zshrc
+cp -f ~/dotfiles/.oxfmtrc.json ~/.oxfmtrc.json
 cp -f ~/dotfiles/gitconfig ~/.config/git/config
 cp -f ~/dotfiles/ripgreprc ~/.config/ripgreprc
 cp -f ~/dotfiles/micro.json ~/.config/micro/settings.json
