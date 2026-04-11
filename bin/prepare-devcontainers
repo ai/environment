@@ -7,7 +7,7 @@ NC='\033[0m'
 
 version=$(echo "$(flatpak run dev.zed.Zed --version)" | awk '{print $2}')
 
-ZED_REMOTE_SERVER_DIR="$HOME/.var/app/dev.zed.Zed/data/zed/remote_servers/stable/linux-x86_64"
+ZED_REMOTE_SERVER_DIR="$HOME/.local/share/zed/remote_servers/stable/linux-x86_64"
 ZED_REMOTE_SERVER_GZ="$ZED_REMOTE_SERVER_DIR/$version.gz"
 
 if [ -f "$ZED_REMOTE_SERVER_GZ" ]; then

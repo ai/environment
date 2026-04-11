@@ -1,7 +1,16 @@
 {
+  "git_panel": {
+    "dock": "left"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
   "diff_view_style": "unified",
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "mode": "bypassPermissions"
+      },
       "type": "registry"
     }
   },
@@ -17,12 +26,13 @@
   "show_completions_on_input": true,
   "buffer_font_family": "Lilex",
   "agent": {
+    "dock": "right",
     "tool_permissions": {
       "default": "allow"
     },
     "default_profile": "write",
     "notify_when_agent_waiting": "primary_screen",
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "always",
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
@@ -80,9 +90,7 @@
   },
   "languages": {
     "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
+      "format_on_save": "on",
       "prettier": {
         "allowed": false
       },
@@ -100,9 +108,7 @@
       }
     },
     "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
+      "format_on_save": "on",
       "prettier": {
         "allowed": false
       },
@@ -115,6 +121,7 @@
       ]
     },
     "HTML": {
+      "format_on_save": "on",
       "prettier": {
         "allowed": false
       },
@@ -127,6 +134,7 @@
       ]
     },
     "CSS": {
+      "format_on_save": "on",
       "prettier": {
         "allowed": false
       },

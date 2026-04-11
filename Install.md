@@ -90,10 +90,11 @@ sudo dnf remove cheese rhythmbox gnome-boxesd orca gnome-contacts gnome-getting-
 
 Run Software Center, disable `Fedora Flatpak` and enable Flathub and Chrome.
 
-Add RPM Fusion:
+Add RPM Fusion (for codecs) and Terra (for Zed):
 
 ```sh
 sudo dnf install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 ```
 
 Update system via Software Center.
@@ -107,7 +108,7 @@ sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
 sudo dnf copr enable atim/starship
 sudo dnf copr enable dusansimic/themes
 sudo dnf copr enable hyperreal/better_fonts
-sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic nextcloud-client zsh util-linux-user starship sqlite  morewaita-icon-theme nethogs fuse-sshfs logiops libgda libgda-sqlite playerctl cabextract xorg-x11-font-utils tesseract tesseract-devel
+sudo dnf install xclip micro fuse-encfs zenity borgbackup openssl ffmpegthumbnailer nss-tools mosquitto ydotool amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins-bad-freeworld gstreamer-ffmpeg gstreamer-plugins-bad-nonfree gstreamer-plugins-espeak gstreamer-plugins-ugly lame libdca libmad libmatroska x264 x265 xvidcore gstreamer1-plugins-bad-free gstreamer1-plugins-base gstreamer1-plugins-good gstreamer-plugins-bad gstreamer1-plugins-ugly-free mpv ffmpeg xorg-x11-drv-intel intel-media-driver webp-pixbuf-loader heif-pixbuf-loader avif-pixbuf-loader libheif-freeworld ffmpeg-libs libva libva-utils gstreamer1-vaapi mozilla-openh264 libheif-tools unrar p7zip p7zip-plugins speech-dispatcher speech-dispatcher-utils google-chrome-stable nodejs podman git tig ripgrep xkill bat make difftastic nextcloud-client zsh util-linux-user starship sqlite  morewaita-icon-theme nethogs fuse-sshfs logiops libgda libgda-sqlite playerctl cabextract xorg-x11-font-utils tesseract tesseract-devel zed
 sudo rpm -ivh --nodigest --nofiledigest https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 ```
 
@@ -121,7 +122,7 @@ sudo flatpak update
 Install applications from Flatpak:
 
 ```sh
-flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.nickvision.tubeconverter org.gnome.Loupe com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter net.nokyan.Resources org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.World.Iotas app.devsuite.Ptyxis hu.irl.cameractrls org.gnome.Snapshot org.gnome.Papers org.gimp.GIMP dev.zed.Zed be.alexandervanhee.gradia com.github.PintaProject.Pinta com.yubico.yubioath org.gnome.font-viewer
+flatpak install flathub de.haeckerfelix.Fragments org.telegram.desktop org.nickvision.tubeconverter org.gnome.Loupe com.mattjakeman.ExtensionManager io.gitlab.adhami3310.Converter net.nokyan.Resources org.gnome.Calculator org.gnome.Logs org.gnome.Weather org.gnome.clocks org.gnome.Calendar org.gnome.Epiphany org.inkscape.Inkscape org.gnome.gitlab.YaLTeR.VideoTrimmer org.gnome.World.Iotas app.devsuite.Ptyxis hu.irl.cameractrls org.gnome.Snapshot org.gnome.Papers org.gimp.GIMP be.alexandervanhee.gradia com.github.PintaProject.Pinta com.yubico.yubioath org.gnome.font-viewer
 ```
 
 Install [Zoom](https://zoom.us/download).
@@ -318,7 +319,7 @@ echo "CLAUDE_CONFIG_DIR=$HOME/.local/share/claude" >> ~/.config/environment.d/90
 
 Sign-in into accounts in Zed.
 
-Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `stylelint`, `oxc`.
+Install Zed plugins: `ini`, `dockerfile`, `toml`, `svelte`, `make`, `adwaita-pastel`, `material icon theme`, `codebook`, `sql`, `nginx`, `git-firefly`, `pug`, `xml`, `po`, `env`, `oxc`.
 
 Open Iotas app, log-in into Nextcloud account.
 

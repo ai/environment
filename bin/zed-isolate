@@ -32,7 +32,7 @@ if [ -f .devcontainer/devcontainer.json ]; then
 fi
 if [ "$config" == "" ]; then
   echo "Dev Container is disabled because of lack of Dev Container config"
-  flatpak run dev.zed.Zed --new ./
+  zed --new ./
   exit 0
 fi
 
@@ -50,11 +50,6 @@ if [ "$container_id" == "" ]; then
   exit 1
 fi
 
-flatpak run dev.zed.Zed --new . --wait
-
-sleep 60
-while podman top $container_id | grep zed_server; do
-  sleep 30
-done
+zed --new --dev-container . --wait
 
 ~/Dev/environment/bin/dev --down

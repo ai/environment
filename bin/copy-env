@@ -12,8 +12,8 @@ if [ "$1" == "system" ]; then
   rm -f ~/.zshrc
   ln ~/Dev/environment/zshrc ~/.zshrc
   cp ~/Dev/environment/.oxfmtrc.json ~/.oxfmtrc.json
-  cp ~/Dev/environment/zed.json ~/.var/app/dev.zed.Zed/config/zed/settings.json
-  cp ~/Dev/environment/zed-keys.json ~/.var/app/dev.zed.Zed/config/zed/keymap.json
+  cp ~/Dev/environment/zed.json ~/.config/zed/settings.json
+  cp ~/Dev/environment/zed-keys.json ~/.config/zed/keymap.json
   cp ~/Dev/environment/mpv.conf ~/.config/mpv/mpv.conf
   cp ~/Dev/environment/ripgreprc ~/.config/ripgreprc
   cp ~/Dev/environment/sshconfig ~/.ssh/config
@@ -38,8 +38,8 @@ else
   cp ~/.config/mimeapps.list ~/Dev/environment/mimeapps.list
   cp ~/.config/micro/settings.json ~/Dev/environment/micro.json
   cp ~/.local/share/applications/*.{svg,desktop} ~/Dev/environment/icons/
-  cp ~/.var/app/dev.zed.Zed/config/zed/settings.json ~/Dev/environment/zed.json
-  cp ~/.var/app/dev.zed.Zed/config/zed/keymap.json ~/Dev/environment/zed-keys.json
+  cp ~/.config/zed/settings.json ~/Dev/environment/zed.json
+  cp ~/.config/zed/keymap.json ~/Dev/environment/zed-keys.json
   rm ~/Dev/environment/icons/chrome-* -f
   rm ~/Dev/environment/icons/userapp-* -f
   rm ~/Dev/environment/icons/org.gnome.Shell.Extensions.* -f
