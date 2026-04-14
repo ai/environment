@@ -110,7 +110,8 @@
     "Svelte": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      }
+      },
+      "language_servers": ["!tailwindcss-language-server", "..."]
     },
     "TypeScript": {
       "format_on_save": "on",
@@ -131,6 +132,7 @@
       "prettier": {
         "allowed": false
       },
+      "language_servers": ["!tailwindcss-language-server", "..."],
       "formatter": [
         {
           "language_server": {
