@@ -35,8 +35,10 @@
     "play_sound_when_agent_done": "always",
     "model_parameters": [],
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "zed.dev",
-      "model": "claude-haiku-4-5"
+      "model": "claude-sonnet-4-6"
     }
   },
   "edit_predictions": {
@@ -45,8 +47,7 @@
     "copilot": {
       "proxy": null,
       "proxy_no_verify": null
-    },
-    "enabled_in_text_threads": false
+    }
   },
   "icon_theme": "Material Icon Theme",
   "terminal": {
@@ -73,17 +74,20 @@
     "JSON": ["**/*.webmanifest"]
   },
   "lsp": {
-    "eslint": {
-      "settings": {
-        "experimental": {
-          "useFlatConfig": false
-        }
-      }
-    },
     "oxfmt": {
       "initialization_options": {
         "settings": {
           "fmt.configPath": null
+        }
+      }
+    },
+    "oxlint": {
+      "initialization_options": {
+        "settings": {
+          "configPath": null,
+          "fixKind": "safe_fix",
+          "run": "onType",
+          "unusedDisableDirectives": "deny"
         }
       }
     }
@@ -94,6 +98,7 @@
       "prettier": {
         "allowed": false
       },
+      "language_servers": ["!eslint", "!tailwindcss-language-server", "..."],
       "formatter": [
         {
           "language_server": {
@@ -112,6 +117,7 @@
       "prettier": {
         "allowed": false
       },
+      "language_servers": ["!eslint", "!tailwindcss-language-server", "..."],
       "formatter": [
         {
           "language_server": {
