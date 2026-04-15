@@ -88,6 +88,8 @@ RUN chmod a+rx /usr/local/bin/pnpm \
   \
   && useradd -s /bin/zsh ai
 
+RUN echo '{"arrowParens":"avoid","jsxSingleQuote":false,"quoteProps":"consistent","semi":false,"singleQuote":true,"sortImports":{"groups":["side_effect","side_effect_style","style",["builtin","external","unknown"],["internal","parent","sibling","index"]],"newlinesBetween":true,"order":"asc"},"trailingComma":"none","printWidth":80}' > /.oxfmtrc.json
+
 USER ai
 
 RUN micro -plugin install editorconfig \
