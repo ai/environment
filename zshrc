@@ -107,7 +107,10 @@ alias pui1='pnpm update --interactive --latest'
 alias pu1='pnpm update'
 
 if [ -n "$container" ]; then
-  export PATH="$HOME/.local/share/pnpm/bin/:$PATH"
+  if [ -d "$HOME/.local/share/pnpm" ]; then
+    export PNPM_HOME="$HOME/.local/share/pnpm"
+    export PATH="$PNPM_HOME/bin/:$PATH"
+  fi
   alias dev='command'
 
   if [ -z "$SSH_AUTH_SOCK" ] && [ -S "/run/user/1000/gcr/ssh" ]; then
