@@ -1,6 +1,5 @@
-minimumReleaseAge: 1440
-
 blockExoticSubdeps: true
-
+minimumReleaseAge: 1440
+storeDir: /home/ai/.local/share/pnpm/store
 trustPolicy: true
 trustPolicyIgnoreAfter: true
