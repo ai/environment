@@ -87,6 +87,13 @@ if [ "$1" = "--up" ]; then
       "--mount" "type=bind,source=/home/ai/.local/share/claude,target=/home/$(get_username)/.claude"
     )
   fi
+  if [ -d /home/ai/.local/share/zed ]; then
+    devcontainer_args+=(
+      "--mount" "type=bind,source=/home/ai/.local/share/zed,target=/home/$(get_username)/.local/share/zed"
+      "--mount" "type=bind,source=/home/ai/.config/zed,target=/home/$(get_username)/.config/zed"
+      "--mount" "type=bind,source=/home/ai/.local/share/zed_server,target=/home/$(get_username)/.zed_server"
+    )
+  fi
   devcontainer up "${devcontainer_args[@]}"
 
 elif [ "$1" = "--down" ]; then
