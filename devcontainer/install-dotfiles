@@ -26,6 +26,7 @@ esac
 mkdir -p ~/.config/micro
 mkdir -p ~/.config/bat
 mkdir -p ~/.config/git
+mkdir -p ~/.config/pnpm
 
 cp -f ~/dotfiles/zshrc ~/.zshrc
 cp -f ~/dotfiles/gitconfig ~/.config/git/config
@@ -34,6 +35,7 @@ cp -f ~/dotfiles/micro.json ~/.config/micro/settings.json
 cp -f ~/dotfiles/batconfig ~/.config/bat/config
 cp -f ~/dotfiles/gitignore ~/.config/git/ignore
 cp -f ~/dotfiles/starship.toml ~/.config/starship.toml
+cp -f ~/dotfiles/pnpm-config.yaml ~/.config/pnpm/config.yaml
 sed -i '/^\s*\$username\\/d;/^\s*\$hostname\\/d' ~/.config/starship.toml
 
 git config set core.hooksPath ".git/hooks"

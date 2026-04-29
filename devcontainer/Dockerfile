@@ -1,28 +1,20 @@
 FROM registry.fedoraproject.org/fedora:43
 
 ENV NODE_VERSION=25.9.0 \
-  PNPM_VERSION=10.33.0 \
-  NODE_24=24.14.0 \
-  NODE_22=22.22.1 \
-  NODE_20=20.20.1 \
+  PNPM_VERSION=11.0.0 \
+  NODE_24=24.15.0 \
+  NODE_22=22.22.2 \
   DIFFT_VERSION=0.68.0 \
   BAT_VERSION=0.26.1 \
   RG_VERSION=15.1.0 \
-  ATUIN_VERSION=18.13.3 \
-  STARSHIP_VERSION=1.24.2 \
+  ATUIN_VERSION=18.16.0 \
+  STARSHIP_VERSION=1.25.0 \
   PNPM_COMPETITION_VERSION=0.5.5
-
-RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
-  bind-utils iputils iproute libatomic nss dbus-libs atk at-spi2-atk cups-libs \
-  libdrm libXcomposite libXdamage libXrandr mesa-libgbm pango alsa-lib \
-  && dnf clean all \
-  && rm -rf /var/cache/dnf
 
 ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz /node.tar.xz
 ADD https://nodejs.org/dist/v${NODE_24}/node-v${NODE_24}-linux-x64.tar.gz /node24.tar.xz
 ADD https://nodejs.org/dist/v${NODE_22}/node-v${NODE_22}-linux-x64.tar.gz /node22.tar.xz
-ADD https://nodejs.org/dist/v${NODE_20}/node-v${NODE_20}-linux-x64.tar.gz /node20.tar.xz
-ADD https://github.com/pnpm/pnpm/releases/download/v$PNPM_VERSION/pnpm-linux-x64 /usr/local/bin/pnpm
+ADD https://github.com/pnpm/pnpm/releases/download/v$PNPM_VERSION/pnpm-linux-x64.tar.gz /pnpm.tar.gz
 ADD https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-musl.tar.gz /eza.tar.gz
 ADD https://github.com/Wilfred/difftastic/releases/download/$DIFFT_VERSION/difft-x86_64-unknown-linux-musl.tar.gz /difft.tar.gz
 ADD https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-x86_64-unknown-linux-musl.tar.gz /bat.tar.gz
@@ -31,7 +23,14 @@ ADD https://github.com/atuinsh/atuin/releases/download/v$ATUIN_VERSION/atuin-x86
 ADD https://github.com/starship/starship/releases/download/v$STARSHIP_VERSION/starship-x86_64-unknown-linux-musl.tar.gz /starship.tar.gz
 ADD https://github.com/g-plane/pnpm-shell-completion/releases/download/v$PNPM_COMPETITION_VERSION/pnpm-shell-completion_x86_64-unknown-linux-musl.tar.gz /pnpm-completion.tar.gz
 
-RUN chmod a+rx /usr/local/bin/pnpm \
+RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
+  bind-utils iputils iproute libatomic nss dbus-libs atk at-spi2-atk cups-libs \
+  libdrm libXcomposite libXdamage libXrandr mesa-libgbm pango alsa-lib \
+  && dnf clean all \
+  && rm -rf /var/cache/dnf
+
+RUN tar -xz -f /pnpm.tar.gz -C /usr/local/bin \
+  && rm /pnpm.tar.gz \
   \
   && tar -xz -f /node.tar.xz -C /usr/local --remove-files --strip-components=1 \
   --exclude='*.md' --exclude='LICENSE' \
@@ -40,10 +39,8 @@ RUN chmod a+rx /usr/local/bin/pnpm \
   \
   && tar -xzf /node24.tar.xz -O "node-v$NODE_24-linux-x64/bin/node" > /usr/local/bin/node24 \
   && tar -xzf /node22.tar.xz -O "node-v$NODE_22-linux-x64/bin/node" > /usr/local/bin/node22 \
-  && tar -xzf /node20.tar.xz -O "node-v$NODE_20-linux-x64/bin/node" > /usr/local/bin/node20 \
   && chmod a+rx /usr/local/bin/node24 \
   && chmod a+rx /usr/local/bin/node22 \
-  && chmod a+rx /usr/local/bin/node20 \
   \
   && npm install -g yarn bun \
   \
@@ -94,11 +91,9 @@ USER ai
 
 RUN micro -plugin install editorconfig \
   && mkdir -p /home/ai/.local/share/pnpm/ \
-  && pnpm config set store-dir /home/ai/.local/share/pnpm/store \
-  && pnpm config --global set minimumReleaseAge 1440 \
-  && pnpm config --global set blockExoticSubdeps true \
-  && pnpm config --global set trustPolicy "no-downgrade" \
-  && pnpm config --global set trustPolicyIgnoreAfter 43200
+  && export PNPM_HOME=/home/ai/.local/share/pnpm \
+  && export PATH=/home/ai/.local/share/pnpm:$PATH \
+  && pnpm config set store-dir /home/ai/.local/share/pnpm/store
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history
