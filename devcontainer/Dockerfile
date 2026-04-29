@@ -93,7 +93,7 @@ RUN micro -plugin install editorconfig \
   && mkdir -p /home/ai/.local/share/pnpm/ \
   && export PNPM_HOME=/home/ai/.local/share/pnpm \
   && export PATH=/home/ai/.local/share/pnpm:$PATH \
-  && pnpm config set store-dir /home/ai/.local/share/pnpm/store
+  && pnpm config set store-dir /home/ai/.local/share/pnpm/store --global
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history

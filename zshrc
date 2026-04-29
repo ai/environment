@@ -107,13 +107,13 @@ alias pui1='pnpm update --interactive --latest'
 alias pu1='pnpm update'
 
 if [ -n "$container" ]; then
+  export PATH="$HOME/.local/share/pnpm/bin/:$PATH"
   alias dev='command'
 
   if [ -z "$SSH_AUTH_SOCK" ] && [ -S "/run/user/1000/gcr/ssh" ]; then
     export SSH_AUTH_SOCK="/run/user/1000/gcr/ssh"
   fi
 else
-  # Run commands in container
   export PATH="/home/ai/.local/lib/node/node_modules/.bin/:$PATH"
 
   alias dev='/home/ai/Dev/environment/bin/dev'
