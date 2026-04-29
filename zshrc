@@ -100,7 +100,6 @@ fi
 
 alias r='dev node --run'
 alias t='dev node --run test'
-alias pm='pnpm'
 alias pui='pnpm update --interactive --latest -r --include-workspace-root'
 alias pu='pnpm update -r --include-workspace-root'
 alias pui1='pnpm update --interactive --latest'
@@ -123,6 +122,8 @@ else
   alias devup='dev --up'
   alias devdown='dev --down'
   alias pnpm='dev pnpm'
+  alias pm='dev pm'
+  alias pnx='dev pnx'
   alias node='dev node'
   alias multiocular='dev --port pnpm multiocular'
 

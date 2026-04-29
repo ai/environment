@@ -29,7 +29,9 @@ RUN dnf install -yq zsh micro git tig make awk psmisc procps-ng curl \
   && dnf clean all \
   && rm -rf /var/cache/dnf
 
-RUN tar -xz -f /pnpm.tar.gz -C /usr/local/bin \
+RUN mkdir /usr/local/share/pnpm \
+  && tar -xz -f /pnpm.tar.gz -C /usr/local/share/pnpm \
+  && ln -s /usr/local/share/pnpm/pnpm /usr/local/bin/pnpm \
   && rm /pnpm.tar.gz \
   \
   && tar -xz -f /node.tar.xz -C /usr/local --remove-files --strip-components=1 \
@@ -41,8 +43,6 @@ RUN tar -xz -f /pnpm.tar.gz -C /usr/local/bin \
   && tar -xzf /node22.tar.xz -O "node-v$NODE_22-linux-x64/bin/node" > /usr/local/bin/node22 \
   && chmod a+rx /usr/local/bin/node24 \
   && chmod a+rx /usr/local/bin/node22 \
-  \
-  && npm install -g yarn bun \
   \
   && tar -xz -f /eza.tar.gz \
   && mv eza /usr/local/bin/eza \
@@ -90,10 +90,7 @@ RUN echo '{"arrowParens":"avoid","jsxSingleQuote":false,"quoteProps":"consistent
 USER ai
 
 RUN micro -plugin install editorconfig \
-  && mkdir -p /home/ai/.local/share/pnpm/ \
-  && export PNPM_HOME=/home/ai/.local/share/pnpm \
-  && export PATH=/home/ai/.local/share/pnpm:$PATH \
-  && pnpm config set store-dir /home/ai/.local/share/pnpm/store --global
+  && mkdir -p /home/ai/.local/share/pnpm/
 
 VOLUME /home/ai/.local/share/pnpm/store
 VOLUME /home/ai/.shell-history

@@ -546,8 +546,8 @@ cd ~/Dev/nanostores
 devup
 # Find container ID
 podman exec -it --user root $container_id zsh
-mkdir /home/ai/.local/share/pnpm/store/v10
-chown ai:ai /home/ai/.local/share/pnpm/store/v10
+mkdir /home/ai/.local/share/pnpm/store/v11
+chown ai:ai /home/ai/.local/share/pnpm/store/v11
 chown ai:ai /home/ai/.local/share/history/histfile
 ```
 
