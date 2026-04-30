@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora:43
+FROM registry.fedoraproject.org/fedora:44
 
 ENV NODE_VERSION=25.9.0 \
   PNPM_VERSION=11.0.0 \
