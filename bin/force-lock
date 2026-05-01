@@ -22,10 +22,18 @@ while true; do
 
       for player in $(playerctl --list-all); do
         URL=$(playerctl --player="$player" metadata xesam:url 2>/dev/null)
-        IS_YOUTUBE=$(echo "$URL" | grep -q "youtube.com/watch" && echo true)
         STATUS=$(playerctl --player="$player" status 2>/dev/null)
+
+        IS_YOUTUBE=$(echo "$URL" | grep -q "youtube.com/watch" && echo true)
         if [ "$IS_YOUTUBE" = "true" ] && [ "$STATUS" = "Playing" ]; then
           log "YouTube playing, skipping lock"
+          LOCK_DISABLED="true"
+          break
+        fi
+
+        IS_ZOOM=$(echo "$URL" | grep -q "zoom.us" && echo true)
+        if [ "$IS_ZOOM" = "true" ] && [ "$STATUS" = "Playing" ]; then
+          log "Zoom Record playing, skipping lock"
           LOCK_DISABLED="true"
           break
         fi
