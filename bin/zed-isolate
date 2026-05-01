@@ -39,7 +39,7 @@ fi
 export PATH="/home/ai/.local/lib/node/node_modules/.bin/:$PATH"
 
 echo "Starting Dev Container"
-~/Dev/environment/bin/dev --up | \
+~/Projects/environment/bin/dev --up | \
   zenity --progress --text="Starting" --title="Dev Container" --pulsate --auto-close --no-cancel
 
 container_id=$(podman ps -q --filter label=devcontainer.local_folder=$(pwd))
@@ -52,4 +52,4 @@ fi
 
 zed --new --dev-container . --wait
 
-~/Dev/environment/bin/dev --down
+~/Projects/environment/bin/dev --down

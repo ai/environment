@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Zoom
 Comment=Zoom Video Conference
-Exec=/home/ai/Dev/environment/bin/zoom @@u %U @@
+Exec=/home/ai/Projects/environment/bin/zoom @@u %U @@
 Icon=Zoom
 Terminal=false
 Type=Application

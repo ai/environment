@@ -3,4 +3,4 @@ Type=Application
 Name=Личная папка
 Comment=Decrypt safe storage
 Icon=/home/ai/.local/share/applications/private.svg
-Exec=/home/ai/Dev/environment/bin/private
+Exec=/home/ai/Projects/environment/bin/private

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/Dev/susedko/secrets.env
+source ~/Projects/susedko/secrets.env
 MQTT_BROKER="192.168.50.125"
 
 mosquitto_sub -h "$MQTT_BROKER" -t ai_laptop -u home -P "$HOME_PASSWORD" | while read -r payload

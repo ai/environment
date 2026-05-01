@@ -15,7 +15,7 @@ flatpak update -y
 echo -e "\n${TITLE}Обновление Dev Container${NC}"
 cd ~/.local/lib/node
 npm update
-~/Dev/environment/bin/update-dockerfile
+~/Projects/environment/bin/update-dockerfile
 
 echo -e "\n${TITLE}Обновление темы Firefox${GRAY}"
 cd ~/.config/mozilla/firefox/iesxdh6c.default-release/chrome/firefox-gnome-theme

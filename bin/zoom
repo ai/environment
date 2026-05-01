@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source ~/Dev/environment/secrets.env
+source ~/Projects/environment/secrets.env
 
 call_scene() {
   curl -s -S -f \

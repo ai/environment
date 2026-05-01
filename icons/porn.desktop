@@ -3,7 +3,7 @@ Type=Application
 Name=Эротика
 Comment=Play porn movies
 Icon=strawberry
-Exec=/home/ai/Dev/environment/bin/porn
+Exec=/home/ai/Projects/environment/bin/porn
 Actions=New;
 Name[ru]=Эротика
 Name[ru_RU]=Эротика
@@ -19,4 +19,4 @@ Terminal=false
 
 [Desktop Action New]
 Name=Новое
-Exec=/home/ai/Dev/environment/bin/porn --new
+Exec=/home/ai/Projects/environment/bin/porn --new

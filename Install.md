@@ -14,12 +14,12 @@ Copy `.ssh` and `.local/share/gnupg` into `Документы/.Private`.
 Clean `node_modules`:
 
 ```sh
-rm -R ~/Dev/*/node_modules ~/Dev/*/*/node_modules ~/Dev/*/coverage ~/Dev/susedko/fedora-coreos.iso
+rm -R ~/Projects/*/node_modules ~/Projects/*/*/node_modules ~/Projects/*/coverage ~/Projects/susedko/fedora-coreos.iso
 ```
 
 Copy these files to external SDD:
 
-- `Dev/`
+- `Projects/`
 - `Vídeos/*`
 - `Документы/.Private/`
 
@@ -61,7 +61,7 @@ sudo hostnamectl set-hostname savoia
 
 Reboot.
 
-Copy `Dev/` and `Документы/.Private/` from external SDD and open `Install.md` locally.
+Copy `Projects/` and `Документы/.Private/` from external SDD and open `Install.md` locally.
 
 Reduce swap usage by creating `/etc/sysctl.d/99-swappiness.conf` with:
 
@@ -139,7 +139,7 @@ mkdir -p ~/.local/share/flatpak/exports/share/applications/
 cp /var/lib/flatpak/exports/share/applications/us.zoom.Zoom.desktop ~/.local/share/flatpak/exports/share/applications/
 ```
 
-Replace `Exec` to `/home/ai/Dev/environment/bin/zoom @@u %U @@` in `~/.local/share/flatpak/exports/share/applications/us.zoom.Zoom.desktop`.
+Replace `Exec` to `/home/ai/Projects/environment/bin/zoom @@u %U @@` in `~/.local/share/applications/us.zoom.Zoom.desktop`.
 
 Add Autostart and fingers to user settings.
 
@@ -172,7 +172,7 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 Copy `.ssh` and `.local/share/gnupg`:
 
 ```sh
-~/Dev/environment/bin/private
+~/Projects/environment/bin/private
 ```
 
 Change permissions:
@@ -188,7 +188,7 @@ chmod 600 ~/.ssh/id_* ~/.local/share/gnupg/private-keys-v1.d/*
 Copy configs:
 
 ```sh
-~/Dev/environment/bin/copy-env system
+~/Projects/environment/bin/copy-env system
 ```
 
 ## Input
@@ -388,7 +388,7 @@ Install extensions from [`GNOME.md`](./GNOME.md).
 Restore settings file from backup:
 
 ```sh
-~/Dev/environment/bin/restore-gnome-extensions
+~/Projects/environment/bin/restore-gnome-extensions
 ```
 
 Clean up applications list.
@@ -446,7 +446,7 @@ gsettings set org.gnome.desktop.interface icon-theme 'MoreWaita'
 Set icons:
 
 - `/usr/share/icons/MoreWaita/scalable/places/folder-code.svg`
-  for `~/Dev/`.
+  for `~/Projects/`.
 - `/usr/share/icons/Adwaita/scalable/places/folder-pictures.svg`
   for `~/Capturas de pantalla/`.
 
@@ -457,8 +457,8 @@ Add server’s certificate to the system:
 ```sh
 mkdir -p ~/.pki/nssdb
 certutil -N -d sql:$HOME/.pki/nssdb --empty-password
-certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Dev/susedko/sitniks.crt
-sudo cp ~/Dev/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
+certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n sitnik -i ~/Projects/susedko/sitniks.crt
+sudo cp ~/Projects/susedko/sitniks.crt /etc/pki/ca-trust/source/anchors/sitniks.pem
 sudo update-ca-trust
 ```
 
@@ -469,7 +469,7 @@ Add service to `~/.config/systemd/user/force-lock.service`:
 Description=Force Lock
 
 [Service]
-ExecStart=/home/ai/Dev/environment/bin/force-lock
+ExecStart=/home/ai/Projects/environment/bin/force-lock
 Restart=on-failure
 RestartSec=30s
 
@@ -486,7 +486,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/home/ai/Dev/environment/bin/susedko-listener
+ExecStart=/home/ai/Projects/environment/bin/susedko-listener
 Restart=on-failure
 RestartSec=30s
 StartLimitBurst=5
@@ -541,8 +541,8 @@ chmod 700 ~/.local/share/history
 podman volume create shell-history
 podman volume create pnpm-store
 
-~/Dev/environment/bin/build-devcontainer
-cd ~/Dev/nanostores
+~/Projects/environment/bin/build-devcontainer
+cd ~/Projects/nanostores
 devup
 # Find container ID
 podman exec -it --user root $container_id zsh
@@ -608,7 +608,7 @@ WantedBy=default.target
 Install LanguageTool:
 
 ```sh
-~/Dev/environment/bin/update-languagetool
+~/Projects/environment/bin/update-languagetool
 ```
 
 Enable service.

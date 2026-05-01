@@ -2,6 +2,6 @@
 Type=Application
 Name=Zed Dev Container
 Icon=zed
-Exec=/home/ai/Dev/environment/bin/zed-isolate %U
+Exec=/home/ai/Projects/environment/bin/zed-isolate %U
 MimeType=inode/directory;
 Categories=Utility;TextEditor;Development;IDE;

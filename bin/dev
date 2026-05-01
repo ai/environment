@@ -52,7 +52,7 @@ function get_username() {
 }
 
 if [ "$1" = "--isolate" ]; then
-  cp ~/Dev/environment/devcontainer/devcontainer.json .devcontainer.json
+  cp ~/Projects/environment/devcontainer/devcontainer.json .devcontainer.json
   if [ -d .git ]; then
     sed -i '/devcontainer/d' .git/info/exclude
     echo '.devcontainer.json' >> .git/info/exclude
@@ -106,8 +106,8 @@ elif [ "$1" = "--down" ]; then
   fi
 
 elif [ "$1" = "--rebuild" ]; then
-  ~/Dev/environment/bin/dev --up
-  container_id=$(~/Dev/environment/bin/dev --down)
+  ~/Projects/environment/bin/dev --up
+  container_id=$(~/Projects/environment/bin/dev --down)
   runtime=$(get_container_runtime)
   $runtime container rm $container_id
   search_pattern="vsc-$(basename "$root")-[0-9a-f]\+-uid"
@@ -115,7 +115,7 @@ elif [ "$1" = "--rebuild" ]; then
   if [ "$image_id" != "" ]; then
     $runtime image rm --force $image_id
   fi
-  ~/Dev/environment/bin/dev --up
+  ~/Projects/environment/bin/dev --up
 
 elif [ "$1" = "--port" ]; then
   if [[ "$2" =~ ^[0-9]+$ ]]; then
@@ -152,9 +152,9 @@ elif [ "$1" = "--port" ]; then
       "--mount" "type=bind,source=/home/ai/.local/share/multiocular,target=/home/$(get_username)/.local/share/multiocular"
     )
   fi
-  if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Dev/multiocular/.env ]; then
+  if [[ "$args" == pnpm\ multiocular* ]] && [ -f ~/Projects/multiocular/.env ]; then
     container_args+=("--env-file")
-    container_args+=("/home/ai/Dev/multiocular/.env")
+    container_args+=("/home/ai/Projects/multiocular/.env")
   fi
 
   $runtime run "${container_args[@]}" -it localhost/ai-opensource $args
@@ -163,7 +163,7 @@ else
   runtime=$(get_container_runtime)
   container_id=$(get_container_id)
   if [ "$container_id" == "" ]; then
-    ~/Dev/environment/bin/dev --up
+    ~/Projects/environment/bin/dev --up
     container_id=$(get_container_id)
   fi
   subdir=""

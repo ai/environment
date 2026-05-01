@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-DOCKERFILE_PATH="/home/ai/Dev/environment/devcontainer/Dockerfile"
+DOCKERFILE_PATH="/home/ai/Projects/environment/devcontainer/Dockerfile"
 
 latest_node=$(curl -s "https://nodejs.org/dist/index.json" | jq -r '.[0].version' | sed 's/v//')
 latest_pnpm=$(curl -s "https://api.github.com/repos/pnpm/pnpm/releases/latest" | jq -r '.tag_name' | sed 's/v//')
@@ -33,7 +33,7 @@ if [ "$update_needed" = true ]; then
   echo -e "Перезапускаем LanguageTool"
   systemctl restart --user languagetool.service
   echo -e "${NC}Создаём новый базовый образ Dev Container${GRAY}"
-  ~/Dev/environment/bin/build-devcontainer
+  ~/Projects/environment/bin/build-devcontainer
 else
   echo -e "${GRAY}Нет обновлений для Dev Container${NC}"
 fi

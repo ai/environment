@@ -7,16 +7,16 @@ NC='\033[0m'
 hour=$(date +"%H")
 if [[ hour -lt 9 || hour -ge 22 ]]; then
   echo -e "${TITLE}Подготовка кровати ко сну${GRAY}"
-  ~/Dev/environment/bin/susedko script/turn_on script.heat_bedroom
+  ~/Projects/environment/bin/susedko script/turn_on script.heat_bedroom
   echo -e "${NC}\n"
 fi
 
 echo -e "${TITLE}Сохранение расширений GNOME${GRAY}"
-~/Dev/environment/bin/backup-gnome-extensions
+~/Projects/environment/bin/backup-gnome-extensions
 echo -e "${NC}\n"
 
 echo -e "${TITLE}Сохранение домашнего сервера${GRAY}"
-cd ~/Dev/susedko
+cd ~/Projects/susedko
 make ha_backup
 cd
 echo -e "${NC}\n"
@@ -64,9 +64,9 @@ borg create                                                \
     --exclude '**/*.log'                                   \
     --exclude '**/sitnik.es/dist'                          \
     ::'{hostname}-{now}'                                   \
-    ~/Dev/susedko                                          \
-    ~/Dev/environment                                      \
-    ~/Dev/sitnik.es                                        \
+    ~/Projects/susedko                                          \
+    ~/Projects/environment                                      \
+    ~/Projects/sitnik.es                                        \
     ~/.ssh                                                 \
     ~/.local/share/gnupg                                   \
     ~/Документы/.Private                                   \
