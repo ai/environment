@@ -1,6 +1,5 @@
 ## GNOME Shell Extensions
 
-- [All-in-One Clipboard](https://extensions.gnome.org/extension/8671/all-in-one-clipboard/)
 - [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
 - [App Hider](https://extensions.gnome.org/extension/5895/app-hider/)
 - [Auto Power Profile](https://extensions.gnome.org/extension/6583/auto-power-profile/)
@@ -11,9 +10,9 @@
 - [Battery Usage Wattmeter](https://extensions.gnome.org/extension/6278/battery-usage-wattmeter/)
 - [Bluetooth Battery Monitor](https://extensions.gnome.org/extension/9308/bluetooth-battery-monitor/)
 - [Blur my Shell](https://extensions.gnome.org/extension/3193/blur-my-shell/)
+- [Copyous](https://extensions.gnome.org/extension/8834/copyous/)
 - [Dim Completed Calendar Events](https://extensions.gnome.org/extension/5979/dim-completed-calendar-events/)
 - [Do Not Disturb While Screen Sharing Or Recording](https://extensions.gnome.org/extension/5985/do-not-disturb-while-screen-sharing-or-recording/)
-- [Double Click Activities to App Grid](https://extensions.gnome.org/extension/9339/double-click-activities-to-app-grid/)
 - [Dynamic Calendar, Clocks and Weather Icons ](https://extensions.gnome.org/extension/8640/dynamic-calendar-clocks-and-weather-icons-reborn/)
 - [Dynamic Music Pill](https://extensions.gnome.org/extension/9334/dynamic-music-pill/)
 - [Folder Search Provider](https://extensions.gnome.org/extension/8227/folder-search-provider/)
@@ -25,7 +24,6 @@
 - [Launch New Instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 - [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
 - [Quick Settings Tweaks](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
-- [Right Click Next](https://extensions.gnome.org/extension/7600/right-click-next/)
 - [Screenshot OCR](https://extensions.gnome.org/extension/9338/screenshot-ocr/)
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 - [Tweaks & Extensions in System Menu](https://extensions.gnome.org/extension/1653/tweaks-in-system-menu/)
