@@ -23,6 +23,7 @@
 - [Home Assistant Extension](https://extensions.gnome.org/extension/4170/home-assistant-extension/)
 - [Launch New Instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 - [Night Theme Switcher](https://extensions.gnome.org/extension/2236/night-theme-switcher/)
+- [OSD Volume Brightness Percentage](https://extensions.gnome.org/extension/9780/osd-volume-brightness-percentage/)
 - [Quick Settings Tweaks](https://extensions.gnome.org/extension/5446/quick-settings-tweaker/)
 - [Screenshot OCR](https://extensions.gnome.org/extension/9338/screenshot-ocr/)
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
