@@ -100,7 +100,7 @@ fi
 
 alias r='dev node --run'
 alias t='dev node --run test'
-alias pm='dev pnpm'
+alias pn='dev pnpm'
 alias pnx='dev pnpm dlx'
 alias pui='pnpm update --interactive --latest -r --include-workspace-root'
 alias pu='pnpm update -r --include-workspace-root'
