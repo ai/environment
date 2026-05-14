@@ -2,4 +2,4 @@
 .npm-release/
 .zed
 .eslintcache
-.claude
+.claude/settings.local.json
