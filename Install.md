@@ -143,6 +143,12 @@ Replace `Exec` to `/home/ai/Projects/environment/bin/zoom @@u %U @@` in `~/.loca
 
 Add Autostart and fingers to user settings.
 
+Speed-up boot:
+
+```sh
+sudo systemctl disable NetworkManager-wait-online.service
+```
+
 Disable Software auto-update and notifications.
 
 Set [color profile](https://www.notebookcheck.net/uploads/tx_nbc2/BOE0CB4.icm)
